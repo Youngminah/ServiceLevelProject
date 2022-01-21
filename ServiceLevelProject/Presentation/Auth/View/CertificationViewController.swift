@@ -18,10 +18,22 @@ final class CertificationViewController: UIViewController {
     private let transferButton = DefaultFillButton(title: "재전송")
     private let startButton = DefaultFillButton(title: "인증하고 시작하기")
 
-    private let disposdBag = DisposeBag()
-    private let totalTime = 5
+    private lazy var input = CertificationViewModel.Input(
+        didLimitText: authNumberTextField.rx.text.orEmpty.asDriver(),
+        didLimitTime: didLimitTime.asSignal()
+    )
+    private lazy var output = viewModel.transform(input: input)
     private var viewModel: CertificationViewModel
+
+    private let didLimitTime = PublishRelay<Void>()
+    private let disposdBag = DisposeBag()
+
     private var verifyID: String
+    private let totalTime = 10
+    private lazy var limitTime = totalTime
+    private lazy var totalTimeString = StopWatch(totalSeconds: totalTime).simpleTimeString
+
+    private var timerDisposable: Disposable?
 
     init(viewModel: CertificationViewModel, verifyID: String) {
         self.viewModel = viewModel
@@ -38,31 +50,28 @@ final class CertificationViewController: UIViewController {
         setViews()
         setConstraints()
         setConfigurations()
+        bind()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         authNumberTextField.setBorderLine()
         showToast(message: "인증번호를 보냈습니다.")
-        bind()
+        startTimerRefresh()
     }
 
     private func bind() {
-        Observable<Int>
-                    .interval(RxTimeInterval.seconds(1), scheduler: MainScheduler.instance)
-                    .map { [unowned self] seconds in
-                        self.totalTime - (1 + seconds)
-                    }
-                    .filter({ time in
-                        return time < 0 ? false : true
-                    })
-                    .map {
-                        StopWatch(totalSeconds: $0).simpleTimeString
-                    }
-                    .bind(to: timeLimitLabel.rx.text)
-                    .disposed(by: disposdBag)
+        output.showToastAction
+            .emit(onNext: { [weak self] message in
+                self?.showToast(message: message)
+            })
+            .disposed(by: disposdBag)
+
+        output.isValidState
+            .drive(startButton.rx.isValid)
+            .disposed(by: disposdBag)
     }
-    
+
     private func setViews() {
         view.addSubview(descriptionLabel)
         view.addSubview(transferButton)
@@ -105,30 +114,61 @@ final class CertificationViewController: UIViewController {
     private func setConfigurations() {
         view.backgroundColor = .white
         navigationController?.navigationBar.isHidden = false
+        transferButton.addTarget(self, action: #selector(transferButtonTap), for: .touchUpInside)
         startButton.addTarget(self, action: #selector(startButtonTap), for: .touchUpInside)
         timeLimitLabel.font = .title3M14
         timeLimitLabel.textColor = .green
-        timeLimitLabel.text = "05:00"
+        timeLimitLabel.text = totalTimeString
         authNumberTextField.keyboardType = .numberPad
         authNumberTextField.textContentType = .oneTimeCode
         transferButton.isValid = true
     }
 
     @objc
-    private func startButtonTap() {
-        let verificationCode = "675005"
-        let credential = PhoneAuthProvider.provider().credential(withVerificationID: verifyID, verificationCode: verificationCode)
+    private func transferButtonTap() {
+        limitTime = totalTime
+        timeLimitLabel.text = totalTimeString
+        showToast(message: "재전송 되었습니다.")
+        startTimerRefresh()
+    }
 
-        Auth.auth().signIn(with: credential) { (authResult, error) in
-            if let error = error {
-                let authError = error as NSError
-                print(authError.description)
-                return
-            }
-            // User has signed in successfully and currentUser object is valid
-            let currentUserInstance = Auth.auth().currentUser
-            print(currentUserInstance)
+    @objc
+    private func startButtonTap() {
+        if limitTime <= 0 || !startButton.isValid {
+            showToast(message: "전화번호 인증 실패")
+            return
         }
+        //timerDisposable?.dispose()
+//        let verificationCode = "675005"
+//        let credential = PhoneAuthProvider.provider().credential(withVerificationID: verifyID, verificationCode: verificationCode)
+//
+//        Auth.auth().signIn(with: credential) { (authResult, error) in
+//            if let error = error {
+//                let authError = error as NSError
+//                print(authError.description)
+//                return
+//            }
+//            // User has signed in successfully and currentUser object is valid
+//            let currentUserInstance = Auth.auth().currentUser
+//            print(currentUserInstance)
+//        }
+    }
+
+    private func startTimerRefresh() {
+        timerDisposable?.dispose()
+        timerDisposable = Observable<Int>
+            .interval(RxTimeInterval.seconds(1), scheduler: MainScheduler.instance)
+            .map { [unowned self] in
+                self.totalTime - ($0 + 1)
+            }.do(onNext: { [weak self] time in
+                self?.limitTime = time
+                if time == 0 {
+                    self?.didLimitTime.accept(())
+                }
+            })
+            .filter{ $0 < 0 ? false : true }
+            .map { StopWatch(totalSeconds: $0).simpleTimeString }
+            .bind(to: timeLimitLabel.rx.text)
     }
 
     private func showToast(message: String) {

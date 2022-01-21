@@ -40,6 +40,7 @@
 		BB8D1F342799B62100D111B6 /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8D1F332799B62100D111B6 /* ViewModelType.swift */; };
 		BB8D1F3A2799BE6400D111B6 /* AuthTextField+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8D1F392799BE6400D111B6 /* AuthTextField+Rx.swift */; };
 		BB8D1F3C279A992C00D111B6 /* CertificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8D1F3B279A992C00D111B6 /* CertificationViewModel.swift */; };
+		BBAAA684279ABFAD00667591 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = BBAAA683279ABFAD00667591 /* Moya */; };
 		BBED11EF27984744002A5E9E /* Assets+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBED11EE27984744002A5E9E /* Assets+Generated.swift */; };
 		BBED11F7279869EA002A5E9E /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBED11F6279869EA002A5E9E /* Coordinator.swift */; };
 		BBED11FB27986D87002A5E9E /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = BBED11FA27986D87002A5E9E /* FirebaseAuth */; };
@@ -132,6 +133,7 @@
 			files = (
 				BBED1214279943FF002A5E9E /* RxSwift in Frameworks */,
 				BBED1212279943FF002A5E9E /* RxRelay in Frameworks */,
+				BBAAA684279ABFAD00667591 /* Moya in Frameworks */,
 				BBED11FD27986D87002A5E9E /* FirebaseMessaging in Frameworks */,
 				BB105D842796C26C008264DD /* SnapKit in Frameworks */,
 				BBED1210279943FF002A5E9E /* RxCocoa in Frameworks */,
@@ -420,6 +422,7 @@
 				BBED1211279943FF002A5E9E /* RxRelay */,
 				BBED1213279943FF002A5E9E /* RxSwift */,
 				BBED121D279976D2002A5E9E /* Toast */,
+				BBAAA683279ABFAD00667591 /* Moya */,
 			);
 			productName = ServiceLevelProject;
 			productReference = BB105D3A27966ABC008264DD /* ServiceLevelProject.app */;
@@ -498,6 +501,7 @@
 				BBED11F927986D87002A5E9E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				BBED120E279943FF002A5E9E /* XCRemoteSwiftPackageReference "RxSwift" */,
 				BBED121C279976D2002A5E9E /* XCRemoteSwiftPackageReference "Toast-Swift" */,
+				BBAAA682279ABFAD00667591 /* XCRemoteSwiftPackageReference "Moya" */,
 			);
 			productRefGroup = BB105D3B27966ABC008264DD /* Products */;
 			projectDirPath = "";
@@ -982,6 +986,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		BBAAA682279ABFAD00667591 /* XCRemoteSwiftPackageReference "Moya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Moya/Moya.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 15.0.0;
+			};
+		};
 		BBED11F927986D87002A5E9E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -1013,6 +1025,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = BB105D822796C26C008264DD /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		BBAAA683279ABFAD00667591 /* Moya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BBAAA682279ABFAD00667591 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = Moya;
 		};
 		BBED11FA27986D87002A5E9E /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
