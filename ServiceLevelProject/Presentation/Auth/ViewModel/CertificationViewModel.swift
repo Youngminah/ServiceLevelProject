@@ -28,13 +28,11 @@ final class CertificationViewModel: ViewModelType {
     func transform(input: Input) -> Output {
 
         input.didLimitText
+            .map{ $0.count >= 6 ? true : false }
             .distinctUntilChanged()
-            .filter { text in
-                text.count >= 6 ? true : false
-            }
-            .drive(onNext: { [weak self] text in
+            .drive(onNext: { [weak self] in
                 guard let self = self else { return }
-                self.isValidState.accept(true)
+                $0 ? self.isValidState.accept(true) : self.isValidState.accept(false)
             })
             .disposed(by: disposeBag)
 

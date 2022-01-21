@@ -135,7 +135,8 @@ final class LoginViewController: UIViewController {
                 self.view.makeToast(message, position: .top)
                 return
             }
-            let vc = CertificationViewController(verifyID: verificationID!)
+            let vc = CertificationViewController(viewModel: CertificationViewModel(),
+                                                 verifyID: verificationID!)
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
