@@ -86,6 +86,7 @@ class OnBoardingViewController: UIViewController {
     private func setConfigurations() {
         view.backgroundColor = .white
         startButton.addTarget(self, action: #selector(startButtonTap), for: .touchUpInside)
+        startButton.isValid = true
         scrollView.delegate = self
         scrollView.isPagingEnabled = true
         scrollView.showsHorizontalScrollIndicator = false
@@ -100,7 +101,7 @@ class OnBoardingViewController: UIViewController {
 
     @objc
     private func startButtonTap() {
-
+        viewModel.showLoginController()
     }
 }
 

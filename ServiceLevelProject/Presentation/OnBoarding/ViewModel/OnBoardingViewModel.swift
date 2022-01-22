@@ -10,7 +10,7 @@ import UIKit.UIImage
 final class OnBoardingViewModel {
     
     private weak var coordinator: OnBoardingCoordinator?
-    
+
     private let onBoardingImageViews: [UIImage] = [
         Asset.onBoarding1.image,
         Asset.onBoarding2.image,
@@ -42,5 +42,10 @@ final class OnBoardingViewModel {
 
     func onBoardingTitleString(at index: Int) -> NSMutableAttributedString {
         return mutableAttributedStrings[index]
+    }
+
+    func showLoginController() {
+        //UserDefaults.standard.set(true, forKey: UserDefaultKeyCase.isLoggedIn)
+        coordinator?.showLoginScene()
     }
 }
