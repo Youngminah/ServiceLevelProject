@@ -17,7 +17,7 @@ final class LoginViewModel: ViewModelType {
         let didTextFieldEnd: Signal<Void>
     }
     struct Output {
-        let phoneNumberText: Driver<String>
+        let phoneNumberText: Signal<String>
         let isValidState: Driver<Bool>
         let phoneNumberRemoveHiponAction: Signal<Void>
         let phoneNumberAddHiponAction: Signal<Void>
@@ -40,10 +40,10 @@ final class LoginViewModel: ViewModelType {
             .disposed(by: disposeBag)
 
         input.didTextFieldBegin
-            .emit { [weak self] text in
+            .emit(onNext:{ [weak self] text in
                 guard let self = self else { return }
                 self.phoneNumberRemoveHiponAction.accept(())
-            }
+            })
             .disposed(by: disposeBag)
 
         input.didTextFieldEnd
@@ -54,7 +54,7 @@ final class LoginViewModel: ViewModelType {
             .disposed(by: disposeBag)
 
         return Output(
-            phoneNumberText: phoneNumberText.asDriver(onErrorJustReturn: ""),
+            phoneNumberText: phoneNumberText.asSignal(),
             isValidState: isValidState.asDriver(),
             phoneNumberRemoveHiponAction: phoneNumberRemoveHiponAction.asSignal(),
             phoneNumberAddHiponAction: phoneNumberAddHiponAction.asSignal()
