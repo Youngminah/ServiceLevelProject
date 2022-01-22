@@ -9,7 +9,6 @@
 only_rules:
   - colon
   - fatal_error_message
-  - force_cast
   - force_try
   - implicitly_unwrapped_optional
   - legacy_cggeometry_functions
