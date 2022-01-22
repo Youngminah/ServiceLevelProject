@@ -55,7 +55,8 @@ final class LoginViewController: UIViewController {
         phoneNumberTextField.setBorderLine()
     }
 
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) { self.view.endEditing(true)
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
 
     private func bind() {
@@ -136,8 +137,7 @@ final class LoginViewController: UIViewController {
 //                self.view.makeToast(message, position: .top)
                 return
             }
-            let vc = CertificationViewController(viewModel: CertificationViewModel(),
-                                                 verifyID: verificationID!)
+            let vc = CertificationViewController(viewModel: CertificationViewModel(verifyID: verificationID!))
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }

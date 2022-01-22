@@ -19,27 +19,25 @@ final class CertificationViewController: UIViewController {
     private let startButton = DefaultFillButton(title: "인증하고 시작하기")
 
     private lazy var input = CertificationViewModel.Input(
-        requestRegisterSignal: requestRegisterSignal.asSignal(),
+        signInFirebaseSignal: signInFirebaseSignal.asSignal(),
         didLimitText: authNumberTextField.rx.text.orEmpty.asDriver(),
         didLimitTime: didLimitTime.asSignal()
     )
     private lazy var output = viewModel.transform(input: input)
     private var viewModel: CertificationViewModel
 
-    private let requestRegisterSignal = PublishRelay<Void>()
+    private let signInFirebaseSignal = PublishRelay<String>()
     private let didLimitTime = PublishRelay<Void>()
     private let disposdBag = DisposeBag()
 
-    private var verifyID: String
     private let totalTime = 60
     private lazy var limitTime = totalTime
     private lazy var totalTimeString = StopWatchConverterService(totalSeconds: totalTime).simpleTimeString
 
     private var timerDisposable: Disposable?
 
-    init(viewModel: CertificationViewModel, verifyID: String) {
+    init(viewModel: CertificationViewModel) {
         self.viewModel = viewModel
-        self.verifyID = verifyID
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -71,6 +69,12 @@ final class CertificationViewController: UIViewController {
 
         output.isValidState
             .drive(startButton.rx.isValid)
+            .disposed(by: disposdBag)
+
+        output.disposeTimerAction
+            .emit(onNext: { [weak self] in
+                self?.timerDisposable?.dispose()
+            })
             .disposed(by: disposdBag)
     }
 
@@ -139,46 +143,44 @@ final class CertificationViewController: UIViewController {
         if limitTime > 0 &&
             startButton.isValid &&
             authNumberTextField.text!.isValidCertificationNumber() {
-            signInFirebase()
+            signInFirebaseSignal.accept(authNumberTextField.text!)
             return
         }
         showToast(message: "전화번호 인증 실패")
     }
 
-    private func signInFirebase() {
-        let verificationCode = authNumberTextField.text!
-        let credential = PhoneAuthProvider.provider().credential(
-            withVerificationID: verifyID,
-            verificationCode: verificationCode
-        )
-        Auth.auth().signIn(with: credential) { [weak self] (authResult, error) in
-            guard let self = self else { return }
-            if let error = error {
-                let authError = error as NSError
-                self.showToast(message: authError.localizedDescription)
-                return
-            }
-            self.getFirebaseIdtoken()
-        }
-    }
+//    private func signInFirebase() {
+//        let verificationCode = authNumberTextField.text!
+//        let credential = PhoneAuthProvider.provider().credential(
+//            withVerificationID: verifyID,
+//            verificationCode: verificationCode
+//        )
+//        Auth.auth().signIn(with: credential) { [weak self] (authResult, error) in
+//            guard let self = self else { return }
+//            if let error = error {
+//                let authError = error as NSError
+//                self.showToast(message: authError.localizedDescription)
+//                return
+//            }
+//            self.getFirebaseIdtoken()
+//        }
+//    }
 
-    private func getFirebaseIdtoken() {
-        let currentUser = Auth.auth().currentUser
-        currentUser?.getIDTokenForcingRefresh(true) { [weak self] idToken, error in
-            guard let self = self else { return }
-            if let error = error {
-                print(error.localizedDescription)
-                return;
-            }
-            print(idToken! + "이거")
-            UserDefaults.standard.setValue(idToken!, forKey: "IdToken")
-            // Send token to your backend via HTTPS
-            // ...
-            self.timerDisposable?.dispose()
-            self.requestRegisterSignal.accept(())
-            print("완료!")
-        }
-    }
+//    private func getFirebaseIdtoken() {
+//        let currentUser = Auth.auth().currentUser
+//        currentUser?.getIDTokenForcingRefresh(true) { [weak self] idToken, error in
+//            guard let self = self else { return }
+//            if let error = error {
+//                print(error.localizedDescription)
+//                return;
+//            }
+//            //print(idToken! + "이거")
+//            UserDefaults.standard.setValue(idToken!, forKey: "IdToken")
+//            // Send token to your backend via HTTPS
+//            self.timerDisposable?.dispose()
+//            self.requestRegisterSignal.accept(())
+//        }
+//    }
 
     private func startTimerRefresh() {
         timerDisposable?.dispose()
