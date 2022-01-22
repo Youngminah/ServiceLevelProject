@@ -60,7 +60,7 @@ final class LoginViewController: UIViewController {
 
     private func bind() {
         output.phoneNumberText
-            .drive(phoneNumberTextField.rx.text)
+            .emit(to: phoneNumberTextField.rx.text)
             .disposed(by: disposdBag)
 
         output.isValidState
@@ -117,7 +117,7 @@ final class LoginViewController: UIViewController {
         let phoneNumber = (phoneNumberTextField.text?.removeHipon())!
         if !phoneNumber.isValidPhoneNumber() {
             self.makeToastStyle()
-            self.view.makeToast(SessacErrorCase.inValidPhoneNumberFormat.errorDescription,
+            self.view.makeToast(ValidationErrorCase.inValidPhoneNumberFormat.errorDescription,
                                 position: .top)
             return
         }
@@ -129,10 +129,11 @@ final class LoginViewController: UIViewController {
         let phoneNumberWithCode = "+82 " + phoneNumber
         PhoneAuthProvider.provider().verifyPhoneNumber(phoneNumberWithCode, uiDelegate: nil) { (verificationID, error) in
             if let error = error {
-                print(error.localizedDescription)
-                self.makeToastStyle()
-                let message = SessacErrorCase(errorID: error.localizedDescription).errorDescription
-                self.view.makeToast(message, position: .top)
+                let authError = error as NSError
+                print(authError.code)
+//                self.makeToastStyle()
+//                let message = SessacErrorCase(errorID: error.localizedDescription).errorDescription
+//                self.view.makeToast(message, position: .top)
                 return
             }
             let vc = CertificationViewController(viewModel: CertificationViewModel(),
