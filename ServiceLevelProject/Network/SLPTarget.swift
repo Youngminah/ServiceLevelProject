@@ -13,7 +13,7 @@ typealias JsonType = [String: Any]
 enum SLPTarget {
     // User
     case register(parameters: JsonType)
-    case getUserInfo(parameters: JsonType)
+    case getUserInfo
     case withdrawUser(parameters: JsonType)
     // User FCM
     case updateFCMToken(parameters: JsonType)
@@ -76,12 +76,14 @@ extension SLPTarget: TargetType {
     }
 
     var validationType: ValidationType {
-        return .successCodes
+        return .customCodes([200])
     }
 
     var headers: [String: String]? {
         let token = UserDefaults.standard.string(forKey: "IdToken")!
-        return ["Content-Type": "application/json",
-                    "idtoken": token]
+        return [
+            "Content-Type": "application/json",
+            "idtoken": token
+        ]
     }
 }
