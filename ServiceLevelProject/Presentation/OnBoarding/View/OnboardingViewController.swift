@@ -8,29 +8,22 @@
 import UIKit
 import SnapKit
 
-class OnboardingViewController: UIViewController {
+class OnBoardingViewController: UIViewController {
 
     private let scrollView = UIScrollView()
     private let pageControl = UIPageControl()
     private let descriptionLabel = UILabel()
     private let startButton = DefaultFillButton(title: "시작하기")
+    private var viewModel: OnBoardingViewModel
 
-    private let onBoardingImageViews: [UIImage] = [
-        Asset.onBoarding1.image,
-        Asset.onBoarding2.image,
-        Asset.onBoarding3.image
-    ]
+    init(viewModel: OnBoardingViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
 
-    private let mutableAttributedStrings: [NSMutableAttributedString] = [
-        NSMutableAttributedString()
-            .greenHighlight(string: "위치 기반")
-            .regular(string: "으로 빠르게\n주위 친구를 확인"),
-        NSMutableAttributedString()
-            .greenHighlight(string: "관심사가 같은 친구")
-            .regular(string: "를\n찾을 수 있어요"),
-        NSMutableAttributedString()
-            .regular(string: "SeSAC Freinds")
-    ]
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("OnBoardingViewController fatal error")
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,7 +43,7 @@ class OnboardingViewController: UIViewController {
 
         scrollView.frame = view.bounds
 
-        for i in 0..<onBoardingImageViews.count {
+        for i in 0..<viewModel.count {
             let scrollContentView = UIView()
             scrollView.addSubview(scrollContentView)
             let xPos = self.view.frame.width * CGFloat(i)
@@ -60,10 +53,10 @@ class OnboardingViewController: UIViewController {
                                              height: scrollView.bounds.height)
 
             let imageView = UIImageView()
-            imageView.image = onBoardingImageViews[i]
+            imageView.image = viewModel.onBoardingImageList(at: i)
             scrollContentView.addSubview(imageView)
             imageView.snp.makeConstraints { make in
-                make.centerY.equalToSuperview().multipliedBy(1.1)
+                make.centerY.equalTo(view.safeAreaLayoutGuide).multipliedBy(1.1)
                 make.left.equalToSuperview().offset(30)
                 make.right.equalToSuperview().offset(-30)
                 make.height.equalTo(imageView.snp.width)
@@ -96,13 +89,13 @@ class OnboardingViewController: UIViewController {
         scrollView.delegate = self
         scrollView.isPagingEnabled = true
         scrollView.showsHorizontalScrollIndicator = false
-        pageControl.numberOfPages = onBoardingImageViews.count
+        pageControl.numberOfPages = viewModel.count
         pageControl.currentPageIndicatorTintColor = .black
         pageControl.pageIndicatorTintColor = .gray5
 
         descriptionLabel.textAlignment = .center
         descriptionLabel.numberOfLines = 0
-        descriptionLabel.attributedText = mutableAttributedStrings[0]
+        descriptionLabel.attributedText = viewModel.onBoardingTitleString(at: 0)
     }
 
     @objc
@@ -111,13 +104,13 @@ class OnboardingViewController: UIViewController {
     }
 }
 
-extension OnboardingViewController: UIScrollViewDelegate {
+extension OnBoardingViewController: UIScrollViewDelegate {
 
     //스크롤 할 때 일어나는 일
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         let value = targetContentOffset.pointee.x / scrollView.frame.size.width
         let currentPageNumber = Int(value)
-        descriptionLabel.attributedText = mutableAttributedStrings[currentPageNumber]
+        descriptionLabel.attributedText = viewModel.onBoardingTitleString(at: currentPageNumber)
         setPageControlSelectedPage(currentPage: currentPageNumber)
     }
 
