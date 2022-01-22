@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum SLPFont: String, CaseIterable {
+enum AppFont: String, CaseIterable {
     case medium = "NotoSansKR-Medium"
     case regular = "NotoSansKR-Regular"
 }

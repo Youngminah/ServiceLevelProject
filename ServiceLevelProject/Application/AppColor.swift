@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum SLPColor: String {
+enum AppColor: String {
     case white
     case black
     case green
