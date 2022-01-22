@@ -13,6 +13,8 @@ import RxSwift
 
 final class CertificationViewModel: CommonViewModel, ViewModelType {
 
+    private weak var coordinator: CertificationCoordinator?
+
     struct Input {
         let signInFirebaseSignal: Signal<String>
         let didLimitText: Driver<String>
@@ -31,8 +33,9 @@ final class CertificationViewModel: CommonViewModel, ViewModelType {
 
     private var verifyID: String
 
-    init(verifyID: String) {
+    init(verifyID: String, coordinator: CertificationCoordinator?) {
         self.verifyID = verifyID
+        self.coordinator = coordinator
     }
 
     func transform(input: Input) -> Output {

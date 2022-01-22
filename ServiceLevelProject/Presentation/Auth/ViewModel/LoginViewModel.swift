@@ -11,6 +11,8 @@ import RxSwift
 
 final class LoginViewModel: ViewModelType {
 
+    private weak var coordinator: LoginCoordinator?
+
     struct Input {
         let didLimitTextChange: Driver<String>
         let didTextFieldBegin: Signal<Void>
@@ -29,6 +31,10 @@ final class LoginViewModel: ViewModelType {
     private let phoneNumberAddHiponAction = PublishRelay<Void>()
 
     var disposeBag = DisposeBag()
+
+    init(coordinator: LoginCoordinator?) {
+        self.coordinator = coordinator
+    }
 
     func transform(input: Input) -> Output {
         input.didLimitTextChange
