@@ -8,9 +8,9 @@
 import Foundation
 import Network
 
-final class NetworkMonitor{
+final class NetworkMonitorService{
 
-    static let shared = NetworkMonitor()
+    static let shared = NetworkMonitorService()
 
     private let queue = DispatchQueue.global()
     private let monitor: NWPathMonitor
