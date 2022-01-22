@@ -15,7 +15,6 @@
 		BB105D5F27966ABD008264DD /* ServiceLevelProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB105D5E27966ABD008264DD /* ServiceLevelProjectUITests.swift */; };
 		BB105D6127966ABD008264DD /* ServiceLevelProjectUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB105D6027966ABD008264DD /* ServiceLevelProjectUITestsLaunchTests.swift */; };
 		BB105D6E2796B0DA008264DD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB105D6D2796B0DA008264DD /* LoginViewController.swift */; };
-		BB105D712796B0F6008264DD /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB105D702796B0F6008264DD /* RegisterViewController.swift */; };
 		BB105D782796B2B8008264DD /* AppFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB105D772796B2B8008264DD /* AppFont.swift */; };
 		BB105D7C2796B660008264DD /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB105D7B2796B660008264DD /* UIFont.swift */; };
 		BB105D7F2796B8BC008264DD /* AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB105D7E2796B8BC008264DD /* AppColor.swift */; };
@@ -45,9 +44,12 @@
 		BBAAA68A279AD78000667591 /* APIEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAA689279AD78000667591 /* APIEnvironment.swift */; };
 		BBAAA68C279AD7BE00667591 /* APIConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAA68B279AD7BE00667591 /* APIConstant.swift */; };
 		BBAAA68E279B07A500667591 /* SLPTarget+StubData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAA68D279B07A500667591 /* SLPTarget+StubData.swift */; };
-		BBAAA690279B0BEB00667591 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAA68F279B0BEB00667591 /* NetworkMonitor.swift */; };
+		BBAAA690279B0BEB00667591 /* NetworkMonitorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAA68F279B0BEB00667591 /* NetworkMonitorService.swift */; };
 		BBAAA692279B0C7300667591 /* CommonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAA691279B0C7300667591 /* CommonViewModel.swift */; };
 		BBAAA694279B2C2600667591 /* UserRegisterInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAA693279B2C2600667591 /* UserRegisterInfo.swift */; };
+		BBAAA69C279BE30700667591 /* UserInfoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAA69B279BE30700667591 /* UserInfoResponse.swift */; };
+		BBAAA69E279BE72D00667591 /* DefaultMoyaNetworkServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAA69D279BE72D00667591 /* DefaultMoyaNetworkServiceError.swift */; };
+		BBAAA6A2279BFC6700667591 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAA6A1279BFC6700667591 /* HomeViewController.swift */; };
 		BBED11EF27984744002A5E9E /* Assets+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBED11EE27984744002A5E9E /* Assets+Generated.swift */; };
 		BBED11F7279869EA002A5E9E /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBED11F6279869EA002A5E9E /* Coordinator.swift */; };
 		BBED11FB27986D87002A5E9E /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = BBED11FA27986D87002A5E9E /* FirebaseAuth */; };
@@ -96,7 +98,6 @@
 		BB105D5E27966ABD008264DD /* ServiceLevelProjectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLevelProjectUITests.swift; sourceTree = "<group>"; };
 		BB105D6027966ABD008264DD /* ServiceLevelProjectUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLevelProjectUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		BB105D6D2796B0DA008264DD /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		BB105D702796B0F6008264DD /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		BB105D772796B2B8008264DD /* AppFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFont.swift; sourceTree = "<group>"; };
 		BB105D7B2796B660008264DD /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
 		BB105D7E2796B8BC008264DD /* AppColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColor.swift; sourceTree = "<group>"; };
@@ -124,9 +125,12 @@
 		BBAAA689279AD78000667591 /* APIEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEnvironment.swift; sourceTree = "<group>"; };
 		BBAAA68B279AD7BE00667591 /* APIConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstant.swift; sourceTree = "<group>"; };
 		BBAAA68D279B07A500667591 /* SLPTarget+StubData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SLPTarget+StubData.swift"; sourceTree = "<group>"; };
-		BBAAA68F279B0BEB00667591 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
+		BBAAA68F279B0BEB00667591 /* NetworkMonitorService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitorService.swift; sourceTree = "<group>"; };
 		BBAAA691279B0C7300667591 /* CommonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonViewModel.swift; sourceTree = "<group>"; };
 		BBAAA693279B2C2600667591 /* UserRegisterInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRegisterInfo.swift; sourceTree = "<group>"; };
+		BBAAA69B279BE30700667591 /* UserInfoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoResponse.swift; sourceTree = "<group>"; };
+		BBAAA69D279BE72D00667591 /* DefaultMoyaNetworkServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultMoyaNetworkServiceError.swift; sourceTree = "<group>"; };
+		BBAAA6A1279BFC6700667591 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		BBED11EE27984744002A5E9E /* Assets+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Assets+Generated.swift"; sourceTree = "<group>"; };
 		BBED11F6279869EA002A5E9E /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		BBED11F827986CCC002A5E9E /* ServiceLevelProject.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ServiceLevelProject.entitlements; sourceTree = "<group>"; };
@@ -265,6 +269,7 @@
 				BBED1200279902CC002A5E9E /* OnBoarding */,
 				BB105D6F2796B0E1008264DD /* Auth */,
 				BB8D1F362799B7B800D111B6 /* Register */,
+				BBAAA6A0279BFC3F00667591 /* Home */,
 				BBED121727996F53002A5E9E /* RxExtension */,
 				BB105D7D2796B668008264DD /* Extension */,
 			);
@@ -301,7 +306,6 @@
 			children = (
 				BB105D6D2796B0DA008264DD /* LoginViewController.swift */,
 				BB105D8C2796F004008264DD /* CertificationViewController.swift */,
-				BB105D702796B0F6008264DD /* RegisterViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -336,7 +340,7 @@
 		BBAAA685279AD39100667591 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				BBAAA68F279B0BEB00667591 /* NetworkMonitor.swift */,
+				BBAAA69D279BE72D00667591 /* DefaultMoyaNetworkServiceError.swift */,
 				BBAAA686279AD3A500667591 /* SLPTarget.swift */,
 				BBAAA68D279B07A500667591 /* SLPTarget+StubData.swift */,
 			);
@@ -379,6 +383,7 @@
 		BBAAA698279BCC9C00667591 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				BBAAA68F279B0BEB00667591 /* NetworkMonitorService.swift */,
 				BBED12242799AAC5002A5E9E /* StopWatchConverterService.swift */,
 			);
 			path = Service;
@@ -391,6 +396,14 @@
 				BBAAA689279AD78000667591 /* APIEnvironment.swift */,
 			);
 			path = Constant;
+			sourceTree = "<group>";
+		};
+		BBAAA6A0279BFC3F00667591 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				BBAAA6A1279BFC6700667591 /* HomeViewController.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 		BBED11F5279869C0002A5E9E /* Common */ = {
@@ -462,6 +475,7 @@
 			isa = PBXGroup;
 			children = (
 				BBAAA693279B2C2600667591 /* UserRegisterInfo.swift */,
+				BBAAA69B279BE30700667591 /* UserInfoResponse.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -668,6 +682,7 @@
 				BB105D892796D050008264DD /* AuthTextField.swift in Sources */,
 				BBED121B279976A4002A5E9E /* UIViewController.swift in Sources */,
 				BB105D3E27966ABC008264DD /* AppDelegate.swift in Sources */,
+				BBAAA6A2279BFC6700667591 /* HomeViewController.swift in Sources */,
 				BBED12252799AAC5002A5E9E /* StopWatchConverterService.swift in Sources */,
 				BB105D7F2796B8BC008264DD /* AppColor.swift in Sources */,
 				BBED1202279902ED002A5E9E /* OnboardingViewController.swift in Sources */,
@@ -676,6 +691,7 @@
 				BB8D1F322799B5FB00D111B6 /* LoginViewModel.swift in Sources */,
 				BB105D8D2796F004008264DD /* CertificationViewController.swift in Sources */,
 				BB8D1F342799B62100D111B6 /* ViewModelType.swift in Sources */,
+				BBAAA69C279BE30700667591 /* UserInfoResponse.swift in Sources */,
 				BBED12202799785F002A5E9E /* ValidationErrorCase.swift in Sources */,
 				BBED11F7279869EA002A5E9E /* Coordinator.swift in Sources */,
 				BB105D9E27981074008264DD /* UIButton.swift in Sources */,
@@ -684,6 +700,7 @@
 				BB105D942797AAD1008264DD /* SetNicknameViewController.swift in Sources */,
 				BB105D962797AAE5008264DD /* SetBirthViewController.swift in Sources */,
 				BBAAA692279B0C7300667591 /* CommonViewModel.swift in Sources */,
+				BBAAA69E279BE72D00667591 /* DefaultMoyaNetworkServiceError.swift in Sources */,
 				BB105D812796B9B7008264DD /* UIColor.swift in Sources */,
 				BBED11EF27984744002A5E9E /* Assets+Generated.swift in Sources */,
 				BBAAA68C279AD7BE00667591 /* APIConstant.swift in Sources */,
@@ -694,13 +711,12 @@
 				BB105D8B2796E610008264DD /* DefaultFillButton.swift in Sources */,
 				BBED121627994594002A5E9E /* String.swift in Sources */,
 				BB8D1F3C279A992C00D111B6 /* CertificationViewModel.swift in Sources */,
-				BB105D712796B0F6008264DD /* RegisterViewController.swift in Sources */,
 				BB105DA0279819F6008264DD /* DetailLabel.swift in Sources */,
 				BB105D8F2796F197008264DD /* DescriptionLabel.swift in Sources */,
 				BBED120427990CB5002A5E9E /* NSMutableAttributedString.swift in Sources */,
 				BB105D9A2797F313008264DD /* SetGenderViewController.swift in Sources */,
 				BB105D9C2797FA21008264DD /* GenderButton.swift in Sources */,
-				BBAAA690279B0BEB00667591 /* NetworkMonitor.swift in Sources */,
+				BBAAA690279B0BEB00667591 /* NetworkMonitorService.swift in Sources */,
 				BBAAA68A279AD78000667591 /* APIEnvironment.swift in Sources */,
 				BB105DA22798232D008264DD /* AppAppearance.swift in Sources */,
 			);
