@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum DefaultMoyaNetworkServiceError: Int, Error, CustomStringConvertible {
+enum DefaultMoyaNetworkServiceError: Int, Error {
 
     case duplicatedError = 201
     case inValidInputBodyError = 202
