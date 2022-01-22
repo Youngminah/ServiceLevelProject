@@ -1,5 +1,5 @@
 //
-//  SetGenderViewController.swift
+//  SetNicknameViewController.swift
 //  ServiceLevelProject
 //
 //  Created by meng on 2022/01/19.
@@ -7,14 +7,11 @@
 
 import UIKit
 
-class SetGenderViewController: UIViewController {
+final class NicknameViewController: UIViewController {
 
-    private let descriptionLabel = DescriptionLabel(title: "성별을 선택해 주세요")
-    private let detailLabel = DetailLabel(title: "새싹 찾기 기능을 이용하기 위해서 필요해요!")
-    private let womanButton = GenderButton(gender: .woman)
-    private let manButton = GenderButton(gender: .man)
+    private let descriptionLabel = DescriptionLabel(title: "닉네임을 입력해 주세요")
+    private let nicknameTextField = AuthTextField(placeHolder: "10자 이내로 입력")
     private let nextButton = DefaultFillButton(title: "다음")
-    private lazy var stackView = UIStackView(arrangedSubviews: [manButton, womanButton])
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,10 +20,14 @@ class SetGenderViewController: UIViewController {
         setConfigurations()
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        nicknameTextField.setBorderLine()
+    }
+
     private func setViews() {
         view.addSubview(descriptionLabel)
-        view.addSubview(detailLabel)
-        view.addSubview(stackView)
+        view.addSubview(nicknameTextField)
         view.addSubview(nextButton)
     }
 
@@ -36,19 +37,14 @@ class SetGenderViewController: UIViewController {
             make.leading.equalToSuperview().offset(16)
             make.trailing.equalToSuperview().offset(-16)
         }
-        detailLabel.snp.makeConstraints { make in
-            make.top.equalTo(descriptionLabel.snp.bottom).offset(8)
+        nicknameTextField.snp.makeConstraints { make in
+            make.top.equalTo(descriptionLabel.snp.bottom).offset(60)
             make.leading.equalToSuperview().offset(16)
             make.trailing.equalToSuperview().offset(-16)
-        }
-        stackView.snp.makeConstraints { make in
-            make.top.equalTo(detailLabel.snp.bottom).offset(32)
-            make.leading.equalToSuperview().offset(16)
-            make.trailing.equalToSuperview().offset(-16)
-            make.height.equalTo(120)
+            make.height.equalTo(40)
         }
         nextButton.snp.makeConstraints { make in
-            make.top.equalTo(stackView.snp.bottom).offset(32)
+            make.top.equalTo(nicknameTextField.snp.bottom).offset(60)
             make.leading.equalToSuperview().offset(16)
             make.trailing.equalToSuperview().offset(-16)
             make.height.equalTo(48)
@@ -57,6 +53,5 @@ class SetGenderViewController: UIViewController {
 
     private func setConfigurations() {
         view.backgroundColor = .white
-        stackView.spacing = 8
     }
 }

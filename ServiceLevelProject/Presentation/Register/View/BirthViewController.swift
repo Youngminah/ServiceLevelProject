@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class SetBirthViewController: UIViewController {
+final class BirthViewController: UIViewController {
 
     private let descriptionLabel = DescriptionLabel(title: "생년월일을 알려주세요")
     private let nextButton = DefaultFillButton(title: "다음")
