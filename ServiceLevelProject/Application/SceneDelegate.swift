@@ -10,13 +10,17 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
+    var coordinator: AppCoordinator?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
         //let vc = CertificationViewController(viewModel: CertificationViewModel(), verifyID: "dd")
-        let vc = LoginViewController(viewModel: LoginViewModel())
-        let nav = UINavigationController(rootViewController: vc)
+//        let vc = LoginViewController(viewModel: LoginViewModel())
+//        let nav = UINavigationController(rootViewController: vc)
+        let nav = UINavigationController()
+        coordinator = AppCoordinator(nav)
+        coordinator?.start()
         window?.rootViewController = nav
         window?.makeKeyAndVisible()
     }
