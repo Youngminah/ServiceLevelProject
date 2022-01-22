@@ -10,48 +10,48 @@ import UIKit.UIColor
 extension UIColor {
     
     static var white: UIColor {
-        return UIColor(named: SLPColor.white.rawValue)!
+        return UIColor(named: AppColor.white.rawValue)!
     }
     static var black: UIColor {
-        return UIColor(named: SLPColor.black.rawValue)!
+        return UIColor(named: AppColor.black.rawValue)!
     }
     static var green: UIColor {
-        return UIColor(named: SLPColor.green.rawValue)!
+        return UIColor(named: AppColor.green.rawValue)!
     }
     static var whiteGreen: UIColor {
-        return UIColor(named: SLPColor.whiteGreen.rawValue)!
+        return UIColor(named: AppColor.whiteGreen.rawValue)!
     }
     static var yellowGreen: UIColor {
-        return UIColor(named: SLPColor.yellowGreen.rawValue)!
+        return UIColor(named: AppColor.yellowGreen.rawValue)!
     }
     static var gray7: UIColor {
-        return UIColor(named: SLPColor.gray7.rawValue)!
+        return UIColor(named: AppColor.gray7.rawValue)!
     }
     static var gray6: UIColor {
-        return UIColor(named: SLPColor.gray6.rawValue)!
+        return UIColor(named: AppColor.gray6.rawValue)!
     }
     static var gray5: UIColor {
-        return UIColor(named: SLPColor.gray5.rawValue)!
+        return UIColor(named: AppColor.gray5.rawValue)!
     }
     static var gray4: UIColor {
-        return UIColor(named: SLPColor.gray4.rawValue)!
+        return UIColor(named: AppColor.gray4.rawValue)!
     }
     static var gray3: UIColor {
-        return UIColor(named: SLPColor.gray3.rawValue)!
+        return UIColor(named: AppColor.gray3.rawValue)!
     }
     static var gray2: UIColor {
-        return UIColor(named: SLPColor.gray2.rawValue)!
+        return UIColor(named: AppColor.gray2.rawValue)!
     }
     static var gray1: UIColor {
-        return UIColor(named: SLPColor.gray1.rawValue)!
+        return UIColor(named: AppColor.gray1.rawValue)!
     }
     static var success: UIColor {
-        return UIColor(named: SLPColor.success.rawValue)!
+        return UIColor(named: AppColor.success.rawValue)!
     }
     static var error: UIColor {
-        return UIColor(named: SLPColor.error.rawValue)!
+        return UIColor(named: AppColor.error.rawValue)!
     }
     static var focus: UIColor {
-        return UIColor(named: SLPColor.focus.rawValue)!
+        return UIColor(named: AppColor.focus.rawValue)!
     }
 }
