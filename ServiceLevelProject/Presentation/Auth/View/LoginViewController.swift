@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import FirebaseAuth
 import RxCocoa
 import RxSwift
 import SnapKit
@@ -21,12 +20,13 @@ final class LoginViewController: UIViewController {
     private lazy var input = LoginViewModel.Input(
         didLimitTextChange: phoneNumberTextField.rx.limitText.asDriver(onErrorJustReturn: ""),
         didTextFieldBegin: phoneNumberTextField.rx.controlEvent(.editingDidBegin).asSignal(),
-        didTextFieldEnd: phoneNumberTextField.rx.controlEvent(.editingDidEnd).asSignal()
+        didTextFieldEnd: phoneNumberTextField.rx.controlEvent(.editingDidEnd).asSignal(),
+        verifyPhoneNumber: verifyPhoneNumber.asSignal()
     )
     private lazy var output = viewModel.transform(input: input)
-
-    private var viewModel: LoginViewModel
     private let disposdBag = DisposeBag()
+    private let verifyPhoneNumber = PublishRelay<String>()
+    private var viewModel: LoginViewModel
 
     init(viewModel: LoginViewModel) {
         self.viewModel = viewModel
@@ -79,6 +79,13 @@ final class LoginViewController: UIViewController {
                 self.phoneNumberTextField.text = self.phoneNumberTextField.text?.addHipon()
             })
             .disposed(by: disposdBag)
+
+        output.showToastAction
+            .emit(onNext: { [unowned self] message in
+                self.makeToastStyle()
+                self.view.makeToast(message, position: .top)
+            })
+            .disposed(by: disposdBag)
     }
     
     private func setViews() {
@@ -122,23 +129,6 @@ final class LoginViewController: UIViewController {
                                 position: .top)
             return
         }
-        verifyPhoneNumber(phoneNumber: phoneNumber)
-    }
-
-    private func verifyPhoneNumber(phoneNumber: String) {
-        Auth.auth().languageCode = "kr"
-        let phoneNumberWithCode = "+82 " + phoneNumber
-        PhoneAuthProvider.provider().verifyPhoneNumber(phoneNumberWithCode, uiDelegate: nil) { (verificationID, error) in
-            if let error = error {
-                let authError = error as NSError
-                print(authError.code)
-//                self.makeToastStyle()
-//                let message = SessacErrorCase(errorID: error.localizedDescription).errorDescription
-//                self.view.makeToast(message, position: .top)
-                return
-            }
-            let vc = CertificationViewController(viewModel: CertificationViewModel(verifyID: verificationID!))
-            self.navigationController?.pushViewController(vc, animated: true)
-        }
+        verifyPhoneNumber.accept(phoneNumber)
     }
 }

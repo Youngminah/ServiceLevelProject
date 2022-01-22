@@ -92,11 +92,13 @@ extension CertificationViewModel {
                     switch response {
                     case .success(let response):
                         print("서버에서 준 코드!! \(response)")
-                        // 홈화면 전환
+                        self.coordinator?.connectTabBarCoordinator() // 홈화면 전환
                     case .failure(let error):
                         let errorCode = error.rawValue
-                        // 닉네입화면 전환
-                        fatalError(error.description)
+                        if errorCode == 201 { //닉네임 전환
+                            self.coordinator?.connectNickNameCoordinator()
+                        }
+                        print(error.description)
                     }
                 }
             }
