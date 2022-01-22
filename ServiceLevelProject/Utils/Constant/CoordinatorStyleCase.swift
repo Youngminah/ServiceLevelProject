@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum CoordinatorStyle {
+enum CoordinatorStyleCase {
     case app, onBoarding, login, certification
     case nickname, birth, email, gender
 }

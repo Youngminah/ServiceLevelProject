@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum UserDefaultKey {
+enum UserDefaultKeyCase {
     static let isFirstUser = "isFirstUser"
     static let isLoggedIn = "isLoggedIn"
     static let fcmToken = "fcmToken"
