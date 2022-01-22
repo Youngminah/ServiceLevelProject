@@ -11,7 +11,7 @@ final class LoginCoordinator: Coordinator {
 
     var childCoordinators = [Coordinator]()
     var navigationController: UINavigationController
-    var type: CoordinatorStyle = .login
+    var type: CoordinatorStyleCase = .login
 
     init(_ navigationController: UINavigationController) {
         self.navigationController = navigationController
@@ -23,7 +23,7 @@ final class LoginCoordinator: Coordinator {
         navigationController.viewControllers = [vc]
     }
 
-    func showCertifacationScene(verifyID: String) {
+    func connectCertifacationCoordinator(verifyID: String) {
         let certificationCoordinator = CertificationCoordinator(self.navigationController)
         childCoordinators.append(certificationCoordinator)
         certificationCoordinator.showCertifacationViewController(verifyID: verifyID)

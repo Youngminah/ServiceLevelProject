@@ -11,7 +11,7 @@ protocol Coordinator: AnyObject {
 
     var navigationController: UINavigationController { get set }
     var childCoordinators: [Coordinator] { get set }
-    var type: CoordinatorStyle { get }
+    var type: CoordinatorStyleCase { get }
 
     func start()
     func finish()
@@ -23,7 +23,7 @@ extension Coordinator {
 
     func finish() { childCoordinators.removeAll() }
 
-    func findCoordinator(type: CoordinatorStyle) -> Coordinator? {
+    func findCoordinator(type: CoordinatorStyleCase) -> Coordinator? {
         var stack: [Coordinator] = [self]
 
         while !stack.isEmpty {

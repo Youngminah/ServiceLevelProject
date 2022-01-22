@@ -11,7 +11,7 @@ final class OnBoardingCoordinator: Coordinator {
 
     var childCoordinators = [Coordinator]()
     var navigationController: UINavigationController
-    var type: CoordinatorStyle = .onBoarding
+    var type: CoordinatorStyleCase = .onBoarding
 
     init(_ navigationController: UINavigationController) {
         self.navigationController = navigationController

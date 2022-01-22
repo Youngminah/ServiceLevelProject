@@ -11,34 +11,43 @@ final class AppCoordinator: Coordinator {
 
     var childCoordinators = [Coordinator]()
     var navigationController: UINavigationController
-    var type: CoordinatorStyle = .app
+    var type: CoordinatorStyleCase = .app
+
+    private let userDefaults = UserDefaults.standard
 
     init(_ navigationController: UINavigationController) {
         self.navigationController = navigationController
-        navigationController.navigationBar.isHidden = true
+        navigationController.setNavigationBarHidden(true, animated: false)
     }
 
     func start() {
-        if UserDefaults.standard.bool(forKey: UserDefaultKey.isFirstUser) {
-            self.showOnBoardingScene()
-        } else {
-            self.showLoginScene()
-        }
+//        if userDefaults.bool(forKey: UserDefaultKeyCase.isFirstUser) {
+//            showOnBoardingScene()
+//        } else if userDefaults.bool(forKey: UserDefaultKeyCase.isLoggedIn) {
+//            showLoginScene()
+//        } else {
+//            showTabBarScene()
+//        }
+//        showOnBoardingScene()
+        connectLoginCoordinator()
+//        showTabBarScene()
     }
 
-    private func showOnBoardingScene() {
+    private func connectOnBoardingCoordinator() {
         let onBoardingCoordinator = OnBoardingCoordinator(self.navigationController)
         onBoardingCoordinator.start()
         childCoordinators.append(onBoardingCoordinator)
     }
 
-    private func showLoginScene() {
+    private func connectLoginCoordinator() {
         let loginCoordinator = LoginCoordinator(self.navigationController)
         loginCoordinator.start()
         childCoordinators.append(loginCoordinator)
     }
 
-    private func showTabBarScene() {
-
+    private func connectTabBarCoordinator() {
+        let tabBarCoordinator = TabBarCoordinator(self.navigationController)
+        tabBarCoordinator.start()
+        childCoordinators.append(tabBarCoordinator)
     }
 }
