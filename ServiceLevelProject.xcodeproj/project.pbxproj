@@ -16,9 +16,9 @@
 		BB105D6127966ABD008264DD /* ServiceLevelProjectUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB105D6027966ABD008264DD /* ServiceLevelProjectUITestsLaunchTests.swift */; };
 		BB105D6E2796B0DA008264DD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB105D6D2796B0DA008264DD /* LoginViewController.swift */; };
 		BB105D712796B0F6008264DD /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB105D702796B0F6008264DD /* RegisterViewController.swift */; };
-		BB105D782796B2B8008264DD /* SLPFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB105D772796B2B8008264DD /* SLPFont.swift */; };
+		BB105D782796B2B8008264DD /* AppFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB105D772796B2B8008264DD /* AppFont.swift */; };
 		BB105D7C2796B660008264DD /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB105D7B2796B660008264DD /* UIFont.swift */; };
-		BB105D7F2796B8BC008264DD /* SLPColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB105D7E2796B8BC008264DD /* SLPColor.swift */; };
+		BB105D7F2796B8BC008264DD /* AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB105D7E2796B8BC008264DD /* AppColor.swift */; };
 		BB105D812796B9B7008264DD /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB105D802796B9B7008264DD /* UIColor.swift */; };
 		BB105D842796C26C008264DD /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = BB105D832796C26C008264DD /* SnapKit */; };
 		BB105D892796D050008264DD /* AuthTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB105D882796D050008264DD /* AuthTextField.swift */; };
@@ -41,6 +41,13 @@
 		BB8D1F3A2799BE6400D111B6 /* AuthTextField+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8D1F392799BE6400D111B6 /* AuthTextField+Rx.swift */; };
 		BB8D1F3C279A992C00D111B6 /* CertificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8D1F3B279A992C00D111B6 /* CertificationViewModel.swift */; };
 		BBAAA684279ABFAD00667591 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = BBAAA683279ABFAD00667591 /* Moya */; };
+		BBAAA687279AD3A500667591 /* SLPTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAA686279AD3A500667591 /* SLPTarget.swift */; };
+		BBAAA68A279AD78000667591 /* APIEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAA689279AD78000667591 /* APIEnvironment.swift */; };
+		BBAAA68C279AD7BE00667591 /* APIConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAA68B279AD7BE00667591 /* APIConstant.swift */; };
+		BBAAA68E279B07A500667591 /* SLPTarget+StubData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAA68D279B07A500667591 /* SLPTarget+StubData.swift */; };
+		BBAAA690279B0BEB00667591 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAA68F279B0BEB00667591 /* NetworkMonitor.swift */; };
+		BBAAA692279B0C7300667591 /* CommonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAA691279B0C7300667591 /* CommonViewModel.swift */; };
+		BBAAA694279B2C2600667591 /* UserRegisterInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAA693279B2C2600667591 /* UserRegisterInfo.swift */; };
 		BBED11EF27984744002A5E9E /* Assets+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBED11EE27984744002A5E9E /* Assets+Generated.swift */; };
 		BBED11F7279869EA002A5E9E /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBED11F6279869EA002A5E9E /* Coordinator.swift */; };
 		BBED11FB27986D87002A5E9E /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = BBED11FA27986D87002A5E9E /* FirebaseAuth */; };
@@ -55,8 +62,8 @@
 		BBED121927996F97002A5E9E /* DefaultFillButton+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBED121827996F97002A5E9E /* DefaultFillButton+Rx.swift */; };
 		BBED121B279976A4002A5E9E /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBED121A279976A4002A5E9E /* UIViewController.swift */; };
 		BBED121E279976D2002A5E9E /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = BBED121D279976D2002A5E9E /* Toast */; };
-		BBED12202799785F002A5E9E /* SesacErrorCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBED121F2799785F002A5E9E /* SesacErrorCase.swift */; };
-		BBED12252799AAC5002A5E9E /* StopWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBED12242799AAC5002A5E9E /* StopWatch.swift */; };
+		BBED12202799785F002A5E9E /* ValidationErrorCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBED121F2799785F002A5E9E /* ValidationErrorCase.swift */; };
+		BBED12252799AAC5002A5E9E /* StopWatchConverterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBED12242799AAC5002A5E9E /* StopWatchConverterService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,9 +97,9 @@
 		BB105D6027966ABD008264DD /* ServiceLevelProjectUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLevelProjectUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		BB105D6D2796B0DA008264DD /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		BB105D702796B0F6008264DD /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
-		BB105D772796B2B8008264DD /* SLPFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SLPFont.swift; sourceTree = "<group>"; };
+		BB105D772796B2B8008264DD /* AppFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFont.swift; sourceTree = "<group>"; };
 		BB105D7B2796B660008264DD /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
-		BB105D7E2796B8BC008264DD /* SLPColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SLPColor.swift; sourceTree = "<group>"; };
+		BB105D7E2796B8BC008264DD /* AppColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColor.swift; sourceTree = "<group>"; };
 		BB105D802796B9B7008264DD /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		BB105D882796D050008264DD /* AuthTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTextField.swift; sourceTree = "<group>"; };
 		BB105D8A2796E610008264DD /* DefaultFillButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultFillButton.swift; sourceTree = "<group>"; };
@@ -113,6 +120,13 @@
 		BB8D1F332799B62100D111B6 /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
 		BB8D1F392799BE6400D111B6 /* AuthTextField+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthTextField+Rx.swift"; sourceTree = "<group>"; };
 		BB8D1F3B279A992C00D111B6 /* CertificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificationViewModel.swift; sourceTree = "<group>"; };
+		BBAAA686279AD3A500667591 /* SLPTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SLPTarget.swift; sourceTree = "<group>"; };
+		BBAAA689279AD78000667591 /* APIEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEnvironment.swift; sourceTree = "<group>"; };
+		BBAAA68B279AD7BE00667591 /* APIConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstant.swift; sourceTree = "<group>"; };
+		BBAAA68D279B07A500667591 /* SLPTarget+StubData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SLPTarget+StubData.swift"; sourceTree = "<group>"; };
+		BBAAA68F279B0BEB00667591 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
+		BBAAA691279B0C7300667591 /* CommonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonViewModel.swift; sourceTree = "<group>"; };
+		BBAAA693279B2C2600667591 /* UserRegisterInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRegisterInfo.swift; sourceTree = "<group>"; };
 		BBED11EE27984744002A5E9E /* Assets+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Assets+Generated.swift"; sourceTree = "<group>"; };
 		BBED11F6279869EA002A5E9E /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		BBED11F827986CCC002A5E9E /* ServiceLevelProject.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ServiceLevelProject.entitlements; sourceTree = "<group>"; };
@@ -122,8 +136,8 @@
 		BBED121527994594002A5E9E /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		BBED121827996F97002A5E9E /* DefaultFillButton+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DefaultFillButton+Rx.swift"; sourceTree = "<group>"; };
 		BBED121A279976A4002A5E9E /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
-		BBED121F2799785F002A5E9E /* SesacErrorCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SesacErrorCase.swift; sourceTree = "<group>"; };
-		BBED12242799AAC5002A5E9E /* StopWatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopWatch.swift; sourceTree = "<group>"; };
+		BBED121F2799785F002A5E9E /* ValidationErrorCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationErrorCase.swift; sourceTree = "<group>"; };
+		BBED12242799AAC5002A5E9E /* StopWatchConverterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopWatchConverterService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,8 +199,9 @@
 			children = (
 				BBED11F827986CCC002A5E9E /* ServiceLevelProject.entitlements */,
 				BB105D792796B2BD008264DD /* Application */,
-				BBED12232799AAB0002A5E9E /* Common */,
+				BBED12232799AAB0002A5E9E /* Utils */,
 				BBED12262799ABD2002A5E9E /* Data */,
+				BBAAA685279AD39100667591 /* Network */,
 				BBED12272799ABD8002A5E9E /* Domain */,
 				BBED12282799ABE7002A5E9E /* Infrastructure */,
 				BB105D7A2796B347008264DD /* Presentation */,
@@ -235,8 +250,8 @@
 			children = (
 				BB105D3D27966ABC008264DD /* AppDelegate.swift */,
 				BB105D3F27966ABC008264DD /* SceneDelegate.swift */,
-				BB105D772796B2B8008264DD /* SLPFont.swift */,
-				BB105D7E2796B8BC008264DD /* SLPColor.swift */,
+				BB105D772796B2B8008264DD /* AppFont.swift */,
+				BB105D7E2796B8BC008264DD /* AppColor.swift */,
 				BB105DA12798232D008264DD /* AppAppearance.swift */,
 			);
 			path = Application;
@@ -318,11 +333,71 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		BBED11F5279869C0002A5E9E /* Common */ = {
+		BBAAA685279AD39100667591 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				BBAAA68F279B0BEB00667591 /* NetworkMonitor.swift */,
+				BBAAA686279AD3A500667591 /* SLPTarget.swift */,
+				BBAAA68D279B07A500667591 /* SLPTarget+StubData.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		BBAAA688279AD6C800667591 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				BBED121F2799785F002A5E9E /* ValidationErrorCase.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
+		BBAAA695279BCBFB00667591 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				BB8D1F332799B62100D111B6 /* ViewModelType.swift */,
+				BBAAA691279B0C7300667591 /* CommonViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		BBAAA696279BCC0000667591 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
 				BBED11F6279869EA002A5E9E /* Coordinator.swift */,
-				BB8D1F332799B62100D111B6 /* ViewModelType.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		BBAAA697279BCC2600667591 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BBED1201279902ED002A5E9E /* OnboardingViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BBAAA698279BCC9C00667591 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				BBED12242799AAC5002A5E9E /* StopWatchConverterService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		BBAAA699279BCCE400667591 /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+				BBAAA68B279AD7BE00667591 /* APIConstant.swift */,
+				BBAAA689279AD78000667591 /* APIEnvironment.swift */,
+			);
+			path = Constant;
+			sourceTree = "<group>";
+		};
+		BBED11F5279869C0002A5E9E /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				BBAAA696279BCC0000667591 /* Coordinator */,
+				BBAAA695279BCBFB00667591 /* ViewModel */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -330,7 +405,7 @@
 		BBED1200279902CC002A5E9E /* OnBoarding */ = {
 			isa = PBXGroup;
 			children = (
-				BBED1201279902ED002A5E9E /* OnboardingViewController.swift */,
+				BBAAA697279BCC2600667591 /* View */,
 			);
 			path = OnBoarding;
 			sourceTree = "<group>";
@@ -366,13 +441,14 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		BBED12232799AAB0002A5E9E /* Common */ = {
+		BBED12232799AAB0002A5E9E /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				BBED121F2799785F002A5E9E /* SesacErrorCase.swift */,
-				BBED12242799AAC5002A5E9E /* StopWatch.swift */,
+				BBAAA699279BCCE400667591 /* Constant */,
+				BBAAA698279BCC9C00667591 /* Service */,
+				BBAAA688279AD6C800667591 /* Error */,
 			);
-			path = Common;
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		BBED12262799ABD2002A5E9E /* Data */ = {
@@ -385,6 +461,7 @@
 		BBED12272799ABD8002A5E9E /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				BBAAA693279B2C2600667591 /* UserRegisterInfo.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -591,23 +668,28 @@
 				BB105D892796D050008264DD /* AuthTextField.swift in Sources */,
 				BBED121B279976A4002A5E9E /* UIViewController.swift in Sources */,
 				BB105D3E27966ABC008264DD /* AppDelegate.swift in Sources */,
-				BBED12252799AAC5002A5E9E /* StopWatch.swift in Sources */,
-				BB105D7F2796B8BC008264DD /* SLPColor.swift in Sources */,
+				BBED12252799AAC5002A5E9E /* StopWatchConverterService.swift in Sources */,
+				BB105D7F2796B8BC008264DD /* AppColor.swift in Sources */,
 				BBED1202279902ED002A5E9E /* OnboardingViewController.swift in Sources */,
 				BB105D7C2796B660008264DD /* UIFont.swift in Sources */,
+				BBAAA694279B2C2600667591 /* UserRegisterInfo.swift in Sources */,
 				BB8D1F322799B5FB00D111B6 /* LoginViewModel.swift in Sources */,
 				BB105D8D2796F004008264DD /* CertificationViewController.swift in Sources */,
 				BB8D1F342799B62100D111B6 /* ViewModelType.swift in Sources */,
-				BBED12202799785F002A5E9E /* SesacErrorCase.swift in Sources */,
+				BBED12202799785F002A5E9E /* ValidationErrorCase.swift in Sources */,
 				BBED11F7279869EA002A5E9E /* Coordinator.swift in Sources */,
 				BB105D9E27981074008264DD /* UIButton.swift in Sources */,
 				BB105D4027966ABC008264DD /* SceneDelegate.swift in Sources */,
+				BBAAA68E279B07A500667591 /* SLPTarget+StubData.swift in Sources */,
 				BB105D942797AAD1008264DD /* SetNicknameViewController.swift in Sources */,
 				BB105D962797AAE5008264DD /* SetBirthViewController.swift in Sources */,
+				BBAAA692279B0C7300667591 /* CommonViewModel.swift in Sources */,
 				BB105D812796B9B7008264DD /* UIColor.swift in Sources */,
 				BBED11EF27984744002A5E9E /* Assets+Generated.swift in Sources */,
+				BBAAA68C279AD7BE00667591 /* APIConstant.swift in Sources */,
 				BB105D982797AAF8008264DD /* SetEmailViewController.swift in Sources */,
-				BB105D782796B2B8008264DD /* SLPFont.swift in Sources */,
+				BB105D782796B2B8008264DD /* AppFont.swift in Sources */,
+				BBAAA687279AD3A500667591 /* SLPTarget.swift in Sources */,
 				BBED121927996F97002A5E9E /* DefaultFillButton+Rx.swift in Sources */,
 				BB105D8B2796E610008264DD /* DefaultFillButton.swift in Sources */,
 				BBED121627994594002A5E9E /* String.swift in Sources */,
@@ -618,6 +700,8 @@
 				BBED120427990CB5002A5E9E /* NSMutableAttributedString.swift in Sources */,
 				BB105D9A2797F313008264DD /* SetGenderViewController.swift in Sources */,
 				BB105D9C2797FA21008264DD /* GenderButton.swift in Sources */,
+				BBAAA690279B0BEB00667591 /* NetworkMonitor.swift in Sources */,
+				BBAAA68A279AD78000667591 /* APIEnvironment.swift in Sources */,
 				BB105DA22798232D008264DD /* AppAppearance.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
