@@ -10,7 +10,7 @@ import UIKit
 extension NSMutableAttributedString {
 
     func greenHighlight(string: String) -> NSMutableAttributedString {
-        let font: UIFont = UIFont(name: SLPFont.medium.rawValue, size: 24)!
+        let font: UIFont = UIFont(name: AppFont.medium.rawValue, size: 24)!
         let color: UIColor = .green
         let attributes: [NSAttributedString.Key: Any] = [
             .font: font,
@@ -21,7 +21,7 @@ extension NSMutableAttributedString {
     }
 
     func regular(string: String) -> NSMutableAttributedString {
-        let font: UIFont = UIFont(name: SLPFont.regular.rawValue, size: 24)!
+        let font: UIFont = UIFont(name: AppFont.regular.rawValue, size: 24)!
         let attributes: [NSAttributedString.Key: Any] = [.font: font]
         self.append(NSAttributedString(string: string, attributes: attributes))
         return self
