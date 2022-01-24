@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct UserInfoResponse: Codable {
+struct UserInfoResponseDTO: Codable {
+    
     let userID, phoneNumber, email, fcmToken: String
     let nick, birth: String
     let gender: Int

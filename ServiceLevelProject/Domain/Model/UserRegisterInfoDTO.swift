@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct UserRegisterInfo: Codable {
+struct UserRegisterInfoDTO: Codable {
+
     let phoneNumber: String
     let FCMtoken: String
     let nick: String
