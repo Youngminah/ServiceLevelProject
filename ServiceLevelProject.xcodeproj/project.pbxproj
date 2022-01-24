@@ -33,6 +33,15 @@
 		BB105D9E27981074008264DD /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB105D9D27981074008264DD /* UIButton.swift */; };
 		BB105DA0279819F6008264DD /* DetailLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB105D9F279819F6008264DD /* DetailLabel.swift */; };
 		BB105DA22798232D008264DD /* AppAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB105DA12798232D008264DD /* AppAppearance.swift */; };
+		BB7A216F279D1673005FD0A3 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7A216E279D1673005FD0A3 /* UserRepository.swift */; };
+		BB7A2172279D16BA005FD0A3 /* UserRepositoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7A2171279D16BA005FD0A3 /* UserRepositoryType.swift */; };
+		BB7A2174279D9BA4005FD0A3 /* LoginUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7A2173279D9BA4005FD0A3 /* LoginUseCase.swift */; };
+		BB7A2176279D9BB6005FD0A3 /* CertificationUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7A2175279D9BB6005FD0A3 /* CertificationUseCase.swift */; };
+		BB7A2178279D9BCC005FD0A3 /* RegisterUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7A2177279D9BCC005FD0A3 /* RegisterUseCase.swift */; };
+		BB7A217E279DA32F005FD0A3 /* FireBaseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7A217D279DA32F005FD0A3 /* FireBaseRepository.swift */; };
+		BB7A2180279DA3EF005FD0A3 /* SesacRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7A217F279DA3EF005FD0A3 /* SesacRepository.swift */; };
+		BB7A2182279DAF2B005FD0A3 /* FirbaseRepositoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7A2181279DAF2B005FD0A3 /* FirbaseRepositoryType.swift */; };
+		BB7A2184279DAF3C005FD0A3 /* SesacRepositoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7A2183279DAF3C005FD0A3 /* SesacRepositoryType.swift */; };
 		BB8D1F2E2799AD6200D111B6 /* NotoSansKR-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = BB8D1F2D2799AD6200D111B6 /* NotoSansKR-Medium.otf */; };
 		BB8D1F302799AD6B00D111B6 /* NotoSansKR-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = BB8D1F2F2799AD6B00D111B6 /* NotoSansKR-Regular.otf */; };
 		BB8D1F322799B5FB00D111B6 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8D1F312799B5FB00D111B6 /* LoginViewModel.swift */; };
@@ -45,9 +54,8 @@
 		BBAAA68C279AD7BE00667591 /* APIConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAA68B279AD7BE00667591 /* APIConstant.swift */; };
 		BBAAA68E279B07A500667591 /* SLPTarget+StubData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAA68D279B07A500667591 /* SLPTarget+StubData.swift */; };
 		BBAAA690279B0BEB00667591 /* NetworkMonitorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAA68F279B0BEB00667591 /* NetworkMonitorService.swift */; };
-		BBAAA692279B0C7300667591 /* CommonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAA691279B0C7300667591 /* CommonViewModel.swift */; };
-		BBAAA694279B2C2600667591 /* UserRegisterInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAA693279B2C2600667591 /* UserRegisterInfo.swift */; };
-		BBAAA69C279BE30700667591 /* UserInfoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAA69B279BE30700667591 /* UserInfoResponse.swift */; };
+		BBAAA694279B2C2600667591 /* UserRegisterInfoDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAA693279B2C2600667591 /* UserRegisterInfoDTO.swift */; };
+		BBAAA69C279BE30700667591 /* UserInfoResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAA69B279BE30700667591 /* UserInfoResponseDTO.swift */; };
 		BBAAA69E279BE72D00667591 /* DefaultMoyaNetworkServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAA69D279BE72D00667591 /* DefaultMoyaNetworkServiceError.swift */; };
 		BBAAA6A2279BFC6700667591 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAA6A1279BFC6700667591 /* HomeViewController.swift */; };
 		BBAAA6A4279C0F2200667591 /* CoordinatorStyleCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAA6A3279C0F2200667591 /* CoordinatorStyleCase.swift */; };
@@ -140,6 +148,15 @@
 		BB105D9D27981074008264DD /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		BB105D9F279819F6008264DD /* DetailLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailLabel.swift; sourceTree = "<group>"; };
 		BB105DA12798232D008264DD /* AppAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAppearance.swift; sourceTree = "<group>"; };
+		BB7A216E279D1673005FD0A3 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
+		BB7A2171279D16BA005FD0A3 /* UserRepositoryType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepositoryType.swift; sourceTree = "<group>"; };
+		BB7A2173279D9BA4005FD0A3 /* LoginUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUseCase.swift; sourceTree = "<group>"; };
+		BB7A2175279D9BB6005FD0A3 /* CertificationUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificationUseCase.swift; sourceTree = "<group>"; };
+		BB7A2177279D9BCC005FD0A3 /* RegisterUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUseCase.swift; sourceTree = "<group>"; };
+		BB7A217D279DA32F005FD0A3 /* FireBaseRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireBaseRepository.swift; sourceTree = "<group>"; };
+		BB7A217F279DA3EF005FD0A3 /* SesacRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SesacRepository.swift; sourceTree = "<group>"; };
+		BB7A2181279DAF2B005FD0A3 /* FirbaseRepositoryType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirbaseRepositoryType.swift; sourceTree = "<group>"; };
+		BB7A2183279DAF3C005FD0A3 /* SesacRepositoryType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SesacRepositoryType.swift; sourceTree = "<group>"; };
 		BB8D1F2D2799AD6200D111B6 /* NotoSansKR-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Medium.otf"; sourceTree = "<group>"; };
 		BB8D1F2F2799AD6B00D111B6 /* NotoSansKR-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Regular.otf"; sourceTree = "<group>"; };
 		BB8D1F312799B5FB00D111B6 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -151,9 +168,8 @@
 		BBAAA68B279AD7BE00667591 /* APIConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstant.swift; sourceTree = "<group>"; };
 		BBAAA68D279B07A500667591 /* SLPTarget+StubData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SLPTarget+StubData.swift"; sourceTree = "<group>"; };
 		BBAAA68F279B0BEB00667591 /* NetworkMonitorService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitorService.swift; sourceTree = "<group>"; };
-		BBAAA691279B0C7300667591 /* CommonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonViewModel.swift; sourceTree = "<group>"; };
-		BBAAA693279B2C2600667591 /* UserRegisterInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRegisterInfo.swift; sourceTree = "<group>"; };
-		BBAAA69B279BE30700667591 /* UserInfoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoResponse.swift; sourceTree = "<group>"; };
+		BBAAA693279B2C2600667591 /* UserRegisterInfoDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRegisterInfoDTO.swift; sourceTree = "<group>"; };
+		BBAAA69B279BE30700667591 /* UserInfoResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoResponseDTO.swift; sourceTree = "<group>"; };
 		BBAAA69D279BE72D00667591 /* DefaultMoyaNetworkServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultMoyaNetworkServiceError.swift; sourceTree = "<group>"; };
 		BBAAA6A1279BFC6700667591 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		BBAAA6A3279C0F2200667591 /* CoordinatorStyleCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorStyleCase.swift; sourceTree = "<group>"; };
@@ -255,7 +271,6 @@
 				BB105D792796B2BD008264DD /* Application */,
 				BBED12232799AAB0002A5E9E /* Utils */,
 				BBED12262799ABD2002A5E9E /* Data */,
-				BBAAA685279AD39100667591 /* Network */,
 				BBED12272799ABD8002A5E9E /* Domain */,
 				BBED12282799ABE7002A5E9E /* Infrastructure */,
 				BB105D7A2796B347008264DD /* Presentation */,
@@ -355,6 +370,60 @@
 			path = CustomView;
 			sourceTree = "<group>";
 		};
+		BB7A216B279D112F005FD0A3 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		BB7A216C279D113C005FD0A3 /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+				BB7A2173279D9BA4005FD0A3 /* LoginUseCase.swift */,
+				BB7A2175279D9BB6005FD0A3 /* CertificationUseCase.swift */,
+				BB7A2177279D9BCC005FD0A3 /* RegisterUseCase.swift */,
+			);
+			path = UseCase;
+			sourceTree = "<group>";
+		};
+		BB7A216D279D13A4005FD0A3 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				BB7A216E279D1673005FD0A3 /* UserRepository.swift */,
+				BB7A217D279DA32F005FD0A3 /* FireBaseRepository.swift */,
+				BB7A217F279DA3EF005FD0A3 /* SesacRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		BB7A2179279D9CD1005FD0A3 /* Interfaces */ = {
+			isa = PBXGroup;
+			children = (
+				BB7A217A279D9CDE005FD0A3 /* Repositories */,
+			);
+			path = Interfaces;
+			sourceTree = "<group>";
+		};
+		BB7A217A279D9CDE005FD0A3 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				BB7A2171279D16BA005FD0A3 /* UserRepositoryType.swift */,
+				BB7A2181279DAF2B005FD0A3 /* FirbaseRepositoryType.swift */,
+				BB7A2183279DAF3C005FD0A3 /* SesacRepositoryType.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		BB7A217B279D9E72005FD0A3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BBAAA69B279BE30700667591 /* UserInfoResponseDTO.swift */,
+				BBAAA693279B2C2600667591 /* UserRegisterInfoDTO.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		BB8D1F352799B76E00D111B6 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -418,7 +487,6 @@
 			isa = PBXGroup;
 			children = (
 				BBAAA6C8279C42BA00667591 /* Protocol */,
-				BBAAA691279B0C7300667591 /* CommonViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -678,6 +746,8 @@
 		BBED12262799ABD2002A5E9E /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				BB7A216D279D13A4005FD0A3 /* Repository */,
+				BBAAA685279AD39100667591 /* Network */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -685,8 +755,10 @@
 		BBED12272799ABD8002A5E9E /* Domain */ = {
 			isa = PBXGroup;
 			children = (
-				BBAAA693279B2C2600667591 /* UserRegisterInfo.swift */,
-				BBAAA69B279BE30700667591 /* UserInfoResponse.swift */,
+				BB7A217B279D9E72005FD0A3 /* Model */,
+				BB7A216B279D112F005FD0A3 /* Entity */,
+				BB7A216C279D113C005FD0A3 /* UseCase */,
+				BB7A2179279D9CD1005FD0A3 /* Interfaces */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -891,30 +963,34 @@
 				BBAAA6D1279C46D200667591 /* MyPageViewController.swift in Sources */,
 				BBAAA6A6279C105F00667591 /* AppCoordinator.swift in Sources */,
 				BB105D6E2796B0DA008264DD /* LoginViewController.swift in Sources */,
+				BB7A2176279D9BB6005FD0A3 /* CertificationUseCase.swift in Sources */,
 				BB8D1F3A2799BE6400D111B6 /* AuthTextField+Rx.swift in Sources */,
 				BBAAA6C6279C3D2F00667591 /* GenderCoordinator.swift in Sources */,
 				BB105D892796D050008264DD /* AuthTextField.swift in Sources */,
+				BB7A216F279D1673005FD0A3 /* UserRepository.swift in Sources */,
 				BBED121B279976A4002A5E9E /* UIViewController.swift in Sources */,
 				BBAAA6D9279C55B800667591 /* SesacShopCoordinator.swift in Sources */,
 				BB105D3E27966ABC008264DD /* AppDelegate.swift in Sources */,
 				BBAAA6C0279C3D1100667591 /* NickNameCoordinator.swift in Sources */,
 				BBAAA6AB279C169500667591 /* TransitionStyle.swift in Sources */,
+				BB7A2184279DAF3C005FD0A3 /* SesacRepositoryType.swift in Sources */,
 				BBAAA6DE279C598D00667591 /* MyPageCoordinator.swift in Sources */,
 				BBAAA6A2279BFC6700667591 /* HomeViewController.swift in Sources */,
 				BBED12252799AAC5002A5E9E /* StopWatchConverterService.swift in Sources */,
 				BB105D7F2796B8BC008264DD /* AppColor.swift in Sources */,
 				BBED1202279902ED002A5E9E /* OnBoardingViewController.swift in Sources */,
 				BB105D7C2796B660008264DD /* UIFont.swift in Sources */,
-				BBAAA694279B2C2600667591 /* UserRegisterInfo.swift in Sources */,
+				BBAAA694279B2C2600667591 /* UserRegisterInfoDTO.swift in Sources */,
 				BB8D1F322799B5FB00D111B6 /* LoginViewModel.swift in Sources */,
 				BBAAA6CF279C46C700667591 /* SesacFriendViewController.swift in Sources */,
 				BB105D8D2796F004008264DD /* CertificationViewController.swift in Sources */,
 				BBAAA6DC279C55ED00667591 /* SesacFriendCoordinator.swift in Sources */,
 				BB8D1F342799B62100D111B6 /* ViewModelType.swift in Sources */,
 				BBAAA6AE279C176C00667591 /* OnBoardingCoordinator.swift in Sources */,
-				BBAAA69C279BE30700667591 /* UserInfoResponse.swift in Sources */,
+				BBAAA69C279BE30700667591 /* UserInfoResponseDTO.swift in Sources */,
 				BBED12202799785F002A5E9E /* ValidationErrorCase.swift in Sources */,
 				BBAAA6A4279C0F2200667591 /* CoordinatorStyleCase.swift in Sources */,
+				BB7A2180279DA3EF005FD0A3 /* SesacRepository.swift in Sources */,
 				BBAAA6C4279C3D2600667591 /* EmailCoordinator.swift in Sources */,
 				BBED11F7279869EA002A5E9E /* Coordinator.swift in Sources */,
 				BB105D9E27981074008264DD /* UIButton.swift in Sources */,
@@ -922,11 +998,13 @@
 				BB105D4027966ABC008264DD /* SceneDelegate.swift in Sources */,
 				BBAAA6BE279C3CFA00667591 /* GenderViewModel.swift in Sources */,
 				BBAAA6B3279C256400667591 /* LoginCoordinator.swift in Sources */,
+				BB7A2172279D16BA005FD0A3 /* UserRepositoryType.swift in Sources */,
 				BBAAA68E279B07A500667591 /* SLPTarget+StubData.swift in Sources */,
 				BB105D942797AAD1008264DD /* NicknameViewController.swift in Sources */,
 				BBAAA6D5279C542A00667591 /* TabBarPage.swift in Sources */,
+				BB7A2174279D9BA4005FD0A3 /* LoginUseCase.swift in Sources */,
 				BB105D962797AAE5008264DD /* BirthViewController.swift in Sources */,
-				BBAAA692279B0C7300667591 /* CommonViewModel.swift in Sources */,
+				BB7A217E279DA32F005FD0A3 /* FireBaseRepository.swift in Sources */,
 				BBAAA6C2279C3D1B00667591 /* BirthCoordinator.swift in Sources */,
 				BBAAA6B9279C3CE100667591 /* BirthViewModel.swift in Sources */,
 				BBAAA69E279BE72D00667591 /* DefaultMoyaNetworkServiceError.swift in Sources */,
@@ -938,6 +1016,7 @@
 				BBED11EF27984744002A5E9E /* Assets+Generated.swift in Sources */,
 				BBAAA68C279AD7BE00667591 /* APIConstant.swift in Sources */,
 				BB105D982797AAF8008264DD /* EmailViewController.swift in Sources */,
+				BB7A2178279D9BCC005FD0A3 /* RegisterUseCase.swift in Sources */,
 				BBAAA6B5279C29A000667591 /* CertificationCoordinator.swift in Sources */,
 				BB105D782796B2B8008264DD /* AppFont.swift in Sources */,
 				BBAAA687279AD3A500667591 /* SLPTarget.swift in Sources */,
@@ -949,6 +1028,7 @@
 				BB105D8F2796F197008264DD /* DescriptionLabel.swift in Sources */,
 				BBED120427990CB5002A5E9E /* NSMutableAttributedString.swift in Sources */,
 				BBAAA6BC279C3CF100667591 /* EmailViewModel.swift in Sources */,
+				BB7A2182279DAF2B005FD0A3 /* FirbaseRepositoryType.swift in Sources */,
 				BB105D9A2797F313008264DD /* GenderViewController.swift in Sources */,
 				BB105D9C2797FA21008264DD /* GenderButton.swift in Sources */,
 				BBAAA690279B0BEB00667591 /* NetworkMonitorService.swift in Sources */,
