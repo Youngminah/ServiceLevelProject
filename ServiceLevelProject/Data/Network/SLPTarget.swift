@@ -8,17 +8,17 @@
 import Foundation
 import Moya
 
-typealias JsonType = [String: Any]
+typealias DictionaryType = [String: Any]
 
 enum SLPTarget {
     // User
-    case register(parameters: JsonType)
+    case register(parameters: DictionaryType)
     case getUserInfo
-    case withdrawUser(parameters: JsonType)
+    case withdrawUser(parameters: DictionaryType)
     // User FCM
-    case updateFCMToken(parameters: JsonType)
+    case updateFCMToken(parameters: DictionaryType)
     // User MyPage
-    case updateMyPage(parameters: JsonType)
+    case updateMyPage(parameters: DictionaryType)
 }
 
 extension SLPTarget: TargetType {
@@ -80,7 +80,7 @@ extension SLPTarget: TargetType {
     }
 
     var headers: [String: String]? {
-        let token = UserDefaults.standard.string(forKey: "IdToken")!
+        let token = UserDefaults.standard.string(forKey: UserDefaultKeyCase.idToken)!
         return [
             "Content-Type": "application/json",
             "idtoken": token
