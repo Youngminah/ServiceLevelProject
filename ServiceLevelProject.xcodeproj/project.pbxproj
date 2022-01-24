@@ -78,7 +78,7 @@
 		BBAAA6CF279C46C700667591 /* SesacFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAA6CE279C46C700667591 /* SesacFriendViewController.swift */; };
 		BBAAA6D1279C46D200667591 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAA6D0279C46D200667591 /* MyPageViewController.swift */; };
 		BBAAA6D3279C481700667591 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAA6D2279C481700667591 /* TabBarCoordinator.swift */; };
-		BBAAA6D5279C542A00667591 /* TabBarPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAA6D4279C542A00667591 /* TabBarPage.swift */; };
+		BBAAA6D5279C542A00667591 /* TabBarPageCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAA6D4279C542A00667591 /* TabBarPageCase.swift */; };
 		BBAAA6D7279C55AA00667591 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAA6D6279C55AA00667591 /* HomeCoordinator.swift */; };
 		BBAAA6D9279C55B800667591 /* SesacShopCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAA6D8279C55B800667591 /* SesacShopCoordinator.swift */; };
 		BBAAA6DC279C55ED00667591 /* SesacFriendCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAA6DB279C55ED00667591 /* SesacFriendCoordinator.swift */; };
@@ -192,7 +192,7 @@
 		BBAAA6CE279C46C700667591 /* SesacFriendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SesacFriendViewController.swift; sourceTree = "<group>"; };
 		BBAAA6D0279C46D200667591 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
 		BBAAA6D2279C481700667591 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
-		BBAAA6D4279C542A00667591 /* TabBarPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarPage.swift; sourceTree = "<group>"; };
+		BBAAA6D4279C542A00667591 /* TabBarPageCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarPageCase.swift; sourceTree = "<group>"; };
 		BBAAA6D6279C55AA00667591 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 		BBAAA6D8279C55B800667591 /* SesacShopCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SesacShopCoordinator.swift; sourceTree = "<group>"; };
 		BBAAA6DB279C55ED00667591 /* SesacFriendCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SesacFriendCoordinator.swift; sourceTree = "<group>"; };
@@ -270,10 +270,9 @@
 				BBED11F827986CCC002A5E9E /* ServiceLevelProject.entitlements */,
 				BB105D792796B2BD008264DD /* Application */,
 				BBED12232799AAB0002A5E9E /* Utils */,
-				BBED12262799ABD2002A5E9E /* Data */,
-				BBED12272799ABD8002A5E9E /* Domain */,
-				BBED12282799ABE7002A5E9E /* Infrastructure */,
 				BB105D7A2796B347008264DD /* Presentation */,
+				BBED12272799ABD8002A5E9E /* Domain */,
+				BBED12262799ABD2002A5E9E /* Data */,
 				BBED12222799AA74002A5E9E /* Resources */,
 			);
 			path = ServiceLevelProject;
@@ -296,14 +295,14 @@
 			path = ServiceLevelProjectUITests;
 			sourceTree = "<group>";
 		};
-		BB105D6F2796B0E1008264DD /* Auth */ = {
+		BB105D6F2796B0E1008264DD /* AuthScene */ = {
 			isa = PBXGroup;
 			children = (
 				BBAAA6B1279C254F00667591 /* Coordinator */,
 				BBED1221279986A1002A5E9E /* ViewModel */,
 				BB8D1F352799B76E00D111B6 /* View */,
 			);
-			path = Auth;
+			path = AuthScene;
 			sourceTree = "<group>";
 		};
 		BB105D722796B169008264DD /* Font */ = {
@@ -331,14 +330,13 @@
 			isa = PBXGroup;
 			children = (
 				BBED11F5279869C0002A5E9E /* Common */,
-				BB105D872796CEB3008264DD /* CustomView */,
-				BBED1200279902CC002A5E9E /* OnBoarding */,
-				BB105D6F2796B0E1008264DD /* Auth */,
-				BB8D1F362799B7B800D111B6 /* Register */,
-				BBAAA6A0279BFC3F00667591 /* Home */,
-				BBAAA6CB279C460A00667591 /* SesacShop */,
-				BBAAA6CC279C462F00667591 /* SesacFriend */,
-				BBAAA6CD279C464300667591 /* MyPage */,
+				BBED1200279902CC002A5E9E /* OnBoardingScene */,
+				BB105D6F2796B0E1008264DD /* AuthScene */,
+				BB8D1F362799B7B800D111B6 /* RegisterScene */,
+				BBAAA6A0279BFC3F00667591 /* HomeScene */,
+				BBAAA6CB279C460A00667591 /* SesacShopScene */,
+				BBAAA6CC279C462F00667591 /* SesacFriendScene */,
+				BBAAA6CD279C464300667591 /* MyPageScene */,
 				BBED121727996F53002A5E9E /* RxExtension */,
 				BB105D7D2796B668008264DD /* Extension */,
 			);
@@ -368,13 +366,6 @@
 				BB105D9F279819F6008264DD /* DetailLabel.swift */,
 			);
 			path = CustomView;
-			sourceTree = "<group>";
-		};
-		BB7A216B279D112F005FD0A3 /* Entity */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Entity;
 			sourceTree = "<group>";
 		};
 		BB7A216C279D113C005FD0A3 /* UseCase */ = {
@@ -433,14 +424,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		BB8D1F362799B7B800D111B6 /* Register */ = {
+		BB8D1F362799B7B800D111B6 /* RegisterScene */ = {
 			isa = PBXGroup;
 			children = (
 				BBAAA6BA279C3CE400667591 /* Coordinator */,
 				BB8D1F382799B7FC00D111B6 /* ViewModel */,
 				BB8D1F372799B7F500D111B6 /* View */,
 			);
-			path = Register;
+			path = RegisterScene;
 			sourceTree = "<group>";
 		};
 		BB8D1F372799B7F500D111B6 /* View */ = {
@@ -526,18 +517,18 @@
 				BBAAA689279AD78000667591 /* APIEnvironment.swift */,
 				BBAAA6A3279C0F2200667591 /* CoordinatorStyleCase.swift */,
 				BBAAA6AF279C240C00667591 /* UserDefaultKeyCase.swift */,
-				BBAAA6D4279C542A00667591 /* TabBarPage.swift */,
+				BBAAA6D4279C542A00667591 /* TabBarPageCase.swift */,
 			);
 			path = Constant;
 			sourceTree = "<group>";
 		};
-		BBAAA6A0279BFC3F00667591 /* Home */ = {
+		BBAAA6A0279BFC3F00667591 /* HomeScene */ = {
 			isa = PBXGroup;
 			children = (
 				BBAAA6E4279C5A2200667591 /* Coordinator */,
 				BBAAA6E5279C5AE000667591 /* View */,
 			);
-			path = Home;
+			path = HomeScene;
 			sourceTree = "<group>";
 		};
 		BBAAA6A7279C123500667591 /* ViewModel */ = {
@@ -592,31 +583,31 @@
 			path = Protocol;
 			sourceTree = "<group>";
 		};
-		BBAAA6CB279C460A00667591 /* SesacShop */ = {
+		BBAAA6CB279C460A00667591 /* SesacShopScene */ = {
 			isa = PBXGroup;
 			children = (
 				BBAAA6E0279C59FF00667591 /* Coordinator */,
 				BBAAA6E1279C5A0900667591 /* View */,
 			);
-			path = SesacShop;
+			path = SesacShopScene;
 			sourceTree = "<group>";
 		};
-		BBAAA6CC279C462F00667591 /* SesacFriend */ = {
+		BBAAA6CC279C462F00667591 /* SesacFriendScene */ = {
 			isa = PBXGroup;
 			children = (
 				BBAAA6DA279C55D400667591 /* Coordinator */,
 				BBAAA6DF279C59F800667591 /* View */,
 			);
-			path = SesacFriend;
+			path = SesacFriendScene;
 			sourceTree = "<group>";
 		};
-		BBAAA6CD279C464300667591 /* MyPage */ = {
+		BBAAA6CD279C464300667591 /* MyPageScene */ = {
 			isa = PBXGroup;
 			children = (
 				BBAAA6E3279C5A1500667591 /* Coordinator */,
 				BBAAA6E2279C5A1100667591 /* View */,
 			);
-			path = MyPage;
+			path = MyPageScene;
 			sourceTree = "<group>";
 		};
 		BBAAA6DA279C55D400667591 /* Coordinator */ = {
@@ -688,18 +679,19 @@
 			children = (
 				BBAAA696279BCC0000667591 /* Coordinator */,
 				BBAAA695279BCBFB00667591 /* ViewModel */,
+				BB105D872796CEB3008264DD /* CustomView */,
 			);
 			path = Common;
 			sourceTree = "<group>";
 		};
-		BBED1200279902CC002A5E9E /* OnBoarding */ = {
+		BBED1200279902CC002A5E9E /* OnBoardingScene */ = {
 			isa = PBXGroup;
 			children = (
 				BBAAA6AC279C173B00667591 /* Coordinator */,
 				BBAAA6A7279C123500667591 /* ViewModel */,
 				BBAAA697279BCC2600667591 /* View */,
 			);
-			path = OnBoarding;
+			path = OnBoardingScene;
 			sourceTree = "<group>";
 		};
 		BBED121727996F53002A5E9E /* RxExtension */ = {
@@ -756,18 +748,10 @@
 			isa = PBXGroup;
 			children = (
 				BB7A217B279D9E72005FD0A3 /* Model */,
-				BB7A216B279D112F005FD0A3 /* Entity */,
 				BB7A216C279D113C005FD0A3 /* UseCase */,
 				BB7A2179279D9CD1005FD0A3 /* Interfaces */,
 			);
 			path = Domain;
-			sourceTree = "<group>";
-		};
-		BBED12282799ABE7002A5E9E /* Infrastructure */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Infrastructure;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1001,7 +985,7 @@
 				BB7A2172279D16BA005FD0A3 /* UserRepositoryType.swift in Sources */,
 				BBAAA68E279B07A500667591 /* SLPTarget+StubData.swift in Sources */,
 				BB105D942797AAD1008264DD /* NicknameViewController.swift in Sources */,
-				BBAAA6D5279C542A00667591 /* TabBarPage.swift in Sources */,
+				BBAAA6D5279C542A00667591 /* TabBarPageCase.swift in Sources */,
 				BB7A2174279D9BA4005FD0A3 /* LoginUseCase.swift in Sources */,
 				BB105D962797AAE5008264DD /* BirthViewController.swift in Sources */,
 				BB7A217E279DA32F005FD0A3 /* FireBaseRepository.swift in Sources */,

@@ -20,29 +20,29 @@ final class TabBarCoordinator: Coordinator {
     }
 
     func start() {
-        let pages: [TabBarPage] = TabBarPage.allCases
+        let pages: [TabBarPageCase] = TabBarPageCase.allCases
         let controllers: [UINavigationController] = pages.map({
             self.createTabNavigationController(of: $0)
         })
         self.configureTabBarController(with: controllers)
     }
 
-    func currentPage() -> TabBarPage? {
-        TabBarPage(index: self.tabBarController.selectedIndex)
+    func currentPage() -> TabBarPageCase? {
+        TabBarPageCase(index: self.tabBarController.selectedIndex)
     }
 
-    func selectPage(_ page: TabBarPage) {
+    func selectPage(_ page: TabBarPageCase) {
         self.tabBarController.selectedIndex = page.pageOrderNumber
     }
 
     func setSelectedIndex(_ index: Int) {
-        guard let page = TabBarPage(index: index) else { return }
+        guard let page = TabBarPageCase(index: index) else { return }
         self.tabBarController.selectedIndex = page.pageOrderNumber
     }
 
     private func configureTabBarController(with tabViewControllers: [UIViewController]) {
         self.tabBarController.setViewControllers(tabViewControllers, animated: true)
-        self.tabBarController.selectedIndex = TabBarPage.home.pageOrderNumber
+        self.tabBarController.selectedIndex = TabBarPageCase.home.pageOrderNumber
         self.tabBarController.view.backgroundColor = .systemBackground
         self.tabBarController.tabBar.backgroundColor = .systemBackground
         self.tabBarController.tabBar.tintColor = .green
@@ -50,7 +50,7 @@ final class TabBarCoordinator: Coordinator {
         self.navigationController.pushViewController(self.tabBarController, animated: true)
     }
 
-    private func configureTabBarItem(of page: TabBarPage) -> UITabBarItem {
+    private func configureTabBarItem(of page: TabBarPageCase) -> UITabBarItem {
         return UITabBarItem(
             title: page.pageTitle,
             image: UIImage(named: page.tabIconName()),
@@ -58,7 +58,7 @@ final class TabBarCoordinator: Coordinator {
         )
     }
 
-    private func createTabNavigationController(of page: TabBarPage) -> UINavigationController {
+    private func createTabNavigationController(of page: TabBarPageCase) -> UINavigationController {
         let tabNavigationController = UINavigationController()
         tabNavigationController.setNavigationBarHidden(false, animated: false)
         tabNavigationController.tabBarItem = self.configureTabBarItem(of: page)
@@ -66,7 +66,7 @@ final class TabBarCoordinator: Coordinator {
         return tabNavigationController
     }
 
-    private func connectTabCoordinator(of page: TabBarPage, to tabNavigationController: UINavigationController) {
+    private func connectTabCoordinator(of page: TabBarPageCase, to tabNavigationController: UINavigationController) {
         switch page {
         case .home:
             let homeCoordinator = HomeCoordinator(tabNavigationController)

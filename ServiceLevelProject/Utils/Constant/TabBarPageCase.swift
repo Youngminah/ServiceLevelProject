@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum TabBarPage: String, CaseIterable {
+enum TabBarPageCase: String, CaseIterable {
     case home, sesacshop, sesacfriend, mypage
 
     init?(index: Int) {
