@@ -10,7 +10,7 @@ import Moya
 import RxCocoa
 import RxSwift
 
-final class GenderViewModel: CommonViewModel, ViewModelType {
+final class GenderViewModel: ViewModelType {
 
     private weak var coordinator: NickNameCoordinator?
 
@@ -36,22 +36,4 @@ final class GenderViewModel: CommonViewModel, ViewModelType {
 
 extension GenderViewModel {
 
-    func requestRegister(completion: @escaping (Result<Int, Error>) -> Void ) {
-        let userInfo = UserRegisterInfo(
-            phoneNumber: "+821088407593",
-            FCMtoken: UserDefaults.standard.string(forKey: "FCMToken")!,
-            nick: "youngmin",
-            birth: "1994-11-14T09:23:44.054Z",
-            email: "youngminah@gmail.com",
-            gender: 1
-        )
-        let parameters = userInfo.toDictionary
-
-        provider.request(.register(parameters: parameters)) { result in
-            self.process(
-                result: result,
-                completion: completion
-            )
-        }
-    }
 }

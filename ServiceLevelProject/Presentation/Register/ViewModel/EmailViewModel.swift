@@ -10,7 +10,7 @@ import Moya
 import RxCocoa
 import RxSwift
 
-final class EmailViewModel: CommonViewModel, ViewModelType {
+final class EmailViewModel: ViewModelType {
 
     private weak var coordinator: NickNameCoordinator?
 
