@@ -18,7 +18,11 @@ final class LoginCoordinator: Coordinator {
     }
 
     func start() {
-        let viewModel = LoginViewModel(coordinator: self)
+        let loginUseCase = LoginUseCase(
+            userRepository: UserRepository(),
+            fireBaseRepository: FirbaseRepository()
+        )
+        let viewModel = LoginViewModel(coordinator: self, loginUseCase: loginUseCase)
         let vc = LoginViewController(viewModel: viewModel)
         navigationController.viewControllers = [vc]
     }

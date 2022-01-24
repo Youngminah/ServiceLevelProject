@@ -13,6 +13,7 @@ import RxSwift
 final class LoginViewModel: ViewModelType {
 
     private weak var coordinator: LoginCoordinator?
+    private let loginUseCase: LoginUseCase
 
     struct Input {
         let didLimitTextChange: Driver<String>
@@ -36,8 +37,9 @@ final class LoginViewModel: ViewModelType {
 
     var disposeBag = DisposeBag()
 
-    init(coordinator: LoginCoordinator?) {
+    init(coordinator: LoginCoordinator?, loginUseCase: LoginUseCase) {
         self.coordinator = coordinator
+        self.loginUseCase = loginUseCase
     }
 
     func transform(input: Input) -> Output {
@@ -69,6 +71,18 @@ final class LoginViewModel: ViewModelType {
             })
             .disposed(by: disposeBag)
 
+        self.loginUseCase.verifyIDFailSignal
+            .subscribe(onNext: { [weak self] error in
+                self?.showToastAction.accept(error.description)
+            })
+            .disposed(by: disposeBag)
+
+        self.loginUseCase.verifyIDSuccessSignal
+            .subscribe(onNext: { [weak self] verifyID in
+                self?.coordinator?.connectCertifacationCoordinator(verifyID: verifyID)
+            })
+            .disposed(by: disposeBag)
+
         return Output(
             phoneNumberText: phoneNumberText.asSignal(),
             isValidState: isValidState.asDriver(),
@@ -82,18 +96,6 @@ final class LoginViewModel: ViewModelType {
 extension LoginViewModel {
 
     private func verifyPhoneNumber(phoneNumber: String) {
-        Auth.auth().languageCode = "kr"
-        let phoneNumberWithCode = "+82 " + phoneNumber
-        PhoneAuthProvider.provider().verifyPhoneNumber(phoneNumberWithCode, uiDelegate: nil) { [weak self] (verificationID, error) in
-            guard let self = self else { return }
-            if let error = error {
-                let authError = error as NSError
-                print(authError.code)
-                let message = ValidationErrorCase(errorID: error.localizedDescription).errorDescription
-                self.showToastAction.accept(message)
-                return
-            }
-            self.coordinator?.connectCertifacationCoordinator(verifyID: verificationID!)
-        }
+        self.loginUseCase.verifyPhoneNumber(phoneNumber: phoneNumber)
     }
 }
