@@ -11,9 +11,10 @@ import Moya
 import RxCocoa
 import RxSwift
 
-final class CertificationViewModel: CommonViewModel, ViewModelType {
+final class CertificationViewModel: ViewModelType {
 
     private weak var coordinator: CertificationCoordinator?
+    private let certificationUseCase: CertificationUseCase
 
     struct Input {
         let signInFirebaseSignal: Signal<String>
@@ -33,9 +34,14 @@ final class CertificationViewModel: CommonViewModel, ViewModelType {
 
     private var verifyID: String
 
-    init(verifyID: String, coordinator: CertificationCoordinator?) {
+    init(
+        verifyID: String,
+        coordinator: CertificationCoordinator?,
+        certificationUseCase: CertificationUseCase
+    ) {
         self.verifyID = verifyID
         self.coordinator = coordinator
+        self.certificationUseCase = certificationUseCase
     }
 
     func transform(input: Input) -> Output {
@@ -57,9 +63,43 @@ final class CertificationViewModel: CommonViewModel, ViewModelType {
             .disposed(by: disposeBag)
 
         input.signInFirebaseSignal
-            .emit(onNext: { [weak self] code in
+            .emit(onNext: { [weak self] certificationNumber in
                 guard let self = self else { return }
-                self.signInFirebase(code: code)
+                self.requestSignIn(certificationNumber: certificationNumber)
+            })
+            .disposed(by: disposeBag)
+
+        self.certificationUseCase.failFirebaseFlowSignal
+            .subscribe(onNext: { [weak self] error in
+                self?.showToastAction.accept(error.description)
+            })
+            .disposed(by: disposeBag)
+
+        self.certificationUseCase.successLogInSignal
+            .subscribe(onNext: { [weak self] in
+                guard let self = self else { return }
+                self.disposeTimerAction.accept(())
+                self.coordinator?.connectTabBarCoordinator()
+            })
+            .disposed(by: disposeBag)
+
+        self.certificationUseCase.unRegisteredUserSignal
+            .subscribe(onNext: { [weak self] in
+                guard let self = self else { return }
+                self.disposeTimerAction.accept(())
+                self.coordinator?.connectNickNameCoordinator()
+            })
+            .disposed(by: disposeBag)
+
+        self.certificationUseCase.unKnownErrorSignal
+            .subscribe(onNext: { [weak self] in
+                self?.showToastAction.accept("서버 에러가 발생하였습니다.\n나중에 다시 시도해주세요.")
+            })
+            .disposed(by: disposeBag)
+
+        self.certificationUseCase.failFirebaseFlowSignal
+            .subscribe(onNext: { [weak self] error in
+                self?.showToastAction.accept(error.description)
             })
             .disposed(by: disposeBag)
 
@@ -73,60 +113,7 @@ final class CertificationViewModel: CommonViewModel, ViewModelType {
 
 extension CertificationViewModel {
 
-    private func signInFirebase(code: String) {
-        let verificationCode = code
-        let credential = PhoneAuthProvider.provider().credential(
-            withVerificationID: verifyID,
-            verificationCode: verificationCode
-        )
-        Auth.auth().signIn(with: credential) { [weak self] (authResult, error) in
-            guard let self = self else { return }
-            if let error = error {
-                let authError = error as NSError
-                self.showToastAction.accept("\(authError.localizedDescription)")
-                return
-            }
-            self.requestFirebaseIdtoken {
-                self.disposeTimerAction.accept(())
-                self.requestUserInfo { response in
-                    switch response {
-                    case .success(let response):
-                        print("서버에서 준 코드!! \(response)")
-                        self.coordinator?.connectTabBarCoordinator() // 홈화면 전환
-                    case .failure(let error):
-                        let errorCode = error.rawValue
-                        if errorCode == 201 { //닉네임 전환
-                            self.coordinator?.connectNickNameCoordinator()
-                        }
-                        print(error.description)
-                    }
-                }
-            }
-        }
-    }
-
-    func requestUserInfo(completion: @escaping (Result<UserInfoResponse, DefaultMoyaNetworkServiceError>) -> Void) {
-        provider.request(.getUserInfo) { result in
-            self.process(type: UserInfoResponse.self, result: result, completion: completion)
-        }
-    }
-
-    func requestRegister(completion: @escaping (Result<Int, Error>) -> Void ) {
-        let userInfo = UserRegisterInfo(
-            phoneNumber: "+821088407593",
-            FCMtoken: UserDefaults.standard.string(forKey: "FCMToken")!,
-            nick: "youngmin",
-            birth: "1994-11-14T09:23:44.054Z",
-            email: "youngminah@gmail.com",
-            gender: 1
-        )
-        let parameters = userInfo.toDictionary
-
-        provider.request(.register(parameters: parameters)) { result in
-            self.process(
-                result: result,
-                completion: completion
-            )
-        }
+    private func requestSignIn(certificationNumber: String) {
+        self.certificationUseCase.requestSignIn(verifyID: verifyID, code: certificationNumber)
     }
 }
