@@ -11,4 +11,5 @@ enum UserDefaultKeyCase {
     static let isFirstUser = "isFirstUser"
     static let isLoggedIn = "isLoggedIn"
     static let fcmToken = "fcmToken"
+    static let idToken = "idToken"
 }
