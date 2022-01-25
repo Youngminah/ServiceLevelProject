@@ -23,7 +23,7 @@
 		BB105D892796D050008264DD /* AuthTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB105D882796D050008264DD /* AuthTextField.swift */; };
 		BB105D8B2796E610008264DD /* DefaultFillButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB105D8A2796E610008264DD /* DefaultFillButton.swift */; };
 		BB105D8D2796F004008264DD /* CertificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB105D8C2796F004008264DD /* CertificationViewController.swift */; };
-		BB105D8F2796F197008264DD /* DescriptionLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB105D8E2796F197008264DD /* DescriptionLabel.swift */; };
+		BB105D8F2796F197008264DD /* DefaultLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB105D8E2796F197008264DD /* DefaultLabel.swift */; };
 		BB105D92279717C3008264DD /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = BB105D91279717C3008264DD /* .swiftlint.yml */; };
 		BB105D942797AAD1008264DD /* NicknameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB105D932797AAD1008264DD /* NicknameViewController.swift */; };
 		BB105D962797AAE5008264DD /* BirthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB105D952797AAE5008264DD /* BirthViewController.swift */; };
@@ -31,17 +31,17 @@
 		BB105D9A2797F313008264DD /* GenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB105D992797F313008264DD /* GenderViewController.swift */; };
 		BB105D9C2797FA21008264DD /* GenderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB105D9B2797FA21008264DD /* GenderButton.swift */; };
 		BB105D9E27981074008264DD /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB105D9D27981074008264DD /* UIButton.swift */; };
-		BB105DA0279819F6008264DD /* DetailLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB105D9F279819F6008264DD /* DetailLabel.swift */; };
 		BB105DA22798232D008264DD /* AppAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB105DA12798232D008264DD /* AppAppearance.swift */; };
 		BB7A216F279D1673005FD0A3 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7A216E279D1673005FD0A3 /* UserRepository.swift */; };
 		BB7A2172279D16BA005FD0A3 /* UserRepositoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7A2171279D16BA005FD0A3 /* UserRepositoryType.swift */; };
 		BB7A2174279D9BA4005FD0A3 /* LoginUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7A2173279D9BA4005FD0A3 /* LoginUseCase.swift */; };
 		BB7A2176279D9BB6005FD0A3 /* CertificationUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7A2175279D9BB6005FD0A3 /* CertificationUseCase.swift */; };
-		BB7A2178279D9BCC005FD0A3 /* RegisterUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7A2177279D9BCC005FD0A3 /* RegisterUseCase.swift */; };
+		BB7A2178279D9BCC005FD0A3 /* GenderUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7A2177279D9BCC005FD0A3 /* GenderUseCase.swift */; };
 		BB7A217E279DA32F005FD0A3 /* FireBaseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7A217D279DA32F005FD0A3 /* FireBaseRepository.swift */; };
 		BB7A2180279DA3EF005FD0A3 /* SesacRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7A217F279DA3EF005FD0A3 /* SesacRepository.swift */; };
 		BB7A2182279DAF2B005FD0A3 /* FirbaseRepositoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7A2181279DAF2B005FD0A3 /* FirbaseRepositoryType.swift */; };
 		BB7A2184279DAF3C005FD0A3 /* SesacRepositoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7A2183279DAF3C005FD0A3 /* SesacRepositoryType.swift */; };
+		BB7A2186279EBCEE005FD0A3 /* DatePickerTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7A2185279EBCEE005FD0A3 /* DatePickerTextField.swift */; };
 		BB8D1F2E2799AD6200D111B6 /* NotoSansKR-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = BB8D1F2D2799AD6200D111B6 /* NotoSansKR-Medium.otf */; };
 		BB8D1F302799AD6B00D111B6 /* NotoSansKR-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = BB8D1F2F2799AD6B00D111B6 /* NotoSansKR-Regular.otf */; };
 		BB8D1F322799B5FB00D111B6 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8D1F312799B5FB00D111B6 /* LoginViewModel.swift */; };
@@ -138,7 +138,7 @@
 		BB105D882796D050008264DD /* AuthTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTextField.swift; sourceTree = "<group>"; };
 		BB105D8A2796E610008264DD /* DefaultFillButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultFillButton.swift; sourceTree = "<group>"; };
 		BB105D8C2796F004008264DD /* CertificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificationViewController.swift; sourceTree = "<group>"; };
-		BB105D8E2796F197008264DD /* DescriptionLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionLabel.swift; sourceTree = "<group>"; };
+		BB105D8E2796F197008264DD /* DefaultLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultLabel.swift; sourceTree = "<group>"; };
 		BB105D91279717C3008264DD /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		BB105D932797AAD1008264DD /* NicknameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameViewController.swift; sourceTree = "<group>"; };
 		BB105D952797AAE5008264DD /* BirthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthViewController.swift; sourceTree = "<group>"; };
@@ -146,17 +146,17 @@
 		BB105D992797F313008264DD /* GenderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderViewController.swift; sourceTree = "<group>"; };
 		BB105D9B2797FA21008264DD /* GenderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderButton.swift; sourceTree = "<group>"; };
 		BB105D9D27981074008264DD /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
-		BB105D9F279819F6008264DD /* DetailLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailLabel.swift; sourceTree = "<group>"; };
 		BB105DA12798232D008264DD /* AppAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAppearance.swift; sourceTree = "<group>"; };
 		BB7A216E279D1673005FD0A3 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		BB7A2171279D16BA005FD0A3 /* UserRepositoryType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepositoryType.swift; sourceTree = "<group>"; };
 		BB7A2173279D9BA4005FD0A3 /* LoginUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUseCase.swift; sourceTree = "<group>"; };
 		BB7A2175279D9BB6005FD0A3 /* CertificationUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificationUseCase.swift; sourceTree = "<group>"; };
-		BB7A2177279D9BCC005FD0A3 /* RegisterUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUseCase.swift; sourceTree = "<group>"; };
+		BB7A2177279D9BCC005FD0A3 /* GenderUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderUseCase.swift; sourceTree = "<group>"; };
 		BB7A217D279DA32F005FD0A3 /* FireBaseRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireBaseRepository.swift; sourceTree = "<group>"; };
 		BB7A217F279DA3EF005FD0A3 /* SesacRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SesacRepository.swift; sourceTree = "<group>"; };
 		BB7A2181279DAF2B005FD0A3 /* FirbaseRepositoryType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirbaseRepositoryType.swift; sourceTree = "<group>"; };
 		BB7A2183279DAF3C005FD0A3 /* SesacRepositoryType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SesacRepositoryType.swift; sourceTree = "<group>"; };
+		BB7A2185279EBCEE005FD0A3 /* DatePickerTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerTextField.swift; sourceTree = "<group>"; };
 		BB8D1F2D2799AD6200D111B6 /* NotoSansKR-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Medium.otf"; sourceTree = "<group>"; };
 		BB8D1F2F2799AD6B00D111B6 /* NotoSansKR-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Regular.otf"; sourceTree = "<group>"; };
 		BB8D1F312799B5FB00D111B6 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -361,9 +361,9 @@
 			children = (
 				BB105D882796D050008264DD /* AuthTextField.swift */,
 				BB105D8A2796E610008264DD /* DefaultFillButton.swift */,
-				BB105D8E2796F197008264DD /* DescriptionLabel.swift */,
+				BB105D8E2796F197008264DD /* DefaultLabel.swift */,
 				BB105D9B2797FA21008264DD /* GenderButton.swift */,
-				BB105D9F279819F6008264DD /* DetailLabel.swift */,
+				BB7A2185279EBCEE005FD0A3 /* DatePickerTextField.swift */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -373,7 +373,7 @@
 			children = (
 				BB7A2173279D9BA4005FD0A3 /* LoginUseCase.swift */,
 				BB7A2175279D9BB6005FD0A3 /* CertificationUseCase.swift */,
-				BB7A2177279D9BCC005FD0A3 /* RegisterUseCase.swift */,
+				BB7A2177279D9BCC005FD0A3 /* GenderUseCase.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -1000,7 +1000,7 @@
 				BBED11EF27984744002A5E9E /* Assets+Generated.swift in Sources */,
 				BBAAA68C279AD7BE00667591 /* APIConstant.swift in Sources */,
 				BB105D982797AAF8008264DD /* EmailViewController.swift in Sources */,
-				BB7A2178279D9BCC005FD0A3 /* RegisterUseCase.swift in Sources */,
+				BB7A2178279D9BCC005FD0A3 /* GenderUseCase.swift in Sources */,
 				BBAAA6B5279C29A000667591 /* CertificationCoordinator.swift in Sources */,
 				BB105D782796B2B8008264DD /* AppFont.swift in Sources */,
 				BBAAA687279AD3A500667591 /* SLPTarget.swift in Sources */,
@@ -1008,8 +1008,8 @@
 				BB105D8B2796E610008264DD /* DefaultFillButton.swift in Sources */,
 				BBED121627994594002A5E9E /* String.swift in Sources */,
 				BB8D1F3C279A992C00D111B6 /* CertificationViewModel.swift in Sources */,
-				BB105DA0279819F6008264DD /* DetailLabel.swift in Sources */,
-				BB105D8F2796F197008264DD /* DescriptionLabel.swift in Sources */,
+				BB7A2186279EBCEE005FD0A3 /* DatePickerTextField.swift in Sources */,
+				BB105D8F2796F197008264DD /* DefaultLabel.swift in Sources */,
 				BBED120427990CB5002A5E9E /* NSMutableAttributedString.swift in Sources */,
 				BBAAA6BC279C3CF100667591 /* EmailViewModel.swift in Sources */,
 				BB7A2182279DAF2B005FD0A3 /* FirbaseRepositoryType.swift in Sources */,
