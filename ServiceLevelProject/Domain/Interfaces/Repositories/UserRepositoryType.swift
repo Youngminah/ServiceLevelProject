@@ -11,9 +11,21 @@ protocol UserRepositoryType: AnyObject {
 
     func fetchFCMToken() -> String?
 
-    func deleteFCMToken()
+    func fetchPhoneNumber() -> String?
 
     func fetchIDToken() -> String?
+
+    func fetchNickName() -> String?
+
+    func fetchBirth() -> Date?
+
+    func fetchEmail() -> String?
+
+    func fetchGender() -> Int?
+
+    func savePhoneNumberInfo(phoneNumber: String)
+
+    func saveGenderInfo(gender: Int) 
 
     func saveLogInInfo()
 
@@ -22,4 +34,6 @@ protocol UserRepositoryType: AnyObject {
     func saveIdTokenInfo(idToken: String)
 
     func deleteUserInfo()
+
+    func deleteFCMToken()
 }
