@@ -6,21 +6,61 @@
 //
 
 import UIKit
+import RxCocoa
+import RxSwift
+import Toast
+import SnapKit
 
 class GenderViewController: UIViewController {
 
-    private let descriptionLabel = DescriptionLabel(title: "성별을 선택해 주세요")
-    private let detailLabel = DetailLabel(title: "새싹 찾기 기능을 이용하기 위해서 필요해요!")
+    private let descriptionLabel = DefaultLabel(title: "성별을 선택해 주세요", font: .display1R20)
+    private let detailLabel = DefaultLabel(title: "새싹 찾기 기능을 이용하기 위해서 필요해요!",
+                                           font: .title2R16 ,
+                                           textColor: .gray7)
     private let womanButton = GenderButton(gender: .woman)
     private let manButton = GenderButton(gender: .man)
     private let nextButton = DefaultFillButton(title: "다음")
     private lazy var stackView = UIStackView(arrangedSubviews: [manButton, womanButton])
+
+    private lazy var input = GenderViewModel.Input(
+        didManButtonTap: manButton.rx.tap.asSignal(),
+        didWomanButtonTap: womanButton.rx.tap.asSignal(),
+        didNextButtonTap: nextButton.rx.tap.asSignal()
+    )
+    private lazy var output = viewModel.transform(input: input)
+    private let disposdBag = DisposeBag()
+
+    private var viewModel: GenderViewModel
+
+    init(viewModel: GenderViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("GenderViewController: fatal error")
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setViews()
         setConstraints()
         setConfigurations()
+        bind()
+    }
+
+    private func bind() {
+        output.isValid
+            .drive(nextButton.rx.isValid)
+            .disposed(by: disposdBag)
+
+        output.isManSelected
+            .drive(manButton.rx.isSelected)
+            .disposed(by: disposdBag)
+
+        output.isWomanSelected
+            .drive(womanButton.rx.isSelected)
+            .disposed(by: disposdBag)
     }
 
     private func setViews() {
@@ -58,5 +98,6 @@ class GenderViewController: UIViewController {
     private func setConfigurations() {
         view.backgroundColor = .white
         stackView.spacing = 8
+        womanButton.isSelected = true
     }
 }
