@@ -12,9 +12,9 @@ import SnapKit
 import Toast
 
 final class LoginViewController: UIViewController {
-    
+
     private let descriptionLabel = DefaultLabel(title: "새싹 서비스 이용을 위해\n휴대폰 번호를 입력해 주세요",
-                                                    font: .display1R20)
+                                                font: .display1R20)
     private let phoneNumberTextField = AuthTextField(placeHolder: "휴대폰 번호(-없이 숫자만 입력)")
     private let confirmButton = DefaultFillButton(title: "인증 문자 받기")
 
@@ -126,7 +126,7 @@ final class LoginViewController: UIViewController {
         let phoneNumber = (phoneNumberTextField.text?.removeHipon())!
         if !phoneNumber.isValidPhoneNumber() {
             self.makeToastStyle()
-            self.view.makeToast(ValidationErrorCase.inValidPhoneNumberFormat.errorDescription,
+            self.view.makeToast(AuthError.inValidPhoneNumberFormat.errorDescription,
                                 position: .top)
             return
         }

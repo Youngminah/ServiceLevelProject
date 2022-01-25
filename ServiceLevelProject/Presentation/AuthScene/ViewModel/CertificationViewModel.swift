@@ -57,7 +57,7 @@ final class CertificationViewModel: ViewModelType {
         input.didLimitTime
             .emit(onNext: { [weak self] text in
                 guard let self = self else { return }
-                self.showToastAction.accept("전화번호 인증 실패")
+                self.showToastAction.accept(AuthError.timeOut.errorDescription)
             })
             .disposed(by: disposeBag)
 

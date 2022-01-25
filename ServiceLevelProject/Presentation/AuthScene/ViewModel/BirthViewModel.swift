@@ -98,21 +98,21 @@ extension BirthViewModel {
 
     private func validationDate(year: String?, month: String?, day: String?) -> Bool {
         guard let year = year, year != "", let month = month, let day = day else {
-            self.showToastAction.accept("날짜를 입력해주세요.")
+            self.showToastAction.accept(AuthError.emptyDate.errorDescription)
             return false
         }
         guard Int(year) != nil, Int(month) != nil, Int(day) != nil else {
-            self.showToastAction.accept("올바른 날짜 형식이 아닙니다.")
+            self.showToastAction.accept(AuthError.inValidDate.errorDescription)
             return false
         }
         var calendar = Calendar.current
         calendar.locale = Locale(identifier: "ko-KR")
         guard let add17YearsDate = calendar.date(byAdding: .year, value: 17, to: selectedDate) else {
-            self.showToastAction.accept("올바른 날짜 형식이 아닙니다.")
+            self.showToastAction.accept(AuthError.inValidDate.errorDescription)
             return false
         }
         if Date() < add17YearsDate {
-            self.showToastAction.accept("만 17세 이상만 가입할 수 있습니다.")
+            self.showToastAction.accept(AuthError.limitEge.errorDescription)
             return false
         }
         return true

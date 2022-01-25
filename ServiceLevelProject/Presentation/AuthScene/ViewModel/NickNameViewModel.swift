@@ -47,7 +47,7 @@ final class NickNameViewModel: ViewModelType {
                     self.saveNickName(nickName: text)
                     self.coordinator?.showBirthViewController()
                 } else {
-                    self.showToastAction.accept("닉네임은 1자 이상 10자 이내로 부탁드려요.")
+                    self.showToastAction.accept(AuthError.nickNameLimitLength.errorDescription)
                 }
             })
             .disposed(by: disposeBag)

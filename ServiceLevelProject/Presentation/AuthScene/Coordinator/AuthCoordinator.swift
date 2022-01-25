@@ -20,12 +20,12 @@ final class AuthCoordinator: Coordinator {
     }
 
     func start() {
-//        if userDefaults.bool(forKey: UserDefaultKeyCase.isFirstUser) {
-//            showOnboardingViewController()
-//        } else if userDefaults.bool(forKey: UserDefaultKeyCase.isLoggedIn) {
+//        if userDefaults.bool(forKey: UserDefaultKeyCase.isLoggedIn) {
+//            showLoginViewController()
+//        } else if userDefaults.bool(forKey: UserDefaultKeyCase.isNotFirstUser) {
 //            connectTabBarCoordinator()
 //        } else {
-//            showLoginViewController()
+//            showOnboardingViewController()
 //        }
         showOnboardingViewController()
     }

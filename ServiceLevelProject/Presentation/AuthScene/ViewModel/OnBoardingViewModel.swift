@@ -45,7 +45,7 @@ final class OnBoardingViewModel {
     }
 
     func showLoginController() {
-        //UserDefaults.standard.set(true, forKey: UserDefaultKeyCase.isLoggedIn)
+        UserDefaults.standard.set(true, forKey: UserDefaultKeyCase.isNotFirstUser)
         coordinator?.showLoginViewController()
     }
 }

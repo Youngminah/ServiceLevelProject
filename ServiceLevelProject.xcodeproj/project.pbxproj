@@ -91,7 +91,7 @@
 		BBED121927996F97002A5E9E /* DefaultFillButton+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBED121827996F97002A5E9E /* DefaultFillButton+Rx.swift */; };
 		BBED121B279976A4002A5E9E /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBED121A279976A4002A5E9E /* UIViewController.swift */; };
 		BBED121E279976D2002A5E9E /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = BBED121D279976D2002A5E9E /* Toast */; };
-		BBED12202799785F002A5E9E /* ValidationErrorCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBED121F2799785F002A5E9E /* ValidationErrorCase.swift */; };
+		BBED12202799785F002A5E9E /* AuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBED121F2799785F002A5E9E /* AuthError.swift */; };
 		BBED12252799AAC5002A5E9E /* StopWatchConverterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBED12242799AAC5002A5E9E /* StopWatchConverterService.swift */; };
 /* End PBXBuildFile section */
 
@@ -194,7 +194,7 @@
 		BBED121527994594002A5E9E /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		BBED121827996F97002A5E9E /* DefaultFillButton+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DefaultFillButton+Rx.swift"; sourceTree = "<group>"; };
 		BBED121A279976A4002A5E9E /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
-		BBED121F2799785F002A5E9E /* ValidationErrorCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationErrorCase.swift; sourceTree = "<group>"; };
+		BBED121F2799785F002A5E9E /* AuthError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthError.swift; sourceTree = "<group>"; };
 		BBED12242799AAC5002A5E9E /* StopWatchConverterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopWatchConverterService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -420,7 +420,7 @@
 		BBAAA688279AD6C800667591 /* Error */ = {
 			isa = PBXGroup;
 			children = (
-				BBED121F2799785F002A5E9E /* ValidationErrorCase.swift */,
+				BBED121F2799785F002A5E9E /* AuthError.swift */,
 			);
 			path = Error;
 			sourceTree = "<group>";
@@ -438,6 +438,7 @@
 			children = (
 				BBAAA6C7279C42A800667591 /* Protocol */,
 				BBAAA6A5279C105F00667591 /* AppCoordinator.swift */,
+				BBAAA6D2279C481700667591 /* TabBarCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -467,7 +468,6 @@
 		BBAAA6A0279BFC3F00667591 /* HomeScene */ = {
 			isa = PBXGroup;
 			children = (
-				BBAAA6D2279C481700667591 /* TabBarCoordinator.swift */,
 				BBAAA6E4279C5A2200667591 /* Coordinator */,
 				BBAAA6E5279C5AE000667591 /* View */,
 			);
@@ -879,7 +879,7 @@
 				BBAAA6DC279C55ED00667591 /* SesacFriendCoordinator.swift in Sources */,
 				BB8D1F342799B62100D111B6 /* ViewModelType.swift in Sources */,
 				BBAAA69C279BE30700667591 /* UserInfoResponseDTO.swift in Sources */,
-				BBED12202799785F002A5E9E /* ValidationErrorCase.swift in Sources */,
+				BBED12202799785F002A5E9E /* AuthError.swift in Sources */,
 				BBAAA6A4279C0F2200667591 /* CoordinatorStyleCase.swift in Sources */,
 				BB7A2180279DA3EF005FD0A3 /* SesacRepository.swift in Sources */,
 				BBED11F7279869EA002A5E9E /* Coordinator.swift in Sources */,

@@ -11,11 +11,18 @@ import Moya
 protocol SesacRepositoryType: AnyObject {
 
     func requestUserInfo(
-        completion: @escaping (Result<UserInfoResponseDTO, SesacNetworkServiceError>) -> Void
+        completion: @escaping (
+            Result<
+            UserInfoResponseDTO,
+            SesacNetworkServiceError>
+        ) -> Void
     )
 
     func requestRegister(
         parameters: DictionaryType,
-        completion: @escaping (Result<Int, SesacNetworkServiceError>) -> Void
+        completion: @escaping (
+            Result<Int,
+            SesacNetworkServiceError>
+        ) -> Void
     )
 }
