@@ -17,7 +17,7 @@ struct UserRegisterInfoDTO: Codable {
     let gender: Int
 
     var toDictionary: [String: Any] {
-        let dict: [String: Any]  = [
+        let dict: [String: Any] = [
             "phoneNumber": phoneNumber,
             "FCMtoken": FCMtoken,
             "nick": nick,
