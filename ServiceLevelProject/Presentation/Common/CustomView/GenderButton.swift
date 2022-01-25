@@ -17,7 +17,13 @@ final class GenderButton: UIButton {
     private var gender: Gender?
 
     override var isSelected: Bool {
-        didSet { backgroundColor = isSelected ? .whiteGreen : .white }
+        didSet {
+            if #available(iOS 15.0, *) {
+                configuration?.baseBackgroundColor = isSelected ? .whiteGreen : .white
+            } else {
+                backgroundColor = isSelected ? .whiteGreen : .white
+            }
+        }
     }
 
     override init(frame: CGRect) { // 코드로 뷰가 생성될 때 생성자
@@ -49,7 +55,7 @@ final class GenderButton: UIButton {
         } else {
             setImage(Asset.womanButton.image, for: .normal)
             layer.cornerRadius = 7
-            backgroundColor = .whiteGreen
+            backgroundColor = .white
         }
     }
 
@@ -63,7 +69,7 @@ final class GenderButton: UIButton {
         } else {
             setImage(Asset.manButton.image, for: .normal)
             layer.cornerRadius = 7
-            backgroundColor = .whiteGreen
+            backgroundColor = .white
         }
     }
 }
