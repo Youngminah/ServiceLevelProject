@@ -8,7 +8,7 @@
 import Foundation
 import RxSwift
 
-final class RegisterUseCase {
+final class GenderUseCase {
 
     private let userRepository: UserRepositoryType
     private let sesacRepository: SesacRepositoryType

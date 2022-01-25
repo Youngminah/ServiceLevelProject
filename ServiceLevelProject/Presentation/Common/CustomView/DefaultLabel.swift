@@ -7,16 +7,17 @@
 
 import UIKit.UILabel
 
-final class DescriptionLabel: UILabel {
+final class DefaultLabel: UILabel {
 
     override init(frame: CGRect) { // 코드로 뷰가 생성될 때 생성자
         super.init(frame: frame)
         self.setConfiguration()
     }
 
-    convenience init(title text: String) {
+    convenience init(title text: String, font: UIFont) {
         self.init()
         self.text = text
+        self.font = font
     }
 
     required init?(coder: NSCoder) {
@@ -24,7 +25,6 @@ final class DescriptionLabel: UILabel {
     }
 
     private func setConfiguration() {
-        font = .display1R20
         textAlignment = .center
         numberOfLines = 0
     }
