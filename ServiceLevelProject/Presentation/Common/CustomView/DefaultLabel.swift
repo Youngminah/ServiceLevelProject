@@ -14,10 +14,11 @@ final class DefaultLabel: UILabel {
         self.setConfiguration()
     }
 
-    convenience init(title text: String, font: UIFont) {
+    convenience init(title text: String, font: UIFont, textColor: UIColor = .label) {
         self.init()
         self.text = text
         self.font = font
+        self.textColor = textColor
     }
 
     required init?(coder: NSCoder) {
