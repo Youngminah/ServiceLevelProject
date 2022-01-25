@@ -67,7 +67,7 @@ extension AppDelegate: MessagingDelegate {
             fatalError("Error fetching FCM registration token: \(error)")
           } else if let token = token {
             print("FCM registration token: \(token)")
-            UserDefaults.standard.setValue(token, forKey: "FCMToken")
+              UserDefaults.standard.setValue(token, forKey: UserDefaultKeyCase.fcmToken)
           }
         }
     }
