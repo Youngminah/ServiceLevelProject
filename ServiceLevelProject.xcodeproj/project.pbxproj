@@ -377,19 +377,11 @@
 		BB7A2179279D9CD1005FD0A3 /* Interfaces */ = {
 			isa = PBXGroup;
 			children = (
-				BB7A217A279D9CDE005FD0A3 /* Repositories */,
-			);
-			path = Interfaces;
-			sourceTree = "<group>";
-		};
-		BB7A217A279D9CDE005FD0A3 /* Repositories */ = {
-			isa = PBXGroup;
-			children = (
 				BB7A2171279D16BA005FD0A3 /* UserRepositoryType.swift */,
 				BB7A2181279DAF2B005FD0A3 /* FirbaseRepositoryType.swift */,
 				BB7A2183279DAF3C005FD0A3 /* SesacRepositoryType.swift */,
 			);
-			path = Repositories;
+			path = Interfaces;
 			sourceTree = "<group>";
 		};
 		BB7A217B279D9E72005FD0A3 /* Model */ = {
