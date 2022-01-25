@@ -29,10 +29,17 @@ final class LoginUseCase {
             guard let self = self else { return }
             switch response {
             case .success(let verifyID):
+                self.savePhoneNumberInfo(phoneNumber: phoneNumber)
                 self.verifyIDSuccessSignal.onNext(verifyID)
             case .failure(let error):
                 self.verifyIDFailSignal.onNext(error)
             }
         }
+    }
+
+    private func savePhoneNumberInfo(phoneNumber: String) {
+        let index = phoneNumber.index(after: phoneNumber.startIndex)
+        let formatPhoneNumber = "+82" + String(phoneNumber[index..<phoneNumber.endIndex])
+        self.userRepository.savePhoneNumberInfo(phoneNumber: formatPhoneNumber)
     }
 }
