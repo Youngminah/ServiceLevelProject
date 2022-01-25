@@ -7,7 +7,6 @@
 
 import Foundation
 import FirebaseAuth
-import Moya
 import RxCocoa
 import RxSwift
 
@@ -47,7 +46,7 @@ final class CertificationViewModel: ViewModelType {
     func transform(input: Input) -> Output {
 
         input.didLimitText
-            .map{ $0.count == 6 ? true : false }
+            .map { $0.count == 6 ? true : false }
             .distinctUntilChanged()
             .drive(onNext: { [weak self] in
                 guard let self = self else { return }
