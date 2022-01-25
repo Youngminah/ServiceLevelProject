@@ -13,12 +13,13 @@ import Toast
 
 final class LoginViewController: UIViewController {
     
-    private let descriptionLabel = DescriptionLabel(title: "새싹 서비스 이용을 위해\n휴대폰 번호를 입력해 주세요")
+    private let descriptionLabel = DefaultLabel(title: "새싹 서비스 이용을 위해\n휴대폰 번호를 입력해 주세요",
+                                                    font: .display1R20)
     private let phoneNumberTextField = AuthTextField(placeHolder: "휴대폰 번호(-없이 숫자만 입력)")
     private let confirmButton = DefaultFillButton(title: "인증 문자 받기")
 
     private lazy var input = LoginViewModel.Input(
-        didLimitTextChange: phoneNumberTextField.rx.limitText.asDriver(onErrorJustReturn: ""),
+        didLimitTextChange: phoneNumberTextField.rx.limitPhoneNumberText.asDriver(onErrorJustReturn: ""),
         didTextFieldBegin: phoneNumberTextField.rx.controlEvent(.editingDidBegin).asSignal(),
         didTextFieldEnd: phoneNumberTextField.rx.controlEvent(.editingDidEnd).asSignal(),
         verifyPhoneNumber: verifyPhoneNumber.asSignal()
