@@ -11,7 +11,7 @@ import RxSwift
 
 final class CertificationViewController: UIViewController {
     
-    private let descriptionLabel = DescriptionLabel(title: "인증번호가 문자로 전송되었어요")
+    private let descriptionLabel = DefaultLabel(title: "인증번호가 문자로 전송되었어요", font: .display1R20)
     private let timeLimitLabel = UILabel()
     private let authNumberTextField = AuthTextField(placeHolder: "인증번호 입력")
     private let transferButton = DefaultFillButton(title: "재전송")
@@ -148,39 +148,6 @@ final class CertificationViewController: UIViewController {
         showToast(message: "전화번호 인증 실패")
     }
 
-//    private func signInFirebase() {
-//        let verificationCode = authNumberTextField.text!
-//        let credential = PhoneAuthProvider.provider().credential(
-//            withVerificationID: verifyID,
-//            verificationCode: verificationCode
-//        )
-//        Auth.auth().signIn(with: credential) { [weak self] (authResult, error) in
-//            guard let self = self else { return }
-//            if let error = error {
-//                let authError = error as NSError
-//                self.showToast(message: authError.localizedDescription)
-//                return
-//            }
-//            self.getFirebaseIdtoken()
-//        }
-//    }
-
-//    private func getFirebaseIdtoken() {
-//        let currentUser = Auth.auth().currentUser
-//        currentUser?.getIDTokenForcingRefresh(true) { [weak self] idToken, error in
-//            guard let self = self else { return }
-//            if let error = error {
-//                print(error.localizedDescription)
-//                return;
-//            }
-//            //print(idToken! + "이거")
-//            UserDefaults.standard.setValue(idToken!, forKey: "IdToken")
-//            // Send token to your backend via HTTPS
-//            self.timerDisposable?.dispose()
-//            self.requestRegisterSignal.accept(())
-//        }
-//    }
-
     private func startTimerRefresh() {
         timerDisposable?.dispose()
         timerDisposable = Observable<Int>
@@ -201,5 +168,9 @@ final class CertificationViewController: UIViewController {
     private func showToast(message: String) {
         self.makeToastStyle()
         self.view.makeToast(message, position: .top)
+    }
+
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
 }
