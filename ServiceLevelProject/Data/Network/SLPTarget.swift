@@ -82,7 +82,7 @@ extension SLPTarget: TargetType {
     var headers: [String: String]? {
         let token = UserDefaults.standard.string(forKey: UserDefaultKeyCase.idToken)!
         return [
-            "Content-Type": "application/json",
+            "Content-Type": "application/x-www-form-urlencoded",
             "idtoken": token
         ]
     }
