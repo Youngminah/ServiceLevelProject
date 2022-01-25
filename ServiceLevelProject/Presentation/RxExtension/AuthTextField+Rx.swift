@@ -9,7 +9,7 @@ import RxSwift
 
 extension Reactive where Base: AuthTextField {
 
-    var limitText: Observable<String> {
+    var limitPhoneNumberText: Observable<String> {
         return text
             .orEmpty
             .filter { !$0.contains("-") }
