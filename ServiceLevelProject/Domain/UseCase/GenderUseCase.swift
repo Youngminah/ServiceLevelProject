@@ -14,7 +14,7 @@ final class GenderUseCase {
     private let sesacRepository: SesacRepositoryType
 
     var successRegisterSignal = PublishSubject<Void>()
-    var failRegisterSignal = PublishSubject<Int>()
+    var failRegisterSignal = PublishSubject<SesacNetworkServiceError>()
 
     init(
         userRepository: UserRepositoryType,
@@ -24,36 +24,55 @@ final class GenderUseCase {
         self.sesacRepository = sesacRepository
     }
 
-    func requestRegister() {
+    func requestRegister(gender: Int) {
+        saveGenderInfo(gender: gender)
+        
         let parameters = makeUserInfoBodyParameters()
-        self.sesacRepository.requestRegister(parameters: parameters) { response in
+        sesacRepository.requestRegister(parameters: parameters) { response in
             switch response {
             case .success(_):
                 self.successRegisterSignal.onNext(())
             case .failure(let error):
-                self.failRegisterSignal.onNext(error.rawValue)
+                self.failRegisterSignal.onNext(error)
             }
         }
     }
 
     private func makeUserInfoBodyParameters() -> DictionaryType {
-        let fcmToken = self.fetchFCMToken()!
+        let fcmToken = self.fetchFCMToken()
+        let (nickName, birth, email, gender) = fetchUserInfo()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSSZ"
+        let dateString = dateFormatter.string(from: birth)
         let userInfo = UserRegisterInfoDTO(
-            phoneNumber: "+821088407593",
+            phoneNumber: fetchFCMToken(),
             FCMtoken: fcmToken,
-            nick: "youngmin",
-            birth: "1994-11-14T09:23:44.054Z",
-            email: "youngminah@gmail.com",
-            gender: 1
+            nick: nickName,
+            birth: dateString,
+            email: email,
+            gender: gender
         )
         return userInfo.toDictionary
     }
 
-    private func fetchFCMToken() -> String? {
-        return self.userRepository.fetchFCMToken()
+    private func fetchFCMToken() -> String {
+        return self.userRepository.fetchFCMToken()!
+    }
+
+    private func saveGenderInfo(gender: Int) {
+        self.userRepository.saveGenderInfo(gender: gender)
     }
 
     private func saveLogInInfo() {
         self.userRepository.saveLogInInfo()
+    }
+
+    private func fetchUserInfo() -> (String, Date, String, Int) {
+        return (
+            self.userRepository.fetchNickName()!,
+            self.userRepository.fetchBirth()!,
+            self.userRepository.fetchEmail()!,
+            self.userRepository.fetchGender()!
+        )
     }
 }
