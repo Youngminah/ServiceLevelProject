@@ -18,8 +18,15 @@ final class EmailCoordinator: Coordinator {
     }
 
     func start() {
-        let vc = EmailViewController()
+        let vc = EmailViewController(
+            viewModel: EmailViewModel(coordinator: self)
+        )
         navigationController.pushViewController(vc, animated: true)
     }
-}
 
+    func connectGenderCoordinator() {
+        let genderCoordinator = GenderCoordinator(self.navigationController)
+        genderCoordinator.start()
+        childCoordinators.append(genderCoordinator)
+    }
+}

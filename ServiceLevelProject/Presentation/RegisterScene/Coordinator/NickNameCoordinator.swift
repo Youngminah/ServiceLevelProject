@@ -18,7 +18,15 @@ final class NickNameCoordinator: Coordinator {
     }
 
     func start() {
-        let vc = NicknameViewController()
-        navigationController.pushViewController(vc, animated: true)
+        let vc = NicknameViewController(
+            viewModel: NickNameViewModel(coordinator: self)
+        )
+        navigationController.viewControllers = [vc]
+    }
+
+    func connectBirthCoordinator() {
+        let birthCoordinator = BirthCoordinator(self.navigationController)
+        birthCoordinator.start()
+        childCoordinators.append(birthCoordinator)
     }
 }

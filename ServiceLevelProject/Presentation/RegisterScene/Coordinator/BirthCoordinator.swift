@@ -18,8 +18,16 @@ final class BirthCoordinator: Coordinator {
     }
 
     func start() {
-        let vc = BirthViewController()
+        let vc = BirthViewController(
+            viewModel: BirthViewModel(coordinator: self)
+        )
+        navigationController.setNavigationBarHidden(false, animated: false)
         navigationController.pushViewController(vc, animated: true)
     }
-}
 
+    func connectEmailCoordinator() {
+        let emailCoordinator = EmailCoordinator(self.navigationController)
+        emailCoordinator.start()
+        childCoordinators.append(emailCoordinator)
+    }
+}

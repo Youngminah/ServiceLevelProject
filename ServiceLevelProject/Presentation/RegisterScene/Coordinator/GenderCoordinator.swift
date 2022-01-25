@@ -18,8 +18,28 @@ final class GenderCoordinator: Coordinator {
     }
 
     func start() {
-        let vc = GenderViewController()
+        let vc = GenderViewController(
+            viewModel: GenderViewModel(
+                coordinator: self,
+                genderUseCase: GenderUseCase(
+                    userRepository: UserRepository(),
+                    sesacRepository: SesacRepository()
+                )
+            )
+        )
         navigationController.pushViewController(vc, animated: true)
+    }
+
+    func connectTabBarCoordinator() {
+        let tabBarCoordinator = TabBarCoordinator(self.navigationController)
+        tabBarCoordinator.start()
+        childCoordinators.append(tabBarCoordinator)
+    }
+
+    func connectNickNameCoordinator() {
+        let nickNameCoordinator = NickNameCoordinator(self.navigationController)
+        nickNameCoordinator.start()
+        childCoordinators.append(nickNameCoordinator)
     }
 }
 
