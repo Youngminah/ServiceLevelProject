@@ -11,7 +11,7 @@ import RxSwift
 
 final class NickNameViewModel: ViewModelType {
 
-    private weak var coordinator: NickNameCoordinator?
+    private weak var coordinator: AuthCoordinator?
 
     struct Input {
         let didTextChange: Signal<String>
@@ -26,7 +26,7 @@ final class NickNameViewModel: ViewModelType {
     private let isValidState = BehaviorRelay<Bool>(value: false)
     private let showToastAction = PublishRelay<String>()
 
-    init(coordinator: NickNameCoordinator?) {
+    init(coordinator: AuthCoordinator?) {
         self.coordinator = coordinator
     }
 
@@ -45,7 +45,7 @@ final class NickNameViewModel: ViewModelType {
                 guard let self = self else { return }
                 if self.validationText(text: text) {
                     self.saveNickName(nickName: text)
-                    self.coordinator?.connectBirthCoordinator()
+                    self.coordinator?.showBirthViewController()
                 } else {
                     self.showToastAction.accept("닉네임은 1자 이상 10자 이내로 부탁드려요.")
                 }

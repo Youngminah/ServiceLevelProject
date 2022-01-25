@@ -12,7 +12,7 @@ import RxSwift
 
 final class GenderViewModel: ViewModelType {
 
-    private weak var coordinator: GenderCoordinator?
+    private weak var coordinator: AuthCoordinator?
     private let genderUseCase: GenderUseCase
 
     struct Input {
@@ -35,7 +35,7 @@ final class GenderViewModel: ViewModelType {
 
     private var gender = -1
 
-    init(coordinator: GenderCoordinator?, genderUseCase: GenderUseCase) {
+    init(coordinator: AuthCoordinator?, genderUseCase: GenderUseCase) {
         self.coordinator = coordinator
         self.genderUseCase = genderUseCase
     }
@@ -101,7 +101,7 @@ final class GenderViewModel: ViewModelType {
             .emit(onNext: { [weak self] error in
                 guard let self = self else { return }
                 if error.rawValue == 202 {
-                    self.coordinator?.connectNickNameCoordinator()
+                    self.coordinator?.showNicknameViewController()
                 } else if error.rawValue == 401 {
                     print("파이어베이스 ID 토큰 만료 재요청")
                 } else {

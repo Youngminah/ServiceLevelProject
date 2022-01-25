@@ -12,7 +12,7 @@ import RxSwift
 
 final class EmailViewModel: ViewModelType {
 
-    private weak var coordinator: EmailCoordinator?
+    private weak var coordinator: AuthCoordinator?
 
     struct Input {
         let didTextChange: Signal<String>
@@ -27,7 +27,7 @@ final class EmailViewModel: ViewModelType {
     private let isValid = BehaviorRelay<Bool>(value: false)
     private let showToastAction = PublishRelay<String>()
 
-    init(coordinator: EmailCoordinator?) {
+    init(coordinator: AuthCoordinator?) {
         self.coordinator = coordinator
     }
 
@@ -46,7 +46,7 @@ final class EmailViewModel: ViewModelType {
                 guard let self = self else { return }
                 if self.isValid.value {
                     self.saveEmailInfo(email: text)
-                    self.coordinator?.connectGenderCoordinator()
+                    self.coordinator?.showGenderViewController()
                 } else {
                     self.showToastAction.accept("이메일 형식이 올바르지 않습니다.")
                 }

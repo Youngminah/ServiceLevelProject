@@ -12,7 +12,7 @@ import RxSwift
 
 final class LoginViewModel: ViewModelType {
 
-    private weak var coordinator: LoginCoordinator?
+    private weak var coordinator: AuthCoordinator?
     private let loginUseCase: LoginUseCase
 
     struct Input {
@@ -37,7 +37,7 @@ final class LoginViewModel: ViewModelType {
 
     var disposeBag = DisposeBag()
 
-    init(coordinator: LoginCoordinator?, loginUseCase: LoginUseCase) {
+    init(coordinator: AuthCoordinator?, loginUseCase: LoginUseCase) {
         self.coordinator = coordinator
         self.loginUseCase = loginUseCase
     }
@@ -79,7 +79,7 @@ final class LoginViewModel: ViewModelType {
 
         self.loginUseCase.verifyIDSuccessSignal
             .subscribe(onNext: { [weak self] verifyID in
-                self?.coordinator?.connectCertifacationCoordinator(verifyID: verifyID)
+                self?.coordinator?.showCertifacationViewController(verifyID: verifyID)
             })
             .disposed(by: disposeBag)
 

@@ -21,28 +21,18 @@ final class AppCoordinator: Coordinator {
     }
 
     func start() {
-//        if userDefaults.bool(forKey: UserDefaultKeyCase.isFirstUser) {
-//            showOnBoardingScene()
-//        } else if userDefaults.bool(forKey: UserDefaultKeyCase.isLoggedIn) {
-//            showLoginScene()
+//        if userDefaults.bool(forKey: UserDefaultKeyCase.isLoggedIn) {
+//            connectTabBarCoordinator()
 //        } else {
-//            showTabBarScene()
+//            connectAuthCoordinator()
 //        }
-//        showOnBoardingScene()
-        connectLoginCoordinator()
-//        showTabBarScene()
+        connectAuthCoordinator()
     }
 
-    private func connectOnBoardingCoordinator() {
-        let onBoardingCoordinator = OnBoardingCoordinator(self.navigationController)
-        onBoardingCoordinator.start()
-        childCoordinators.append(onBoardingCoordinator)
-    }
-
-    private func connectLoginCoordinator() {
-        let loginCoordinator = LoginCoordinator(self.navigationController)
-        loginCoordinator.start()
-        childCoordinators.append(loginCoordinator)
+    private func connectAuthCoordinator() {
+        let authCoordinator = AuthCoordinator(self.navigationController)
+        authCoordinator.start()
+        childCoordinators.append(authCoordinator)
     }
 
     private func connectTabBarCoordinator() {

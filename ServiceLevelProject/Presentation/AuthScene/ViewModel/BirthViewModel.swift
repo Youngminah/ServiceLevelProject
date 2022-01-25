@@ -14,7 +14,7 @@ typealias BirthInfo = (String?, String?, String?)
 
 final class BirthViewModel: ViewModelType {
 
-    private weak var coordinator: BirthCoordinator?
+    private weak var coordinator: AuthCoordinator?
 
     struct Input {
         let didSelectedDatePicker: Signal<Date>
@@ -37,7 +37,7 @@ final class BirthViewModel: ViewModelType {
 
     private var selectedDate = Date()
 
-    init(coordinator: BirthCoordinator?) {
+    init(coordinator: AuthCoordinator?) {
         self.coordinator = coordinator
     }
 
@@ -61,7 +61,7 @@ final class BirthViewModel: ViewModelType {
                 guard let self = self else { return }
                 if isValidBirth {
                     self.saveBirthInfo()
-                    self.coordinator?.connectEmailCoordinator()
+                    self.coordinator?.showEmailViewController()
                 }
             })
             .disposed(by: disposeBag)

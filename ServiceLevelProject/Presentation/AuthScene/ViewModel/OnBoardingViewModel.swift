@@ -9,7 +9,7 @@ import UIKit.UIImage
 
 final class OnBoardingViewModel {
     
-    private weak var coordinator: OnBoardingCoordinator?
+    private weak var coordinator: AuthCoordinator?
 
     private let onBoardingImageViews: [UIImage] = [
         Asset.onBoarding1.image,
@@ -28,7 +28,7 @@ final class OnBoardingViewModel {
             .regular(string: "SeSAC Freinds")
     ]
 
-    init(coordinator: OnBoardingCoordinator?) {
+    init(coordinator: AuthCoordinator?) {
         self.coordinator = coordinator
     }
 
@@ -46,6 +46,6 @@ final class OnBoardingViewModel {
 
     func showLoginController() {
         //UserDefaults.standard.set(true, forKey: UserDefaultKeyCase.isLoggedIn)
-        coordinator?.showLoginScene()
+        coordinator?.showLoginViewController()
     }
 }

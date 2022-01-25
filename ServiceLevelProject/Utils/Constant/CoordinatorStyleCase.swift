@@ -8,8 +8,6 @@
 import Foundation
 
 enum CoordinatorStyleCase {
-    case app, tab
-    case onBoarding, login, certification
-    case nickname, birth, email, gender
+    case app, auth, tab, login
     case home, sesacShop, sesacFriend, myPage
 }

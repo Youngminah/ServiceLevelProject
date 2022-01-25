@@ -12,7 +12,7 @@ import RxSwift
 
 final class CertificationViewModel: ViewModelType {
 
-    private weak var coordinator: CertificationCoordinator?
+    private weak var coordinator: AuthCoordinator?
     private let certificationUseCase: CertificationUseCase
 
     struct Input {
@@ -35,7 +35,7 @@ final class CertificationViewModel: ViewModelType {
 
     init(
         verifyID: String,
-        coordinator: CertificationCoordinator?,
+        coordinator: AuthCoordinator?,
         certificationUseCase: CertificationUseCase
     ) {
         self.verifyID = verifyID
@@ -86,7 +86,7 @@ final class CertificationViewModel: ViewModelType {
             .subscribe(onNext: { [weak self] in
                 guard let self = self else { return }
                 self.disposeTimerAction.accept(())
-                self.coordinator?.connectNickNameCoordinator()
+                self.coordinator?.showNicknameViewController()
             })
             .disposed(by: disposeBag)
 

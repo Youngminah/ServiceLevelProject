@@ -62,18 +62,11 @@
 		BBAAA6A6279C105F00667591 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAA6A5279C105F00667591 /* AppCoordinator.swift */; };
 		BBAAA6A9279C124F00667591 /* OnBoardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAA6A8279C124F00667591 /* OnBoardingViewModel.swift */; };
 		BBAAA6AB279C169500667591 /* TransitionStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAA6AA279C169500667591 /* TransitionStyle.swift */; };
-		BBAAA6AE279C176C00667591 /* OnBoardingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAA6AD279C176C00667591 /* OnBoardingCoordinator.swift */; };
 		BBAAA6B0279C240C00667591 /* UserDefaultKeyCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAA6AF279C240C00667591 /* UserDefaultKeyCase.swift */; };
-		BBAAA6B3279C256400667591 /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAA6B2279C256400667591 /* LoginCoordinator.swift */; };
-		BBAAA6B5279C29A000667591 /* CertificationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAA6B4279C29A000667591 /* CertificationCoordinator.swift */; };
 		BBAAA6B7279C3CD700667591 /* NickNameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAA6B6279C3CD700667591 /* NickNameViewModel.swift */; };
 		BBAAA6B9279C3CE100667591 /* BirthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAA6B8279C3CE100667591 /* BirthViewModel.swift */; };
 		BBAAA6BC279C3CF100667591 /* EmailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAA6BB279C3CF100667591 /* EmailViewModel.swift */; };
 		BBAAA6BE279C3CFA00667591 /* GenderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAA6BD279C3CFA00667591 /* GenderViewModel.swift */; };
-		BBAAA6C0279C3D1100667591 /* NickNameCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAA6BF279C3D1100667591 /* NickNameCoordinator.swift */; };
-		BBAAA6C2279C3D1B00667591 /* BirthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAA6C1279C3D1B00667591 /* BirthCoordinator.swift */; };
-		BBAAA6C4279C3D2600667591 /* EmailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAA6C3279C3D2600667591 /* EmailCoordinator.swift */; };
-		BBAAA6C6279C3D2F00667591 /* GenderCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAA6C5279C3D2F00667591 /* GenderCoordinator.swift */; };
 		BBAAA6CA279C460000667591 /* SesacShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAA6C9279C460000667591 /* SesacShopViewController.swift */; };
 		BBAAA6CF279C46C700667591 /* SesacFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAA6CE279C46C700667591 /* SesacFriendViewController.swift */; };
 		BBAAA6D1279C46D200667591 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAA6D0279C46D200667591 /* MyPageViewController.swift */; };
@@ -83,6 +76,7 @@
 		BBAAA6D9279C55B800667591 /* SesacShopCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAA6D8279C55B800667591 /* SesacShopCoordinator.swift */; };
 		BBAAA6DC279C55ED00667591 /* SesacFriendCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAA6DB279C55ED00667591 /* SesacFriendCoordinator.swift */; };
 		BBAAA6DE279C598D00667591 /* MyPageCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAA6DD279C598D00667591 /* MyPageCoordinator.swift */; };
+		BBDDDF8A27A03A9E000FB2C0 /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDDDF8927A03A9E000FB2C0 /* AuthCoordinator.swift */; };
 		BBED11EF27984744002A5E9E /* Assets+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBED11EE27984744002A5E9E /* Assets+Generated.swift */; };
 		BBED11F7279869EA002A5E9E /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBED11F6279869EA002A5E9E /* Coordinator.swift */; };
 		BBED11FB27986D87002A5E9E /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = BBED11FA27986D87002A5E9E /* FirebaseAuth */; };
@@ -176,18 +170,11 @@
 		BBAAA6A5279C105F00667591 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		BBAAA6A8279C124F00667591 /* OnBoardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewModel.swift; sourceTree = "<group>"; };
 		BBAAA6AA279C169500667591 /* TransitionStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionStyle.swift; sourceTree = "<group>"; };
-		BBAAA6AD279C176C00667591 /* OnBoardingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingCoordinator.swift; sourceTree = "<group>"; };
 		BBAAA6AF279C240C00667591 /* UserDefaultKeyCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultKeyCase.swift; sourceTree = "<group>"; };
-		BBAAA6B2279C256400667591 /* LoginCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
-		BBAAA6B4279C29A000667591 /* CertificationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificationCoordinator.swift; sourceTree = "<group>"; };
 		BBAAA6B6279C3CD700667591 /* NickNameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NickNameViewModel.swift; sourceTree = "<group>"; };
 		BBAAA6B8279C3CE100667591 /* BirthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthViewModel.swift; sourceTree = "<group>"; };
 		BBAAA6BB279C3CF100667591 /* EmailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailViewModel.swift; sourceTree = "<group>"; };
 		BBAAA6BD279C3CFA00667591 /* GenderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderViewModel.swift; sourceTree = "<group>"; };
-		BBAAA6BF279C3D1100667591 /* NickNameCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NickNameCoordinator.swift; sourceTree = "<group>"; };
-		BBAAA6C1279C3D1B00667591 /* BirthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthCoordinator.swift; sourceTree = "<group>"; };
-		BBAAA6C3279C3D2600667591 /* EmailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailCoordinator.swift; sourceTree = "<group>"; };
-		BBAAA6C5279C3D2F00667591 /* GenderCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderCoordinator.swift; sourceTree = "<group>"; };
 		BBAAA6C9279C460000667591 /* SesacShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SesacShopViewController.swift; sourceTree = "<group>"; };
 		BBAAA6CE279C46C700667591 /* SesacFriendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SesacFriendViewController.swift; sourceTree = "<group>"; };
 		BBAAA6D0279C46D200667591 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
@@ -197,6 +184,7 @@
 		BBAAA6D8279C55B800667591 /* SesacShopCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SesacShopCoordinator.swift; sourceTree = "<group>"; };
 		BBAAA6DB279C55ED00667591 /* SesacFriendCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SesacFriendCoordinator.swift; sourceTree = "<group>"; };
 		BBAAA6DD279C598D00667591 /* MyPageCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageCoordinator.swift; sourceTree = "<group>"; };
+		BBDDDF8927A03A9E000FB2C0 /* AuthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
 		BBED11EE27984744002A5E9E /* Assets+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Assets+Generated.swift"; sourceTree = "<group>"; };
 		BBED11F6279869EA002A5E9E /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		BBED11F827986CCC002A5E9E /* ServiceLevelProject.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ServiceLevelProject.entitlements; sourceTree = "<group>"; };
@@ -330,9 +318,7 @@
 			isa = PBXGroup;
 			children = (
 				BBED11F5279869C0002A5E9E /* Common */,
-				BBED1200279902CC002A5E9E /* OnBoardingScene */,
 				BB105D6F2796B0E1008264DD /* AuthScene */,
-				BB8D1F362799B7B800D111B6 /* RegisterScene */,
 				BBAAA6A0279BFC3F00667591 /* HomeScene */,
 				BBAAA6CB279C460A00667591 /* SesacShopScene */,
 				BBAAA6CC279C462F00667591 /* SesacFriendScene */,
@@ -418,42 +404,15 @@
 		BB8D1F352799B76E00D111B6 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				BBED1201279902ED002A5E9E /* OnBoardingViewController.swift */,
 				BB105D6D2796B0DA008264DD /* LoginViewController.swift */,
 				BB105D8C2796F004008264DD /* CertificationViewController.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		BB8D1F362799B7B800D111B6 /* RegisterScene */ = {
-			isa = PBXGroup;
-			children = (
-				BBAAA6BA279C3CE400667591 /* Coordinator */,
-				BB8D1F382799B7FC00D111B6 /* ViewModel */,
-				BB8D1F372799B7F500D111B6 /* View */,
-			);
-			path = RegisterScene;
-			sourceTree = "<group>";
-		};
-		BB8D1F372799B7F500D111B6 /* View */ = {
-			isa = PBXGroup;
-			children = (
 				BB105D932797AAD1008264DD /* NicknameViewController.swift */,
 				BB105D952797AAE5008264DD /* BirthViewController.swift */,
 				BB105D972797AAF7008264DD /* EmailViewController.swift */,
 				BB105D992797F313008264DD /* GenderViewController.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		BB8D1F382799B7FC00D111B6 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				BBAAA6B6279C3CD700667591 /* NickNameViewModel.swift */,
-				BBAAA6B8279C3CE100667591 /* BirthViewModel.swift */,
-				BBAAA6BB279C3CF100667591 /* EmailViewModel.swift */,
-				BBAAA6BD279C3CFA00667591 /* GenderViewModel.swift */,
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		BBAAA685279AD39100667591 /* Network */ = {
@@ -487,17 +446,8 @@
 			children = (
 				BBAAA6C7279C42A800667591 /* Protocol */,
 				BBAAA6A5279C105F00667591 /* AppCoordinator.swift */,
-				BBAAA6D2279C481700667591 /* TabBarCoordinator.swift */,
 			);
 			path = Coordinator;
-			sourceTree = "<group>";
-		};
-		BBAAA697279BCC2600667591 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				BBED1201279902ED002A5E9E /* OnBoardingViewController.swift */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		BBAAA698279BCC9C00667591 /* Service */ = {
@@ -525,44 +475,17 @@
 		BBAAA6A0279BFC3F00667591 /* HomeScene */ = {
 			isa = PBXGroup;
 			children = (
+				BBAAA6D2279C481700667591 /* TabBarCoordinator.swift */,
 				BBAAA6E4279C5A2200667591 /* Coordinator */,
 				BBAAA6E5279C5AE000667591 /* View */,
 			);
 			path = HomeScene;
 			sourceTree = "<group>";
 		};
-		BBAAA6A7279C123500667591 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				BBAAA6A8279C124F00667591 /* OnBoardingViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		BBAAA6AC279C173B00667591 /* Coordinator */ = {
-			isa = PBXGroup;
-			children = (
-				BBAAA6AD279C176C00667591 /* OnBoardingCoordinator.swift */,
-			);
-			path = Coordinator;
-			sourceTree = "<group>";
-		};
 		BBAAA6B1279C254F00667591 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
-				BBAAA6B2279C256400667591 /* LoginCoordinator.swift */,
-				BBAAA6B4279C29A000667591 /* CertificationCoordinator.swift */,
-			);
-			path = Coordinator;
-			sourceTree = "<group>";
-		};
-		BBAAA6BA279C3CE400667591 /* Coordinator */ = {
-			isa = PBXGroup;
-			children = (
-				BBAAA6BF279C3D1100667591 /* NickNameCoordinator.swift */,
-				BBAAA6C1279C3D1B00667591 /* BirthCoordinator.swift */,
-				BBAAA6C3279C3D2600667591 /* EmailCoordinator.swift */,
-				BBAAA6C5279C3D2F00667591 /* GenderCoordinator.swift */,
+				BBDDDF8927A03A9E000FB2C0 /* AuthCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -684,16 +607,6 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
-		BBED1200279902CC002A5E9E /* OnBoardingScene */ = {
-			isa = PBXGroup;
-			children = (
-				BBAAA6AC279C173B00667591 /* Coordinator */,
-				BBAAA6A7279C123500667591 /* ViewModel */,
-				BBAAA697279BCC2600667591 /* View */,
-			);
-			path = OnBoardingScene;
-			sourceTree = "<group>";
-		};
 		BBED121727996F53002A5E9E /* RxExtension */ = {
 			isa = PBXGroup;
 			children = (
@@ -706,8 +619,13 @@
 		BBED1221279986A1002A5E9E /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				BBAAA6A8279C124F00667591 /* OnBoardingViewModel.swift */,
 				BB8D1F312799B5FB00D111B6 /* LoginViewModel.swift */,
 				BB8D1F3B279A992C00D111B6 /* CertificationViewModel.swift */,
+				BBAAA6B6279C3CD700667591 /* NickNameViewModel.swift */,
+				BBAAA6B8279C3CE100667591 /* BirthViewModel.swift */,
+				BBAAA6BB279C3CF100667591 /* EmailViewModel.swift */,
+				BBAAA6BD279C3CFA00667591 /* GenderViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -949,13 +867,11 @@
 				BB105D6E2796B0DA008264DD /* LoginViewController.swift in Sources */,
 				BB7A2176279D9BB6005FD0A3 /* CertificationUseCase.swift in Sources */,
 				BB8D1F3A2799BE6400D111B6 /* AuthTextField+Rx.swift in Sources */,
-				BBAAA6C6279C3D2F00667591 /* GenderCoordinator.swift in Sources */,
 				BB105D892796D050008264DD /* AuthTextField.swift in Sources */,
 				BB7A216F279D1673005FD0A3 /* UserRepository.swift in Sources */,
 				BBED121B279976A4002A5E9E /* UIViewController.swift in Sources */,
 				BBAAA6D9279C55B800667591 /* SesacShopCoordinator.swift in Sources */,
 				BB105D3E27966ABC008264DD /* AppDelegate.swift in Sources */,
-				BBAAA6C0279C3D1100667591 /* NickNameCoordinator.swift in Sources */,
 				BBAAA6AB279C169500667591 /* TransitionStyle.swift in Sources */,
 				BB7A2184279DAF3C005FD0A3 /* SesacRepositoryType.swift in Sources */,
 				BBAAA6DE279C598D00667591 /* MyPageCoordinator.swift in Sources */,
@@ -970,18 +886,15 @@
 				BB105D8D2796F004008264DD /* CertificationViewController.swift in Sources */,
 				BBAAA6DC279C55ED00667591 /* SesacFriendCoordinator.swift in Sources */,
 				BB8D1F342799B62100D111B6 /* ViewModelType.swift in Sources */,
-				BBAAA6AE279C176C00667591 /* OnBoardingCoordinator.swift in Sources */,
 				BBAAA69C279BE30700667591 /* UserInfoResponseDTO.swift in Sources */,
 				BBED12202799785F002A5E9E /* ValidationErrorCase.swift in Sources */,
 				BBAAA6A4279C0F2200667591 /* CoordinatorStyleCase.swift in Sources */,
 				BB7A2180279DA3EF005FD0A3 /* SesacRepository.swift in Sources */,
-				BBAAA6C4279C3D2600667591 /* EmailCoordinator.swift in Sources */,
 				BBED11F7279869EA002A5E9E /* Coordinator.swift in Sources */,
 				BB105D9E27981074008264DD /* UIButton.swift in Sources */,
 				BBAAA6CA279C460000667591 /* SesacShopViewController.swift in Sources */,
 				BB105D4027966ABC008264DD /* SceneDelegate.swift in Sources */,
 				BBAAA6BE279C3CFA00667591 /* GenderViewModel.swift in Sources */,
-				BBAAA6B3279C256400667591 /* LoginCoordinator.swift in Sources */,
 				BB7A2172279D16BA005FD0A3 /* UserRepositoryType.swift in Sources */,
 				BBAAA68E279B07A500667591 /* SLPTarget+StubData.swift in Sources */,
 				BB105D942797AAD1008264DD /* NicknameViewController.swift in Sources */,
@@ -989,7 +902,6 @@
 				BB7A2174279D9BA4005FD0A3 /* LoginUseCase.swift in Sources */,
 				BB105D962797AAE5008264DD /* BirthViewController.swift in Sources */,
 				BB7A217E279DA32F005FD0A3 /* FireBaseRepository.swift in Sources */,
-				BBAAA6C2279C3D1B00667591 /* BirthCoordinator.swift in Sources */,
 				BBAAA6B9279C3CE100667591 /* BirthViewModel.swift in Sources */,
 				BBAAA69E279BE72D00667591 /* DefaultMoyaNetworkServiceError.swift in Sources */,
 				BBAAA6B0279C240C00667591 /* UserDefaultKeyCase.swift in Sources */,
@@ -1001,7 +913,6 @@
 				BBAAA68C279AD7BE00667591 /* APIConstant.swift in Sources */,
 				BB105D982797AAF8008264DD /* EmailViewController.swift in Sources */,
 				BB7A2178279D9BCC005FD0A3 /* GenderUseCase.swift in Sources */,
-				BBAAA6B5279C29A000667591 /* CertificationCoordinator.swift in Sources */,
 				BB105D782796B2B8008264DD /* AppFont.swift in Sources */,
 				BBAAA687279AD3A500667591 /* SLPTarget.swift in Sources */,
 				BBED121927996F97002A5E9E /* DefaultFillButton+Rx.swift in Sources */,
@@ -1014,6 +925,7 @@
 				BBAAA6BC279C3CF100667591 /* EmailViewModel.swift in Sources */,
 				BB7A2182279DAF2B005FD0A3 /* FirbaseRepositoryType.swift in Sources */,
 				BB105D9A2797F313008264DD /* GenderViewController.swift in Sources */,
+				BBDDDF8A27A03A9E000FB2C0 /* AuthCoordinator.swift in Sources */,
 				BB105D9C2797FA21008264DD /* GenderButton.swift in Sources */,
 				BBAAA690279B0BEB00667591 /* NetworkMonitorService.swift in Sources */,
 				BBAAA6D7279C55AA00667591 /* HomeCoordinator.swift in Sources */,
