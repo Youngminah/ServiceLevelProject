@@ -292,8 +292,9 @@
 			isa = PBXGroup;
 			children = (
 				BBAAA6B1279C254F00667591 /* Coordinator */,
-				BBED1221279986A1002A5E9E /* ViewModel */,
-				BB8D1F352799B76E00D111B6 /* View */,
+				BB1E251527A196F000A80FC3 /* OnBoarding */,
+				BB1E251627A196FE00A80FC3 /* Login */,
+				BB1E251727A1970A00A80FC3 /* Register */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -408,6 +409,67 @@
 			path = Coordinator;
 			sourceTree = "<group>";
 		};
+		BB1E251527A196F000A80FC3 /* OnBoarding */ = {
+			isa = PBXGroup;
+			children = (
+				BB1E251827A1971A00A80FC3 /* ViewModel */,
+				BB1E251927A1972000A80FC3 /* View */,
+			);
+			path = OnBoarding;
+			sourceTree = "<group>";
+		};
+		BB1E251627A196FE00A80FC3 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				BB1E251B27A1973300A80FC3 /* ViewModel */,
+				BB1E251A27A1972F00A80FC3 /* View */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		BB1E251727A1970A00A80FC3 /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				BBED1221279986A1002A5E9E /* ViewModel */,
+				BB8D1F352799B76E00D111B6 /* View */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
+		BB1E251827A1971A00A80FC3 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				BBAAA6A8279C124F00667591 /* OnBoardingViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		BB1E251927A1972000A80FC3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BBED1201279902ED002A5E9E /* OnBoardingViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BB1E251A27A1972F00A80FC3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BB105D6D2796B0DA008264DD /* LoginViewController.swift */,
+				BB105D8C2796F004008264DD /* CertificationViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BB1E251B27A1973300A80FC3 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				BB8D1F312799B5FB00D111B6 /* LoginViewModel.swift */,
+				BB8D1F3B279A992C00D111B6 /* CertificationViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		BB7A216C279D113C005FD0A3 /* UseCase */ = {
 			isa = PBXGroup;
 			children = (
@@ -450,9 +512,6 @@
 		BB8D1F352799B76E00D111B6 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				BBED1201279902ED002A5E9E /* OnBoardingViewController.swift */,
-				BB105D6D2796B0DA008264DD /* LoginViewController.swift */,
-				BB105D8C2796F004008264DD /* CertificationViewController.swift */,
 				BB105D932797AAD1008264DD /* NicknameViewController.swift */,
 				BB105D952797AAE5008264DD /* BirthViewController.swift */,
 				BB105D972797AAF7008264DD /* EmailViewController.swift */,
@@ -664,9 +723,6 @@
 		BBED1221279986A1002A5E9E /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				BBAAA6A8279C124F00667591 /* OnBoardingViewModel.swift */,
-				BB8D1F312799B5FB00D111B6 /* LoginViewModel.swift */,
-				BB8D1F3B279A992C00D111B6 /* CertificationViewModel.swift */,
 				BBAAA6B6279C3CD700667591 /* NickNameViewModel.swift */,
 				BBAAA6B8279C3CE100667591 /* BirthViewModel.swift */,
 				BBAAA6BB279C3CF100667591 /* EmailViewModel.swift */,
