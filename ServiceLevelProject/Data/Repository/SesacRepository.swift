@@ -42,14 +42,21 @@ final class SesacRepository: SesacRepositoryType {
 
 extension SesacRepository {
 
-    func requestUserInfo(completion: @escaping (Result<UserInfoResponseDTO, SesacNetworkServiceError>) -> Void) {
+    func requestUserInfo(completion: @escaping (Result<UserInfo, SesacNetworkServiceError>) -> Void) {
         provider.request(.getUserInfo) { result in
-            self.process(type: UserInfoResponseDTO.self, result: result, completion: completion)
+            switch result {
+            case .success(let response):
+                let data = try? JSONDecoder().decode(UserInfoResponseDTO.self, from: response.data)
+                completion(.success(data!.toDomain()))
+            case .failure(let error):
+                completion(.failure(SesacNetworkServiceError(rawValue: error.response!.statusCode) ?? .unknown))
+            }
         }
     }
 
-    func requestRegister(parameters: DictionaryType, completion: @escaping (Result<Int, SesacNetworkServiceError>) -> Void ) {
-        provider.request(.register(parameters: parameters)) { result in
+    func requestRegister(userRegisterInfo: UserRegisterInfo, completion: @escaping (Result<Int, SesacNetworkServiceError>) -> Void ) {
+        let requestDTO = UserRegisterInfoRequestDTO(userRegisterInfo: userRegisterInfo)
+        provider.request(.register(parameters: requestDTO.toDictionary)) { result in
             self.process(result: result,completion: completion)
         }
     }
