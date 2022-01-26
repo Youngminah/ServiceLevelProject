@@ -12,7 +12,7 @@ protocol FirbaseRepositoryType: AnyObject {
     func verifyPhoneNumber(
         phoneNumber: String,
         completion: @escaping (
-            Result<String,
+            Result <String,
             FirbaseNetworkServiceError>
         ) -> Void
     )
@@ -21,14 +21,14 @@ protocol FirbaseRepositoryType: AnyObject {
         verifyID: String,
         certificationNumber: String,
         completion: @escaping (
-            Result<Void,
+            Result <Void,
             FirbaseNetworkServiceError>
         ) -> Void
     )
 
     func requestIdtoken(
         completion: @escaping (
-            Result<String,
+            Result <String,
             FirbaseNetworkServiceError>
         ) -> Void
     )
