@@ -56,7 +56,6 @@
 		BBAAA690279B0BEB00667591 /* NetworkMonitorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAA68F279B0BEB00667591 /* NetworkMonitorService.swift */; };
 		BBAAA694279B2C2600667591 /* UserRegisterInfoDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAA693279B2C2600667591 /* UserRegisterInfoDTO.swift */; };
 		BBAAA69C279BE30700667591 /* UserInfoResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAA69B279BE30700667591 /* UserInfoResponseDTO.swift */; };
-		BBAAA69E279BE72D00667591 /* DefaultMoyaNetworkServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAA69D279BE72D00667591 /* DefaultMoyaNetworkServiceError.swift */; };
 		BBAAA6A2279BFC6700667591 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAA6A1279BFC6700667591 /* HomeViewController.swift */; };
 		BBAAA6A4279C0F2200667591 /* CoordinatorStyleCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAA6A3279C0F2200667591 /* CoordinatorStyleCase.swift */; };
 		BBAAA6A6279C105F00667591 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAA6A5279C105F00667591 /* AppCoordinator.swift */; };
@@ -164,7 +163,6 @@
 		BBAAA68F279B0BEB00667591 /* NetworkMonitorService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitorService.swift; sourceTree = "<group>"; };
 		BBAAA693279B2C2600667591 /* UserRegisterInfoDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRegisterInfoDTO.swift; sourceTree = "<group>"; };
 		BBAAA69B279BE30700667591 /* UserInfoResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoResponseDTO.swift; sourceTree = "<group>"; };
-		BBAAA69D279BE72D00667591 /* DefaultMoyaNetworkServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultMoyaNetworkServiceError.swift; sourceTree = "<group>"; };
 		BBAAA6A1279BFC6700667591 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		BBAAA6A3279C0F2200667591 /* CoordinatorStyleCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorStyleCase.swift; sourceTree = "<group>"; };
 		BBAAA6A5279C105F00667591 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
@@ -261,6 +259,7 @@
 				BB105D7A2796B347008264DD /* Presentation */,
 				BBED12272799ABD8002A5E9E /* Domain */,
 				BBED12262799ABD2002A5E9E /* Data */,
+				BB1E250727A1543000A80FC3 /* Infrastructure */,
 				BBED12222799AA74002A5E9E /* Resources */,
 			);
 			path = ServiceLevelProject;
@@ -354,6 +353,23 @@
 			path = CustomView;
 			sourceTree = "<group>";
 		};
+		BB1E250727A1543000A80FC3 /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				BB1E250827A155EB00A80FC3 /* Mocks */,
+				BBAAA685279AD39100667591 /* Network */,
+			);
+			path = Infrastructure;
+			sourceTree = "<group>";
+		};
+		BB1E250827A155EB00A80FC3 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				BBAAA68D279B07A500667591 /* SLPTarget+StubData.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
 		BB7A216C279D113C005FD0A3 /* UseCase */ = {
 			isa = PBXGroup;
 			children = (
@@ -410,9 +426,9 @@
 		BBAAA685279AD39100667591 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				BBAAA69D279BE72D00667591 /* DefaultMoyaNetworkServiceError.swift */,
+				BBAAA68B279AD7BE00667591 /* APIConstant.swift */,
+				BBAAA689279AD78000667591 /* APIEnvironment.swift */,
 				BBAAA686279AD3A500667591 /* SLPTarget.swift */,
-				BBAAA68D279B07A500667591 /* SLPTarget+StubData.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -456,8 +472,6 @@
 			isa = PBXGroup;
 			children = (
 				BBAAA6AA279C169500667591 /* TransitionStyle.swift */,
-				BBAAA68B279AD7BE00667591 /* APIConstant.swift */,
-				BBAAA689279AD78000667591 /* APIEnvironment.swift */,
 				BBAAA6A3279C0F2200667591 /* CoordinatorStyleCase.swift */,
 				BBAAA6AF279C240C00667591 /* UserDefaultKeyCase.swift */,
 				BBAAA6D4279C542A00667591 /* TabBarPageCase.swift */,
@@ -649,7 +663,6 @@
 			isa = PBXGroup;
 			children = (
 				BB7A216D279D13A4005FD0A3 /* Repository */,
-				BBAAA685279AD39100667591 /* Network */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -895,7 +908,6 @@
 				BB105D962797AAE5008264DD /* BirthViewController.swift in Sources */,
 				BB7A217E279DA32F005FD0A3 /* FireBaseRepository.swift in Sources */,
 				BBAAA6B9279C3CE100667591 /* BirthViewModel.swift in Sources */,
-				BBAAA69E279BE72D00667591 /* DefaultMoyaNetworkServiceError.swift in Sources */,
 				BBAAA6B0279C240C00667591 /* UserDefaultKeyCase.swift in Sources */,
 				BBAAA6B7279C3CD700667591 /* NickNameViewModel.swift in Sources */,
 				BB105D812796B9B7008264DD /* UIColor.swift in Sources */,
