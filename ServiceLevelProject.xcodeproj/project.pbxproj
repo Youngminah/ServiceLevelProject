@@ -423,13 +423,13 @@
 			path = Interfaces;
 			sourceTree = "<group>";
 		};
-		BB7A217B279D9E72005FD0A3 /* Entity */ = {
+		BB7A217B279D9E72005FD0A3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				BB1E250B27A158FA00A80FC3 /* UserRegisterInfo.swift */,
 				BB1E250D27A1590500A80FC3 /* UserInfo.swift */,
 			);
-			path = Entity;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		BB8D1F352799B76E00D111B6 /* View */ = {
@@ -695,7 +695,7 @@
 		BBED12272799ABD8002A5E9E /* Domain */ = {
 			isa = PBXGroup;
 			children = (
-				BB7A217B279D9E72005FD0A3 /* Entity */,
+				BB7A217B279D9E72005FD0A3 /* Model */,
 				BB7A216C279D113C005FD0A3 /* UseCase */,
 				BB7A2179279D9CD1005FD0A3 /* Interfaces */,
 			);
