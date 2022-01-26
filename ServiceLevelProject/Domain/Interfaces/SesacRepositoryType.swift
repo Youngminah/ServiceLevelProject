@@ -12,16 +12,15 @@ protocol SesacRepositoryType: AnyObject {
 
     func requestUserInfo(
         completion: @escaping (
-            Result<
-            UserInfoResponseDTO,
+            Result< UserInfo,
             SesacNetworkServiceError>
         ) -> Void
     )
 
     func requestRegister(
-        parameters: DictionaryType,
+        userRegisterInfo: UserRegisterInfo,
         completion: @escaping (
-            Result<Int,
+            Result< Int,
             SesacNetworkServiceError>
         ) -> Void
     )
