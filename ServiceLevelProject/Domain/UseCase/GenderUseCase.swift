@@ -27,8 +27,8 @@ final class GenderUseCase {
     func requestRegister(gender: Int) {
         saveGenderInfo(gender: gender)
         
-        let parameters = makeUserInfoBodyParameters()
-        sesacRepository.requestRegister(parameters: parameters) { response in
+        let userRegisterInfo = makeUserRegisterInfo()
+        sesacRepository.requestRegister(userRegisterInfo: userRegisterInfo) { response in
             switch response {
             case .success(_):
                 self.successRegisterSignal.onNext(())
@@ -38,25 +38,26 @@ final class GenderUseCase {
         }
     }
 
-    private func makeUserInfoBodyParameters() -> DictionaryType {
-        let fcmToken = self.fetchFCMToken()
+    private func makeUserRegisterInfo() -> UserRegisterInfo {
+        let fcmToken = fetchFCMToken()
         let (nickName, birth, email, gender) = fetchUserInfo()
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSSZ"
-        let dateString = dateFormatter.string(from: birth)
-        let userInfo = UserRegisterInfoDTO(
-            phoneNumber: fetchFCMToken(),
+        let userRegisterInfo = UserRegisterInfo(
+            phoneNumber: fetchPhoneNumber(),
             FCMtoken: fcmToken,
             nick: nickName,
-            birth: dateString,
+            birth: birth,
             email: email,
             gender: gender
         )
-        return userInfo.toDictionary
+        return userRegisterInfo
     }
 
     private func fetchFCMToken() -> String {
         return self.userRepository.fetchFCMToken()!
+    }
+
+    private func fetchPhoneNumber() -> String {
+        return self.userRepository.fetchPhoneNumber()!
     }
 
     private func saveGenderInfo(gender: Int) {

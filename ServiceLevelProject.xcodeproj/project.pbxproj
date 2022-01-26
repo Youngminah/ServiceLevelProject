@@ -32,6 +32,9 @@
 		BB105D9C2797FA21008264DD /* GenderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB105D9B2797FA21008264DD /* GenderButton.swift */; };
 		BB105D9E27981074008264DD /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB105D9D27981074008264DD /* UIButton.swift */; };
 		BB105DA22798232D008264DD /* AppAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB105DA12798232D008264DD /* AppAppearance.swift */; };
+		BB1E250C27A158FA00A80FC3 /* UserRegisterInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1E250B27A158FA00A80FC3 /* UserRegisterInfo.swift */; };
+		BB1E250E27A1590500A80FC3 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1E250D27A1590500A80FC3 /* UserInfo.swift */; };
+		BB1E251127A179C200A80FC3 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1E251027A179C200A80FC3 /* Date.swift */; };
 		BB7A216F279D1673005FD0A3 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7A216E279D1673005FD0A3 /* UserRepository.swift */; };
 		BB7A2172279D16BA005FD0A3 /* UserRepositoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7A2171279D16BA005FD0A3 /* UserRepositoryType.swift */; };
 		BB7A2174279D9BA4005FD0A3 /* LoginUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7A2173279D9BA4005FD0A3 /* LoginUseCase.swift */; };
@@ -54,7 +57,7 @@
 		BBAAA68C279AD7BE00667591 /* APIConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAA68B279AD7BE00667591 /* APIConstant.swift */; };
 		BBAAA68E279B07A500667591 /* SLPTarget+StubData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAA68D279B07A500667591 /* SLPTarget+StubData.swift */; };
 		BBAAA690279B0BEB00667591 /* NetworkMonitorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAA68F279B0BEB00667591 /* NetworkMonitorService.swift */; };
-		BBAAA694279B2C2600667591 /* UserRegisterInfoDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAA693279B2C2600667591 /* UserRegisterInfoDTO.swift */; };
+		BBAAA694279B2C2600667591 /* UserRegisterInfoRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAA693279B2C2600667591 /* UserRegisterInfoRequestDTO.swift */; };
 		BBAAA69C279BE30700667591 /* UserInfoResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAA69B279BE30700667591 /* UserInfoResponseDTO.swift */; };
 		BBAAA6A2279BFC6700667591 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAA6A1279BFC6700667591 /* HomeViewController.swift */; };
 		BBAAA6A4279C0F2200667591 /* CoordinatorStyleCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAA6A3279C0F2200667591 /* CoordinatorStyleCase.swift */; };
@@ -140,6 +143,9 @@
 		BB105D9B2797FA21008264DD /* GenderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderButton.swift; sourceTree = "<group>"; };
 		BB105D9D27981074008264DD /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		BB105DA12798232D008264DD /* AppAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAppearance.swift; sourceTree = "<group>"; };
+		BB1E250B27A158FA00A80FC3 /* UserRegisterInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRegisterInfo.swift; sourceTree = "<group>"; };
+		BB1E250D27A1590500A80FC3 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
+		BB1E251027A179C200A80FC3 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		BB7A216E279D1673005FD0A3 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		BB7A2171279D16BA005FD0A3 /* UserRepositoryType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepositoryType.swift; sourceTree = "<group>"; };
 		BB7A2173279D9BA4005FD0A3 /* LoginUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUseCase.swift; sourceTree = "<group>"; };
@@ -161,7 +167,7 @@
 		BBAAA68B279AD7BE00667591 /* APIConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstant.swift; sourceTree = "<group>"; };
 		BBAAA68D279B07A500667591 /* SLPTarget+StubData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SLPTarget+StubData.swift"; sourceTree = "<group>"; };
 		BBAAA68F279B0BEB00667591 /* NetworkMonitorService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitorService.swift; sourceTree = "<group>"; };
-		BBAAA693279B2C2600667591 /* UserRegisterInfoDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRegisterInfoDTO.swift; sourceTree = "<group>"; };
+		BBAAA693279B2C2600667591 /* UserRegisterInfoRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRegisterInfoRequestDTO.swift; sourceTree = "<group>"; };
 		BBAAA69B279BE30700667591 /* UserInfoResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoResponseDTO.swift; sourceTree = "<group>"; };
 		BBAAA6A1279BFC6700667591 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		BBAAA6A3279C0F2200667591 /* CoordinatorStyleCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorStyleCase.swift; sourceTree = "<group>"; };
@@ -370,6 +376,23 @@
 			path = Mocks;
 			sourceTree = "<group>";
 		};
+		BB1E250927A1576D00A80FC3 /* DataMapping */ = {
+			isa = PBXGroup;
+			children = (
+				BBAAA69B279BE30700667591 /* UserInfoResponseDTO.swift */,
+				BBAAA693279B2C2600667591 /* UserRegisterInfoRequestDTO.swift */,
+			);
+			path = DataMapping;
+			sourceTree = "<group>";
+		};
+		BB1E250F27A179B400A80FC3 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				BB1E251027A179C200A80FC3 /* Date.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		BB7A216C279D113C005FD0A3 /* UseCase */ = {
 			isa = PBXGroup;
 			children = (
@@ -400,13 +423,13 @@
 			path = Interfaces;
 			sourceTree = "<group>";
 		};
-		BB7A217B279D9E72005FD0A3 /* Model */ = {
+		BB7A217B279D9E72005FD0A3 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
-				BBAAA69B279BE30700667591 /* UserInfoResponseDTO.swift */,
-				BBAAA693279B2C2600667591 /* UserRegisterInfoDTO.swift */,
+				BB1E250B27A158FA00A80FC3 /* UserRegisterInfo.swift */,
+				BB1E250D27A1590500A80FC3 /* UserInfo.swift */,
 			);
-			path = Model;
+			path = Entity;
 			sourceTree = "<group>";
 		};
 		BB8D1F352799B76E00D111B6 /* View */ = {
@@ -652,6 +675,7 @@
 		BBED12232799AAB0002A5E9E /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				BB1E250F27A179B400A80FC3 /* Extension */,
 				BBAAA699279BCCE400667591 /* Constant */,
 				BBAAA698279BCC9C00667591 /* Service */,
 				BBAAA688279AD6C800667591 /* Error */,
@@ -662,6 +686,7 @@
 		BBED12262799ABD2002A5E9E /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				BB1E250927A1576D00A80FC3 /* DataMapping */,
 				BB7A216D279D13A4005FD0A3 /* Repository */,
 			);
 			path = Data;
@@ -670,7 +695,7 @@
 		BBED12272799ABD8002A5E9E /* Domain */ = {
 			isa = PBXGroup;
 			children = (
-				BB7A217B279D9E72005FD0A3 /* Model */,
+				BB7A217B279D9E72005FD0A3 /* Entity */,
 				BB7A216C279D113C005FD0A3 /* UseCase */,
 				BB7A2179279D9CD1005FD0A3 /* Interfaces */,
 			);
@@ -885,7 +910,7 @@
 				BB105D7F2796B8BC008264DD /* AppColor.swift in Sources */,
 				BBED1202279902ED002A5E9E /* OnBoardingViewController.swift in Sources */,
 				BB105D7C2796B660008264DD /* UIFont.swift in Sources */,
-				BBAAA694279B2C2600667591 /* UserRegisterInfoDTO.swift in Sources */,
+				BBAAA694279B2C2600667591 /* UserRegisterInfoRequestDTO.swift in Sources */,
 				BB8D1F322799B5FB00D111B6 /* LoginViewModel.swift in Sources */,
 				BBAAA6CF279C46C700667591 /* SesacFriendViewController.swift in Sources */,
 				BB105D8D2796F004008264DD /* CertificationViewController.swift in Sources */,
@@ -909,6 +934,7 @@
 				BB7A217E279DA32F005FD0A3 /* FireBaseRepository.swift in Sources */,
 				BBAAA6B9279C3CE100667591 /* BirthViewModel.swift in Sources */,
 				BBAAA6B0279C240C00667591 /* UserDefaultKeyCase.swift in Sources */,
+				BB1E251127A179C200A80FC3 /* Date.swift in Sources */,
 				BBAAA6B7279C3CD700667591 /* NickNameViewModel.swift in Sources */,
 				BB105D812796B9B7008264DD /* UIColor.swift in Sources */,
 				BBAAA6A9279C124F00667591 /* OnBoardingViewModel.swift in Sources */,
@@ -926,6 +952,7 @@
 				BB7A2186279EBCEE005FD0A3 /* DatePickerTextField.swift in Sources */,
 				BB105D8F2796F197008264DD /* DefaultLabel.swift in Sources */,
 				BBED120427990CB5002A5E9E /* NSMutableAttributedString.swift in Sources */,
+				BB1E250C27A158FA00A80FC3 /* UserRegisterInfo.swift in Sources */,
 				BBAAA6BC279C3CF100667591 /* EmailViewModel.swift in Sources */,
 				BB7A2182279DAF2B005FD0A3 /* FirbaseRepositoryType.swift in Sources */,
 				BB105D9A2797F313008264DD /* GenderViewController.swift in Sources */,
@@ -934,6 +961,7 @@
 				BBAAA690279B0BEB00667591 /* NetworkMonitorService.swift in Sources */,
 				BBAAA6D7279C55AA00667591 /* HomeCoordinator.swift in Sources */,
 				BBAAA68A279AD78000667591 /* APIEnvironment.swift in Sources */,
+				BB1E250E27A1590500A80FC3 /* UserInfo.swift in Sources */,
 				BB105DA22798232D008264DD /* AppAppearance.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
