@@ -9,13 +9,6 @@ import Foundation
 
 struct UserRegisterInfoRequestDTO: Codable {
 
-    let phoneNumber: String
-    let FCMtoken: String
-    let nick: String
-    let birth: String
-    let email: String
-    let gender: Int
-
     var toDictionary: [String: Any] {
         let dict: [String: Any] = [
             "phoneNumber": phoneNumber,
@@ -26,5 +19,21 @@ struct UserRegisterInfoRequestDTO: Codable {
             "gender": gender,
         ]
         return dict
+    }
+
+    let phoneNumber: String
+    let FCMtoken: String
+    let nick: String
+    let birth: String
+    let email: String
+    let gender: Int
+
+    init(userRegisterInfo: UserRegisterInfo) {
+        self.phoneNumber = userRegisterInfo.phoneNumber
+        self.FCMtoken = userRegisterInfo.FCMtoken
+        self.nick = userRegisterInfo.nick
+        self.birth = userRegisterInfo.birth.dateToString()
+        self.email = userRegisterInfo.email
+        self.gender = userRegisterInfo.gender
     }
 }
