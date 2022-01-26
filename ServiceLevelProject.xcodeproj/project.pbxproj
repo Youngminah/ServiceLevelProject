@@ -288,14 +288,14 @@
 			path = ServiceLevelProjectUITests;
 			sourceTree = "<group>";
 		};
-		BB105D6F2796B0E1008264DD /* AuthScene */ = {
+		BB105D6F2796B0E1008264DD /* Auth */ = {
 			isa = PBXGroup;
 			children = (
 				BBAAA6B1279C254F00667591 /* Coordinator */,
 				BBED1221279986A1002A5E9E /* ViewModel */,
 				BB8D1F352799B76E00D111B6 /* View */,
 			);
-			path = AuthScene;
+			path = Auth;
 			sourceTree = "<group>";
 		};
 		BB105D722796B169008264DD /* Font */ = {
@@ -323,13 +323,8 @@
 			isa = PBXGroup;
 			children = (
 				BBED11F5279869C0002A5E9E /* Common */,
-				BB105D6F2796B0E1008264DD /* AuthScene */,
-				BBAAA6A0279BFC3F00667591 /* HomeScene */,
-				BBAAA6CB279C460A00667591 /* SesacShopScene */,
-				BBAAA6CC279C462F00667591 /* SesacFriendScene */,
-				BBAAA6CD279C464300667591 /* MyPageScene */,
-				BBED121727996F53002A5E9E /* RxExtension */,
-				BB105D7D2796B668008264DD /* Extension */,
+				BB105D6F2796B0E1008264DD /* Auth */,
+				BB1E251327A195BA00A80FC3 /* TabBar */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -391,6 +386,26 @@
 				BB1E251027A179C200A80FC3 /* Date.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		BB1E251327A195BA00A80FC3 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				BB1E251427A1962D00A80FC3 /* Coordinator */,
+				BBAAA6A0279BFC3F00667591 /* Home */,
+				BBAAA6CB279C460A00667591 /* SesacShop */,
+				BBAAA6CC279C462F00667591 /* SesacFriend */,
+				BBAAA6CD279C464300667591 /* MyPage */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		BB1E251427A1962D00A80FC3 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				BBAAA6D2279C481700667591 /* TabBarCoordinator.swift */,
+			);
+			path = Coordinator;
 			sourceTree = "<group>";
 		};
 		BB7A216C279D113C005FD0A3 /* UseCase */ = {
@@ -477,7 +492,6 @@
 			children = (
 				BBAAA6C7279C42A800667591 /* Protocol */,
 				BBAAA6A5279C105F00667591 /* AppCoordinator.swift */,
-				BBAAA6D2279C481700667591 /* TabBarCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -502,13 +516,13 @@
 			path = Constant;
 			sourceTree = "<group>";
 		};
-		BBAAA6A0279BFC3F00667591 /* HomeScene */ = {
+		BBAAA6A0279BFC3F00667591 /* Home */ = {
 			isa = PBXGroup;
 			children = (
 				BBAAA6E4279C5A2200667591 /* Coordinator */,
 				BBAAA6E5279C5AE000667591 /* View */,
 			);
-			path = HomeScene;
+			path = Home;
 			sourceTree = "<group>";
 		};
 		BBAAA6B1279C254F00667591 /* Coordinator */ = {
@@ -535,31 +549,31 @@
 			path = Protocol;
 			sourceTree = "<group>";
 		};
-		BBAAA6CB279C460A00667591 /* SesacShopScene */ = {
+		BBAAA6CB279C460A00667591 /* SesacShop */ = {
 			isa = PBXGroup;
 			children = (
 				BBAAA6E0279C59FF00667591 /* Coordinator */,
 				BBAAA6E1279C5A0900667591 /* View */,
 			);
-			path = SesacShopScene;
+			path = SesacShop;
 			sourceTree = "<group>";
 		};
-		BBAAA6CC279C462F00667591 /* SesacFriendScene */ = {
+		BBAAA6CC279C462F00667591 /* SesacFriend */ = {
 			isa = PBXGroup;
 			children = (
 				BBAAA6DA279C55D400667591 /* Coordinator */,
 				BBAAA6DF279C59F800667591 /* View */,
 			);
-			path = SesacFriendScene;
+			path = SesacFriend;
 			sourceTree = "<group>";
 		};
-		BBAAA6CD279C464300667591 /* MyPageScene */ = {
+		BBAAA6CD279C464300667591 /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
 				BBAAA6E3279C5A1500667591 /* Coordinator */,
 				BBAAA6E2279C5A1100667591 /* View */,
 			);
-			path = MyPageScene;
+			path = MyPage;
 			sourceTree = "<group>";
 		};
 		BBAAA6DA279C55D400667591 /* Coordinator */ = {
@@ -632,6 +646,8 @@
 				BBAAA696279BCC0000667591 /* Coordinator */,
 				BBAAA695279BCBFB00667591 /* ViewModel */,
 				BB105D872796CEB3008264DD /* CustomView */,
+				BBED121727996F53002A5E9E /* RxExtension */,
+				BB105D7D2796B668008264DD /* Extension */,
 			);
 			path = Common;
 			sourceTree = "<group>";
