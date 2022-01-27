@@ -38,8 +38,6 @@ final class LoginUseCase {
     }
 
     private func savePhoneNumberInfo(phoneNumber: String) {
-        let index = phoneNumber.index(after: phoneNumber.startIndex)
-        let formatPhoneNumber = "+82" + String(phoneNumber[index..<phoneNumber.endIndex])
-        self.userRepository.savePhoneNumberInfo(phoneNumber: formatPhoneNumber)
+        self.userRepository.savePhoneNumberInfo(phoneNumber: phoneNumber)
     }
 }
