@@ -35,7 +35,7 @@ final class UserRepository: UserRepositoryType {
     }
 
     func fetchGender() -> Int? {
-        return UserDefaults.standard.integer(forKey: UserDefaultKeyCase.email)
+        return UserDefaults.standard.integer(forKey: UserDefaultKeyCase.gender)
     }
 
     func savePhoneNumberInfo(phoneNumber: String) {
