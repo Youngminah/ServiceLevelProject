@@ -18,6 +18,7 @@ final class CertificationUseCase {
     var successLogInSignal = PublishSubject<Void>()
     var unRegisteredUserSignal = PublishSubject<Void>()
     var unKnownErrorSignal = PublishSubject<Void>()
+    var retransmitSuccessSignal = PublishSubject<String>()
 
     init(
         userRepository: UserRepositoryType,
@@ -36,6 +37,20 @@ final class CertificationUseCase {
             case .success():
                 self.requestIDToken()
             case .failure(let error):
+                self.failFirebaseFlowSignal.onNext(error)
+            }
+        }
+    }
+
+    func retransferCertificationCode() {
+        let phoneNumber = fetchPhoneNumber()!
+        self.fireBaseRepository.verifyPhoneNumber(phoneNumber: phoneNumber) { [weak self] response in
+            guard let self = self else { return }
+            switch response {
+            case .success(let verifyID):
+                self.retransmitSuccessSignal.onNext(verifyID)
+            case .failure(let error):
+                print(error.errorDescription)
                 self.failFirebaseFlowSignal.onNext(error)
             }
         }
@@ -70,6 +85,10 @@ final class CertificationUseCase {
                 }
             }
         }
+    }
+
+    private func fetchPhoneNumber() -> String? {
+        return self.userRepository.fetchPhoneNumber()
     }
 
     private func saveLogInInfo() {
