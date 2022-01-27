@@ -29,17 +29,21 @@ extension FirbaseNetworkServiceError {
 final class FirbaseRepository: FirbaseRepositoryType {
 
     let auth: Auth
-    init() { auth = Auth.auth() }
+
+    init() {
+        auth = Auth.auth()
+        auth.languageCode = "kr"
+    }
 }
 
 extension FirbaseRepository {
 
     func verifyPhoneNumber(phoneNumber: String, completion: @escaping (Result<String, FirbaseNetworkServiceError>) -> Void) {
-        auth.languageCode = "kr"
-        let phoneNumberWithCode = "+82 " + phoneNumber
-        PhoneAuthProvider.provider().verifyPhoneNumber(phoneNumberWithCode, uiDelegate: nil) { (verificationID, error) in
+        let formatPhoneNumber = "+82" + String(phoneNumber)
+        PhoneAuthProvider.provider().verifyPhoneNumber(formatPhoneNumber, uiDelegate: nil) { (verificationID, error) in
             if let error = error {
                 let authError = error as NSError
+                print(authError.description)
                 completion(.failure(FirbaseNetworkServiceError(rawValue: authError.code) ?? .unknown))
                 return
             }
