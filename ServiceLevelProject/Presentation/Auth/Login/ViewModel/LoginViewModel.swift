@@ -27,6 +27,7 @@ final class LoginViewModel: ViewModelType {
         let phoneNumberRemoveHiponAction: Signal<Void>
         let phoneNumberAddHiponAction: Signal<Void>
         let showToastAction: Signal<String>
+        let indicatorAction: Driver<Bool>
     }
 
     private let phoneNumberText = PublishRelay<String>()
@@ -34,6 +35,7 @@ final class LoginViewModel: ViewModelType {
     private let phoneNumberRemoveHiponAction = PublishRelay<Void>()
     private let phoneNumberAddHiponAction = PublishRelay<Void>()
     private let showToastAction = PublishRelay<String>()
+    private let indicatorAction = BehaviorRelay<Bool>(value: false)
 
     var disposeBag = DisposeBag()
 
@@ -67,18 +69,21 @@ final class LoginViewModel: ViewModelType {
 
         input.verifyPhoneNumber
             .emit(onNext: { [weak self] text in
+                self?.indicatorAction.accept(true)
                 self?.verifyPhoneNumber(phoneNumber: text)
             })
             .disposed(by: disposeBag)
 
         self.loginUseCase.verifyIDFailSignal
             .subscribe(onNext: { [weak self] error in
+                self?.indicatorAction.accept(false)
                 self?.showToastAction.accept(error.description)
             })
             .disposed(by: disposeBag)
 
         self.loginUseCase.verifyIDSuccessSignal
             .subscribe(onNext: { [weak self] verifyID in
+                self?.indicatorAction.accept(false)
                 self?.coordinator?.showCertifacationViewController(verifyID: verifyID)
             })
             .disposed(by: disposeBag)
@@ -88,7 +93,8 @@ final class LoginViewModel: ViewModelType {
             isValidState: isValidState.asDriver(),
             phoneNumberRemoveHiponAction: phoneNumberRemoveHiponAction.asSignal(),
             phoneNumberAddHiponAction: phoneNumberAddHiponAction.asSignal(),
-            showToastAction: showToastAction.asSignal()
+            showToastAction: showToastAction.asSignal(),
+            indicatorAction: indicatorAction.asDriver()
         )
     }
 }

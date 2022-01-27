@@ -25,6 +25,7 @@ final class GenderViewModel: ViewModelType {
         let showToastAction: Signal<String>
         let isWomanSelected: Driver<Bool>
         let isManSelected: Driver<Bool>
+        let indicatorAction: Driver<Bool>
     }
     var disposeBag = DisposeBag()
 
@@ -32,6 +33,7 @@ final class GenderViewModel: ViewModelType {
     private let showToastAction = PublishRelay<String>()
     private let isWomanSelected = BehaviorRelay<Bool>(value: false)
     private let isManSelected = BehaviorRelay<Bool>(value: false)
+    private let indicatorAction = BehaviorRelay<Bool>(value: false)
 
     private var gender = -1
 
@@ -59,6 +61,7 @@ final class GenderViewModel: ViewModelType {
         input.didNextButtonTap
             .emit(onNext: { [weak self] in
                 guard let self = self else { return }
+                self.indicatorAction.accept(true)
                 self.requestRegister(gender: self.gender)
             })
             .disposed(by: disposeBag)
@@ -92,7 +95,8 @@ final class GenderViewModel: ViewModelType {
         genderUseCase.successRegisterSignal
             .asSignal(onErrorJustReturn: ())
             .emit(onNext: { [weak self] in
-                self?.coordinator?.connectTabBarCoordinator()
+                self?.indicatorAction.accept(false)
+                self?.coordinator?.finish()
             })
             .disposed(by: disposeBag)
 
@@ -114,7 +118,8 @@ final class GenderViewModel: ViewModelType {
             isValid: isValid.asDriver(),
             showToastAction: showToastAction.asSignal(),
             isWomanSelected: isWomanSelected.asDriver(),
-            isManSelected: isManSelected.asDriver()
+            isManSelected: isManSelected.asDriver(),
+            indicatorAction: indicatorAction.asDriver()
         )
     }
 }
