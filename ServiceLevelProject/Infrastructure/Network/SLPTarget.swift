@@ -66,12 +66,10 @@ extension SLPTarget: TargetType {
         case .getUserInfo ,
              .withdrawUser:
             return .requestPlain
-//        case .allComment(parameters: let parameters):
-//            return .requestParameters(parameters: parameters, encoding: URLEncoding.default)
         case .register(let parameters),
              .updateFCMToken(let parameters),
              .updateMyPage(let parameters):
-            return .requestParameters(parameters: parameters, encoding: JSONEncoding.default)
+            return .requestParameters(parameters: parameters, encoding: URLEncoding.default)
         }
     }
 
