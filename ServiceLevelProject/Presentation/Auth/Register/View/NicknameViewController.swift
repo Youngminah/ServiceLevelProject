@@ -55,7 +55,6 @@ final class NicknameViewController: UIViewController {
     private func bind() {
         output.showToastAction
             .emit(onNext: { [unowned self] text in
-                self.makeToastStyle()
                 self.view.makeToast(text, position: .top)
             })
             .disposed(by: disposdBag)
