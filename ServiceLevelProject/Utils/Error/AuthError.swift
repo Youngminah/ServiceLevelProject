@@ -10,6 +10,7 @@ import Foundation
 enum AuthError: Error {
 
     case inValidPhoneNumberFormat
+    case inValidCertificationNumberFormat
     case toManyRequest
     case timeOut
     case nickNameLimitLength
@@ -25,6 +26,8 @@ extension AuthError {
         switch self {
         case .inValidPhoneNumberFormat:
             return "잘못된 전화번호 형식입니다."
+        case .inValidCertificationNumberFormat:
+            return "인증번호 형식이 올바르지 않습니다."
         case .toManyRequest:
             return "과도한 인증 시도가 있었습니다.\n30분뒤에 다시 시도해 주세요."
         case .timeOut:
