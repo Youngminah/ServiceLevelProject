@@ -19,6 +19,8 @@ final class AppCoordinator: Coordinator {
     init(_ navigationController: UINavigationController) {
         self.navigationController = navigationController
         navigationController.setNavigationBarHidden(true, animated: false)
+        userDefaults.set(false, forKey: UserDefaultKeyCase.isNotFirstUser)
+        userDefaults.set(false, forKey: UserDefaultKeyCase.isLoggedIn)
     }
 
     func start() {
@@ -27,18 +29,39 @@ final class AppCoordinator: Coordinator {
 //        } else {
 //            connectAuthCoordinator()
 //        }
-        connectAuthCoordinator()
+        connectAuthFlow()
     }
 
-    private func connectAuthCoordinator() {
+    private func connectAuthFlow() {
         let authCoordinator = AuthCoordinator(self.navigationController)
+        authCoordinator.delegate = self
         authCoordinator.start()
         childCoordinators.append(authCoordinator)
     }
 
-    private func connectTabBarCoordinator() {
+    private func connectTabBarFlow() {
         let tabBarCoordinator = TabBarCoordinator(self.navigationController)
+        tabBarCoordinator.delegate = self
         tabBarCoordinator.start()
         childCoordinators.append(tabBarCoordinator)
+    }
+}
+
+extension AppCoordinator: CoordinatorDelegate {
+
+    func didFinish(childCoordinator: Coordinator) {
+        self.childCoordinators = self.childCoordinators.filter({ $0.type != childCoordinator.type })
+
+        //self.navigationController.view.backgroundColor = .systemBackground
+        self.navigationController.viewControllers.removeAll()
+
+        switch childCoordinator.type {
+        case .auth:
+            self.connectTabBarFlow()
+        case .tab:
+            self.connectAuthFlow()
+        default:
+            break
+        }
     }
 }
