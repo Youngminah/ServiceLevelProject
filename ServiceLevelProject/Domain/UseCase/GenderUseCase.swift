@@ -26,11 +26,12 @@ final class GenderUseCase {
 
     func requestRegister(gender: Int) {
         saveGenderInfo(gender: gender)
-        
         let userRegisterInfo = makeUserRegisterInfo()
-        sesacRepository.requestRegister(userRegisterInfo: userRegisterInfo) { response in
+        sesacRepository.requestRegister(userRegisterInfo: userRegisterInfo) { [weak self] response in
+            guard let self = self else { return }
             switch response {
             case .success(_):
+                self.saveLogInInfo()
                 self.successRegisterSignal.onNext(())
             case .failure(let error):
                 self.failRegisterSignal.onNext(error)
