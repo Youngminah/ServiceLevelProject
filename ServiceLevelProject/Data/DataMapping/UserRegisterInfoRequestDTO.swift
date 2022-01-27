@@ -29,11 +29,17 @@ struct UserRegisterInfoRequestDTO: Codable {
     let gender: Int
 
     init(userRegisterInfo: UserRegisterInfo) {
-        self.phoneNumber = userRegisterInfo.phoneNumber
+        self.phoneNumber = transformPhoneNumber(phoneNumber: userRegisterInfo.phoneNumber)
         self.FCMtoken = userRegisterInfo.FCMtoken
         self.nick = userRegisterInfo.nick
         self.birth = userRegisterInfo.birth.dateToString()
         self.email = userRegisterInfo.email
         self.gender = userRegisterInfo.gender
     }
+}
+
+func transformPhoneNumber(phoneNumber: String) -> String {
+    let index = phoneNumber.index(after: phoneNumber.startIndex)
+    let formatPhoneNumber = "+82" + String(phoneNumber[index..<phoneNumber.endIndex])
+    return formatPhoneNumber
 }
