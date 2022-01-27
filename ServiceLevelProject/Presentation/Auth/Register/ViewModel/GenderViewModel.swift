@@ -10,6 +10,8 @@ import Moya
 import RxCocoa
 import RxSwift
 
+import Toast
+
 final class GenderViewModel: ViewModelType {
 
     private weak var coordinator: AuthCoordinator?
@@ -104,11 +106,15 @@ final class GenderViewModel: ViewModelType {
             .asSignal(onErrorJustReturn: .unknown)
             .emit(onNext: { [weak self] error in
                 guard let self = self else { return }
-                if error.rawValue == 202 {
-                    self.coordinator?.showNicknameViewController()
+                self.indicatorAction.accept(false)
+                if error.rawValue == 201 {
+                    self.coordinator?.showLoginViewController(toastMessage: "이미 가입한 유저입니다\n 다시 로그인해주세요.")
+                } else if error.rawValue == 202 {
+                    self.coordinator?.popRootViewController(toastMessage: "사용할 수 없는 닉네임입니다.")
                 } else if error.rawValue == 401 {
-                    print("파이어베이스 ID 토큰 만료 재요청")
+                    self.coordinator?.showLoginViewController(toastMessage: "로그인이 만료되었습니다.\n다시 로그인해주세요.")
                 } else {
+                    //print(error.description)
                     self.showToastAction.accept(error.description)
                 }
             })
