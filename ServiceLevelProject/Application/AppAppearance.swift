@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Toast
 
 final class AppAppearance {
 
@@ -21,5 +22,12 @@ final class AppAppearance {
         UINavigationBar.appearance().scrollEdgeAppearance = appearance
         UINavigationBar.appearance().tintColor = .label
         UINavigationBar.appearance().barTintColor = .label
+
+        var style = ToastStyle()
+        style.messageFont = .body4R12
+        style.messageColor = .white
+        style.backgroundColor = .black
+        style.titleAlignment = .center
+        ToastManager.shared.style = style
     }
 }
