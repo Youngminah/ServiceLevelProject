@@ -36,6 +36,7 @@ internal enum Asset {
   internal static let focus = ColorAsset(name: "focus")
   internal static let success = ColorAsset(name: "success")
   internal static let black = ColorAsset(name: "black")
+  internal static let transparent = ColorAsset(name: "transparent")
   internal static let white = ColorAsset(name: "white")
   internal static let home = ImageAsset(name: "home")
   internal static let mypage = ImageAsset(name: "mypage")
