@@ -18,6 +18,8 @@ final class CertificationViewController: UIViewController {
     private let startButton = DefaultFillButton(title: "인증하고 시작하기")
 
     private lazy var input = CertificationViewModel.Input(
+        startButtonTapSignal: startButtonTapSignal.asSignal(),
+        retransferButtonTap: transferButton.rx.tap.asSignal(),
         signInFirebaseSignal: signInFirebaseSignal.asSignal(),
         didLimitText: authNumberTextField.rx.text.orEmpty.asDriver(),
         didLimitTime: didLimitTime.asSignal()
@@ -25,12 +27,13 @@ final class CertificationViewController: UIViewController {
     private lazy var output = viewModel.transform(input: input)
     private var viewModel: CertificationViewModel
 
+    private let startButtonTapSignal = PublishRelay<String>()
     private let signInFirebaseSignal = PublishRelay<String>()
     private let didLimitTime = PublishRelay<Void>()
     private let disposdBag = DisposeBag()
 
     private let totalTime = 60
-    private lazy var limitTime = totalTime
+    private lazy var currentTime = totalTime
     private lazy var totalTimeString = StopWatchConverterService(totalSeconds: totalTime).simpleTimeString
 
     private var timerDisposable: Disposable?
@@ -137,21 +140,18 @@ final class CertificationViewController: UIViewController {
 
     @objc
     private func transferButtonTap() {
-        limitTime = totalTime
+        currentTime = totalTime
         timeLimitLabel.text = totalTimeString
-        showToast(message: "재전송 되었습니다.")
         startTimerRefresh()
     }
 
     @objc
     private func startButtonTap() {
-        if limitTime > 0 &&
-            startButton.isValid &&
-            authNumberTextField.text!.isValidCertificationNumber() {
-            signInFirebaseSignal.accept(authNumberTextField.text!)
+        if currentTime <= 0 {
+            showToast(message: "시간 초과")
             return
         }
-        showToast(message: "전화번호 인증 실패")
+        startButtonTapSignal.accept(self.authNumberTextField.text!)
     }
 
     private func startTimerRefresh() {
@@ -161,7 +161,7 @@ final class CertificationViewController: UIViewController {
             .map { [unowned self] in
                 self.totalTime - ($0 + 1)
             }.do(onNext: { [weak self] time in
-                self?.limitTime = time
+                self?.currentTime = time
                 if time == 0 {
                     self?.didLimitTime.accept(())
                 }
