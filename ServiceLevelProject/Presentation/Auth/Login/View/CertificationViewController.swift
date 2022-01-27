@@ -75,6 +75,12 @@ final class CertificationViewController: UIViewController {
                 self?.timerDisposable?.dispose()
             })
             .disposed(by: disposdBag)
+
+        output.indicatorAction
+            .drive(onNext: {
+                $0 ? IndicatorView.shared.show(backgoundColor: Asset.transparent.color) : IndicatorView.shared.hide()
+            })
+            .disposed(by: disposdBag)
     }
 
     private func setViews() {

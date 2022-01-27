@@ -87,6 +87,12 @@ final class LoginViewController: UIViewController {
                 self.view.makeToast(message, position: .top)
             })
             .disposed(by: disposdBag)
+
+        output.indicatorAction
+            .drive(onNext: {
+                $0 ? IndicatorView.shared.show(backgoundColor: Asset.transparent.color) : IndicatorView.shared.hide()
+            })
+            .disposed(by: disposdBag)
     }
     
     private func setViews() {

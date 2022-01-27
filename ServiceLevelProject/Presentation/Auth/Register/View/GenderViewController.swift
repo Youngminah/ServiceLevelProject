@@ -61,6 +61,18 @@ class GenderViewController: UIViewController {
         output.isWomanSelected
             .drive(womanButton.rx.isSelected)
             .disposed(by: disposdBag)
+
+        output.showToastAction
+            .emit(onNext: { [unowned self] text in
+                self.view.makeToast(text, position: .top)
+            })
+            .disposed(by: disposdBag)
+
+        output.indicatorAction
+            .drive(onNext: {
+                $0 ? IndicatorView.shared.show(backgoundColor: Asset.transparent.color) : IndicatorView.shared.hide()
+            })
+            .disposed(by: disposdBag)
     }
 
     private func setViews() {
