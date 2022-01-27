@@ -6,9 +6,11 @@
 //
 
 import UIKit
+import Toast
 
 final class AuthCoordinator: Coordinator {
 
+    weak var delegate: CoordinatorDelegate?
     var childCoordinators = [Coordinator]()
     var navigationController: UINavigationController
     var type: CoordinatorStyleCase = .auth
@@ -27,13 +29,14 @@ final class AuthCoordinator: Coordinator {
 //        } else {
 //            showOnboardingViewController()
 //        }
-        showOnboardingViewController()
+        showNicknameViewController()
     }
 
     func showOnboardingViewController() {
         let viewModel = OnBoardingViewModel(coordinator: self)
         let vc = OnBoardingViewController(viewModel: viewModel)
         navigationController.viewControllers = [vc]
+        //navigationController.pushViewController(vc, animated: true)
     }
 
     func connectTabBarCoordinator() {
@@ -42,14 +45,19 @@ final class AuthCoordinator: Coordinator {
         childCoordinators.append(tabBarCoordinator)
     }
     
-    func showLoginViewController() {
+    func showLoginViewController(toastMessage: String? = nil) {
         let loginUseCase = LoginUseCase(
             userRepository: UserRepository(),
             fireBaseRepository: FirbaseRepository()
         )
         let viewModel = LoginViewModel(coordinator: self, loginUseCase: loginUseCase)
         let vc = LoginViewController(viewModel: viewModel)
+        changeAnimation()
+        navigationController.setNavigationBarHidden(true, animated: false)
         navigationController.viewControllers = [vc]
+        if let message = toastMessage {
+            navigationController.view.makeToast(message, position: .top)
+        }
     }
 
     func showCertifacationViewController(verifyID: String) {
@@ -64,6 +72,7 @@ final class AuthCoordinator: Coordinator {
             certificationUseCase: certificationUseCase
         )
         let vc = CertificationViewController(viewModel: viewModel)
+        navigationController.setNavigationBarHidden(false, animated: false)
         navigationController.pushViewController(vc, animated: true)
     }
 
@@ -71,6 +80,7 @@ final class AuthCoordinator: Coordinator {
         let vc = NicknameViewController(
             viewModel: NickNameViewModel(coordinator: self)
         )
+        changeAnimation()
         navigationController.viewControllers = [vc]
     }
 
@@ -100,5 +110,17 @@ final class AuthCoordinator: Coordinator {
             )
         )
         navigationController.pushViewController(vc, animated: true)
+    }
+
+    func popRootViewController(toastMessage: String?) {
+        navigationController.popToRootViewController(animated: true)
+        navigationController.setNavigationBarHidden(true, animated: false)
+        if let message = toastMessage {
+            navigationController.view.makeToast(message, position: .top)
+        }
+    }
+
+    func finish() {
+        delegate?.didFinish(childCoordinator: self)
     }
 }

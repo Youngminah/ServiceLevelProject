@@ -9,6 +9,7 @@ import UIKit
 
 final class SesacFriendCoordinator: Coordinator {
 
+    weak var delegate: CoordinatorDelegate?
     var childCoordinators = [Coordinator]()
     var navigationController: UINavigationController
     var type: CoordinatorStyleCase = .sesacFriend

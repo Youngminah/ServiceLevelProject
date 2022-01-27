@@ -9,6 +9,7 @@ import UIKit
 
 final class SesacShopCoordinator: Coordinator {
 
+    weak var delegate: CoordinatorDelegate?
     var childCoordinators = [Coordinator]()
     var navigationController: UINavigationController
     var type: CoordinatorStyleCase = .sesacShop
