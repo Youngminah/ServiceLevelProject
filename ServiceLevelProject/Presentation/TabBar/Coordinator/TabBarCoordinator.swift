@@ -48,7 +48,8 @@ final class TabBarCoordinator: Coordinator {
         self.tabBarController.tabBar.backgroundColor = .systemBackground
         self.tabBarController.tabBar.tintColor = .green
         self.tabBarController.tabBar.unselectedItemTintColor = .gray6
-        self.navigationController.pushViewController(self.tabBarController, animated: true)
+        self.changeAnimation()
+        self.navigationController.pushViewController(tabBarController, animated: true) 
     }
 
     private func configureTabBarItem(of page: TabBarPageCase) -> UITabBarItem {
