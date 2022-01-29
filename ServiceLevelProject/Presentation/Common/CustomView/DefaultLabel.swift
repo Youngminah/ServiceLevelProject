@@ -14,11 +14,17 @@ final class DefaultLabel: UILabel {
         self.setConfiguration()
     }
 
+    convenience init(font: UIFont) {
+        self.init()
+        self.font = font
+    }
+
     convenience init(title text: String, font: UIFont, textColor: UIColor = .label) {
         self.init()
         self.text = text
         self.font = font
         self.textColor = textColor
+        self.textAlignment = .center
     }
 
     required init?(coder: NSCoder) {
@@ -26,7 +32,6 @@ final class DefaultLabel: UILabel {
     }
 
     private func setConfiguration() {
-        textAlignment = .center
         numberOfLines = 0
     }
 }
