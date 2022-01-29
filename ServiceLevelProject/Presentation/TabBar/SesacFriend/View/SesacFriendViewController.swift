@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SesacFriendViewController: UIViewController {
+final class SesacFriendViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

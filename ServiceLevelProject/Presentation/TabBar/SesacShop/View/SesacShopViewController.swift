@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SesacShopViewController: UIViewController {
+final class SesacShopViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
