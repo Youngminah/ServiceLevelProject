@@ -8,7 +8,7 @@
 import RxSwift
 import RxCocoa
 
-extension Reactive where Base: DefaultFillButton {
+extension Reactive where Base: DefaultButton {
     
     func isValid() -> Binder<Bool> {
         return Binder(base) { button, isValid in
