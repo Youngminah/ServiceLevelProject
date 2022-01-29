@@ -20,6 +20,7 @@ final class SesacShopCoordinator: Coordinator {
 
     func start() {
         let vc = SesacShopViewController()
+        vc.title = "새싹샵"
         navigationController.pushViewController(vc, animated: true)
     }
 }
