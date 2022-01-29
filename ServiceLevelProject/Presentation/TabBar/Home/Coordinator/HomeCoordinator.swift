@@ -16,6 +16,7 @@ final class HomeCoordinator: Coordinator {
 
     init(_ navigationController: UINavigationController) {
         self.navigationController = navigationController
+        navigationController.setNavigationBarHidden(true, animated: false)
     }
 
     func start() {

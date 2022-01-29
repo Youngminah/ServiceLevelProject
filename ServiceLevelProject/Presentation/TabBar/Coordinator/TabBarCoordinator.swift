@@ -17,7 +17,9 @@ final class TabBarCoordinator: Coordinator {
 
     init(_ navigationController: UINavigationController) {
         self.navigationController = navigationController
+        navigationController.setNavigationBarHidden(true, animated: false)
         self.tabBarController = UITabBarController()
+        //UserDefaults.standard.set(false, forKey: UserDefaultKeyCase.isNotFirstUser)
     }
 
     func start() {

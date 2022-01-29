@@ -20,6 +20,7 @@ final class SesacFriendCoordinator: Coordinator {
 
     func start() {
         let vc = SesacFriendViewController()
+        vc.title = "새싹친구"
         navigationController.pushViewController(vc, animated: true)
     }
 }
