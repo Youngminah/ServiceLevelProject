@@ -6,11 +6,14 @@
 //
 
 import UIKit.UIButton
+import SwiftUI
 
-final class DefaultButton: UIButton {
+class DefaultButton: UIButton {
     
     var isValid: Bool = false {
-        didSet { backgroundColor = isValid ? .green : .gray6 }
+        didSet {
+            isValid ? setValidStatus(status: .fill) : setValidStatus(status: .disable)
+        }
     }
 
     override init(frame: CGRect) { // 코드로 뷰가 생성될 때 생성자
@@ -27,12 +30,15 @@ final class DefaultButton: UIButton {
         fatalError("DefaultFillButton: fatal Error Message")
     }
     
-    private func setConfiguration() {
+    func setConfiguration() {
         layer.masksToBounds = true
         layer.cornerRadius = 8
-        layer.borderWidth = 1
-        layer.borderColor = UIColor.gray6.cgColor
         titleLabel?.font = .body3R14
-        backgroundColor = .gray6
+    }
+
+    func setValidStatus(status: ButtonStatus) {
+        layer.borderColor = status.borderColor
+        backgroundColor = status.backgroundColor
+        titleLabel?.textColor = status.titleColor
     }
 }
