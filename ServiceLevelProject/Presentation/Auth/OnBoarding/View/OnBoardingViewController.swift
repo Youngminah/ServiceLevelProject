@@ -13,7 +13,7 @@ class OnBoardingViewController: UIViewController {
     private let scrollView = UIScrollView()
     private let pageControl = UIPageControl()
     private let descriptionLabel = UILabel()
-    private let startButton = DefaultFillButton(title: "시작하기")
+    private let startButton = DefaultButton(title: "시작하기")
     private var viewModel: OnBoardingViewModel
 
     init(viewModel: OnBoardingViewModel) {

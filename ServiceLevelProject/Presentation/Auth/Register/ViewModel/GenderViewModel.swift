@@ -110,7 +110,7 @@ final class GenderViewModel: ViewModelType {
                 if error.rawValue == 201 {
                     self.coordinator?.showLoginViewController(toastMessage: "이미 가입한 유저입니다\n 다시 로그인해주세요.")
                 } else if error.rawValue == 202 {
-                    self.coordinator?.popRootViewController(toastMessage: "사용할 수 없는 닉네임입니다.")
+                    self.coordinator?.popRootToViewController(toastMessage: "사용할 수 없는 닉네임입니다.")
                 } else if error.rawValue == 401 {
                     self.coordinator?.showLoginViewController(toastMessage: "로그인이 만료되었습니다.\n다시 로그인해주세요.")
                 } else {

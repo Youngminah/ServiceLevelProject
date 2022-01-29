@@ -20,7 +20,7 @@ final class BirthViewController: UIViewController {
     private let monthLabel = DefaultLabel(title: "월", font: .title2R16)
     private let dayPickerTextField = DatePickerTextField(placeHolder: "01")
     private let dayLabel = DefaultLabel(title: "일", font: .title2R16)
-    private let nextButton = DefaultFillButton(title: "다음")
+    private let nextButton = DefaultButton(title: "다음")
     private let datePicker = UIDatePicker()
 
     private lazy var stackView = UIStackView(arrangedSubviews: [

@@ -19,7 +19,7 @@ class GenderViewController: UIViewController {
                                            textColor: .gray7)
     private let womanButton = GenderButton(gender: .woman)
     private let manButton = GenderButton(gender: .man)
-    private let nextButton = DefaultFillButton(title: "다음")
+    private let nextButton = DefaultButton(title: "다음")
     private lazy var stackView = UIStackView(arrangedSubviews: [manButton, womanButton])
 
     private lazy var input = GenderViewModel.Input(

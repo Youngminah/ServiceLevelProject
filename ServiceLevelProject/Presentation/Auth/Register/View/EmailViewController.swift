@@ -19,7 +19,7 @@ final class EmailViewController: UIViewController {
                                            font: .title2R16 ,
                                            textColor: .gray7)
     private let emailTextField = AuthTextField(placeHolder: "SeSAC@email.com")
-    private let nextButton = DefaultFillButton(title: "다음")
+    private let nextButton = DefaultButton(title: "다음")
 
     private lazy var input = EmailViewModel.Input(
         didTextChange: emailTextField.rx.text.orEmpty.asSignal(onErrorJustReturn: ""),
