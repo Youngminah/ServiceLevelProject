@@ -7,7 +7,7 @@
 
 import UIKit.UIButton
 
-final class DefaultFillButton: UIButton {
+final class DefaultButton: UIButton {
     
     var isValid: Bool = false {
         didSet { backgroundColor = isValid ? .green : .gray6 }
@@ -30,6 +30,8 @@ final class DefaultFillButton: UIButton {
     private func setConfiguration() {
         layer.masksToBounds = true
         layer.cornerRadius = 8
+        layer.borderWidth = 1
+        layer.borderColor = UIColor.gray6.cgColor
         titleLabel?.font = .body3R14
         backgroundColor = .gray6
     }

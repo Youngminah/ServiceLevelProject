@@ -14,8 +14,8 @@ final class CertificationViewController: UIViewController {
     private let descriptionLabel = DefaultLabel(title: "인증번호가 문자로 전송되었어요", font: .display1R20)
     private let timeLimitLabel = UILabel()
     private let authNumberTextField = AuthTextField(placeHolder: "인증번호 입력")
-    private let transferButton = DefaultFillButton(title: "재전송")
-    private let startButton = DefaultFillButton(title: "인증하고 시작하기")
+    private let transferButton = DefaultButton(title: "재전송")
+    private let startButton = DefaultButton(title: "인증하고 시작하기")
 
     private lazy var input = CertificationViewModel.Input(
         startButtonTapSignal: startButtonTapSignal.asSignal(),
