@@ -7,7 +7,7 @@
 
 import UIKit.UITextField
 
-final class AuthTextField: UITextField, UITextFieldDelegate {
+final class DefaultTextField: UITextField, UITextFieldDelegate {
     
     private let border = CALayer()
     
@@ -22,7 +22,9 @@ final class AuthTextField: UITextField, UITextFieldDelegate {
     }
     
     override func draw(_ rect: CGRect) {
+        super.draw(rect)
         border.frame = CGRect(x: 0, y: frame.size.height - 1, width: frame.width, height: 1)
+        setBorderLine()
     }
     
     required init?(coder: NSCoder) { 
