@@ -7,7 +7,7 @@
 
 import RxSwift
 
-extension Reactive where Base: AuthTextField {
+extension Reactive where Base: DefaultTextField {
 
     var limitPhoneNumberText: Observable<String> {
         return text
