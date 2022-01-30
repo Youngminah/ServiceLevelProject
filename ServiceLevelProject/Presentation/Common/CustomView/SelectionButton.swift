@@ -7,16 +7,17 @@
 
 import UIKit
 
-final class SesacTitleButton: DefaultButton {
+final class SelectionButton: DefaultButton {
 
-    override var isValid: Bool {
+    override var isSelected: Bool {
         didSet {
-            isValid ? setValidStatus(status: .fill) : setValidStatus(status: .inactive)
+            isSelected ? setValidStatus(status: .fill) : setValidStatus(status: .inactive)
         }
     }
 
     override init(frame: CGRect) { // 코드로 뷰가 생성될 때 생성자
         super.init(frame: frame)
+        isSelected = false
     }
     
     required init?(coder: NSCoder) {
