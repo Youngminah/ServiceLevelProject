@@ -19,11 +19,6 @@ final class SesacProfileView: UIView {
         setConfiguration()
     }
 
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        layer.cornerRadius = frame.width / 2
-    }
-
     required init?(coder: NSCoder) {
         fatalError("ProfileImageView: fatal error")
     }
