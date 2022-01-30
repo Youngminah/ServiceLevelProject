@@ -18,7 +18,7 @@ class DefaultButton: UIButton {
 
     override init(frame: CGRect) { // 코드로 뷰가 생성될 때 생성자
         super.init(frame: frame)
-        self.setConfiguration()
+        setConfiguration()
     }
     
     convenience init(title text: String) {
@@ -37,8 +37,9 @@ class DefaultButton: UIButton {
     }
 
     func setValidStatus(status: ButtonStatus) {
+        layer.borderWidth = 1
         layer.borderColor = status.borderColor
         backgroundColor = status.backgroundColor
-        titleLabel?.textColor = status.titleColor
+        setTitleColor(status.titleColor, for: .normal)
     }
 }
