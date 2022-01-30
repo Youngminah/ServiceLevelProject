@@ -24,9 +24,9 @@ enum ButtonStatus: String {
         case .outline:
             return .white
         case .cancel:
-            return .gray6
-        case .disable:
             return .gray2
+        case .disable:
+            return .gray6
         }
     }
 
@@ -44,7 +44,7 @@ enum ButtonStatus: String {
     var borderColor: CGColor {
         switch self {
         case .inactive:
-            return UIColor.gray3.cgColor
+            return UIColor.gray4.cgColor
         case .fill:
             return UIColor.green.cgColor
         case .outline:
