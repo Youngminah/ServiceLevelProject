@@ -7,6 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BB00E8F627A46CDE0023D4E6 /* MyPageEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB00E8F527A46CDE0023D4E6 /* MyPageEditViewController.swift */; };
+		BB00E8FB27A529510023D4E6 /* MyPageEditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB00E8FA27A529510023D4E6 /* MyPageEditViewModel.swift */; };
+		BB00E8FD27A534110023D4E6 /* SesacProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB00E8FC27A534110023D4E6 /* SesacProfileView.swift */; };
+		BB00E8FF27A539150023D4E6 /* SesacTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB00E8FE27A539150023D4E6 /* SesacTitleView.swift */; };
+		BB00E90127A557A20023D4E6 /* ButtonStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB00E90027A557A20023D4E6 /* ButtonStatus.swift */; };
+		BB00E90327A558000023D4E6 /* SelectionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB00E90227A558000023D4E6 /* SelectionButton.swift */; };
+		BB00E90827A560860023D4E6 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = BB00E90727A560860023D4E6 /* Then */; };
+		BB00E90B27A569DB0023D4E6 /* SesacPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB00E90A27A569DB0023D4E6 /* SesacPreviewView.swift */; };
+		BB00E90D27A56D2B0023D4E6 /* SesacReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB00E90C27A56D2B0023D4E6 /* SesacReviewView.swift */; };
+		BB00E90F27A583850023D4E6 /* SesacCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB00E90E27A583850023D4E6 /* SesacCardView.swift */; };
+		BB00E91227A5AA690023D4E6 /* MyGenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB00E91127A5AA690023D4E6 /* MyGenderView.swift */; };
+		BB00E91427A5AA760023D4E6 /* MyHobbyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB00E91327A5AA760023D4E6 /* MyHobbyView.swift */; };
+		BB00E91627A5AC360023D4E6 /* MyPhoneNumberPermitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB00E91527A5AC360023D4E6 /* MyPhoneNumberPermitView.swift */; };
+		BB00E91827A5AC600023D4E6 /* AgeRangeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB00E91727A5AC600023D4E6 /* AgeRangeView.swift */; };
+		BB00E91B27A5BCEA0023D4E6 /* DoubleSlider in Frameworks */ = {isa = PBXBuildFile; productRef = BB00E91A27A5BCEA0023D4E6 /* DoubleSlider */; };
+		BB00E91D27A679990023D4E6 /* MyCardHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB00E91C27A679990023D4E6 /* MyCardHeaderView.swift */; };
+		BB00E91F27A694730023D4E6 /* MyPageEditFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB00E91E27A694730023D4E6 /* MyPageEditFooterView.swift */; };
+		BB00E92127A7058E0023D4E6 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB00E92027A7058E0023D4E6 /* AlertView.swift */; };
 		BB105D3E27966ABC008264DD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB105D3D27966ABC008264DD /* AppDelegate.swift */; };
 		BB105D4027966ABC008264DD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB105D3F27966ABC008264DD /* SceneDelegate.swift */; };
 		BB105D4727966ABD008264DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB105D4627966ABD008264DD /* Assets.xcassets */; };
@@ -20,8 +38,8 @@
 		BB105D7F2796B8BC008264DD /* AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB105D7E2796B8BC008264DD /* AppColor.swift */; };
 		BB105D812796B9B7008264DD /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB105D802796B9B7008264DD /* UIColor.swift */; };
 		BB105D842796C26C008264DD /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = BB105D832796C26C008264DD /* SnapKit */; };
-		BB105D892796D050008264DD /* AuthTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB105D882796D050008264DD /* AuthTextField.swift */; };
-		BB105D8B2796E610008264DD /* DefaultFillButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB105D8A2796E610008264DD /* DefaultFillButton.swift */; };
+		BB105D892796D050008264DD /* DefaultTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB105D882796D050008264DD /* DefaultTextField.swift */; };
+		BB105D8B2796E610008264DD /* DefaultButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB105D8A2796E610008264DD /* DefaultButton.swift */; };
 		BB105D8D2796F004008264DD /* CertificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB105D8C2796F004008264DD /* CertificationViewController.swift */; };
 		BB105D8F2796F197008264DD /* DefaultLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB105D8E2796F197008264DD /* DefaultLabel.swift */; };
 		BB105D92279717C3008264DD /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = BB105D91279717C3008264DD /* .swiftlint.yml */; };
@@ -36,6 +54,8 @@
 		BB1E250E27A1590500A80FC3 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1E250D27A1590500A80FC3 /* UserInfo.swift */; };
 		BB1E251127A179C200A80FC3 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1E251027A179C200A80FC3 /* Date.swift */; };
 		BB1E251E27A198E100A80FC3 /* CoordinatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1E251D27A198E100A80FC3 /* CoordinatorDelegate.swift */; };
+		BB3008D727A31A3E00D32DCA /* MyPageMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3008D627A31A3E00D32DCA /* MyPageMenuCell.swift */; };
+		BB3008D927A31B8300D32DCA /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3008D827A31B8300D32DCA /* BaseTableViewCell.swift */; };
 		BB78E9E027A2AA8500CC3373 /* IndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB78E9DF27A2AA8500CC3373 /* IndicatorView.swift */; };
 		BB7A216F279D1673005FD0A3 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7A216E279D1673005FD0A3 /* UserRepository.swift */; };
 		BB7A2172279D16BA005FD0A3 /* UserRepositoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7A2171279D16BA005FD0A3 /* UserRepositoryType.swift */; };
@@ -80,6 +100,9 @@
 		BBAAA6D9279C55B800667591 /* SesacShopCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAA6D8279C55B800667591 /* SesacShopCoordinator.swift */; };
 		BBAAA6DC279C55ED00667591 /* SesacFriendCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAA6DB279C55ED00667591 /* SesacFriendCoordinator.swift */; };
 		BBAAA6DE279C598D00667591 /* MyPageCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAA6DD279C598D00667591 /* MyPageCoordinator.swift */; };
+		BBDBE50F27A4505D00305BF3 /* MyPageMenuCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDBE50E27A4505D00305BF3 /* MyPageMenuCase.swift */; };
+		BBDBE51127A459A600305BF3 /* MyPageMenuHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDBE51027A459A600305BF3 /* MyPageMenuHeaderView.swift */; };
+		BBDBE51327A45A1100305BF3 /* ProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDBE51227A45A1100305BF3 /* ProfileImageView.swift */; };
 		BBDDDF8A27A03A9E000FB2C0 /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDDDF8927A03A9E000FB2C0 /* AuthCoordinator.swift */; };
 		BBED11EF27984744002A5E9E /* Assets+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBED11EE27984744002A5E9E /* Assets+Generated.swift */; };
 		BBED11F7279869EA002A5E9E /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBED11F6279869EA002A5E9E /* Coordinator.swift */; };
@@ -117,6 +140,22 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BB00E8F527A46CDE0023D4E6 /* MyPageEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageEditViewController.swift; sourceTree = "<group>"; };
+		BB00E8FA27A529510023D4E6 /* MyPageEditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageEditViewModel.swift; sourceTree = "<group>"; };
+		BB00E8FC27A534110023D4E6 /* SesacProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SesacProfileView.swift; sourceTree = "<group>"; };
+		BB00E8FE27A539150023D4E6 /* SesacTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SesacTitleView.swift; sourceTree = "<group>"; };
+		BB00E90027A557A20023D4E6 /* ButtonStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStatus.swift; sourceTree = "<group>"; };
+		BB00E90227A558000023D4E6 /* SelectionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionButton.swift; sourceTree = "<group>"; };
+		BB00E90A27A569DB0023D4E6 /* SesacPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SesacPreviewView.swift; sourceTree = "<group>"; };
+		BB00E90C27A56D2B0023D4E6 /* SesacReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SesacReviewView.swift; sourceTree = "<group>"; };
+		BB00E90E27A583850023D4E6 /* SesacCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SesacCardView.swift; sourceTree = "<group>"; };
+		BB00E91127A5AA690023D4E6 /* MyGenderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGenderView.swift; sourceTree = "<group>"; };
+		BB00E91327A5AA760023D4E6 /* MyHobbyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyHobbyView.swift; sourceTree = "<group>"; };
+		BB00E91527A5AC360023D4E6 /* MyPhoneNumberPermitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPhoneNumberPermitView.swift; sourceTree = "<group>"; };
+		BB00E91727A5AC600023D4E6 /* AgeRangeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgeRangeView.swift; sourceTree = "<group>"; };
+		BB00E91C27A679990023D4E6 /* MyCardHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCardHeaderView.swift; sourceTree = "<group>"; };
+		BB00E91E27A694730023D4E6 /* MyPageEditFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageEditFooterView.swift; sourceTree = "<group>"; };
+		BB00E92027A7058E0023D4E6 /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		BB105D3A27966ABC008264DD /* ServiceLevelProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ServiceLevelProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB105D3D27966ABC008264DD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BB105D3F27966ABC008264DD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -133,8 +172,8 @@
 		BB105D7B2796B660008264DD /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
 		BB105D7E2796B8BC008264DD /* AppColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColor.swift; sourceTree = "<group>"; };
 		BB105D802796B9B7008264DD /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
-		BB105D882796D050008264DD /* AuthTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTextField.swift; sourceTree = "<group>"; };
-		BB105D8A2796E610008264DD /* DefaultFillButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultFillButton.swift; sourceTree = "<group>"; };
+		BB105D882796D050008264DD /* DefaultTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTextField.swift; sourceTree = "<group>"; };
+		BB105D8A2796E610008264DD /* DefaultButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultButton.swift; sourceTree = "<group>"; };
 		BB105D8C2796F004008264DD /* CertificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificationViewController.swift; sourceTree = "<group>"; };
 		BB105D8E2796F197008264DD /* DefaultLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultLabel.swift; sourceTree = "<group>"; };
 		BB105D91279717C3008264DD /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
@@ -149,6 +188,8 @@
 		BB1E250D27A1590500A80FC3 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		BB1E251027A179C200A80FC3 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		BB1E251D27A198E100A80FC3 /* CoordinatorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorDelegate.swift; sourceTree = "<group>"; };
+		BB3008D627A31A3E00D32DCA /* MyPageMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageMenuCell.swift; sourceTree = "<group>"; };
+		BB3008D827A31B8300D32DCA /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		BB78E9DF27A2AA8500CC3373 /* IndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicatorView.swift; sourceTree = "<group>"; };
 		BB7A216E279D1673005FD0A3 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		BB7A2171279D16BA005FD0A3 /* UserRepositoryType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepositoryType.swift; sourceTree = "<group>"; };
@@ -192,6 +233,9 @@
 		BBAAA6D8279C55B800667591 /* SesacShopCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SesacShopCoordinator.swift; sourceTree = "<group>"; };
 		BBAAA6DB279C55ED00667591 /* SesacFriendCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SesacFriendCoordinator.swift; sourceTree = "<group>"; };
 		BBAAA6DD279C598D00667591 /* MyPageCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageCoordinator.swift; sourceTree = "<group>"; };
+		BBDBE50E27A4505D00305BF3 /* MyPageMenuCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageMenuCase.swift; sourceTree = "<group>"; };
+		BBDBE51027A459A600305BF3 /* MyPageMenuHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageMenuHeaderView.swift; sourceTree = "<group>"; };
+		BBDBE51227A45A1100305BF3 /* ProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageView.swift; sourceTree = "<group>"; };
 		BBDDDF8927A03A9E000FB2C0 /* AuthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
 		BBED11EE27984744002A5E9E /* Assets+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Assets+Generated.swift"; sourceTree = "<group>"; };
 		BBED11F6279869EA002A5E9E /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
@@ -212,10 +256,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				BBED1214279943FF002A5E9E /* RxSwift in Frameworks */,
+				BB00E90827A560860023D4E6 /* Then in Frameworks */,
 				BBED1212279943FF002A5E9E /* RxRelay in Frameworks */,
 				BBAAA684279ABFAD00667591 /* Moya in Frameworks */,
 				BBED11FD27986D87002A5E9E /* FirebaseMessaging in Frameworks */,
 				BB105D842796C26C008264DD /* SnapKit in Frameworks */,
+				BB00E91B27A5BCEA0023D4E6 /* DoubleSlider in Frameworks */,
 				BBED1210279943FF002A5E9E /* RxCocoa in Frameworks */,
 				BBED121E279976D2002A5E9E /* Toast in Frameworks */,
 				BBED11FB27986D87002A5E9E /* FirebaseAuth in Frameworks */,
@@ -239,6 +285,55 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BB00E8F727A46F000023D4E6 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				BB3008D627A31A3E00D32DCA /* MyPageMenuCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		BB00E8F827A46F090023D4E6 /* HeaderView */ = {
+			isa = PBXGroup;
+			children = (
+				BBDBE51027A459A600305BF3 /* MyPageMenuHeaderView.swift */,
+				BB00E91C27A679990023D4E6 /* MyCardHeaderView.swift */,
+				BB00E91E27A694730023D4E6 /* MyPageEditFooterView.swift */,
+			);
+			path = HeaderView;
+			sourceTree = "<group>";
+		};
+		BB00E8F927A46F260023D4E6 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				BB00E8FA27A529510023D4E6 /* MyPageEditViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		BB00E90927A567920023D4E6 /* SesacCardView */ = {
+			isa = PBXGroup;
+			children = (
+				BB00E8FE27A539150023D4E6 /* SesacTitleView.swift */,
+				BB00E8FC27A534110023D4E6 /* SesacProfileView.swift */,
+				BB00E90A27A569DB0023D4E6 /* SesacPreviewView.swift */,
+				BB00E90C27A56D2B0023D4E6 /* SesacReviewView.swift */,
+			);
+			path = SesacCardView;
+			sourceTree = "<group>";
+		};
+		BB00E91027A5AA360023D4E6 /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				BB00E90E27A583850023D4E6 /* SesacCardView.swift */,
+				BB00E91127A5AA690023D4E6 /* MyGenderView.swift */,
+				BB00E91327A5AA760023D4E6 /* MyHobbyView.swift */,
+				BB00E91527A5AC360023D4E6 /* MyPhoneNumberPermitView.swift */,
+				BB00E91727A5AC600023D4E6 /* AgeRangeView.swift */,
+			);
+			path = CustomView;
+			sourceTree = "<group>";
+		};
 		BB105D3127966ABC008264DD = {
 			isa = PBXGroup;
 			children = (
@@ -350,12 +445,17 @@
 		BB105D872796CEB3008264DD /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
-				BB105D882796D050008264DD /* AuthTextField.swift */,
-				BB105D8A2796E610008264DD /* DefaultFillButton.swift */,
+				BB00E90927A567920023D4E6 /* SesacCardView */,
+				BB105D882796D050008264DD /* DefaultTextField.swift */,
+				BB105D8A2796E610008264DD /* DefaultButton.swift */,
+				BB00E90227A558000023D4E6 /* SelectionButton.swift */,
 				BB105D8E2796F197008264DD /* DefaultLabel.swift */,
 				BB105D9B2797FA21008264DD /* GenderButton.swift */,
 				BB7A2185279EBCEE005FD0A3 /* DatePickerTextField.swift */,
 				BB78E9DF27A2AA8500CC3373 /* IndicatorView.swift */,
+				BB3008D827A31B8300D32DCA /* BaseTableViewCell.swift */,
+				BBDBE51227A45A1100305BF3 /* ProfileImageView.swift */,
+				BB00E92027A7058E0023D4E6 /* AlertView.swift */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -576,6 +676,8 @@
 				BBAAA6A3279C0F2200667591 /* CoordinatorStyleCase.swift */,
 				BBAAA6AF279C240C00667591 /* UserDefaultKeyCase.swift */,
 				BBAAA6D4279C542A00667591 /* TabBarPageCase.swift */,
+				BBDBE50E27A4505D00305BF3 /* MyPageMenuCase.swift */,
+				BB00E90027A557A20023D4E6 /* ButtonStatus.swift */,
 			);
 			path = Constant;
 			sourceTree = "<group>";
@@ -637,6 +739,7 @@
 			children = (
 				BBAAA6E3279C5A1500667591 /* Coordinator */,
 				BBAAA6E2279C5A1100667591 /* View */,
+				BB00E8F927A46F260023D4E6 /* ViewModel */,
 			);
 			path = MyPage;
 			sourceTree = "<group>";
@@ -676,7 +779,11 @@
 		BBAAA6E2279C5A1100667591 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				BB00E91027A5AA360023D4E6 /* CustomView */,
+				BB00E8F827A46F090023D4E6 /* HeaderView */,
+				BB00E8F727A46F000023D4E6 /* Cell */,
 				BBAAA6D0279C46D200667591 /* MyPageViewController.swift */,
+				BB00E8F527A46CDE0023D4E6 /* MyPageEditViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -807,6 +914,8 @@
 				BBED1213279943FF002A5E9E /* RxSwift */,
 				BBED121D279976D2002A5E9E /* Toast */,
 				BBAAA683279ABFAD00667591 /* Moya */,
+				BB00E90727A560860023D4E6 /* Then */,
+				BB00E91A27A5BCEA0023D4E6 /* DoubleSlider */,
 			);
 			productName = ServiceLevelProject;
 			productReference = BB105D3A27966ABC008264DD /* ServiceLevelProject.app */;
@@ -886,6 +995,8 @@
 				BBED120E279943FF002A5E9E /* XCRemoteSwiftPackageReference "RxSwift" */,
 				BBED121C279976D2002A5E9E /* XCRemoteSwiftPackageReference "Toast-Swift" */,
 				BBAAA682279ABFAD00667591 /* XCRemoteSwiftPackageReference "Moya" */,
+				BB00E90627A560860023D4E6 /* XCRemoteSwiftPackageReference "Then" */,
+				BB00E91927A5BCE90023D4E6 /* XCRemoteSwiftPackageReference "DoubleSlider" */,
 			);
 			productRefGroup = BB105D3B27966ABC008264DD /* Products */;
 			projectDirPath = "";
@@ -975,28 +1086,43 @@
 				BB105D6E2796B0DA008264DD /* LoginViewController.swift in Sources */,
 				BB7A2176279D9BB6005FD0A3 /* CertificationUseCase.swift in Sources */,
 				BB8D1F3A2799BE6400D111B6 /* AuthTextField+Rx.swift in Sources */,
-				BB105D892796D050008264DD /* AuthTextField.swift in Sources */,
+				BB105D892796D050008264DD /* DefaultTextField.swift in Sources */,
+				BB00E8FD27A534110023D4E6 /* SesacProfileView.swift in Sources */,
 				BB7A216F279D1673005FD0A3 /* UserRepository.swift in Sources */,
 				BBED121B279976A4002A5E9E /* UIViewController.swift in Sources */,
 				BBAAA6D9279C55B800667591 /* SesacShopCoordinator.swift in Sources */,
+				BB00E90D27A56D2B0023D4E6 /* SesacReviewView.swift in Sources */,
 				BB105D3E27966ABC008264DD /* AppDelegate.swift in Sources */,
 				BBAAA6AB279C169500667591 /* TransitionStyle.swift in Sources */,
 				BB1E251E27A198E100A80FC3 /* CoordinatorDelegate.swift in Sources */,
 				BB7A2184279DAF3C005FD0A3 /* SesacRepositoryType.swift in Sources */,
+				BB00E8F627A46CDE0023D4E6 /* MyPageEditViewController.swift in Sources */,
 				BBAAA6DE279C598D00667591 /* MyPageCoordinator.swift in Sources */,
 				BBAAA6A2279BFC6700667591 /* HomeViewController.swift in Sources */,
 				BBED12252799AAC5002A5E9E /* StopWatchConverterService.swift in Sources */,
 				BB105D7F2796B8BC008264DD /* AppColor.swift in Sources */,
 				BBED1202279902ED002A5E9E /* OnBoardingViewController.swift in Sources */,
+				BB00E90F27A583850023D4E6 /* SesacCardView.swift in Sources */,
 				BB105D7C2796B660008264DD /* UIFont.swift in Sources */,
+				BBDBE50F27A4505D00305BF3 /* MyPageMenuCase.swift in Sources */,
 				BBAAA694279B2C2600667591 /* UserRegisterInfoRequestDTO.swift in Sources */,
 				BB8D1F322799B5FB00D111B6 /* LoginViewModel.swift in Sources */,
 				BBAAA6CF279C46C700667591 /* SesacFriendViewController.swift in Sources */,
+				BB3008D727A31A3E00D32DCA /* MyPageMenuCell.swift in Sources */,
+				BB00E90B27A569DB0023D4E6 /* SesacPreviewView.swift in Sources */,
+				BB00E8FB27A529510023D4E6 /* MyPageEditViewModel.swift in Sources */,
+				BB00E91F27A694730023D4E6 /* MyPageEditFooterView.swift in Sources */,
 				BB105D8D2796F004008264DD /* CertificationViewController.swift in Sources */,
 				BBAAA6DC279C55ED00667591 /* SesacFriendCoordinator.swift in Sources */,
 				BB8D1F342799B62100D111B6 /* ViewModelType.swift in Sources */,
+				BB00E8FF27A539150023D4E6 /* SesacTitleView.swift in Sources */,
 				BBAAA69C279BE30700667591 /* UserInfoResponseDTO.swift in Sources */,
+				BB00E91627A5AC360023D4E6 /* MyPhoneNumberPermitView.swift in Sources */,
+				BB00E91227A5AA690023D4E6 /* MyGenderView.swift in Sources */,
 				BBED12202799785F002A5E9E /* AuthError.swift in Sources */,
+				BB3008D927A31B8300D32DCA /* BaseTableViewCell.swift in Sources */,
+				BBDBE51327A45A1100305BF3 /* ProfileImageView.swift in Sources */,
+				BB00E90127A557A20023D4E6 /* ButtonStatus.swift in Sources */,
 				BBAAA6A4279C0F2200667591 /* CoordinatorStyleCase.swift in Sources */,
 				BB7A2180279DA3EF005FD0A3 /* SesacRepository.swift in Sources */,
 				BBED11F7279869EA002A5E9E /* Coordinator.swift in Sources */,
@@ -1005,8 +1131,10 @@
 				BB105D4027966ABC008264DD /* SceneDelegate.swift in Sources */,
 				BBAAA6BE279C3CFA00667591 /* GenderViewModel.swift in Sources */,
 				BB7A2172279D16BA005FD0A3 /* UserRepositoryType.swift in Sources */,
+				BB00E91D27A679990023D4E6 /* MyCardHeaderView.swift in Sources */,
 				BBAAA68E279B07A500667591 /* SLPTarget+StubData.swift in Sources */,
 				BB105D942797AAD1008264DD /* NicknameViewController.swift in Sources */,
+				BB00E90327A558000023D4E6 /* SelectionButton.swift in Sources */,
 				BBAAA6D5279C542A00667591 /* TabBarPageCase.swift in Sources */,
 				BB7A2174279D9BA4005FD0A3 /* LoginUseCase.swift in Sources */,
 				BB105D962797AAE5008264DD /* BirthViewController.swift in Sources */,
@@ -1014,6 +1142,7 @@
 				BBAAA6B9279C3CE100667591 /* BirthViewModel.swift in Sources */,
 				BBAAA6B0279C240C00667591 /* UserDefaultKeyCase.swift in Sources */,
 				BB1E251127A179C200A80FC3 /* Date.swift in Sources */,
+				BB00E91427A5AA760023D4E6 /* MyHobbyView.swift in Sources */,
 				BBAAA6B7279C3CD700667591 /* NickNameViewModel.swift in Sources */,
 				BB105D812796B9B7008264DD /* UIColor.swift in Sources */,
 				BBAAA6A9279C124F00667591 /* OnBoardingViewModel.swift in Sources */,
@@ -1025,8 +1154,9 @@
 				BB7A2178279D9BCC005FD0A3 /* GenderUseCase.swift in Sources */,
 				BB105D782796B2B8008264DD /* AppFont.swift in Sources */,
 				BBAAA687279AD3A500667591 /* SLPTarget.swift in Sources */,
+				BBDBE51127A459A600305BF3 /* MyPageMenuHeaderView.swift in Sources */,
 				BBED121927996F97002A5E9E /* DefaultFillButton+Rx.swift in Sources */,
-				BB105D8B2796E610008264DD /* DefaultFillButton.swift in Sources */,
+				BB105D8B2796E610008264DD /* DefaultButton.swift in Sources */,
 				BBED121627994594002A5E9E /* String.swift in Sources */,
 				BB8D1F3C279A992C00D111B6 /* CertificationViewModel.swift in Sources */,
 				BB7A2186279EBCEE005FD0A3 /* DatePickerTextField.swift in Sources */,
@@ -1036,8 +1166,10 @@
 				BBAAA6BC279C3CF100667591 /* EmailViewModel.swift in Sources */,
 				BB7A2182279DAF2B005FD0A3 /* FirbaseRepositoryType.swift in Sources */,
 				BB105D9A2797F313008264DD /* GenderViewController.swift in Sources */,
+				BB00E92127A7058E0023D4E6 /* AlertView.swift in Sources */,
 				BBDDDF8A27A03A9E000FB2C0 /* AuthCoordinator.swift in Sources */,
 				BB105D9C2797FA21008264DD /* GenderButton.swift in Sources */,
+				BB00E91827A5AC600023D4E6 /* AgeRangeView.swift in Sources */,
 				BBAAA690279B0BEB00667591 /* NetworkMonitorService.swift in Sources */,
 				BBAAA6D7279C55AA00667591 /* HomeCoordinator.swift in Sources */,
 				BBAAA68A279AD78000667591 /* APIEnvironment.swift in Sources */,
@@ -1402,6 +1534,22 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		BB00E90627A560860023D4E6 /* XCRemoteSwiftPackageReference "Then" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/devxoul/Then";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.7.0;
+			};
+		};
+		BB00E91927A5BCE90023D4E6 /* XCRemoteSwiftPackageReference "DoubleSlider" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/yhkaplan/DoubleSlider";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		BB105D822796C26C008264DD /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -1445,6 +1593,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		BB00E90727A560860023D4E6 /* Then */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BB00E90627A560860023D4E6 /* XCRemoteSwiftPackageReference "Then" */;
+			productName = Then;
+		};
+		BB00E91A27A5BCEA0023D4E6 /* DoubleSlider */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BB00E91927A5BCE90023D4E6 /* XCRemoteSwiftPackageReference "DoubleSlider" */;
+			productName = DoubleSlider;
+		};
 		BB105D832796C26C008264DD /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = BB105D822796C26C008264DD /* XCRemoteSwiftPackageReference "SnapKit" */;

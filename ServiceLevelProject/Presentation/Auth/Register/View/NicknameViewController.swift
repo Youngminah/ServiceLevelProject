@@ -13,7 +13,7 @@ import Toast
 final class NicknameViewController: UIViewController {
 
     private let descriptionLabel = DefaultLabel(title: "닉네임을 입력해 주세요", font: .display1R20)
-    private let nicknameTextField = AuthTextField(placeHolder: "10자 이내로 입력")
+    private let nicknameTextField = DefaultTextField(placeHolder: "10자 이내로 입력")
     private let nextButton = DefaultButton(title: "다음")
 
     private lazy var input = NickNameViewModel.Input(

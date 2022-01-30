@@ -18,7 +18,7 @@ final class EmailViewController: UIViewController {
     private let detailLabel = DefaultLabel(title: "휴대폰 번호 변경 시 인증을 위해 사용해요",
                                            font: .title2R16 ,
                                            textColor: .gray7)
-    private let emailTextField = AuthTextField(placeHolder: "SeSAC@email.com")
+    private let emailTextField = DefaultTextField(placeHolder: "SeSAC@email.com")
     private let nextButton = DefaultButton(title: "다음")
 
     private lazy var input = EmailViewModel.Input(
