@@ -16,10 +16,22 @@ final class SesacReviewView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setConstraints()
+        setConfigurations()
+    }
+
+//    override func draw(_ rect: CGRect) {
+//        super.draw(rect)
+//        textView.text = "asdd아면아ㅓㄴ이라ㅓㅁ니아러"
+//        textView.sizeToFit()
+//    }
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        //setText(text: "안녕?하세영")
     }
 
     required init(coder: NSCoder) {
-        fatalError("SesacTitleView: fatal error")
+        fatalError("SesacReviewView: fatal error")
     }
 
     private func setConstraints() {
@@ -32,14 +44,25 @@ final class SesacReviewView: UIView {
             make.height.equalTo(40)
         }
         textView.snp.makeConstraints { make in
-            make.top.equalTo(titleLabel.snp.bottom).offset(16)
+            make.top.equalTo(titleLabel.snp.bottom)
             make.left.equalToSuperview().offset(16)
-            make.bottom.right.equalToSuperview().offset(-16)
+            make.right.equalToSuperview().offset(-16)
+            make.bottom.equalToSuperview().offset(-16)
         }
     }
 
     private func setConfigurations() {
         textView.textColor = .gray6
+        textView.isScrollEnabled = false
         textView.text = "첫 리뷰를 기다리는 중입니다."
+        textView.sizeToFit()
+        textView.isEditable = false
+        titleLabel.textAlignment = .left
+    }
+
+    func setText(text: String) {
+        textView.textColor = .label
+        textView.text = text
+        textView.sizeToFit()
     }
 }
