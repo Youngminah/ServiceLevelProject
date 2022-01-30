@@ -34,10 +34,11 @@ final class SesacTitleView: UIView {
 
     private let titleLabel = DefaultLabel(title: "새싹 타이틀", font: .title4R14)
 
-    private let buttons: [SesacTitleButton] = {
-        var buttons = [SesacTitleButton]()
+    private let buttons: [SelectionButton] = {
+        var buttons = [SelectionButton]()
         SesacTitleCase.allCases.forEach { value in
-            buttons.append(SesacTitleButton(title: value.title))
+            let button = SelectionButton(title: value.title)
+            buttons.append(button)
         }
         return buttons
     }()
@@ -46,7 +47,7 @@ final class SesacTitleView: UIView {
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.distribution = .fillEqually
-        stackView.spacing = 3
+        stackView.spacing = 8
         for i in 0..<3 {
             let index = i * 2
             let horizantalStackView = UIStackView(
@@ -54,7 +55,7 @@ final class SesacTitleView: UIView {
             )
             horizantalStackView.axis = .horizontal
             horizantalStackView.distribution = .fillEqually
-            horizantalStackView.spacing = 3
+            horizantalStackView.spacing = 8
             stackView.addArrangedSubview(horizantalStackView)
         }
         return stackView
@@ -63,6 +64,7 @@ final class SesacTitleView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setConstraints()
+        titleLabel.textAlignment = .left
     }
 
     required init(coder: NSCoder) {
