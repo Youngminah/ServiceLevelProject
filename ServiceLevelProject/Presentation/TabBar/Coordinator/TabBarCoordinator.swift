@@ -74,20 +74,34 @@ final class TabBarCoordinator: Coordinator {
         switch page {
         case .home:
             let homeCoordinator = HomeCoordinator(tabNavigationController)
+            homeCoordinator.delegate = self
             self.childCoordinators.append(homeCoordinator)
             homeCoordinator.start()
         case .sesacshop:
             let sesacShopCoordinator = SesacShopCoordinator(tabNavigationController)
+            sesacShopCoordinator.delegate = self
             self.childCoordinators.append(sesacShopCoordinator)
             sesacShopCoordinator.start()
         case .sesacfriend:
             let sesacFriendCoordinator = SesacFriendCoordinator(tabNavigationController)
+            sesacFriendCoordinator.delegate = self
             self.childCoordinators.append(sesacFriendCoordinator)
             sesacFriendCoordinator.start()
         case .mypage:
             let myPageCoordinator = MyPageCoordinator(tabNavigationController)
+            myPageCoordinator.delegate = self
             self.childCoordinators.append(myPageCoordinator)
             myPageCoordinator.start()
+        }
+    }
+}
+
+extension TabBarCoordinator: CoordinatorDelegate {
+    func didFinish(childCoordinator: Coordinator) {
+        self.childCoordinators = childCoordinators.filter({ $0.type != childCoordinator.type })
+        if childCoordinator.type == .myPage {
+            self.navigationController.viewControllers.removeAll()
+            self.delegate?.didFinish(childCoordinator: self)
         }
     }
 }
