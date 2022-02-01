@@ -7,9 +7,13 @@
 
 import UIKit
 import SnapKit
+import RxSwift
+import RxCocoa
 
 final class MyPageEditViewController: UIViewController {
 
+    private let headerView = MyCardHeaderView()
+    private let footerView = MyPageEditFooterView()
     private let tableView = UITableView(frame: .zero, style: .grouped)
     private lazy var saveBarButton = UIBarButtonItem(title: "저장",
                                                  style: .plain,
@@ -18,11 +22,52 @@ final class MyPageEditViewController: UIViewController {
 
     private var isToggle: Bool = true
 
+    private lazy var input = MyPageEditViewModel.Input(
+        didWithdrawButtonTap: footerView.withdrawButtonTap,
+        requestWithdrawSignal: requestWithdrawSignal.asSignal()
+    )
+    private lazy var output = viewModel.transform(input: input)
+    private let viewModel: MyPageEditViewModel
+    private let disposdBag = DisposeBag()
+
+    private let requestWithdrawSignal = PublishRelay<Void>()
+
+    init(viewModel: MyPageEditViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("MyPageEditViewController: fatal error")
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setViews()
         setConstraints()
         setConfigurations()
+        bind()
+    }
+
+    private func bind() {
+        output.showAlertAction
+            .emit(onNext: {
+                let window = UIApplication.shared.windows.first!
+                let alert = AlertView.init(
+                    title: "정말 탈퇴하시겠습니까?",
+                    message: "탈퇴하시면 새싹 프렌즈를 이용할 수 없어요ㅠ",
+                    buttonStyle: .confirmAndCancel) { [weak self] in
+                        self?.requestWithdrawSignal.accept(())
+                    }
+                alert.showAlert(in: window)
+            })
+            .disposed(by: disposdBag)
+        
+        output.indicatorAction
+            .drive(onNext: {
+                $0 ? IndicatorView.shared.show(backgoundColor: Asset.transparent.color) : IndicatorView.shared.hide()
+            })
+            .disposed(by: disposdBag)
     }
 
     @objc
@@ -87,10 +132,6 @@ extension MyPageEditViewController: UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        guard let footerView = tableView.dequeueReusableHeaderFooterView(
-            withIdentifier: MyPageEditFooterView.identifier) as? MyPageEditFooterView else {
-            return UITableViewHeaderFooterView()
-        }
         return footerView
     }
 
