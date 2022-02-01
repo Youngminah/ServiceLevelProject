@@ -7,6 +7,8 @@
 
 import UIKit
 import SnapKit
+import RxSwift
+import RxCocoa
 
 final class MyPageEditFooterView: UITableViewHeaderFooterView {
 
@@ -17,6 +19,10 @@ final class MyPageEditFooterView: UITableViewHeaderFooterView {
     private let myPhoneNumberPermitView = MyPhoneNumberPermitView()
     private let ageRangeView = AgeRangeView()
     private let withdrawButton = DefaultButton(title: "회원탈퇴")
+
+    lazy var withdrawButtonTap = withdrawButton.rx.tap.asSignal()
+    let disposdBag = DisposeBag()
+
     private lazy var stackView = UIStackView(
         arrangedSubviews: [myGenderView,
                            myHobbyView,
