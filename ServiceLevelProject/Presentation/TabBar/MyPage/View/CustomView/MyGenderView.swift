@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 final class MyGenderView: UIView {
 
@@ -13,14 +15,35 @@ final class MyGenderView: UIView {
     private let manButton = SelectionButton(title: "남자")
     private let womanButton = SelectionButton(title: "여자")
 
+    private let disposdBag = DisposeBag()
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setConstraints()
         setConfigurations()
+        bind()
     }
 
     required init(coder: NSCoder) {
         fatalError("SesacTitleView: fatal error")
+    }
+
+    private func bind() {
+        manButton.rx.tap.asDriver()
+            .map { [weak self] in
+                guard let self = self else { return false }
+                return !self.manButton.isSelected
+            }
+            .drive(manButton.rx.isSelected)
+            .disposed(by: disposdBag)
+
+        womanButton.rx.tap.asDriver()
+            .map { [weak self] in
+                guard let self = self else { return false }
+                return !self.womanButton.isSelected
+            }
+            .drive(womanButton.rx.isSelected)
+            .disposed(by: disposdBag)
     }
 
     private func setConstraints() {
