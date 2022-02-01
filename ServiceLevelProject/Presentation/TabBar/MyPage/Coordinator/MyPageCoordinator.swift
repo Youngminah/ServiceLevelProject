@@ -25,9 +25,23 @@ final class MyPageCoordinator: Coordinator {
     }
 
     func showMyPageEditViewController() {
-        let vc = MyPageEditViewController()
+        let vc = MyPageEditViewController(
+            viewModel: MyPageEditViewModel(
+                coordinator: self,
+                myPageEditUseCase: MyPageEditUseCase(
+                    userRepository: UserRepository(),
+                    fireBaseRepository: FirbaseRepository(),
+                    sesacRepository: SesacRepository()
+                )
+            )
+        )
         vc.title = "정보 관리"
         vc.hidesBottomBarWhenPushed = true
         navigationController.pushViewController(vc, animated: true)
+    }
+
+    func popMyPageEditViewController(message: String) {
+        navigationController.popViewController(animated: true)
+        navigationController.view.makeToast(message, position: .top)
     }
 }
