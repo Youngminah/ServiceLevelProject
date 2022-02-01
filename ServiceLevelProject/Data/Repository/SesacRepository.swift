@@ -12,7 +12,8 @@ enum SesacNetworkServiceError: Int, Error {
 
     case duplicatedError = 201
     case inValidInputBodyError = 202
-    case inValidFCMTokenError = 401
+    case inValidIDTokenError = 401
+    case alreadyWithdrawn = 406
     case internalServerError = 500
     case internalClientError = 501
     case unknown
@@ -26,7 +27,7 @@ extension SesacNetworkServiceError {
         switch self {
         case .duplicatedError: return "201:DUPLICATE_ERROR"
         case .inValidInputBodyError: return "202:INVALID_INPUT_BODY_ERROR"
-        case .inValidFCMTokenError: return "401:INVALID_FCM_TOKEN_ERROR"
+        case .inValidIDTokenError: return "401:INVALID_FCM_TOKEN_ERROR"
         case .internalServerError: return "500:INTERNAL_SERVER_ERROR"
         case .internalClientError: return "501:INTERNAL_CLIENT_ERROR"
         default: return "UN_KNOWN_ERROR"
@@ -57,6 +58,12 @@ extension SesacRepository {
     func requestRegister(userRegisterInfo: UserRegisterInfo, completion: @escaping (Result<Int, SesacNetworkServiceError>) -> Void ) {
         let requestDTO = UserRegisterInfoRequestDTO(userRegisterInfo: userRegisterInfo)
         provider.request(.register(parameters: requestDTO.toDictionary)) { result in
+            self.process(result: result,completion: completion)
+        }
+    }
+
+    func requestWithdraw(completion: @escaping (Result<Int, SesacNetworkServiceError>) -> Void ) {
+        provider.request(.withdraw) { result in
             self.process(result: result,completion: completion)
         }
     }
