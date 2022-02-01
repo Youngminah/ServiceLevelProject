@@ -75,10 +75,10 @@ final class CertificationUseCase {
             guard let self = self else { return }
             switch response {
             case .success(_):
+                self.saveLogInInfo()
                 self.successLogInSignal.onNext(())
             case .failure(let error):
                 if error.rawValue == 201 {
-                    self.saveLogInInfo()
                     self.unRegisteredUserSignal.onNext(())
                 } else {
                     self.unKnownErrorSignal.onNext(())
