@@ -22,7 +22,10 @@ protocol Coordinator: AnyObject {
 
 extension Coordinator {
 
-    func finish() { childCoordinators.removeAll() }
+    func finish() {
+        childCoordinators.removeAll()
+        delegate?.didFinish(childCoordinator: self)
+    }
 
     func findCoordinator(type: CoordinatorStyleCase) -> Coordinator? {
         var stack: [Coordinator] = [self]
