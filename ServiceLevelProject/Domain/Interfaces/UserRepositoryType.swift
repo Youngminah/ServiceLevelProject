@@ -29,11 +29,11 @@ protocol UserRepositoryType: AnyObject {
 
     func saveLogInInfo()
 
-    func saveLogoutInfo()
+    func logoutUserInfo()
 
     func saveIdTokenInfo(idToken: String)
 
-    func deleteUserInfo()
+    func withdrawUserInfo()
 
     func deleteFCMToken()
 }
