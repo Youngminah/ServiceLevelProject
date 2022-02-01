@@ -10,15 +10,22 @@ import Moya
 
 protocol SesacRepositoryType: AnyObject {
 
-    func requestUserInfo(
+    func requestUserInfo(                     // 유저정보 API
         completion: @escaping (
             Result< UserInfo,
             SesacNetworkServiceError>
         ) -> Void
     )
 
-    func requestRegister(
+    func requestRegister(                      // 회원가입 API
         userRegisterInfo: UserRegisterInfo,
+        completion: @escaping (
+            Result< Int,
+            SesacNetworkServiceError>
+        ) -> Void
+    )
+
+    func requestWithdraw(                       // 회원탈퇴 API
         completion: @escaping (
             Result< Int,
             SesacNetworkServiceError>
