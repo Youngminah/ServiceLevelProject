@@ -54,12 +54,14 @@ final class UserRepository: UserRepositoryType {
         UserDefaults.standard.set(true, forKey: UserDefaultKeyCase.isLoggedIn)
     }
 
-    func saveLogoutInfo() {
+    func logoutUserInfo() {
         UserDefaults.standard.set(false, forKey: UserDefaultKeyCase.isLoggedIn)
+        UserDefaults.standard.removeObject(forKey: UserDefaultKeyCase.idToken)
     }
 
-    func deleteUserInfo() {
-        UserDefaults.standard.removeObject(forKey: UserDefaultKeyCase.isLoggedIn)
+    func withdrawUserInfo() {
+        UserDefaults.standard.setValue(false, forKey: UserDefaultKeyCase.isLoggedIn)
+        UserDefaults.standard.setValue(false, forKey: UserDefaultKeyCase.isNotFirstUser)
         UserDefaults.standard.removeObject(forKey: UserDefaultKeyCase.idToken)
     }
 
