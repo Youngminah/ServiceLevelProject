@@ -14,7 +14,7 @@ enum SLPTarget {
     // User
     case register(parameters: DictionaryType)
     case getUserInfo
-    case withdrawUser(parameters: DictionaryType)
+    case withdraw
     // User FCM
     case updateFCMToken(parameters: DictionaryType)
     // User MyPage
@@ -35,7 +35,7 @@ extension SLPTarget: TargetType {
         case .register,
              .getUserInfo:
             return "/user"
-        case .withdrawUser:
+        case .withdraw:
             return "/user/withdraw"
         case .updateFCMToken:
             return "/user/update_fcm_token"
@@ -49,7 +49,7 @@ extension SLPTarget: TargetType {
         case .getUserInfo:
             return .get
         case .register,
-             .withdrawUser,
+             .withdraw,
              .updateMyPage:
             return .post
         case .updateFCMToken:
@@ -64,7 +64,7 @@ extension SLPTarget: TargetType {
     var task: Task {
         switch self {
         case .getUserInfo ,
-             .withdrawUser:
+             .withdraw:
             return .requestPlain
         case .register(let parameters),
              .updateFCMToken(let parameters),
