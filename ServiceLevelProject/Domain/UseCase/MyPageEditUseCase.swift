@@ -16,8 +16,8 @@ final class MyPageEditUseCase {
     private let sesacRepository: SesacRepositoryType
 
     var successWithdrawSignal = PublishRelay<Void>()
-    var failWithdrawSignal = PublishRelay<SesacNetworkServiceError>()
-    var failFirebaseFlowSignal = PublishRelay<FirbaseNetworkServiceError>()
+    var successUpdateSignal = PublishRelay<Void>()
+    var failLogoutSignal = PublishRelay<Void>()
 
     init(
         userRepository: UserRepositoryType,
@@ -42,12 +42,31 @@ final class MyPageEditUseCase {
                 switch error {
                 case .alreadyWithdrawn:
                     self.withdrawUserInfo()
-                    self.failWithdrawSignal.accept(error)
+                    self.failLogoutSignal.accept(())
                 case .inValidIDTokenError:
                     self.requestIDToken()
                 default:
                     self.logoutUserInfo()
-                    self.failWithdrawSignal.accept(error)
+                    self.failLogoutSignal.accept(())
+                }
+            }
+        }
+    }
+
+    func requestUpdateUserInfo(updateUserInfo: UpdateUserInfo) {
+        let info = UserUpdateInfo(searchable: updateUserInfo.0, ageMin: updateUserInfo.1, ageMax: updateUserInfo.2, gender: updateUserInfo.3, hobby: updateUserInfo.4!)
+        sesacRepository.requestUpdateUserInfo(userUpdateInfo: info) { response in
+            switch response {
+            case .success(_):
+                self.successUpdateSignal.accept(())
+            case .failure(let error):
+                print(error.description)
+                switch error {
+                case .inValidIDTokenError:
+                    self.requestIDToken()
+                default:
+                    self.logoutUserInfo()
+                    self.failLogoutSignal.accept(())
                 }
             }
         }
@@ -64,7 +83,7 @@ final class MyPageEditUseCase {
             case .failure(let error):
                 print(error.description)
                 self.logoutUserInfo()
-                self.failFirebaseFlowSignal.accept(error)
+                self.failLogoutSignal.accept(())
             }
         }
     }
