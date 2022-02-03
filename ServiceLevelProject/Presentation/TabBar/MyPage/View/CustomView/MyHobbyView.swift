@@ -12,6 +12,10 @@ final class MyHobbyView: UIView {
     private let titleLabel = DefaultLabel(title: "자주 하는 취미", font: .title4R14)
     private let textField = DefaultTextField(placeHolder: "취미를 입력해주세요")
 
+    var getHobby: String? {
+        return textField.text
+    }
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setConstraints()
