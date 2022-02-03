@@ -11,7 +11,7 @@ import DoubleSlider
 final class AgeRangeView: UIView {
 
     private let titleLabel = DefaultLabel(title: "상대방 연령대", font: .title4R14)
-    private let rangeLabel = DefaultLabel(title: "18: 35", font: .title3M14)
+    private let rangeLabel = DefaultLabel(title: "20: 30", font: .title3M14)
     private let doubleSlider = DoubleSlider()
 
     override init(frame: CGRect) {
@@ -54,5 +54,29 @@ final class AgeRangeView: UIView {
         doubleSlider.layerInset = 10
         doubleSlider.minLabel.isHidden = true
         doubleSlider.maxLabel.isHidden = true
+        doubleSlider.editingDidEndDelegate = self
+        doubleSlider.numberOfSteps = 48
+        doubleSlider.smoothStepping = false
+        setAgeSlider(ageMin: 20, ageMax: 30)
+    }
+
+    func setAgeSlider(ageMin: Int, ageMax: Int) {
+        doubleSlider.lowerValueStepIndex = ageMin - 18
+        doubleSlider.upperValueStepIndex = ageMax - 18
+        rangeLabel.text = "\(ageMin): \(ageMax)"
+    }
+
+    func getAgeRange() -> (Int, Int) {
+        let lower = 18 + doubleSlider.lowerValueStepIndex
+        let upper = 18 + doubleSlider.upperValueStepIndex
+        return (lower, upper)
+    }
+}
+
+extension AgeRangeView: DoubleSliderEditingDidEndDelegate {
+    func editingDidEnd(for doubleSlider: DoubleSlider) {
+        let lower = 18 + doubleSlider.lowerValueStepIndex
+        let upper = 18 + doubleSlider.upperValueStepIndex
+        rangeLabel.text = "\(lower): \(upper)"
     }
 }
