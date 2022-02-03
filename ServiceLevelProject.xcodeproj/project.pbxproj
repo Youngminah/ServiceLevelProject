@@ -25,6 +25,10 @@
 		BB00E91D27A679990023D4E6 /* MyCardHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB00E91C27A679990023D4E6 /* MyCardHeaderView.swift */; };
 		BB00E91F27A694730023D4E6 /* MyPageEditFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB00E91E27A694730023D4E6 /* MyPageEditFooterView.swift */; };
 		BB00E92127A7058E0023D4E6 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB00E92027A7058E0023D4E6 /* AlertView.swift */; };
+		BB00E92327A723530023D4E6 /* MyPageEditUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB00E92227A723530023D4E6 /* MyPageEditUseCase.swift */; };
+		BB00E92527A72A300023D4E6 /* SelectionButton+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB00E92427A72A300023D4E6 /* SelectionButton+Rx.swift */; };
+		BB00E92727A9B65B0023D4E6 /* UserUpdateInfoRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB00E92627A9B65B0023D4E6 /* UserUpdateInfoRequestDTO.swift */; };
+		BB00E92927A9B7C90023D4E6 /* UserUpdateInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB00E92827A9B7C90023D4E6 /* UserUpdateInfo.swift */; };
 		BB105D3E27966ABC008264DD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB105D3D27966ABC008264DD /* AppDelegate.swift */; };
 		BB105D4027966ABC008264DD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB105D3F27966ABC008264DD /* SceneDelegate.swift */; };
 		BB105D4727966ABD008264DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB105D4627966ABD008264DD /* Assets.xcassets */; };
@@ -115,10 +119,10 @@
 		BBED1212279943FF002A5E9E /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = BBED1211279943FF002A5E9E /* RxRelay */; };
 		BBED1214279943FF002A5E9E /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BBED1213279943FF002A5E9E /* RxSwift */; };
 		BBED121627994594002A5E9E /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBED121527994594002A5E9E /* String.swift */; };
-		BBED121927996F97002A5E9E /* DefaultFillButton+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBED121827996F97002A5E9E /* DefaultFillButton+Rx.swift */; };
+		BBED121927996F97002A5E9E /* DefaultButton+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBED121827996F97002A5E9E /* DefaultButton+Rx.swift */; };
 		BBED121B279976A4002A5E9E /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBED121A279976A4002A5E9E /* UIViewController.swift */; };
 		BBED121E279976D2002A5E9E /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = BBED121D279976D2002A5E9E /* Toast */; };
-		BBED12202799785F002A5E9E /* AuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBED121F2799785F002A5E9E /* AuthError.swift */; };
+		BBED12202799785F002A5E9E /* ToastCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBED121F2799785F002A5E9E /* ToastCase.swift */; };
 		BBED12252799AAC5002A5E9E /* StopWatchConverterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBED12242799AAC5002A5E9E /* StopWatchConverterService.swift */; };
 /* End PBXBuildFile section */
 
@@ -156,6 +160,10 @@
 		BB00E91C27A679990023D4E6 /* MyCardHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCardHeaderView.swift; sourceTree = "<group>"; };
 		BB00E91E27A694730023D4E6 /* MyPageEditFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageEditFooterView.swift; sourceTree = "<group>"; };
 		BB00E92027A7058E0023D4E6 /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
+		BB00E92227A723530023D4E6 /* MyPageEditUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageEditUseCase.swift; sourceTree = "<group>"; };
+		BB00E92427A72A300023D4E6 /* SelectionButton+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SelectionButton+Rx.swift"; sourceTree = "<group>"; };
+		BB00E92627A9B65B0023D4E6 /* UserUpdateInfoRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserUpdateInfoRequestDTO.swift; sourceTree = "<group>"; };
+		BB00E92827A9B7C90023D4E6 /* UserUpdateInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserUpdateInfo.swift; sourceTree = "<group>"; };
 		BB105D3A27966ABC008264DD /* ServiceLevelProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ServiceLevelProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB105D3D27966ABC008264DD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BB105D3F27966ABC008264DD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -244,9 +252,9 @@
 		BBED1201279902ED002A5E9E /* OnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
 		BBED120327990CB5002A5E9E /* NSMutableAttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSMutableAttributedString.swift; sourceTree = "<group>"; };
 		BBED121527994594002A5E9E /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
-		BBED121827996F97002A5E9E /* DefaultFillButton+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DefaultFillButton+Rx.swift"; sourceTree = "<group>"; };
+		BBED121827996F97002A5E9E /* DefaultButton+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DefaultButton+Rx.swift"; sourceTree = "<group>"; };
 		BBED121A279976A4002A5E9E /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
-		BBED121F2799785F002A5E9E /* AuthError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthError.swift; sourceTree = "<group>"; };
+		BBED121F2799785F002A5E9E /* ToastCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastCase.swift; sourceTree = "<group>"; };
 		BBED12242799AAC5002A5E9E /* StopWatchConverterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopWatchConverterService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -482,6 +490,7 @@
 			children = (
 				BBAAA69B279BE30700667591 /* UserInfoResponseDTO.swift */,
 				BBAAA693279B2C2600667591 /* UserRegisterInfoRequestDTO.swift */,
+				BB00E92627A9B65B0023D4E6 /* UserUpdateInfoRequestDTO.swift */,
 			);
 			path = DataMapping;
 			sourceTree = "<group>";
@@ -581,6 +590,7 @@
 				BB7A2173279D9BA4005FD0A3 /* LoginUseCase.swift */,
 				BB7A2175279D9BB6005FD0A3 /* CertificationUseCase.swift */,
 				BB7A2177279D9BCC005FD0A3 /* GenderUseCase.swift */,
+				BB00E92227A723530023D4E6 /* MyPageEditUseCase.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -609,6 +619,7 @@
 			isa = PBXGroup;
 			children = (
 				BB1E250B27A158FA00A80FC3 /* UserRegisterInfo.swift */,
+				BB00E92827A9B7C90023D4E6 /* UserUpdateInfo.swift */,
 				BB1E250D27A1590500A80FC3 /* UserInfo.swift */,
 			);
 			path = Model;
@@ -638,7 +649,7 @@
 		BBAAA688279AD6C800667591 /* Error */ = {
 			isa = PBXGroup;
 			children = (
-				BBED121F2799785F002A5E9E /* AuthError.swift */,
+				BBED121F2799785F002A5E9E /* ToastCase.swift */,
 			);
 			path = Error;
 			sourceTree = "<group>";
@@ -827,8 +838,9 @@
 		BBED121727996F53002A5E9E /* RxExtension */ = {
 			isa = PBXGroup;
 			children = (
-				BBED121827996F97002A5E9E /* DefaultFillButton+Rx.swift */,
+				BBED121827996F97002A5E9E /* DefaultButton+Rx.swift */,
 				BB8D1F392799BE6400D111B6 /* AuthTextField+Rx.swift */,
+				BB00E92427A72A300023D4E6 /* SelectionButton+Rx.swift */,
 			);
 			path = RxExtension;
 			sourceTree = "<group>";
@@ -1094,6 +1106,7 @@
 				BB00E90D27A56D2B0023D4E6 /* SesacReviewView.swift in Sources */,
 				BB105D3E27966ABC008264DD /* AppDelegate.swift in Sources */,
 				BBAAA6AB279C169500667591 /* TransitionStyle.swift in Sources */,
+				BB00E92927A9B7C90023D4E6 /* UserUpdateInfo.swift in Sources */,
 				BB1E251E27A198E100A80FC3 /* CoordinatorDelegate.swift in Sources */,
 				BB7A2184279DAF3C005FD0A3 /* SesacRepositoryType.swift in Sources */,
 				BB00E8F627A46CDE0023D4E6 /* MyPageEditViewController.swift in Sources */,
@@ -1101,6 +1114,7 @@
 				BBAAA6A2279BFC6700667591 /* HomeViewController.swift in Sources */,
 				BBED12252799AAC5002A5E9E /* StopWatchConverterService.swift in Sources */,
 				BB105D7F2796B8BC008264DD /* AppColor.swift in Sources */,
+				BB00E92327A723530023D4E6 /* MyPageEditUseCase.swift in Sources */,
 				BBED1202279902ED002A5E9E /* OnBoardingViewController.swift in Sources */,
 				BB00E90F27A583850023D4E6 /* SesacCardView.swift in Sources */,
 				BB105D7C2796B660008264DD /* UIFont.swift in Sources */,
@@ -1119,9 +1133,11 @@
 				BBAAA69C279BE30700667591 /* UserInfoResponseDTO.swift in Sources */,
 				BB00E91627A5AC360023D4E6 /* MyPhoneNumberPermitView.swift in Sources */,
 				BB00E91227A5AA690023D4E6 /* MyGenderView.swift in Sources */,
-				BBED12202799785F002A5E9E /* AuthError.swift in Sources */,
+				BBED12202799785F002A5E9E /* ToastCase.swift in Sources */,
+				BB00E92727A9B65B0023D4E6 /* UserUpdateInfoRequestDTO.swift in Sources */,
 				BB3008D927A31B8300D32DCA /* BaseTableViewCell.swift in Sources */,
 				BBDBE51327A45A1100305BF3 /* ProfileImageView.swift in Sources */,
+				BB00E92527A72A300023D4E6 /* SelectionButton+Rx.swift in Sources */,
 				BB00E90127A557A20023D4E6 /* ButtonStatus.swift in Sources */,
 				BBAAA6A4279C0F2200667591 /* CoordinatorStyleCase.swift in Sources */,
 				BB7A2180279DA3EF005FD0A3 /* SesacRepository.swift in Sources */,
@@ -1155,7 +1171,7 @@
 				BB105D782796B2B8008264DD /* AppFont.swift in Sources */,
 				BBAAA687279AD3A500667591 /* SLPTarget.swift in Sources */,
 				BBDBE51127A459A600305BF3 /* MyPageMenuHeaderView.swift in Sources */,
-				BBED121927996F97002A5E9E /* DefaultFillButton+Rx.swift in Sources */,
+				BBED121927996F97002A5E9E /* DefaultButton+Rx.swift in Sources */,
 				BB105D8B2796E610008264DD /* DefaultButton.swift in Sources */,
 				BBED121627994594002A5E9E /* String.swift in Sources */,
 				BB8D1F3C279A992C00D111B6 /* CertificationViewModel.swift in Sources */,

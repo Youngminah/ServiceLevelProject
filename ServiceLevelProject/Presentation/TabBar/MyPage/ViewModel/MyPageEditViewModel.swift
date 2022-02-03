@@ -19,14 +19,17 @@ final class MyPageEditViewModel: ViewModelType {
     struct Input {
         let didWithdrawButtonTap: Signal<Void>
         let requestWithdrawSignal: Signal<Void>
+        let requestUpdateSignal: Signal<UpdateUserInfo>
     }
     struct Output {
         let showAlertAction: Signal<Void>
+        let showToastAction: Signal<String>
         let indicatorAction: Driver<Bool>
     }
     var disposeBag = DisposeBag()
 
     private let showAlertAction = PublishRelay<Void>()
+    private let showToastAction = PublishRelay<String>()
     private let indicatorAction = BehaviorRelay<Bool>(value: false)
 
     init(coordinator: MyPageCoordinator?, myPageEditUseCase: MyPageEditUseCase) {
@@ -49,6 +52,17 @@ final class MyPageEditViewModel: ViewModelType {
             })
             .disposed(by: disposeBag)
 
+        input.requestUpdateSignal
+            .emit(onNext: { [weak self] info in
+                if let text = info.4 , text == "" {
+                    self?.showToastAction.accept(ToastCase.emptyHobbyText.errorDescription)
+                } else {
+                    self?.indicatorAction.accept(true)
+                    self?.requestUpdate(updateUserInfo: info)
+                }
+            })
+            .disposed(by: disposeBag)
+
         myPageEditUseCase.successWithdrawSignal
             .asSignal()
             .emit(onNext: { [weak self] in
@@ -57,17 +71,17 @@ final class MyPageEditViewModel: ViewModelType {
             })
             .disposed(by: disposeBag)
 
-        myPageEditUseCase.failWithdrawSignal
+        myPageEditUseCase.successUpdateSignal
             .asSignal()
-            .emit(onNext: { [weak self] error in
+            .emit(onNext: { [weak self] in
                 self?.indicatorAction.accept(false)
-                self?.coordinator?.finish()
+                self?.coordinator?.popMyPageEditViewController(message: "저장되었습니다.")
             })
             .disposed(by: disposeBag)
 
-        myPageEditUseCase.failFirebaseFlowSignal
+        myPageEditUseCase.failLogoutSignal
             .asSignal()
-            .emit(onNext: { [weak self] error in
+            .emit(onNext: { [weak self] _ in
                 self?.indicatorAction.accept(false)
                 self?.coordinator?.finish()
             })
@@ -75,6 +89,7 @@ final class MyPageEditViewModel: ViewModelType {
 
         return Output(
             showAlertAction: showAlertAction.asSignal(),
+            showToastAction: showToastAction.asSignal(),
             indicatorAction: indicatorAction.asDriver()
         )
     }
@@ -84,5 +99,9 @@ extension MyPageEditViewModel {
 
     private func requestWithdraw() {
         self.myPageEditUseCase.requestWithdraw()
+    }
+
+    private func requestUpdate(updateUserInfo: UpdateUserInfo) {
+        self.myPageEditUseCase.requestUpdateUserInfo(updateUserInfo: updateUserInfo)
     }
 }
