@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		50A60C41235F609375BEDB6E /* Pods_ServiceLevelProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 375C7E30703D2172DF65844A /* Pods_ServiceLevelProject.framework */; };
 		BB00E8F627A46CDE0023D4E6 /* MyPageEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB00E8F527A46CDE0023D4E6 /* MyPageEditViewController.swift */; };
 		BB00E8FB27A529510023D4E6 /* MyPageEditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB00E8FA27A529510023D4E6 /* MyPageEditViewModel.swift */; };
 		BB00E8FD27A534110023D4E6 /* SesacProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB00E8FC27A534110023D4E6 /* SesacProfileView.swift */; };
@@ -144,6 +145,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		247734C9D6D2C812FF6F05B2 /* Pods-ServiceLevelProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ServiceLevelProject.debug.xcconfig"; path = "Target Support Files/Pods-ServiceLevelProject/Pods-ServiceLevelProject.debug.xcconfig"; sourceTree = "<group>"; };
+		375C7E30703D2172DF65844A /* Pods_ServiceLevelProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ServiceLevelProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		47D5FC0BAA26753A613386D2 /* Pods-ServiceLevelProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ServiceLevelProject.release.xcconfig"; path = "Target Support Files/Pods-ServiceLevelProject/Pods-ServiceLevelProject.release.xcconfig"; sourceTree = "<group>"; };
 		BB00E8F527A46CDE0023D4E6 /* MyPageEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageEditViewController.swift; sourceTree = "<group>"; };
 		BB00E8FA27A529510023D4E6 /* MyPageEditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageEditViewModel.swift; sourceTree = "<group>"; };
 		BB00E8FC27A534110023D4E6 /* SesacProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SesacProfileView.swift; sourceTree = "<group>"; };
@@ -273,6 +277,7 @@
 				BBED1210279943FF002A5E9E /* RxCocoa in Frameworks */,
 				BBED121E279976D2002A5E9E /* Toast in Frameworks */,
 				BBED11FB27986D87002A5E9E /* FirebaseAuth in Frameworks */,
+				50A60C41235F609375BEDB6E /* Pods_ServiceLevelProject.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,6 +298,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1735913964A617796FBD419C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				375C7E30703D2172DF65844A /* Pods_ServiceLevelProject.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		57C8B7E77CD60948474160DD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				247734C9D6D2C812FF6F05B2 /* Pods-ServiceLevelProject.debug.xcconfig */,
+				47D5FC0BAA26753A613386D2 /* Pods-ServiceLevelProject.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		BB00E8F727A46F000023D4E6 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -350,6 +372,8 @@
 				BB105D5327966ABD008264DD /* ServiceLevelProjectTests */,
 				BB105D5D27966ABD008264DD /* ServiceLevelProjectUITests */,
 				BB105D3B27966ABC008264DD /* Products */,
+				57C8B7E77CD60948474160DD /* Pods */,
+				1735913964A617796FBD419C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -906,11 +930,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BB105D6427966ABD008264DD /* Build configuration list for PBXNativeTarget "ServiceLevelProject" */;
 			buildPhases = (
+				75FF3F3A69B8E0FCD2A545FB /* [CP] Check Pods Manifest.lock */,
 				BB105D3627966ABC008264DD /* Sources */,
 				BB105D3727966ABC008264DD /* Frameworks */,
 				BB105D3827966ABC008264DD /* Resources */,
 				BB105D9027970CB0008264DD /* ShellScript */,
 				BB105DA32798406A008264DD /* ShellScript */,
+				AEF5E8222F7B1B9B7B201EE8 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1052,6 +1078,45 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		75FF3F3A69B8E0FCD2A545FB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ServiceLevelProject-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AEF5E8222F7B1B9B7B201EE8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ServiceLevelProject/Pods-ServiceLevelProject-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ServiceLevelProject/Pods-ServiceLevelProject-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ServiceLevelProject/Pods-ServiceLevelProject-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		BB105D9027970CB0008264DD /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1356,6 +1421,7 @@
 		};
 		BB105D6527966ABD008264DD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 247734C9D6D2C812FF6F05B2 /* Pods-ServiceLevelProject.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1385,6 +1451,7 @@
 		};
 		BB105D6627966ABD008264DD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 47D5FC0BAA26753A613386D2 /* Pods-ServiceLevelProject.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1404,6 +1471,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.memolease.sesac1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
