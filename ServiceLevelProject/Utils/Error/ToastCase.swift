@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum AuthError: Error {
+enum ToastCase: Error {
 
     case inValidPhoneNumberFormat
     case inValidCertificationNumberFormat
@@ -18,10 +18,11 @@ enum AuthError: Error {
     case emptyDate
     case limitEge
     case inValidEmail
+    case emptyHobbyText
     case with(messageId: String)
 }
 
-extension AuthError {
+extension ToastCase {
     var errorDescription: String {
         switch self {
         case .inValidPhoneNumberFormat:
@@ -42,6 +43,8 @@ extension AuthError {
             return "만 17세 이상만 가입할 수 있습니다."
         case .inValidEmail:
             return "이메일 형식이 올바르지 않습니다."
+        case .emptyHobbyText:
+            return "취미를 입력해주세요."
         case .with(_):
             return "에러가 발생했습니다. 다시 시도해주세요."
         }
