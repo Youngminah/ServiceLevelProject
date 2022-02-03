@@ -71,6 +71,12 @@ final class SesacTitleView: UIView {
         fatalError("SesacTitleView: fatal error")
     }
 
+    func setSesacTitle(reputation: [Int]) {
+        for index in 0..<SesacTitleCase.allCases.count {
+            buttons[index].isSelected = (reputation[index] > 0)
+        }
+    }
+
     private func setConstraints() {
         addSubview(titleLabel)
         addSubview(stackView)
