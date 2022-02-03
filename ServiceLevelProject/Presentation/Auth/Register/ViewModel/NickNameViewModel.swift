@@ -47,7 +47,7 @@ final class NickNameViewModel: ViewModelType {
                     self.saveNickName(nickName: text)
                     self.coordinator?.showBirthViewController()
                 } else {
-                    self.showToastAction.accept(AuthError.nickNameLimitLength.errorDescription)
+                    self.showToastAction.accept(ToastCase.nickNameLimitLength.errorDescription)
                 }
             })
             .disposed(by: disposeBag)
