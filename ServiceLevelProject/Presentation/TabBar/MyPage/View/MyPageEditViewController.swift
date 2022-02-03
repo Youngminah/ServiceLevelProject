@@ -24,13 +24,15 @@ final class MyPageEditViewController: UIViewController {
 
     private lazy var input = MyPageEditViewModel.Input(
         didWithdrawButtonTap: footerView.withdrawButtonTap,
-        requestWithdrawSignal: requestWithdrawSignal.asSignal()
+        requestWithdrawSignal: requestWithdrawSignal.asSignal(),
+        requestUpdateSignal: requestUpdateSignal.asSignal()
     )
     private lazy var output = viewModel.transform(input: input)
     private let viewModel: MyPageEditViewModel
     private let disposdBag = DisposeBag()
 
     private let requestWithdrawSignal = PublishRelay<Void>()
+    private let requestUpdateSignal = PublishRelay<UpdateUserInfo>()
 
     init(viewModel: MyPageEditViewModel) {
         self.viewModel = viewModel
@@ -68,17 +70,19 @@ final class MyPageEditViewController: UIViewController {
                 $0 ? IndicatorView.shared.show(backgoundColor: Asset.transparent.color) : IndicatorView.shared.hide()
             })
             .disposed(by: disposdBag)
+
+        output.showToastAction
+            .emit(onNext: { [unowned self] text in
+                self.view.makeToast(text, position: .top)
+            })
+            .disposed(by: disposdBag)
     }
 
     @objc
     private func saveBarButtonTap() {
-        let window = UIApplication.shared.windows.first!
-        AlertView.init(
-            title: "정말 탈퇴하시겠습니까?",
-            message: "탈퇴하시면 새싹 프렌즈를 이용할 수 없어요ㅠ",
-            buttonStyle: .confirmAndCancel,
-            okCompletion: nil
-        ).showAlert(in: window)
+        let updateInfo = footerView.getUserInfo()
+        print(updateInfo)
+        requestUpdateSignal.accept(updateInfo)
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
