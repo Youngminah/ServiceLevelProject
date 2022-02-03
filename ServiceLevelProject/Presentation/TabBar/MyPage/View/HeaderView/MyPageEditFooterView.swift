@@ -44,6 +44,13 @@ final class MyPageEditFooterView: UITableViewHeaderFooterView {
         fatalError("MyPageMenuHeaderView: fatal error")
     }
 
+    func setUserInfo(info: UpdateUserInfo) {
+        myPhoneNumberPermitView.setSwitch(isOn: info.0)
+        ageRangeView.setAgeSlider(ageMin: info.1, ageMax: info.2)
+        myGenderView.setGender(gender: info.3)
+        myHobbyView.setText(text: info.4 ?? "")
+    }
+
     func getUserInfo() -> UpdateUserInfo {
         let searchable = myPhoneNumberPermitView.toggleSwitchIsOn
         let (ageMin, ageMax) = ageRangeView.getAgeRange()
