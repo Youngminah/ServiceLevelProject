@@ -17,17 +17,20 @@ final class MyPageEditViewModel: ViewModelType {
     private let myPageEditUseCase: MyPageEditUseCase
 
     struct Input {
+        let viewDidLoad: Signal<Void>
         let didWithdrawButtonTap: Signal<Void>
         let requestWithdrawSignal: Signal<Void>
         let requestUpdateSignal: Signal<UpdateUserInfo>
     }
     struct Output {
+        let userInfo: Signal<UserInfo>
         let showAlertAction: Signal<Void>
         let showToastAction: Signal<String>
         let indicatorAction: Driver<Bool>
     }
     var disposeBag = DisposeBag()
 
+    private let userInfo = PublishRelay<UserInfo>()
     private let showAlertAction = PublishRelay<Void>()
     private let showToastAction = PublishRelay<String>()
     private let indicatorAction = BehaviorRelay<Bool>(value: false)
@@ -45,6 +48,13 @@ final class MyPageEditViewModel: ViewModelType {
             })
             .disposed(by: disposeBag)
 
+        input.viewDidLoad
+            .emit(onNext: { [weak self] in
+                self?.indicatorAction.accept(true)
+                self?.requestUserInfo()
+            })
+            .disposed(by: disposeBag)
+
         input.requestWithdrawSignal
             .emit(onNext: { [weak self] in
                 self?.indicatorAction.accept(true)
@@ -54,11 +64,12 @@ final class MyPageEditViewModel: ViewModelType {
 
         input.requestUpdateSignal
             .emit(onNext: { [weak self] info in
+                guard let self = self else { return }
                 if let text = info.4 , text == "" {
-                    self?.showToastAction.accept(ToastCase.emptyHobbyText.errorDescription)
+                    self.showToastAction.accept(ToastCase.emptyHobbyText.errorDescription)
                 } else {
-                    self?.indicatorAction.accept(true)
-                    self?.requestUpdate(updateUserInfo: info)
+                    self.indicatorAction.accept(true)
+                    self.requestUpdate(updateUserInfo: info)
                 }
             })
             .disposed(by: disposeBag)
@@ -79,7 +90,15 @@ final class MyPageEditViewModel: ViewModelType {
             })
             .disposed(by: disposeBag)
 
-        myPageEditUseCase.failLogoutSignal
+        myPageEditUseCase.successUserInfoSignal
+            .asSignal()
+            .emit(onNext: { [weak self] info in
+                self?.userInfo.accept(info)
+                self?.indicatorAction.accept(false)
+            })
+            .disposed(by: disposeBag)
+
+        myPageEditUseCase.unKnownErrorSignal
             .asSignal()
             .emit(onNext: { [weak self] _ in
                 self?.indicatorAction.accept(false)
@@ -88,6 +107,7 @@ final class MyPageEditViewModel: ViewModelType {
             .disposed(by: disposeBag)
 
         return Output(
+            userInfo: userInfo.asSignal(),
             showAlertAction: showAlertAction.asSignal(),
             showToastAction: showToastAction.asSignal(),
             indicatorAction: indicatorAction.asDriver()
@@ -96,6 +116,10 @@ final class MyPageEditViewModel: ViewModelType {
 }
 
 extension MyPageEditViewModel {
+
+    private func requestUserInfo() {
+        self.myPageEditUseCase.requestUserInfo()
+    }
 
     private func requestWithdraw() {
         self.myPageEditUseCase.requestWithdraw()
