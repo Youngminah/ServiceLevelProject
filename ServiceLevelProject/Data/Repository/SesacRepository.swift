@@ -62,6 +62,13 @@ extension SesacRepository {
         }
     }
 
+    func requestUpdateUserInfo(userUpdateInfo: UserUpdateInfo, completion: @escaping (Result<Int, SesacNetworkServiceError>) -> Void ) {
+        let requestDTO = UserUpdateInfoRequestDTO(userUpdateInfo: userUpdateInfo)
+        provider.request(.updateMyPage(parameters: requestDTO.toDictionary)) { result in
+            self.process(result: result,completion: completion)
+        }
+    }
+
     func requestWithdraw(completion: @escaping (Result<Int, SesacNetworkServiceError>) -> Void ) {
         provider.request(.withdraw) { result in
             self.process(result: result,completion: completion)
