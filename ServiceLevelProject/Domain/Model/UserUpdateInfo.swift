@@ -1,0 +1,17 @@
+//
+//  UserUpdateInfo.swift
+//  ServiceLevelProject
+//
+//  Created by meng on 2022/02/02.
+//
+
+import Foundation
+
+struct UserUpdateInfo: Equatable {
+
+    let searchable: Bool
+    let ageMin: Int
+    let ageMax: Int
+    let gender: Int
+    let hobby: String
+}
