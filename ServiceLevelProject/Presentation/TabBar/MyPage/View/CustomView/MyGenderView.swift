@@ -17,6 +17,12 @@ final class MyGenderView: UIView {
 
     private let disposdBag = DisposeBag()
 
+    var getGender: Int {
+        if manButton.isSelected { return 1 }
+        if womanButton.isSelected { return 0 }
+        return -1
+    }
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setConstraints()
@@ -32,6 +38,8 @@ final class MyGenderView: UIView {
         manButton.rx.tap.asDriver()
             .map { [weak self] in
                 guard let self = self else { return false }
+                if self.manButton.isSelected { return self.manButton.isSelected }
+                self.womanButton.isSelected = false
                 return !self.manButton.isSelected
             }
             .drive(manButton.rx.isSelected)
@@ -40,10 +48,20 @@ final class MyGenderView: UIView {
         womanButton.rx.tap.asDriver()
             .map { [weak self] in
                 guard let self = self else { return false }
+                if self.womanButton.isSelected { return self.womanButton.isSelected }
+                self.manButton.isSelected = false
                 return !self.womanButton.isSelected
             }
             .drive(womanButton.rx.isSelected)
             .disposed(by: disposdBag)
+    }
+
+    func setGender(gender: Int) {
+        if gender == 0 {
+            self.womanButton.isSelected = true
+        } else if gender == 1 {
+            self.manButton.isSelected = true
+        }
     }
 
     private func setConstraints() {
