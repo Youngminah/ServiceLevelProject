@@ -31,4 +31,12 @@ protocol SesacRepositoryType: AnyObject {
             SesacNetworkServiceError>
         ) -> Void
     )
+
+    func requestUpdateUserInfo(                 // 유저정보 업데이트 API
+        userUpdateInfo: UserUpdateInfo,
+        completion: @escaping (
+            Result<Int,
+            SesacNetworkServiceError>
+        ) -> Void
+    )
 }
