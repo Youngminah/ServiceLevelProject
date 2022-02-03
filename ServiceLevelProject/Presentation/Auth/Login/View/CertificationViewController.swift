@@ -128,8 +128,12 @@ final class CertificationViewController: UIViewController {
     private func setConfigurations() {
         view.backgroundColor = .white
         navigationController?.navigationBar.isHidden = false
-        transferButton.addTarget(self, action: #selector(transferButtonTap), for: .touchUpInside)
-        startButton.addTarget(self, action: #selector(startButtonTap), for: .touchUpInside)
+        transferButton.addTarget(self,
+                                 action: #selector(transferButtonTap),
+                                 for: .touchUpInside)
+        startButton.addTarget(self,
+                              action: #selector(startButtonTap),
+                              for: .touchUpInside)
         timeLimitLabel.font = .title3M14
         timeLimitLabel.textColor = .green
         timeLimitLabel.text = totalTimeString
