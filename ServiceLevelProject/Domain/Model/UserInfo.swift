@@ -22,6 +22,7 @@ struct UserInfo: Equatable {
     let reportedNum: Int
     let reportedUser: [String]
     let dodgepenalty: Int?
-    let dodgeNum, ageMin, ageMax, searchable: Int
+    let dodgeNum, ageMin, ageMax: Int
+    let searchable: Bool
     let createdAt: String
 }
