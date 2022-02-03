@@ -23,6 +23,7 @@ final class MyPageEditViewController: UIViewController {
     private var isToggle: Bool = true
 
     private lazy var input = MyPageEditViewModel.Input(
+        viewDidLoad: Observable.just(()).asSignal(onErrorJustReturn: ()),
         didWithdrawButtonTap: footerView.withdrawButtonTap,
         requestWithdrawSignal: requestWithdrawSignal.asSignal(),
         requestUpdateSignal: requestUpdateSignal.asSignal()
@@ -52,6 +53,18 @@ final class MyPageEditViewController: UIViewController {
     }
 
     private func bind() {
+        output.userInfo
+            .emit(onNext: { [weak self] info in
+                guard let self = self else { return }
+                self.headerView.setHeaderView(reputation: info.reputation, reviewTexts: info.comment)
+                let updateFooterInfo: UpdateUserInfo = (
+                    info.searchable, info.ageMin, info.ageMax, info.gender, info.hobby
+                )
+                self.footerView.setUserInfo(info: updateFooterInfo)
+                self.tableView.reloadData()
+            })
+            .disposed(by: disposdBag)
+
         output.showAlertAction
             .emit(onNext: {
                 let window = UIApplication.shared.windows.first!
@@ -81,7 +94,6 @@ final class MyPageEditViewController: UIViewController {
     @objc
     private func saveBarButtonTap() {
         let updateInfo = footerView.getUserInfo()
-        print(updateInfo)
         requestUpdateSignal.accept(updateInfo)
     }
 
@@ -111,6 +123,8 @@ final class MyPageEditViewController: UIViewController {
         if #available(iOS 15.0, *) {
             tableView.sectionHeaderTopPadding = 1
         }
+        headerView.toggleAddTarget(target: self, action: #selector(didPressToggle), event: .touchUpInside)
+        headerView.setToggleButtonImage(isToggle: isToggle)
     }
 }
 
@@ -119,19 +133,13 @@ extension MyPageEditViewController {
     @objc
     func didPressToggle() {
         isToggle = !isToggle
-        tableView.reloadSections([0], with: .automatic)
+        tableView.reloadSections([0], with: .none)
     }
 }
 
 extension MyPageEditViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        guard let headerView = tableView.dequeueReusableHeaderFooterView(
-            withIdentifier: MyCardHeaderView.identifier) as? MyCardHeaderView else {
-            return UITableViewHeaderFooterView()
-        }
-        headerView.toggleAddTarget(target: self, action: #selector(didPressToggle), event: .touchUpInside)
-        headerView.setToggleButtonImage(isToggle: isToggle)
         return headerView
     }
 
