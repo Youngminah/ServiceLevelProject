@@ -53,7 +53,10 @@ final class SesacCardView: UIView {
 
     func setReviewText(text: String) {
         sesacReviewView.setText(text: text)
-        //layoutSubviews()
+    }
+
+    func setSesacTitle(reputation: [Int]) {
+        sesacTitleView.setSesacTitle(reputation: reputation)
     }
 
     func toggleAddTarget(target: Any?, action: Selector, event: UIControl.Event) {
