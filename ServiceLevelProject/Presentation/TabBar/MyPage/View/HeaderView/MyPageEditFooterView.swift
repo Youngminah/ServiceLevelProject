@@ -10,6 +10,8 @@ import SnapKit
 import RxSwift
 import RxCocoa
 
+typealias UpdateUserInfo = (Bool, Int, Int, Int, String?)
+
 final class MyPageEditFooterView: UITableViewHeaderFooterView {
 
     static let identifier = "MyPageEditFooterView."
@@ -40,6 +42,14 @@ final class MyPageEditFooterView: UITableViewHeaderFooterView {
 
     required init?(coder: NSCoder) {
         fatalError("MyPageMenuHeaderView: fatal error")
+    }
+
+    func getUserInfo() -> UpdateUserInfo {
+        let searchable = myPhoneNumberPermitView.toggleSwitchIsOn
+        let (ageMin, ageMax) = ageRangeView.getAgeRange()
+        let gender = myGenderView.getGender
+        let hobby = myHobbyView.getHobby
+        return (searchable, ageMin, ageMax, gender, hobby)
     }
 
     private func setView() {
