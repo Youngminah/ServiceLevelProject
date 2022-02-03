@@ -26,6 +26,10 @@ final class MyPhoneNumberPermitView: UIView {
         fatalError("SesacTitleView: fatal error")
     }
 
+    func setSwitch(isOn: Bool) {
+        toggleSwitch.isOn = isOn
+    }
+
     private func setConstraints() {
         addSubview(toggleSwitch)
         addSubview(titleLabel)
