@@ -40,7 +40,7 @@ extension SLPTarget: TargetType {
         case .updateFCMToken:
             return "/user/update_fcm_token"
         case .updateMyPage:
-            return "/user/withdraw"
+            return "/user/update/mypage"
         }
     }
 
