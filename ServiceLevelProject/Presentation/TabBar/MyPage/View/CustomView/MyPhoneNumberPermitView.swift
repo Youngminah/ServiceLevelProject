@@ -12,6 +12,10 @@ final class MyPhoneNumberPermitView: UIView {
     private let titleLabel = DefaultLabel(title: "내 번호 검색 허용", font: .title4R14)
     private let toggleSwitch = UISwitch()
 
+    var toggleSwitchIsOn: Bool {
+        return toggleSwitch.isOn
+    }
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setConstraints()
