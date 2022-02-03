@@ -41,6 +41,10 @@ final class MyHobbyView: UIView {
         }
     }
 
+    func setText(text: String) {
+        textField.text = text
+    }
+
     private func setConfigurations() {
         titleLabel.textAlignment = .left
     }
