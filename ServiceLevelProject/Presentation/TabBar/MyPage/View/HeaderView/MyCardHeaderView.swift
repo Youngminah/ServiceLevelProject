@@ -49,9 +49,16 @@ final class MyCardHeaderView: UITableViewHeaderFooterView {
         cardView.toggleAddTarget(target: target, action: action, event: event)
     }
 
-    func setReviewText(text: String) {
-        cardView.setReviewText(text: text)
+    func setHeaderView(reputation: [Int], reviewTexts: [String]) {
+        cardView.setSesacTitle(reputation: reputation)
+        if reviewTexts.count != 0 {
+            cardView.setReviewText(text: reviewTexts[0])
+        }
     }
+
+//    func setReviewText(text: String) {
+//        cardView.setReviewText(text: text)
+//    }
 
     func setToggleButtonImage(isToggle: Bool) {
         cardView.setToggleButtonImage(isToggle: isToggle)
