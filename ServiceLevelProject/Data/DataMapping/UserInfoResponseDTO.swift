@@ -33,7 +33,8 @@ struct UserInfoResponseDTO: Codable {
     let reportedNum: Int
     let reportedUser: [String]
     let dodgepenalty: Int?
-    let dodgeNum, ageMin, ageMax, searchable: Int
+    let dodgeNum, ageMin, ageMax: Int
+    let searchable: Int
     let createdAt: String
 }
 
@@ -64,7 +65,7 @@ extension UserInfoResponseDTO {
             dodgeNum: dodgeNum,
             ageMin: ageMin,
             ageMax: ageMax,
-            searchable: searchable,
+            searchable: (searchable == 1) ? true : false,
             createdAt: createdAt
         )
     }
