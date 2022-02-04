@@ -48,7 +48,7 @@ extension UserInfoResponseDTO {
             fcmToken: fcmToken,
             nick: nick,
             birth: birth,
-            gender: gender,
+            gender: GenderCase(value: gender),
             hobby: hobby,
             comment: comment,
             reputation: reputation,

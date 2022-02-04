@@ -30,7 +30,7 @@ struct UserUpdateInfoRequestDTO: Codable {
         self.searchable = userUpdateInfo.searchable ? 1 : 0
         self.ageMin = userUpdateInfo.ageMin
         self.ageMax = userUpdateInfo.ageMax
-        self.gender = userUpdateInfo.gender
+        self.gender = userUpdateInfo.gender.value
         self.hobby = userUpdateInfo.hobby
     }
 }

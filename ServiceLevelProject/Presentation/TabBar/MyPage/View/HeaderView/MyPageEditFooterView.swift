@@ -10,7 +10,7 @@ import SnapKit
 import RxSwift
 import RxCocoa
 
-typealias UpdateUserInfo = (Bool, Int, Int, Int, String?)
+typealias UpdateUserInfo = (Bool, Int, Int, GenderCase, String?)
 
 final class MyPageEditFooterView: UITableViewHeaderFooterView {
 

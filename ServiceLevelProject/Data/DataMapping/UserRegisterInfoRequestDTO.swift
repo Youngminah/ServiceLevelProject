@@ -34,7 +34,7 @@ struct UserRegisterInfoRequestDTO: Codable {
         self.nick = userRegisterInfo.nick
         self.birth = userRegisterInfo.birth.dateToString()
         self.email = userRegisterInfo.email
-        self.gender = userRegisterInfo.gender
+        self.gender = userRegisterInfo.gender.value
     }
 }
 

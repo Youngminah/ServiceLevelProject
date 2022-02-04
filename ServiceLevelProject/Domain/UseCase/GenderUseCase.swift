@@ -24,7 +24,7 @@ final class GenderUseCase {
         self.sesacRepository = sesacRepository
     }
 
-    func requestRegister(gender: Int) {
+    func requestRegister(gender: GenderCase) {
         saveGenderInfo(gender: gender)
         let userRegisterInfo = makeUserRegisterInfo()
         sesacRepository.requestRegister(userRegisterInfo: userRegisterInfo) { [weak self] response in
@@ -61,7 +61,7 @@ final class GenderUseCase {
         return self.userRepository.fetchPhoneNumber()!
     }
 
-    private func saveGenderInfo(gender: Int) {
+    private func saveGenderInfo(gender: GenderCase) {
         self.userRepository.saveGenderInfo(gender: gender)
     }
 
@@ -69,7 +69,7 @@ final class GenderUseCase {
         self.userRepository.saveLogInInfo()
     }
 
-    private func fetchUserInfo() -> (String, Date, String, Int) {
+    private func fetchUserInfo() -> (String, Date, String, GenderCase) {
         return (
             self.userRepository.fetchNickName()!,
             self.userRepository.fetchBirth()!,

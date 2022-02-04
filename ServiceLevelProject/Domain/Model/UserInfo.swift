@@ -10,7 +10,7 @@ import Foundation
 struct UserInfo: Equatable {
 
     let userID, phoneNumber, email, fcmToken, nick, birth: String
-    let gender: Int
+    let gender: GenderCase
     let hobby: String?
     let comment: [String]
     let reputation: [Int]

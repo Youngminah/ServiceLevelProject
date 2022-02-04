@@ -14,5 +14,5 @@ struct UserRegisterInfo: Equatable {
     let nick: String
     let birth: Date
     let email: String
-    let gender: Int
+    let gender: GenderCase
 }

@@ -12,6 +12,6 @@ struct UserUpdateInfo: Equatable {
     let searchable: Bool
     let ageMin: Int
     let ageMax: Int
-    let gender: Int
+    let gender: GenderCase
     let hobby: String
 }

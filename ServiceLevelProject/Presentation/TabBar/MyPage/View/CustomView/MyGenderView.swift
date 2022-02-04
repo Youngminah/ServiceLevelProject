@@ -17,10 +17,10 @@ final class MyGenderView: UIView {
 
     private let disposdBag = DisposeBag()
 
-    var getGender: Int {
-        if manButton.isSelected { return 1 }
-        if womanButton.isSelected { return 0 }
-        return -1
+    var getGender: GenderCase {
+        if manButton.isSelected { return .man }
+        if womanButton.isSelected { return .woman }
+        return .total
     }
 
     override init(frame: CGRect) {
@@ -56,10 +56,10 @@ final class MyGenderView: UIView {
             .disposed(by: disposdBag)
     }
 
-    func setGender(gender: Int) {
-        if gender == 0 {
+    func setGender(gender: GenderCase) {
+        if gender == .woman {
             self.womanButton.isSelected = true
-        } else if gender == 1 {
+        } else if gender == .man {
             self.manButton.isSelected = true
         }
     }

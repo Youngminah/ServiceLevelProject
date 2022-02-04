@@ -21,11 +21,11 @@ protocol UserRepositoryType: AnyObject {
 
     func fetchEmail() -> String?
 
-    func fetchGender() -> Int?
+    func fetchGender() -> GenderCase?
 
     func savePhoneNumberInfo(phoneNumber: String)
 
-    func saveGenderInfo(gender: Int) 
+    func saveGenderInfo(gender: GenderCase) 
 
     func saveLogInInfo()
 
