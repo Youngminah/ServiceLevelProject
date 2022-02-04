@@ -57,6 +57,8 @@ internal enum Asset {
   internal static let onBoarding1 = ImageAsset(name: "onBoarding1")
   internal static let onBoarding2 = ImageAsset(name: "onBoarding2")
   internal static let onBoarding3 = ImageAsset(name: "onBoarding3")
+  internal static let splashLogo = ImageAsset(name: "splash_logo")
+  internal static let splashText = ImageAsset(name: "splash_text")
   internal static let woman = ImageAsset(name: "woman")
   internal static let womanButton = ImageAsset(name: "womanButton")
 }
