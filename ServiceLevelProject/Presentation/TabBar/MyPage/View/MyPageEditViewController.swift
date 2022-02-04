@@ -67,14 +67,14 @@ final class MyPageEditViewController: UIViewController {
 
         output.showAlertAction
             .emit(onNext: {
-                let window = UIApplication.shared.windows.first!
+                [weak self] in
                 let alert = AlertView.init(
                     title: "정말 탈퇴하시겠습니까?",
                     message: "탈퇴하시면 새싹 프렌즈를 이용할 수 없어요ㅠ",
                     buttonStyle: .confirmAndCancel) { [weak self] in
                         self?.requestWithdrawSignal.accept(())
                     }
-                alert.showAlert(in: window)
+                alert.showAlert()
             })
             .disposed(by: disposdBag)
         

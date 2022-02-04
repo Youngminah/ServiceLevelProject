@@ -61,6 +61,8 @@
 		BB1E251E27A198E100A80FC3 /* CoordinatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1E251D27A198E100A80FC3 /* CoordinatorDelegate.swift */; };
 		BB3008D727A31A3E00D32DCA /* MyPageMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3008D627A31A3E00D32DCA /* MyPageMenuCell.swift */; };
 		BB3008D927A31B8300D32DCA /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3008D827A31B8300D32DCA /* BaseTableViewCell.swift */; };
+		BB6BF5CF27ABF93B00548BD2 /* GenderCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6BF5CE27ABF93B00548BD2 /* GenderCase.swift */; };
+		BB70D03127AC2660006B94EB /* GenderFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB70D03027AC2660006B94EB /* GenderFilterView.swift */; };
 		BB78E9E027A2AA8500CC3373 /* IndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB78E9DF27A2AA8500CC3373 /* IndicatorView.swift */; };
 		BB7A216F279D1673005FD0A3 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7A216E279D1673005FD0A3 /* UserRepository.swift */; };
 		BB7A2172279D16BA005FD0A3 /* UserRepositoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7A2171279D16BA005FD0A3 /* UserRepositoryType.swift */; };
@@ -202,6 +204,8 @@
 		BB1E251D27A198E100A80FC3 /* CoordinatorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorDelegate.swift; sourceTree = "<group>"; };
 		BB3008D627A31A3E00D32DCA /* MyPageMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageMenuCell.swift; sourceTree = "<group>"; };
 		BB3008D827A31B8300D32DCA /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
+		BB6BF5CE27ABF93B00548BD2 /* GenderCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderCase.swift; sourceTree = "<group>"; };
+		BB70D03027AC2660006B94EB /* GenderFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderFilterView.swift; sourceTree = "<group>"; };
 		BB78E9DF27A2AA8500CC3373 /* IndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicatorView.swift; sourceTree = "<group>"; };
 		BB7A216E279D1673005FD0A3 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		BB7A2171279D16BA005FD0A3 /* UserRepositoryType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepositoryType.swift; sourceTree = "<group>"; };
@@ -713,6 +717,7 @@
 				BBAAA6D4279C542A00667591 /* TabBarPageCase.swift */,
 				BBDBE50E27A4505D00305BF3 /* MyPageMenuCase.swift */,
 				BB00E90027A557A20023D4E6 /* ButtonStatus.swift */,
+				BB6BF5CE27ABF93B00548BD2 /* GenderCase.swift */,
 			);
 			path = Constant;
 			sourceTree = "<group>";
@@ -842,6 +847,7 @@
 		BBAAA6E5279C5AE000667591 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				BB70D03027AC2660006B94EB /* GenderFilterView.swift */,
 				BBAAA6A1279BFC6700667591 /* HomeViewController.swift */,
 			);
 			path = View;
@@ -1195,11 +1201,13 @@
 				BBAAA6DC279C55ED00667591 /* SesacFriendCoordinator.swift in Sources */,
 				BB8D1F342799B62100D111B6 /* ViewModelType.swift in Sources */,
 				BB00E8FF27A539150023D4E6 /* SesacTitleView.swift in Sources */,
+				BB6BF5CF27ABF93B00548BD2 /* GenderCase.swift in Sources */,
 				BBAAA69C279BE30700667591 /* UserInfoResponseDTO.swift in Sources */,
 				BB00E91627A5AC360023D4E6 /* MyPhoneNumberPermitView.swift in Sources */,
 				BB00E91227A5AA690023D4E6 /* MyGenderView.swift in Sources */,
 				BBED12202799785F002A5E9E /* ToastCase.swift in Sources */,
 				BB00E92727A9B65B0023D4E6 /* UserUpdateInfoRequestDTO.swift in Sources */,
+				BB70D03127AC2660006B94EB /* GenderFilterView.swift in Sources */,
 				BB3008D927A31B8300D32DCA /* BaseTableViewCell.swift in Sources */,
 				BBDBE51327A45A1100305BF3 /* ProfileImageView.swift in Sources */,
 				BB00E92527A72A300023D4E6 /* SelectionButton+Rx.swift in Sources */,

@@ -70,7 +70,6 @@ final class AlertView: UIView {
 
     override init(frame: CGRect){
         super.init(frame: frame)
-
     }
 
     required init?(coder: NSCoder) {
@@ -101,9 +100,9 @@ final class AlertView: UIView {
         self.completion = okCompletion
     }
 
-    func showAlert(in superView: UIWindow) {
+    func showAlert() {
         self.setAttributes()
-        self.setConstraints(in: superView)
+        self.setConstraints()
         self.setAnimation()
     }
 
@@ -124,9 +123,9 @@ final class AlertView: UIView {
         removeAnimation()
     }
 
-    private func setConstraints(in superView: UIWindow) {
-        superView.addSubview(self)
-        frame = superView.frame
+    private func setConstraints() {
+        UIApplication.shared.windows.first?.addSubview(self)
+        frame = UIScreen.main.bounds
         addSubview(alertView)
         alertView.addSubview(titleLabel)
         alertView.addSubview(messageLabel)
@@ -165,8 +164,8 @@ final class AlertView: UIView {
     private func setAnimation() {
         alertView.alpha = 0
         UIView.animate(withDuration: 0.2, animations: { [weak self] in
-            guard let strongself = self else { return }
-            strongself.alertView.alpha = 1
+            guard let self = self else { return }
+            self.alertView.alpha = 1
         })
     }
 
@@ -177,6 +176,11 @@ final class AlertView: UIView {
             self.alertView.alpha = 0
         }, completion: { [weak self] _ in
             guard let self = self else { return }
+            self.confirmButton.removeFromSuperview()
+            self.messageLabel.removeFromSuperview()
+            self.cancelButton.removeFromSuperview()
+            self.titleLabel.removeFromSuperview()
+            self.alertView.removeFromSuperview()
             self.removeFromSuperview()
         })
     }
