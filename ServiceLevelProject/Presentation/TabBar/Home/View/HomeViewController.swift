@@ -10,9 +10,36 @@ import NMapsMap
 
 final class HomeViewController: UIViewController {
 
+    private let mapView = NMFNaverMapView()
+    private let genderFilterView = GenderFilterView()
+    private let mapStatusButton = UIButton()
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        let naverMapView = NMFNaverMapView(frame: view.frame)
-        view.addSubview(naverMapView)
+        bind()
+        setViews()
+        setConstraints()
+        setConfigurations()
+    }
+
+    private func bind() {
+    }
+
+    private func setViews() {
+        view.addSubview(mapView)
+        view.addSubview(genderFilterView)
+    }
+
+    private func setConstraints() {
+        genderFilterView.snp.makeConstraints { make in
+            make.left.equalToSuperview().offset(16)
+            make.width.equalTo(48)
+            make.height.equalTo(144)
+            make.top.equalToSuperview().offset(96)
+        }
+    }
+
+    private func setConfigurations() {
+        mapView.frame = view.frame
     }
 }
