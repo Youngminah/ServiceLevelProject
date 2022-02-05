@@ -37,7 +37,7 @@ final class GenderViewModel: ViewModelType {
     private let isManSelected = BehaviorRelay<Bool>(value: false)
     private let indicatorAction = BehaviorRelay<Bool>(value: false)
 
-    private var gender = -1
+    private var gender: GenderCase = .total
 
     init(coordinator: AuthCoordinator?, genderUseCase: GenderUseCase) {
         self.coordinator = coordinator
@@ -71,7 +71,7 @@ final class GenderViewModel: ViewModelType {
         isManSelected
             .subscribe(onNext: { [weak self] isSelected in
                 if isSelected {
-                    self?.gender = 1
+                    self?.gender = .man
                     self?.isWomanSelected.accept(false)
                 }
             })
@@ -80,7 +80,7 @@ final class GenderViewModel: ViewModelType {
         isWomanSelected
             .subscribe(onNext: { [weak self] isSelected in
                 if isSelected {
-                    self?.gender = 0
+                    self?.gender = .woman
                     self?.isManSelected.accept(false)
                 }
             })
@@ -89,7 +89,7 @@ final class GenderViewModel: ViewModelType {
         Observable
             .combineLatest(isManSelected, isWomanSelected) { $0 || $1 }
             .subscribe(onNext: { [weak self] isValid in
-                self?.gender = -1
+                self?.gender = .total
                 self?.isValid.accept(isValid)
             })
             .disposed(by: disposeBag)
@@ -132,7 +132,7 @@ final class GenderViewModel: ViewModelType {
 
 extension GenderViewModel {
 
-    private func requestRegister(gender: Int) {
+    private func requestRegister(gender: GenderCase) {
         self.genderUseCase.requestRegister(gender: gender)
     }
 }
