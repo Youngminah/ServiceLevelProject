@@ -9,11 +9,12 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-final class GenderFilterView: UIStackView {
+final class GenderFilterView: UIView {
 
-    private let totalButton = SelectionButton(title: "전체")
-    private let manButton = SelectionButton(title: "남자")
-    private let womanButton = SelectionButton(title: "여자")
+    private let stackView = UIStackView()
+    private let totalButton = FilterButton(title: "전체")
+    private let manButton = FilterButton(title: "남자")
+    private let womanButton = FilterButton(title: "여자")
 
     private let disposdBag = DisposeBag()
 
@@ -63,13 +64,19 @@ final class GenderFilterView: UIStackView {
     }
 
     private func setConfigurations() {
-        [totalButton, manButton, womanButton].forEach { button in
-            addArrangedSubview(button)
-            button.layer.cornerRadius = 0
+        addSubview(stackView)
+        stackView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
         }
-        layer.masksToBounds = true
-        layer.cornerRadius = 8
-        distribution = .fillEqually
-        axis = .vertical
+        [totalButton, manButton, womanButton].forEach { button in
+            stackView.addArrangedSubview(button)
+        }
+        stackView.layer.masksToBounds = true
+        stackView.layer.cornerRadius = 8
+        stackView.distribution = .fillEqually
+        stackView.axis = .vertical
+        stackView.spacing = 0
+        addShadow(radius: 3)
+        totalButton.isSelected = true
     }
 }
