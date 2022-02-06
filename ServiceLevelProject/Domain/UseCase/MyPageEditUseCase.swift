@@ -35,10 +35,8 @@ final class MyPageEditUseCase {
             guard let self = self else { return }
             switch response {
             case .success(let result):
-                print(result)
                 self.successUserInfoSignal.accept(result)
             case .failure(let error):
-                print(error)
                 switch error {
                 case .inValidIDTokenError:
                     self.requestIDToken {
