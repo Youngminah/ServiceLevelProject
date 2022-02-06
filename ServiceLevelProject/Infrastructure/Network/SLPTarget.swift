@@ -19,6 +19,14 @@ enum SLPTarget {
     case updateFCMToken(parameters: DictionaryType)
     // User MyPage
     case updateMyPage(parameters: DictionaryType)
+    // Home
+    case searchNearSesac(parameters: DictionaryType)
+    case registerMySesac(parameters: DictionaryType)
+    case deleteMySesac
+    case requestHobbyFriend(parameters: DictionaryType)
+    case acceptHobbyFriend(parameters: DictionaryType)
+    case getMyRequestStatus
+
 }
 
 extension SLPTarget: TargetType {
@@ -41,19 +49,37 @@ extension SLPTarget: TargetType {
             return "/user/update_fcm_token"
         case .updateMyPage:
             return "/user/update/mypage"
+        case .searchNearSesac:
+            return "/onqueue"
+        case .registerMySesac,
+             .deleteMySesac:
+            return "/queue"
+        case .requestHobbyFriend:
+            return "/queue/hobbyrequest"
+        case .acceptHobbyFriend:
+            return "/queue/hobbyaccept"
+        case .getMyRequestStatus:
+            return "/queue/myQueueState"
         }
     }
 
     var method: Moya.Method {
         switch self {
-        case .getUserInfo:
+        case .getUserInfo,
+             .getMyRequestStatus:
             return .get
         case .register,
              .withdraw,
-             .updateMyPage:
+             .updateMyPage,
+             .searchNearSesac,
+             .registerMySesac,
+             .requestHobbyFriend,
+             .acceptHobbyFriend:
             return .post
         case .updateFCMToken:
             return .put
+        case .deleteMySesac:
+            return .delete
         }
     }
 
@@ -63,12 +89,18 @@ extension SLPTarget: TargetType {
 
     var task: Task {
         switch self {
-        case .getUserInfo ,
-             .withdraw:
+        case .getUserInfo,
+             .withdraw,
+             .deleteMySesac,
+             .getMyRequestStatus:
             return .requestPlain
         case .register(let parameters),
              .updateFCMToken(let parameters),
-             .updateMyPage(let parameters):
+             .updateMyPage(let parameters),
+             .searchNearSesac(let parameters),
+             .registerMySesac(let parameters),
+             .requestHobbyFriend(let parameters),
+             .acceptHobbyFriend(let parameters):
             return .requestParameters(parameters: parameters, encoding: URLEncoding.default)
         }
     }
