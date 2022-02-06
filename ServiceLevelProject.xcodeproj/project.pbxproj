@@ -63,6 +63,12 @@
 		BB3008D927A31B8300D32DCA /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3008D827A31B8300D32DCA /* BaseTableViewCell.swift */; };
 		BB6BF5CF27ABF93B00548BD2 /* GenderCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6BF5CE27ABF93B00548BD2 /* GenderCase.swift */; };
 		BB70D03127AC2660006B94EB /* GenderFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB70D03027AC2660006B94EB /* GenderFilterView.swift */; };
+		BB70D03427AD1973006B94EB /* FilterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB70D03327AD1973006B94EB /* FilterButton.swift */; };
+		BB70D03627AD2A49006B94EB /* MapStatusButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB70D03527AD2A49006B94EB /* MapStatusButton.swift */; };
+		BB70D03827AD61E3006B94EB /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB70D03727AD61E3006B94EB /* UIView.swift */; };
+		BB70D03A27AD8464006B94EB /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB70D03927AD8464006B94EB /* HomeViewModel.swift */; };
+		BB722BB427AD9DEE00317054 /* HobbySearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB722BB327AD9DEE00317054 /* HobbySearchViewController.swift */; };
+		BB722BB827AD9EBF00317054 /* HobbySetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB722BB727AD9EBF00317054 /* HobbySetViewController.swift */; };
 		BB78E9E027A2AA8500CC3373 /* IndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB78E9DF27A2AA8500CC3373 /* IndicatorView.swift */; };
 		BB7A216F279D1673005FD0A3 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7A216E279D1673005FD0A3 /* UserRepository.swift */; };
 		BB7A2172279D16BA005FD0A3 /* UserRepositoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7A2171279D16BA005FD0A3 /* UserRepositoryType.swift */; };
@@ -206,6 +212,12 @@
 		BB3008D827A31B8300D32DCA /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		BB6BF5CE27ABF93B00548BD2 /* GenderCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderCase.swift; sourceTree = "<group>"; };
 		BB70D03027AC2660006B94EB /* GenderFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderFilterView.swift; sourceTree = "<group>"; };
+		BB70D03327AD1973006B94EB /* FilterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterButton.swift; sourceTree = "<group>"; };
+		BB70D03527AD2A49006B94EB /* MapStatusButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapStatusButton.swift; sourceTree = "<group>"; };
+		BB70D03727AD61E3006B94EB /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		BB70D03927AD8464006B94EB /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		BB722BB327AD9DEE00317054 /* HobbySearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HobbySearchViewController.swift; sourceTree = "<group>"; };
+		BB722BB727AD9EBF00317054 /* HobbySetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HobbySetViewController.swift; sourceTree = "<group>"; };
 		BB78E9DF27A2AA8500CC3373 /* IndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicatorView.swift; sourceTree = "<group>"; };
 		BB7A216E279D1673005FD0A3 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		BB7A2171279D16BA005FD0A3 /* UserRepositoryType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepositoryType.swift; sourceTree = "<group>"; };
@@ -474,6 +486,7 @@
 				BBED120327990CB5002A5E9E /* NSMutableAttributedString.swift */,
 				BBED121527994594002A5E9E /* String.swift */,
 				BBED121A279976A4002A5E9E /* UIViewController.swift */,
+				BB70D03727AD61E3006B94EB /* UIView.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -610,6 +623,34 @@
 				BB8D1F3B279A992C00D111B6 /* CertificationViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		BB70D03227AD16C3006B94EB /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				BB70D03027AC2660006B94EB /* GenderFilterView.swift */,
+				BB70D03327AD1973006B94EB /* FilterButton.swift */,
+				BB70D03527AD2A49006B94EB /* MapStatusButton.swift */,
+			);
+			path = CustomView;
+			sourceTree = "<group>";
+		};
+		BB722BB527AD9DF200317054 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				BB70D03927AD8464006B94EB /* HomeViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		BB722BB627AD9E0A00317054 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BBAAA6A1279BFC6700667591 /* HomeViewController.swift */,
+				BB722BB727AD9EBF00317054 /* HobbySetViewController.swift */,
+				BB722BB327AD9DEE00317054 /* HobbySearchViewController.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		BB7A216C279D113C005FD0A3 /* UseCase */ = {
@@ -847,8 +888,9 @@
 		BBAAA6E5279C5AE000667591 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				BB70D03027AC2660006B94EB /* GenderFilterView.swift */,
-				BBAAA6A1279BFC6700667591 /* HomeViewController.swift */,
+				BB722BB527AD9DF200317054 /* ViewModel */,
+				BB70D03227AD16C3006B94EB /* CustomView */,
+				BB722BB627AD9E0A00317054 /* View */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1200,6 +1242,7 @@
 				BB105D8D2796F004008264DD /* CertificationViewController.swift in Sources */,
 				BBAAA6DC279C55ED00667591 /* SesacFriendCoordinator.swift in Sources */,
 				BB8D1F342799B62100D111B6 /* ViewModelType.swift in Sources */,
+				BB722BB427AD9DEE00317054 /* HobbySearchViewController.swift in Sources */,
 				BB00E8FF27A539150023D4E6 /* SesacTitleView.swift in Sources */,
 				BB6BF5CF27ABF93B00548BD2 /* GenderCase.swift in Sources */,
 				BBAAA69C279BE30700667591 /* UserInfoResponseDTO.swift in Sources */,
@@ -1221,6 +1264,7 @@
 				BBAAA6BE279C3CFA00667591 /* GenderViewModel.swift in Sources */,
 				BB7A2172279D16BA005FD0A3 /* UserRepositoryType.swift in Sources */,
 				BB00E91D27A679990023D4E6 /* MyCardHeaderView.swift in Sources */,
+				BB722BB827AD9EBF00317054 /* HobbySetViewController.swift in Sources */,
 				BBAAA68E279B07A500667591 /* SLPTarget+StubData.swift in Sources */,
 				BB105D942797AAD1008264DD /* NicknameViewController.swift in Sources */,
 				BB00E90327A558000023D4E6 /* SelectionButton.swift in Sources */,
@@ -1239,13 +1283,16 @@
 				BBAAA6D3279C481700667591 /* TabBarCoordinator.swift in Sources */,
 				BBED11EF27984744002A5E9E /* Assets+Generated.swift in Sources */,
 				BBAAA68C279AD7BE00667591 /* APIConstant.swift in Sources */,
+				BB70D03427AD1973006B94EB /* FilterButton.swift in Sources */,
 				BB105D982797AAF8008264DD /* EmailViewController.swift in Sources */,
 				BB7A2178279D9BCC005FD0A3 /* GenderUseCase.swift in Sources */,
+				BB70D03627AD2A49006B94EB /* MapStatusButton.swift in Sources */,
 				BB105D782796B2B8008264DD /* AppFont.swift in Sources */,
 				BBAAA687279AD3A500667591 /* SLPTarget.swift in Sources */,
 				BBDBE51127A459A600305BF3 /* MyPageMenuHeaderView.swift in Sources */,
 				BBED121927996F97002A5E9E /* DefaultButton+Rx.swift in Sources */,
 				BB105D8B2796E610008264DD /* DefaultButton.swift in Sources */,
+				BB70D03827AD61E3006B94EB /* UIView.swift in Sources */,
 				BBED121627994594002A5E9E /* String.swift in Sources */,
 				BB8D1F3C279A992C00D111B6 /* CertificationViewModel.swift in Sources */,
 				BB7A2186279EBCEE005FD0A3 /* DatePickerTextField.swift in Sources */,
@@ -1260,6 +1307,7 @@
 				BB105D9C2797FA21008264DD /* GenderButton.swift in Sources */,
 				BB00E91827A5AC600023D4E6 /* AgeRangeView.swift in Sources */,
 				BBAAA690279B0BEB00667591 /* NetworkMonitorService.swift in Sources */,
+				BB70D03A27AD8464006B94EB /* HomeViewModel.swift in Sources */,
 				BBAAA6D7279C55AA00667591 /* HomeCoordinator.swift in Sources */,
 				BBAAA68A279AD78000667591 /* APIEnvironment.swift in Sources */,
 				BB1E250E27A1590500A80FC3 /* UserInfo.swift in Sources */,
