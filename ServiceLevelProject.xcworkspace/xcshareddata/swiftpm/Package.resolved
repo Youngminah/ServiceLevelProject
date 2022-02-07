@@ -164,15 +164,6 @@
         }
       },
       {
-        "package": "Then",
-        "repositoryURL": "https://github.com/devxoul/Then",
-        "state": {
-          "branch": null,
-          "revision": "e421a7b3440a271834337694e6050133a3958bc7",
-          "version": "2.7.0"
-        }
-      },
-      {
         "package": "Toast",
         "repositoryURL": "https://github.com/scalessec/Toast-Swift",
         "state": {
