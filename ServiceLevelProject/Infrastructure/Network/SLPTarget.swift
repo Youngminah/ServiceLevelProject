@@ -49,11 +49,11 @@ extension SLPTarget: TargetType {
             return "/user/update_fcm_token"
         case .updateMyPage:
             return "/user/update/mypage"
-        case .searchNearSesac:
-            return "/onqueue"
         case .registerMySesac,
              .deleteMySesac:
             return "/queue"
+        case .searchNearSesac:
+            return "/queue/onqueue"
         case .requestHobbyFriend:
             return "/queue/hobbyrequest"
         case .acceptHobbyFriend:
