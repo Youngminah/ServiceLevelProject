@@ -32,7 +32,6 @@ struct QueueDB: Codable {
     let gender, type, sesac, background: Int
 }
 
-
 extension OnqueueResponseDTO {
 
     func toDomain() -> NearSesacDBInfo {
@@ -54,10 +53,10 @@ extension QueueDB {
             reputation: reputation,
             hobbys: hobbys,
             reviews: reviews,
-            gender: gender,
-            type: type,
-            sesac: sesac,
-            background: background
+            gender: GenderCase(value: gender),
+            type: GenderCase(value: type),
+            sesac: SesacImageCase(value: sesac),
+            background: SesacBackgroundCase(value: background)
         )
     }
 }
