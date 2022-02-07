@@ -20,7 +20,16 @@ final class HomeCoordinator: Coordinator {
     }
 
     func start() {
-        let vc = HomeViewController()
+        let vc = HomeViewController(
+            viewModel: HomeViewModel(
+                coordinator: self,
+                homeUseCase: HomeUseCase(
+                    userRepository: UserRepository(),
+                    fireBaseRepository: FirbaseRepository(),
+                    sesacRepository: SesacRepository()
+                )
+            )
+        )
         navigationController.pushViewController(vc, animated: true)
     }
 }
