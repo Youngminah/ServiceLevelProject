@@ -129,9 +129,6 @@ final class AlertView: UIView {
         addSubview(alertView)
         alertView.addSubview(titleLabel)
         alertView.addSubview(messageLabel)
-        alertView.addSubview(cancelButton)
-        alertView.addSubview(confirmButton)
-
         alertView.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
             make.left.equalToSuperview().offset(16)
@@ -148,16 +145,33 @@ final class AlertView: UIView {
             make.left.right.equalToSuperview()
             make.height.equalTo(30)
         }
-        cancelButton.snp.makeConstraints { make in
-            make.left.equalToSuperview().offset(16)
-            make.bottom.equalToSuperview().offset(-16)
-            make.width.equalToSuperview().offset(-20).dividedBy(2.0)
-            make.height.equalTo(cancelButton.snp.width).multipliedBy(48 / 152.0)
-        }
-        confirmButton.snp.makeConstraints { make in
-            make.right.bottom.equalToSuperview().offset(-16)
-            make.width.equalToSuperview().offset(-20).dividedBy(2.0)
-            make.height.equalTo(confirmButton.snp.width).multipliedBy(48 / 152.0)
+        buttonConstraint()
+    }
+
+    private func buttonConstraint() {
+        switch buttonStyle {
+        case .confirmAndCancel:
+            alertView.addSubview(cancelButton)
+            alertView.addSubview(confirmButton)
+            cancelButton.snp.makeConstraints { make in
+                make.left.equalToSuperview().offset(16)
+                make.bottom.equalToSuperview().offset(-16)
+                make.width.equalToSuperview().offset(-20).dividedBy(2.0)
+                make.height.equalTo(cancelButton.snp.width).multipliedBy(48 / 152.0)
+            }
+            confirmButton.snp.makeConstraints { make in
+                make.right.bottom.equalToSuperview().offset(-16)
+                make.width.equalToSuperview().offset(-20).dividedBy(2.0)
+                make.height.equalTo(confirmButton.snp.width).multipliedBy(48 / 152.0)
+            }
+        case .confirm:
+            alertView.addSubview(confirmButton)
+            confirmButton.snp.makeConstraints { make in
+                make.centerX.equalToSuperview()
+                make.left.equalToSuperview().offset(16)
+                make.right.bottom.equalToSuperview().offset(-16)
+                make.height.equalTo(confirmButton.snp.width).multipliedBy(48 / 343.0)
+            }
         }
     }
 
