@@ -18,12 +18,16 @@ struct OnqueueRequestDTO: Codable {
         return dict
     }
 
-    let region: Int
+    var region: Int {
+        let computedLat = Int((lat + 90.0) * 100)
+        let computedLng = Int((long + 180.0) * 100)
+        let computedTotal = "\(computedLat)\(computedLng)" as NSString
+        return computedTotal.integerValue
+    }
     let lat: Double
     let long: Double
 
-    init(userLocationInfo: UserLocationInfo) {
-        self.region = Int(userLocationInfo.latitude)
+    init(userLocationInfo: Coordinate) {
         self.lat = userLocationInfo.latitude
         self.long = userLocationInfo.longitude
     }
