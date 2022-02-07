@@ -35,7 +35,15 @@ protocol SesacRepositoryType: AnyObject {
     func requestUpdateUserInfo(                 // 유저정보 업데이트 API
         userUpdateInfo: UserUpdateInfo,
         completion: @escaping (
-            Result<Int,
+            Result< Int,
+            SesacNetworkServiceError>
+        ) -> Void
+    )
+
+    func requestOnqueue(                        // 주변 새싹 위치 정보 API
+        userLocationInfo: Coordinate,
+        completion: @escaping (
+            Result< NearSesacDBInfo,
             SesacNetworkServiceError>
         ) -> Void
     )
