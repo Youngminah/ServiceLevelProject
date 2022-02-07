@@ -118,9 +118,11 @@
 		BBDBE51127A459A600305BF3 /* MyPageMenuHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDBE51027A459A600305BF3 /* MyPageMenuHeaderView.swift */; };
 		BBDBE51327A45A1100305BF3 /* ProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDBE51227A45A1100305BF3 /* ProfileImageView.swift */; };
 		BBDDDF8A27A03A9E000FB2C0 /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDDDF8927A03A9E000FB2C0 /* AuthCoordinator.swift */; };
-		BBE071F927B039BD007947B6 /* UserLocationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE071F827B039BD007947B6 /* UserLocationInfo.swift */; };
+		BBE071F927B039BD007947B6 /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE071F827B039BD007947B6 /* Coordinate.swift */; };
 		BBE071FB27B03A4F007947B6 /* OnqueueRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE071FA27B03A4F007947B6 /* OnqueueRequestDTO.swift */; };
 		BBE071FD27B03CD3007947B6 /* NearSesacDBInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE071FC27B03CD3007947B6 /* NearSesacDBInfo.swift */; };
+		BBE071FF27B13FB0007947B6 /* SesacImageCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE071FE27B13FB0007947B6 /* SesacImageCase.swift */; };
+		BBE0720127B1416A007947B6 /* SesacBackgroundCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE0720027B1416A007947B6 /* SesacBackgroundCase.swift */; };
 		BBED11EF27984744002A5E9E /* Assets+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBED11EE27984744002A5E9E /* Assets+Generated.swift */; };
 		BBED11F7279869EA002A5E9E /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBED11F6279869EA002A5E9E /* Coordinator.swift */; };
 		BBED11FB27986D87002A5E9E /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = BBED11FA27986D87002A5E9E /* FirebaseAuth */; };
@@ -271,9 +273,11 @@
 		BBDBE51027A459A600305BF3 /* MyPageMenuHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageMenuHeaderView.swift; sourceTree = "<group>"; };
 		BBDBE51227A45A1100305BF3 /* ProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageView.swift; sourceTree = "<group>"; };
 		BBDDDF8927A03A9E000FB2C0 /* AuthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
-		BBE071F827B039BD007947B6 /* UserLocationInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLocationInfo.swift; sourceTree = "<group>"; };
+		BBE071F827B039BD007947B6 /* Coordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinate.swift; sourceTree = "<group>"; };
 		BBE071FA27B03A4F007947B6 /* OnqueueRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnqueueRequestDTO.swift; sourceTree = "<group>"; };
 		BBE071FC27B03CD3007947B6 /* NearSesacDBInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearSesacDBInfo.swift; sourceTree = "<group>"; };
+		BBE071FE27B13FB0007947B6 /* SesacImageCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SesacImageCase.swift; sourceTree = "<group>"; };
+		BBE0720027B1416A007947B6 /* SesacBackgroundCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SesacBackgroundCase.swift; sourceTree = "<group>"; };
 		BBED11EE27984744002A5E9E /* Assets+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Assets+Generated.swift"; sourceTree = "<group>"; };
 		BBED11F6279869EA002A5E9E /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		BBED11F827986CCC002A5E9E /* ServiceLevelProject.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ServiceLevelProject.entitlements; sourceTree = "<group>"; };
@@ -702,7 +706,7 @@
 				BB1E250B27A158FA00A80FC3 /* UserRegisterInfo.swift */,
 				BB00E92827A9B7C90023D4E6 /* UserUpdateInfo.swift */,
 				BB1E250D27A1590500A80FC3 /* UserInfo.swift */,
-				BBE071F827B039BD007947B6 /* UserLocationInfo.swift */,
+				BBE071F827B039BD007947B6 /* Coordinate.swift */,
 				BBE071FC27B03CD3007947B6 /* NearSesacDBInfo.swift */,
 			);
 			path = Model;
@@ -773,6 +777,8 @@
 				BBDBE50E27A4505D00305BF3 /* MyPageMenuCase.swift */,
 				BB00E90027A557A20023D4E6 /* ButtonStatus.swift */,
 				BB6BF5CE27ABF93B00548BD2 /* GenderCase.swift */,
+				BBE071FE27B13FB0007947B6 /* SesacImageCase.swift */,
+				BBE0720027B1416A007947B6 /* SesacBackgroundCase.swift */,
 			);
 			path = Constant;
 			sourceTree = "<group>";
@@ -1292,7 +1298,7 @@
 				BBAAA6B7279C3CD700667591 /* NickNameViewModel.swift in Sources */,
 				BB722BBA27B00C7E00317054 /* HomeUseCase.swift in Sources */,
 				BB105D812796B9B7008264DD /* UIColor.swift in Sources */,
-				BBE071F927B039BD007947B6 /* UserLocationInfo.swift in Sources */,
+				BBE071F927B039BD007947B6 /* Coordinate.swift in Sources */,
 				BBAAA6A9279C124F00667591 /* OnBoardingViewModel.swift in Sources */,
 				BB78E9E027A2AA8500CC3373 /* IndicatorView.swift in Sources */,
 				BBAAA6D3279C481700667591 /* TabBarCoordinator.swift in Sources */,
@@ -1310,6 +1316,7 @@
 				BB70D03827AD61E3006B94EB /* UIView.swift in Sources */,
 				BBED121627994594002A5E9E /* String.swift in Sources */,
 				BB8D1F3C279A992C00D111B6 /* CertificationViewModel.swift in Sources */,
+				BBE071FF27B13FB0007947B6 /* SesacImageCase.swift in Sources */,
 				BB7A2186279EBCEE005FD0A3 /* DatePickerTextField.swift in Sources */,
 				BB722BBC27B0303B00317054 /* OnqueueResponseDTO.swift in Sources */,
 				BB105D8F2796F197008264DD /* DefaultLabel.swift in Sources */,
@@ -1317,6 +1324,7 @@
 				BB1E250C27A158FA00A80FC3 /* UserRegisterInfo.swift in Sources */,
 				BBAAA6BC279C3CF100667591 /* EmailViewModel.swift in Sources */,
 				BB7A2182279DAF2B005FD0A3 /* FirbaseRepositoryType.swift in Sources */,
+				BBE0720127B1416A007947B6 /* SesacBackgroundCase.swift in Sources */,
 				BB105D9A2797F313008264DD /* GenderViewController.swift in Sources */,
 				BB00E92127A7058E0023D4E6 /* AlertView.swift in Sources */,
 				BBDDDF8A27A03A9E000FB2C0 /* AuthCoordinator.swift in Sources */,
