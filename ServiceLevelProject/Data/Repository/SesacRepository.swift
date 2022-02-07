@@ -61,20 +61,33 @@ extension SesacRepository {
     func requestRegister(userRegisterInfo: UserRegisterInfo, completion: @escaping (Result<Int, SesacNetworkServiceError>) -> Void ) {
         let requestDTO = UserRegisterInfoRequestDTO(userRegisterInfo: userRegisterInfo)
         provider.request(.register(parameters: requestDTO.toDictionary)) { result in
-            self.process(result: result,completion: completion)
+            self.process(result: result, completion: completion)
         }
     }
 
     func requestUpdateUserInfo(userUpdateInfo: UserUpdateInfo, completion: @escaping (Result<Int, SesacNetworkServiceError>) -> Void ) {
         let requestDTO = UserUpdateInfoRequestDTO(userUpdateInfo: userUpdateInfo)
         provider.request(.updateMyPage(parameters: requestDTO.toDictionary)) { result in
-            self.process(result: result,completion: completion)
+            self.process(result: result, completion: completion)
         }
     }
 
     func requestWithdraw(completion: @escaping (Result<Int, SesacNetworkServiceError>) -> Void ) {
         provider.request(.withdraw) { result in
-            self.process(result: result,completion: completion)
+            self.process(result: result, completion: completion)
+        }
+    }
+
+    func requestOnqueue(userLocationInfo: Coordinate, completion: @escaping (Result<NearSesacDBInfo, SesacNetworkServiceError>) -> Void ) {
+        let requestDTO = OnqueueRequestDTO(userLocationInfo: userLocationInfo)
+        provider.request(.searchNearSesac(parameters: requestDTO.toDictionary)) { result in
+            switch result {
+            case .success(let response):
+                let data = try? JSONDecoder().decode(OnqueueResponseDTO.self, from: response.data)
+                completion(.success(data!.toDomain()))
+            case .failure(let error):
+                completion(.failure(SesacNetworkServiceError(rawValue: error.response!.statusCode) ?? .unknown))
+            }
         }
     }
 }
