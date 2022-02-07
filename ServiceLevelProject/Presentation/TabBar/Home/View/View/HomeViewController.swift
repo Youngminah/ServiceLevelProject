@@ -7,17 +7,43 @@
 
 import UIKit
 import CoreLocation
+
 import NMapsMap
+import SnapKit
+import RxSwift
+import RxCocoa
 
 final class HomeViewController: UIViewController {
 
     private let mapView = NMFMapView()
-    private let marker = NMFMarker()
     private let genderFilterView = GenderFilterView()
-    private let locationButton = UIButton()
+    private let myLocationButton = UIButton()
     private let mapStatusButton = MapStatusButton(status: .search)
+    private let centerMarkerImageView = UIImageView(image: Asset.marker.image)
+    private let locationManager = CLLocationManager()
 
-    let locationManager = CLLocationManager()
+    //private var centerCoordinator = NMGLatLng(lat: 37.482733, lng: 126.92983)
+    
+    private lazy var input = HomeViewModel.Input(
+        myLocationButtonTap: myLocationButton.rx.tap.asSignal(),
+        isAutorizedLocation: isAutorizedLocation.asSignal(),
+        requestOnqueueInfo: requestOnqueueInfo.asSignal()
+    )
+    private lazy var output = viewModel.transform(input: input)
+    private let viewModel: HomeViewModel
+    private let disposdBag = DisposeBag()
+
+    private let isAutorizedLocation = PublishRelay<Bool>()
+    private let requestOnqueueInfo = PublishRelay<Coordinate>()
+
+    init(viewModel: HomeViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("HomeViewController: fatal error")
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,14 +54,48 @@ final class HomeViewController: UIViewController {
     }
 
     private func bind() {
+        output.confirmAuthorizedLocation
+            .emit(onNext: { [weak self] _ in
+                let auth = self?.locationManager.authorizationStatus
+                let status = auth == .authorizedAlways || auth == .authorizedWhenInUse
+                self?.isAutorizedLocation.accept(status)
+            })
+            .disposed(by: disposdBag)
+
+        output.updateLocationAction
+            .emit(onNext: { [weak self] _ in
+                self?.locationManager.startUpdatingLocation()
+            })
+            .disposed(by: disposdBag)
+
+        output.unAutorizedLocationAlert
+            .emit(onNext: { [weak self] (title, message) in
+                guard let self = self else { return }
+                let alert = AlertView.init(title: title, message: message) {
+                    self.moveToPhoneSetting()
+                }
+                alert.showAlert()
+            })
+            .disposed(by: disposdBag)
+
+        output.onqueueList
+            .emit(onNext: { [weak self] sesacs in
+                guard let self = self else { return }
+                sesacs.forEach { sesac in
+                    self.setSesacFriendMarker(sesac: sesac)
+                }
+            })
+            .disposed(by: disposdBag)
+
     }
 
     private func setViews() {
         mapView.frame = view.frame
         view.addSubview(mapView)
         view.addSubview(genderFilterView)
-        view.addSubview(locationButton)
+        view.addSubview(myLocationButton)
         view.addSubview(mapStatusButton)
+        view.addSubview(centerMarkerImageView)
     }
 
     private func setConstraints() {
@@ -45,7 +105,7 @@ final class HomeViewController: UIViewController {
             make.height.equalTo(144)
             make.top.equalToSuperview().offset(96)
         }
-        locationButton.snp.makeConstraints { make in
+        myLocationButton.snp.makeConstraints { make in
             make.top.equalTo(genderFilterView.snp.bottom).offset(16)
             make.left.equalToSuperview().offset(16)
             make.width.height.equalTo(48)
@@ -55,39 +115,58 @@ final class HomeViewController: UIViewController {
             make.width.height.equalTo(64)
             make.bottom.equalTo(view.safeAreaLayoutGuide).offset(-16)
         }
+        centerMarkerImageView.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.bottom.equalTo(view.snp.centerY)
+            make.width.equalTo(40)
+            make.height.equalTo(42)
+        }
     }
 
     private func setConfigurations() {
         setMapView()
-        locationButton.setImage(Asset.location.image, for: .normal)
-        locationButton.backgroundColor = .white
-        locationButton.layer.cornerRadius = 8
-        locationButton.addShadow(radius: 3)
+        myLocationButton.setImage(Asset.location.image, for: .normal)
+        myLocationButton.backgroundColor = .white
+        myLocationButton.layer.cornerRadius = 8
+        myLocationButton.addShadow(radius: 3)
     }
 
     private func setMapView() {
         mapView.addCameraDelegate(delegate: self)
-        let cameraPosition = mapView.cameraPosition
-        marker.position = cameraPosition.target
-        marker.iconImage = NMFOverlayImage(image: Asset.marker.image)
-        marker.mapView = mapView
-
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        if CLLocationManager.locationServicesEnabled() { //위치 켰을 때.
-            locationManager.startUpdatingLocation()
-        } else { //위치 껏을 때.
+        updateMyLocation()
+    }
 
+    private func updateMyLocation() {
+        let authorization = self.locationManager.authorizationStatus
+        if authorization == .authorizedAlways || authorization == .authorizedWhenInUse {
+            locationManager.startUpdatingLocation()
+        } 
+    }
+
+    private func moveToPhoneSetting() {
+        if let url = URL(string: UIApplication.openSettingsURLString) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
         }
+    }
+
+    private func setSesacFriendMarker(sesac: SesacDB) {
+        let marker = NMFMarker()
+        marker.iconImage = NMFOverlayImage(image: sesac.sesac.image)
+        marker.position = NMGLatLng(lat: sesac.coordinator.latitude, lng: sesac.coordinator.longitude)
+        marker.width = 80
+        marker.height = 80
+        marker.mapView = mapView
     }
 }
 
 extension HomeViewController: NMFMapViewCameraDelegate {
 
     func mapView(_ mapView: NMFMapView, cameraDidChangeByReason reason: Int, animated: Bool) {
-        let cameraPosition = mapView.cameraPosition
-        marker.position = cameraPosition.target
+//        let cameraPosition = mapView.cameraPosition
+//        marker.position = cameraPosition.target
     }
 
 //    func mapView(_ mapView: NMFMapView, cameraIsChangingByReason reason: Int) {
@@ -99,8 +178,11 @@ extension HomeViewController: NMFMapViewCameraDelegate {
 //    }
 
     func mapViewCameraIdle(_ mapView: NMFMapView) {
-        //카메라 멈추면 호출됨
-        
+        // 카메라 멈추면 호출됨
+        print("mapViewCameraIdle-->")
+        print("가운데 좌표 :", mapView.cameraPosition.target)
+        let centerCoordi = mapView.cameraPosition.target
+        requestOnqueueInfo.accept(Coordinate(latitude: centerCoordi.lat, longitude: centerCoordi.lng))
     }
 }
 
@@ -129,9 +211,10 @@ extension HomeViewController: CLLocationManagerDelegate {
         let location: CLLocation = locations[locations.count - 1]
         let longtitude: CLLocationDegrees = location.coordinate.longitude
         let latitude: CLLocationDegrees = location.coordinate.latitude
-        let coord = NMGLatLng(lat: latitude, lng: longtitude)
-        let cameraUpdate = NMFCameraUpdate(scrollTo: coord)
+        let coordi = NMGLatLng(lat: latitude, lng: longtitude)
+        let cameraUpdate = NMFCameraUpdate(scrollTo: coordi)
         cameraUpdate.animation = .easeIn
         mapView.moveCamera(cameraUpdate)
+        locationManager.stopUpdatingLocation()
     }
 }
