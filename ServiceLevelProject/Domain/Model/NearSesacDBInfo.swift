@@ -17,9 +17,8 @@ struct SesacDB {
     let coordinator: Coordinate
     let reputation: [Int]
     let hobbys, reviews: [String]
-    let gender, type, sesac, background: Int
-}
-
-struct Coordinate {
-    let latitude, longitude: Double
+    let gender: GenderCase
+    let type: GenderCase
+    let sesac: SesacImageCase
+    let background: SesacBackgroundCase
 }
