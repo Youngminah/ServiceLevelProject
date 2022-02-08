@@ -9,7 +9,6 @@ import Foundation
 import Moya
 import RxCocoa
 import RxSwift
-import Toast
 
 final class HomeViewModel: ViewModelType {
 
