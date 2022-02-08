@@ -23,11 +23,13 @@ final class HomeViewController: UIViewController {
     private let locationManager = CLLocationManager()
 
     //private var centerCoordinator = NMGLatLng(lat: 37.482733, lng: 126.92983)
-    
+
     private lazy var input = HomeViewModel.Input(
+        genderFilterInfo: genderFilterView.genderRelay.asObservable(),
+        requestOnqueueInfo: requestOnqueueInfo.asObservable(),
         myLocationButtonTap: myLocationButton.rx.tap.asSignal(),
         isAutorizedLocation: isAutorizedLocation.asSignal(),
-        requestOnqueueInfo: requestOnqueueInfo.asSignal()
+        mapStatusButtonTap: mapStatusButton.rx.tap.asSignal()
     )
     private lazy var output = viewModel.transform(input: input)
     private let viewModel: HomeViewModel
@@ -35,6 +37,8 @@ final class HomeViewController: UIViewController {
 
     private let isAutorizedLocation = PublishRelay<Bool>()
     private let requestOnqueueInfo = PublishRelay<Coordinate>()
+
+    private var markers = [NMFMarker]()
 
     init(viewModel: HomeViewModel) {
         self.viewModel = viewModel
@@ -51,6 +55,11 @@ final class HomeViewController: UIViewController {
         setViews()
         setConstraints()
         setConfigurations()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: false)
     }
 
     private func bind() {
@@ -81,12 +90,12 @@ final class HomeViewController: UIViewController {
         output.onqueueList
             .emit(onNext: { [weak self] sesacs in
                 guard let self = self else { return }
+                self.removeMarkers()
                 sesacs.forEach { sesac in
                     self.setSesacFriendMarker(sesac: sesac)
                 }
             })
             .disposed(by: disposdBag)
-
     }
 
     private func setViews() {
@@ -152,8 +161,14 @@ final class HomeViewController: UIViewController {
         }
     }
 
+    private func removeMarkers() {
+        self.markers.forEach { $0.mapView = nil }
+        self.markers = []
+    }
+
     private func setSesacFriendMarker(sesac: SesacDB) {
         let marker = NMFMarker()
+        markers.append(marker)
         marker.iconImage = NMFOverlayImage(image: sesac.sesac.image)
         marker.position = NMGLatLng(lat: sesac.coordinator.latitude, lng: sesac.coordinator.longitude)
         marker.width = 80
@@ -164,21 +179,7 @@ final class HomeViewController: UIViewController {
 
 extension HomeViewController: NMFMapViewCameraDelegate {
 
-    func mapView(_ mapView: NMFMapView, cameraDidChangeByReason reason: Int, animated: Bool) {
-//        let cameraPosition = mapView.cameraPosition
-//        marker.position = cameraPosition.target
-    }
-
-//    func mapView(_ mapView: NMFMapView, cameraIsChangingByReason reason: Int) {
-//        print("cameraIsChangingByReason")
-//    }
-//
-//    func mapView(_ mapView: NMFMapView, cameraWillChangeByReason reason: Int, animated: Bool) {
-//        print("cameraWillChangeByReason")
-//    }
-
     func mapViewCameraIdle(_ mapView: NMFMapView) {
-        // 카메라 멈추면 호출됨
         print("mapViewCameraIdle-->")
         print("가운데 좌표 :", mapView.cameraPosition.target)
         let centerCoordi = mapView.cameraPosition.target
