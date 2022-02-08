@@ -34,7 +34,7 @@ final class HomeCoordinator: Coordinator {
     }
 
     func showHobbySetViewController() {
-        let vc = HobbySetViewController()
+        let vc = HomeSearchViewController()
         vc.hidesBottomBarWhenPushed = true
         navigationController.setNavigationBarHidden(false, animated: false)
         navigationController.pushViewController(vc, animated: true)
