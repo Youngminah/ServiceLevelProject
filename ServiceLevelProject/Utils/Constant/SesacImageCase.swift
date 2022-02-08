@@ -8,6 +8,7 @@
 import UIKit
 
 enum SesacImageCase: Int, CaseIterable {
+    
     case sesac0 = 0
     case sesac1 = 1
     case sesac2 = 2

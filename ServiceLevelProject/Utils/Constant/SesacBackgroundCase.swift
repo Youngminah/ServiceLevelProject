@@ -8,6 +8,7 @@
 import UIKit
 
 enum SesacBackgroundCase: Int, CaseIterable {
+    
     case background0 = 0
 
     init(value: Int) {
