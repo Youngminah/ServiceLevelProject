@@ -97,6 +97,7 @@ final class TabBarCoordinator: Coordinator {
 }
 
 extension TabBarCoordinator: CoordinatorDelegate {
+    
     func didFinish(childCoordinator: Coordinator) {
         self.childCoordinators = childCoordinators.filter({ $0.type != childCoordinator.type })
         if childCoordinator.type == .myPage {
