@@ -87,6 +87,7 @@
 		BB8D1F342799B62100D111B6 /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8D1F332799B62100D111B6 /* ViewModelType.swift */; };
 		BB8D1F3A2799BE6400D111B6 /* AuthTextField+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8D1F392799BE6400D111B6 /* AuthTextField+Rx.swift */; };
 		BB8D1F3C279A992C00D111B6 /* CertificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8D1F3B279A992C00D111B6 /* CertificationViewModel.swift */; };
+		BB8F2F3D27B2B81F004D34E9 /* RxKeyboard in Frameworks */ = {isa = PBXBuildFile; productRef = BB8F2F3C27B2B81F004D34E9 /* RxKeyboard */; };
 		BBAAA684279ABFAD00667591 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = BBAAA683279ABFAD00667591 /* Moya */; };
 		BBAAA687279AD3A500667591 /* SLPTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAA686279AD3A500667591 /* SLPTarget.swift */; };
 		BBAAA68A279AD78000667591 /* APIEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAA689279AD78000667591 /* APIEnvironment.swift */; };
@@ -297,6 +298,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BBED1214279943FF002A5E9E /* RxSwift in Frameworks */,
+				BB8F2F3D27B2B81F004D34E9 /* RxKeyboard in Frameworks */,
 				BBED1212279943FF002A5E9E /* RxRelay in Frameworks */,
 				BBAAA684279ABFAD00667591 /* Moya in Frameworks */,
 				BBED11FD27986D87002A5E9E /* FirebaseMessaging in Frameworks */,
@@ -1020,6 +1022,7 @@
 				BBED121D279976D2002A5E9E /* Toast */,
 				BBAAA683279ABFAD00667591 /* Moya */,
 				BB00E91A27A5BCEA0023D4E6 /* DoubleSlider */,
+				BB8F2F3C27B2B81F004D34E9 /* RxKeyboard */,
 			);
 			productName = ServiceLevelProject;
 			productReference = BB105D3A27966ABC008264DD /* ServiceLevelProject.app */;
@@ -1100,6 +1103,7 @@
 				BBED121C279976D2002A5E9E /* XCRemoteSwiftPackageReference "Toast-Swift" */,
 				BBAAA682279ABFAD00667591 /* XCRemoteSwiftPackageReference "Moya" */,
 				BB00E91927A5BCE90023D4E6 /* XCRemoteSwiftPackageReference "DoubleSlider" */,
+				BB8F2F3B27B2B81F004D34E9 /* XCRemoteSwiftPackageReference "RxKeyboard" */,
 			);
 			productRefGroup = BB105D3B27966ABC008264DD /* Products */;
 			projectDirPath = "";
@@ -1714,6 +1718,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		BB8F2F3B27B2B81F004D34E9 /* XCRemoteSwiftPackageReference "RxKeyboard" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RxSwiftCommunity/RxKeyboard";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 		BBAAA682279ABFAD00667591 /* XCRemoteSwiftPackageReference "Moya" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Moya/Moya.git";
@@ -1758,6 +1770,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = BB105D822796C26C008264DD /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		BB8F2F3C27B2B81F004D34E9 /* RxKeyboard */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BB8F2F3B27B2B81F004D34E9 /* XCRemoteSwiftPackageReference "RxKeyboard" */;
+			productName = RxKeyboard;
 		};
 		BBAAA683279ABFAD00667591 /* Moya */ = {
 			isa = XCSwiftPackageProductDependency;

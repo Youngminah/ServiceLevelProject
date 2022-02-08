@@ -137,6 +137,15 @@
         }
       },
       {
+        "package": "RxKeyboard",
+        "repositoryURL": "https://github.com/RxSwiftCommunity/RxKeyboard",
+        "state": {
+          "branch": null,
+          "revision": "085fd99d7bb4f98e671904fcfe7ff561e66574ad",
+          "version": "2.0.0"
+        }
+      },
+      {
         "package": "RxSwift",
         "repositoryURL": "https://github.com/ReactiveX/RxSwift.git",
         "state": {
