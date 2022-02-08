@@ -17,9 +17,11 @@ final class HomeViewModel: ViewModelType {
     private let homeUseCase: HomeUseCase
 
     struct Input {
+        let genderFilterInfo: Observable<GenderCase>
+        let requestOnqueueInfo: Observable<Coordinate>
         let myLocationButtonTap: Signal<Void>
         let isAutorizedLocation: Signal<Bool>
-        let requestOnqueueInfo: Signal<Coordinate>
+        let mapStatusButtonTap: Signal<Void>
     }
     struct Output {
         let confirmAuthorizedLocation: Signal<Void>
@@ -59,17 +61,28 @@ final class HomeViewModel: ViewModelType {
             })
             .disposed(by: disposeBag)
 
-        input.requestOnqueueInfo
+        input.mapStatusButtonTap
+            .emit(onNext: { [weak self] _ in
+                self?.coordinator?.showHobbySetViewController()
+            })
+            .disposed(by: disposeBag)
+
+        Observable.of(
+            input.genderFilterInfo.withLatestFrom(input.requestOnqueueInfo),
+            input.requestOnqueueInfo)
+            .merge()
             .skip(1)
-            .throttle(.seconds(1), latest: false)
-            .emit(onNext: { [weak self] coordinate in
+            .throttle(.seconds(1), latest: false, scheduler: MainScheduler.instance)
+            .bind(onNext: { [weak self] coordinate in
                 self?.requestOnqueue(coordinate: coordinate)
             })
             .disposed(by: disposeBag)
 
-        homeUseCase.successOnqueueSignal.asSignal()
-            .emit(onNext: { [weak self] info in
-                let list = info.fromSesacDB + info.fromSesacDBRequested
+        Observable.combineLatest(
+            homeUseCase.successOnqueueSignal,
+            input.genderFilterInfo,
+            resultSelector: filterSesacDB )
+            .bind(onNext: { [weak self] list in
                 self?.onqueueList.accept(list)
             })
             .disposed(by: disposeBag)
@@ -84,6 +97,17 @@ final class HomeViewModel: ViewModelType {
 }
 
 extension HomeViewModel {
+
+    private func filterSesacDB(nearSesacDB: NearSesacDBInfo, gender: GenderCase) -> [SesacDB] {
+        switch gender {
+        case .total:
+            return nearSesacDB.fromSesacDB + nearSesacDB.fromSesacDBRequested
+        case .woman:
+            return nearSesacDB.fromSesacDB.filter { $0.gender == .woman } + nearSesacDB.fromSesacDBRequested.filter { $0.gender == .woman }
+        case .man:
+            return nearSesacDB.fromSesacDB.filter { $0.gender == .man } + nearSesacDB.fromSesacDBRequested.filter { $0.gender == .man }
+        }
+    }
 
     private func requestOnqueue(coordinate: Coordinate) {
         self.homeUseCase.requestOnqueue(coordinate: coordinate)
