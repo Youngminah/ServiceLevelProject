@@ -32,4 +32,11 @@ final class HomeCoordinator: Coordinator {
         )
         navigationController.pushViewController(vc, animated: true)
     }
+
+    func showHobbySetViewController() {
+        let vc = HobbySetViewController()
+        vc.hidesBottomBarWhenPushed = true
+        navigationController.setNavigationBarHidden(false, animated: false)
+        navigationController.pushViewController(vc, animated: true)
+    }
 }
