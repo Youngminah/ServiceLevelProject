@@ -16,7 +16,9 @@ final class GenderFilterView: UIView {
     private let manButton = FilterButton(title: "남자")
     private let womanButton = FilterButton(title: "여자")
 
-    private let disposdBag = DisposeBag()
+    let genderRelay = BehaviorRelay(value: GenderCase.total)
+
+    private let disposedBag = DisposeBag()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -29,38 +31,25 @@ final class GenderFilterView: UIView {
     }
 
     private func bind() {
-        totalButton.rx.tap.asDriver()
-            .map { [weak self] in
-                guard let self = self else { return false }
-                if self.totalButton.isSelected { return self.totalButton.isSelected }
-                self.womanButton.isSelected = false
-                self.manButton.isSelected = false
-                return !self.totalButton.isSelected
-            }
-            .drive(totalButton.rx.isSelected)
-            .disposed(by: disposdBag)
+        Observable.merge(
+            totalButton.rx.tap.map { GenderCase.total },
+            womanButton.rx.tap.map { GenderCase.woman },
+            manButton.rx.tap.map { GenderCase.man }
+        )
+        .bind(to: genderRelay)
+        .disposed(by: disposedBag)
 
-        manButton.rx.tap.asDriver()
-            .map { [weak self] in
-                guard let self = self else { return false }
-                if self.manButton.isSelected { return self.manButton.isSelected }
-                self.womanButton.isSelected = false
-                self.totalButton.isSelected = false
-                return !self.manButton.isSelected
-            }
-            .drive(manButton.rx.isSelected)
-            .disposed(by: disposdBag)
+        genderRelay.map { $0 == .total }
+            .bind(to: totalButton.rx.isSelected)
+            .disposed(by: disposedBag)
 
-        womanButton.rx.tap.asDriver()
-            .map { [weak self] in
-                guard let self = self else { return false }
-                if self.womanButton.isSelected { return self.womanButton.isSelected }
-                self.manButton.isSelected = false
-                self.totalButton.isSelected = false
-                return !self.womanButton.isSelected
-            }
-            .drive(womanButton.rx.isSelected)
-            .disposed(by: disposdBag)
+        genderRelay.map { $0 == .woman }
+            .bind(to: womanButton.rx.isSelected)
+            .disposed(by: disposedBag)
+
+        genderRelay.map { $0 == .man }
+            .bind(to: manButton.rx.isSelected)
+            .disposed(by: disposedBag)
     }
 
     private func setConfigurations() {
