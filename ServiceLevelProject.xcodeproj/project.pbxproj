@@ -58,8 +58,10 @@
 		BB1E250E27A1590500A80FC3 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1E250D27A1590500A80FC3 /* UserInfo.swift */; };
 		BB1E251127A179C200A80FC3 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1E251027A179C200A80FC3 /* Date.swift */; };
 		BB1E251E27A198E100A80FC3 /* CoordinatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1E251D27A198E100A80FC3 /* CoordinatorDelegate.swift */; };
+		BB2B29F227B2CC18006F7339 /* HomeSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2B29F127B2CC17006F7339 /* HomeSearchViewModel.swift */; };
 		BB3008D727A31A3E00D32DCA /* MyPageMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3008D627A31A3E00D32DCA /* MyPageMenuCell.swift */; };
 		BB3008D927A31B8300D32DCA /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3008D827A31B8300D32DCA /* BaseTableViewCell.swift */; };
+		BB5B5C9527B2CA3E00BC608A /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = BB5B5C9427B2CA3E00BC608A /* RxDataSources */; };
 		BB6BF5CF27ABF93B00548BD2 /* GenderCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6BF5CE27ABF93B00548BD2 /* GenderCase.swift */; };
 		BB70D03127AC2660006B94EB /* GenderFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB70D03027AC2660006B94EB /* GenderFilterView.swift */; };
 		BB70D03427AD1973006B94EB /* FilterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB70D03327AD1973006B94EB /* FilterButton.swift */; };
@@ -67,7 +69,7 @@
 		BB70D03827AD61E3006B94EB /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB70D03727AD61E3006B94EB /* UIView.swift */; };
 		BB70D03A27AD8464006B94EB /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB70D03927AD8464006B94EB /* HomeViewModel.swift */; };
 		BB722BB427AD9DEE00317054 /* HobbySearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB722BB327AD9DEE00317054 /* HobbySearchViewController.swift */; };
-		BB722BB827AD9EBF00317054 /* HobbySetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB722BB727AD9EBF00317054 /* HobbySetViewController.swift */; };
+		BB722BB827AD9EBF00317054 /* HomeSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB722BB727AD9EBF00317054 /* HomeSearchViewController.swift */; };
 		BB722BBA27B00C7E00317054 /* HomeUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB722BB927B00C7E00317054 /* HomeUseCase.swift */; };
 		BB722BBC27B0303B00317054 /* OnqueueResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB722BBB27B0303B00317054 /* OnqueueResponseDTO.swift */; };
 		BB78E9E027A2AA8500CC3373 /* IndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB78E9DF27A2AA8500CC3373 /* IndicatorView.swift */; };
@@ -124,6 +126,7 @@
 		BBE071FD27B03CD3007947B6 /* NearSesacDBInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE071FC27B03CD3007947B6 /* NearSesacDBInfo.swift */; };
 		BBE071FF27B13FB0007947B6 /* SesacImageCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE071FE27B13FB0007947B6 /* SesacImageCase.swift */; };
 		BBE0720127B1416A007947B6 /* SesacBackgroundCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE0720027B1416A007947B6 /* SesacBackgroundCase.swift */; };
+		BBEACC2A27B2C6A90046F64F /* HomeSearchViewController+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBEACC2927B2C6A90046F64F /* HomeSearchViewController+Rx.swift */; };
 		BBED11EF27984744002A5E9E /* Assets+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBED11EE27984744002A5E9E /* Assets+Generated.swift */; };
 		BBED11F7279869EA002A5E9E /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBED11F6279869EA002A5E9E /* Coordinator.swift */; };
 		BBED11FB27986D87002A5E9E /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = BBED11FA27986D87002A5E9E /* FirebaseAuth */; };
@@ -215,6 +218,7 @@
 		BB1E250D27A1590500A80FC3 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		BB1E251027A179C200A80FC3 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		BB1E251D27A198E100A80FC3 /* CoordinatorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorDelegate.swift; sourceTree = "<group>"; };
+		BB2B29F127B2CC17006F7339 /* HomeSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSearchViewModel.swift; sourceTree = "<group>"; };
 		BB3008D627A31A3E00D32DCA /* MyPageMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageMenuCell.swift; sourceTree = "<group>"; };
 		BB3008D827A31B8300D32DCA /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		BB6BF5CE27ABF93B00548BD2 /* GenderCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderCase.swift; sourceTree = "<group>"; };
@@ -224,7 +228,7 @@
 		BB70D03727AD61E3006B94EB /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		BB70D03927AD8464006B94EB /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		BB722BB327AD9DEE00317054 /* HobbySearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HobbySearchViewController.swift; sourceTree = "<group>"; };
-		BB722BB727AD9EBF00317054 /* HobbySetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HobbySetViewController.swift; sourceTree = "<group>"; };
+		BB722BB727AD9EBF00317054 /* HomeSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSearchViewController.swift; sourceTree = "<group>"; };
 		BB722BB927B00C7E00317054 /* HomeUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeUseCase.swift; sourceTree = "<group>"; };
 		BB722BBB27B0303B00317054 /* OnqueueResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnqueueResponseDTO.swift; sourceTree = "<group>"; };
 		BB78E9DF27A2AA8500CC3373 /* IndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicatorView.swift; sourceTree = "<group>"; };
@@ -279,6 +283,7 @@
 		BBE071FC27B03CD3007947B6 /* NearSesacDBInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearSesacDBInfo.swift; sourceTree = "<group>"; };
 		BBE071FE27B13FB0007947B6 /* SesacImageCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SesacImageCase.swift; sourceTree = "<group>"; };
 		BBE0720027B1416A007947B6 /* SesacBackgroundCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SesacBackgroundCase.swift; sourceTree = "<group>"; };
+		BBEACC2927B2C6A90046F64F /* HomeSearchViewController+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeSearchViewController+Rx.swift"; sourceTree = "<group>"; };
 		BBED11EE27984744002A5E9E /* Assets+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Assets+Generated.swift"; sourceTree = "<group>"; };
 		BBED11F6279869EA002A5E9E /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		BBED11F827986CCC002A5E9E /* ServiceLevelProject.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ServiceLevelProject.entitlements; sourceTree = "<group>"; };
@@ -306,6 +311,7 @@
 				BB00E91B27A5BCEA0023D4E6 /* DoubleSlider in Frameworks */,
 				BBED1210279943FF002A5E9E /* RxCocoa in Frameworks */,
 				BBED121E279976D2002A5E9E /* Toast in Frameworks */,
+				BB5B5C9527B2CA3E00BC608A /* RxDataSources in Frameworks */,
 				BBED11FB27986D87002A5E9E /* FirebaseAuth in Frameworks */,
 				50A60C41235F609375BEDB6E /* Pods_ServiceLevelProject.framework in Frameworks */,
 			);
@@ -656,6 +662,7 @@
 			isa = PBXGroup;
 			children = (
 				BB70D03927AD8464006B94EB /* HomeViewModel.swift */,
+				BB2B29F127B2CC17006F7339 /* HomeSearchViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -664,7 +671,7 @@
 			isa = PBXGroup;
 			children = (
 				BBAAA6A1279BFC6700667591 /* HomeViewController.swift */,
-				BB722BB727AD9EBF00317054 /* HobbySetViewController.swift */,
+				BB722BB727AD9EBF00317054 /* HomeSearchViewController.swift */,
 				BB722BB327AD9DEE00317054 /* HobbySearchViewController.swift */,
 			);
 			path = View;
@@ -935,6 +942,7 @@
 				BBED121827996F97002A5E9E /* DefaultButton+Rx.swift */,
 				BB8D1F392799BE6400D111B6 /* AuthTextField+Rx.swift */,
 				BB00E92427A72A300023D4E6 /* SelectionButton+Rx.swift */,
+				BBEACC2927B2C6A90046F64F /* HomeSearchViewController+Rx.swift */,
 			);
 			path = RxExtension;
 			sourceTree = "<group>";
@@ -1023,6 +1031,7 @@
 				BBAAA683279ABFAD00667591 /* Moya */,
 				BB00E91A27A5BCEA0023D4E6 /* DoubleSlider */,
 				BB8F2F3C27B2B81F004D34E9 /* RxKeyboard */,
+				BB5B5C9427B2CA3E00BC608A /* RxDataSources */,
 			);
 			productName = ServiceLevelProject;
 			productReference = BB105D3A27966ABC008264DD /* ServiceLevelProject.app */;
@@ -1104,6 +1113,7 @@
 				BBAAA682279ABFAD00667591 /* XCRemoteSwiftPackageReference "Moya" */,
 				BB00E91927A5BCE90023D4E6 /* XCRemoteSwiftPackageReference "DoubleSlider" */,
 				BB8F2F3B27B2B81F004D34E9 /* XCRemoteSwiftPackageReference "RxKeyboard" */,
+				BB5B5C9327B2CA3E00BC608A /* XCRemoteSwiftPackageReference "RxDataSources" */,
 			);
 			productRefGroup = BB105D3B27966ABC008264DD /* Products */;
 			projectDirPath = "";
@@ -1249,6 +1259,7 @@
 				BBED12252799AAC5002A5E9E /* StopWatchConverterService.swift in Sources */,
 				BB105D7F2796B8BC008264DD /* AppColor.swift in Sources */,
 				BB00E92327A723530023D4E6 /* MyPageEditUseCase.swift in Sources */,
+				BB2B29F227B2CC18006F7339 /* HomeSearchViewModel.swift in Sources */,
 				BBED1202279902ED002A5E9E /* OnBoardingViewController.swift in Sources */,
 				BB00E90F27A583850023D4E6 /* SesacCardView.swift in Sources */,
 				BB105D7C2796B660008264DD /* UIFont.swift in Sources */,
@@ -1286,7 +1297,7 @@
 				BBAAA6BE279C3CFA00667591 /* GenderViewModel.swift in Sources */,
 				BB7A2172279D16BA005FD0A3 /* UserRepositoryType.swift in Sources */,
 				BB00E91D27A679990023D4E6 /* MyCardHeaderView.swift in Sources */,
-				BB722BB827AD9EBF00317054 /* HobbySetViewController.swift in Sources */,
+				BB722BB827AD9EBF00317054 /* HomeSearchViewController.swift in Sources */,
 				BBAAA68E279B07A500667591 /* SLPTarget+StubData.swift in Sources */,
 				BB105D942797AAD1008264DD /* NicknameViewController.swift in Sources */,
 				BB00E90327A558000023D4E6 /* SelectionButton.swift in Sources */,
@@ -1303,6 +1314,7 @@
 				BB722BBA27B00C7E00317054 /* HomeUseCase.swift in Sources */,
 				BB105D812796B9B7008264DD /* UIColor.swift in Sources */,
 				BBE071F927B039BD007947B6 /* Coordinate.swift in Sources */,
+				BBEACC2A27B2C6A90046F64F /* HomeSearchViewController+Rx.swift in Sources */,
 				BBAAA6A9279C124F00667591 /* OnBoardingViewModel.swift in Sources */,
 				BB78E9E027A2AA8500CC3373 /* IndicatorView.swift in Sources */,
 				BBAAA6D3279C481700667591 /* TabBarCoordinator.swift in Sources */,
@@ -1718,6 +1730,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		BB5B5C9327B2CA3E00BC608A /* XCRemoteSwiftPackageReference "RxDataSources" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RxSwiftCommunity/RxDataSources";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 		BB8F2F3B27B2B81F004D34E9 /* XCRemoteSwiftPackageReference "RxKeyboard" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/RxSwiftCommunity/RxKeyboard";
@@ -1770,6 +1790,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = BB105D822796C26C008264DD /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		BB5B5C9427B2CA3E00BC608A /* RxDataSources */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BB5B5C9327B2CA3E00BC608A /* XCRemoteSwiftPackageReference "RxDataSources" */;
+			productName = RxDataSources;
 		};
 		BB8F2F3C27B2B81F004D34E9 /* RxKeyboard */ = {
 			isa = XCSwiftPackageProductDependency;
