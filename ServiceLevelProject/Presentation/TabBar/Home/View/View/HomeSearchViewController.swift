@@ -11,7 +11,7 @@ import RxCocoa
 import RxKeyboard
 import SnapKit
 
-final class HobbySetViewController: UIViewController {
+final class HomeSearchViewController: UIViewController {
 
     private let searchBar = UISearchBar()
     let searchSesacButton = DefaultButton(title: "새싹 찾기")
@@ -21,6 +21,7 @@ final class HobbySetViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         bind()
+        bindUI()
         setViews()
         setConstraints()
         setConfigurations()
@@ -32,6 +33,9 @@ final class HobbySetViewController: UIViewController {
     }
 
     private func bind() {
+    }
+
+    private func bindUI() {
         RxKeyboard.instance.visibleHeight
             .drive(rx.keyboardHeightChanged)
         .disposed(by: disposedBag)
@@ -60,8 +64,8 @@ final class HobbySetViewController: UIViewController {
     }
 }
 
-//MARK: keyboard
-extension HobbySetViewController {
+// MARK: - keyboard
+extension HomeSearchViewController {
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
         self.searchBar.resignFirstResponder()
@@ -85,15 +89,6 @@ extension HobbySetViewController {
                 button.layer.cornerRadius = radius
                 self.view.layoutIfNeeded()
             })
-        }
-    }
-}
-
-extension Reactive where Base: HobbySetViewController {
-
-    var keyboardHeightChanged: Binder<CGFloat> {
-        return Binder(base) { vc, height in
-            vc.raiseKeyboardWithButton(keyboardChangedHeight: height, button: vc.searchSesacButton)
         }
     }
 }
