@@ -136,6 +136,7 @@ final class HomeViewController: UIViewController {
 
     private func setConfigurations() {
         setMapView()
+        navigationItem.backButtonTitle = ""
         myLocationButton.setImage(Asset.location.image, for: .normal)
         myLocationButton.backgroundColor = .white
         myLocationButton.layer.cornerRadius = 8

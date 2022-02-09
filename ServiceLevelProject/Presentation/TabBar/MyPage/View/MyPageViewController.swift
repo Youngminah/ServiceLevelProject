@@ -44,6 +44,7 @@ final class MyPageViewController: UIViewController, UIGestureRecognizerDelegate 
     }
 
     private func setConfigurations() {
+        navigationItem.backButtonTitle = ""
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(MyPageMenuCell.self,
@@ -56,7 +57,6 @@ final class MyPageViewController: UIViewController, UIGestureRecognizerDelegate 
         if #available(iOS 15.0, *) {
             tableView.sectionHeaderTopPadding = 1
         }
-        //tap.delegate = self
     }
 }
 
