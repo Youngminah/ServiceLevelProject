@@ -95,28 +95,33 @@ final class HomeSearchViewController: UIViewController {
 
     private func setConfigurations() {
         view.backgroundColor = .white
+        registerCollectionView()
         searchBar.placeholder = "띄어쓰기로 복수 입력이 가능해요"
+        searchBar.sizeToFit()
+        navigationItem.titleView = searchBar
         searchSesacButton.isValid = true
+    }
+
+    private func registerCollectionView() {
+        collectionView.register(NearHobbyCell.self, forCellWithReuseIdentifier: NearHobbyCell.identifier)
+        collectionView.register(SelectedHobbyCell.self, forCellWithReuseIdentifier: SelectedHobbyCell.identifier)
+        collectionView.rx.setDelegate(self).disposed(by: disposeBag)
     }
 }
 
 extension HomeSearchViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0.0, left: 0.0, bottom: 0.0, right: 0.0)
-    }
 
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 100, height: 40)
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        if collectionView.numberOfItems(inSection: section) == 1 {
+             let flowLayout = collectionViewLayout as! UICollectionViewFlowLayout
+            return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: collectionView.frame.width - flowLayout.itemSize.width)
+        }
+        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     }
 }
 
 // MARK: - keyboard
 extension HomeSearchViewController {
-
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
-        self.view.endEditing(true)
-        self.searchBar.resignFirstResponder()
-    }
 
     func raiseKeyboardWithButton(keyboardChangedHeight: CGFloat, button: DefaultButton) {
         DispatchQueue.main.async { [weak self] in
