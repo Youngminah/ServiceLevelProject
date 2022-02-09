@@ -30,7 +30,7 @@ final class MyPageCoordinator: Coordinator {
                 coordinator: self,
                 myPageEditUseCase: MyPageEditUseCase(
                     userRepository: UserRepository(),
-                    fireBaseRepository: FirbaseRepository(),
+                    fireBaseRepository: FirebaseRepository(),
                     sesacRepository: SesacRepository()
                 )
             )

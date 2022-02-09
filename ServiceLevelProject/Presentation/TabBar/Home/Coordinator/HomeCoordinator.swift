@@ -25,7 +25,7 @@ final class HomeCoordinator: Coordinator {
                 coordinator: self,
                 homeUseCase: HomeUseCase(
                     userRepository: UserRepository(),
-                    fireBaseRepository: FirbaseRepository(),
+                    fireBaseRepository: FirebaseRepository(),
                     sesacRepository: SesacRepository()
                 )
             )
@@ -34,7 +34,16 @@ final class HomeCoordinator: Coordinator {
     }
 
     func showHobbySetViewController() {
-        let vc = HomeSearchViewController()
+        let vc = HomeSearchViewController(
+            viewModel: HomeSearchViewModel(
+                coordinator: self,
+                homeUseCase: HomeUseCase(
+                    userRepository: UserRepository(),
+                    fireBaseRepository: FirebaseRepository(),
+                    sesacRepository: SesacRepository()
+                )
+            )
+        )
         vc.hidesBottomBarWhenPushed = true
         navigationController.setNavigationBarHidden(false, animated: false)
         navigationController.pushViewController(vc, animated: true)

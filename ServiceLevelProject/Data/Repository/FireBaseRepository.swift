@@ -26,7 +26,7 @@ extension FirbaseNetworkServiceError {
     }
 }
 
-final class FirbaseRepository: FirbaseRepositoryType {
+final class FirebaseRepository: FirbaseRepositoryType {
 
     let auth: Auth
 
@@ -36,7 +36,7 @@ final class FirbaseRepository: FirbaseRepositoryType {
     }
 }
 
-extension FirbaseRepository {
+extension FirebaseRepository {
 
     func verifyPhoneNumber(phoneNumber: String, completion: @escaping (Result<String, FirbaseNetworkServiceError>) -> Void) {
         let formatPhoneNumber = "+82" + String(phoneNumber)
