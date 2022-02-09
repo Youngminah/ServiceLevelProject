@@ -9,6 +9,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 import RxDataSources
+import RxGesture
 import RxKeyboard
 import SnapKit
 
@@ -73,6 +74,14 @@ final class HomeSearchViewController: UIViewController {
     private func bindUI() {
         RxKeyboard.instance.visibleHeight
             .drive(rx.keyboardHeightChanged)
+            .disposed(by: disposeBag)
+
+        view.rx
+            .tapGesture()
+            .when(.recognized)
+            .subscribe(onNext: { [weak self] _ in
+                self?.searchBar.resignFirstResponder()
+            })
             .disposed(by: disposeBag)
     }
 
