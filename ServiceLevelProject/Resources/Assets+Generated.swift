@@ -32,6 +32,7 @@ internal enum Asset {
   internal static let sesac3 = ImageAsset(name: "sesac3")
   internal static let sesac4 = ImageAsset(name: "sesac4")
   internal static let sesac5 = ImageAsset(name: "sesac5")
+  internal static let xmark = ImageAsset(name: "xmark")
   internal static let arrowRight = ImageAsset(name: "arrow.right")
   internal static let defaultBackground = ImageAsset(name: "defaultBackground")
   internal static let defaultSesac = ImageAsset(name: "defaultSesac")
