@@ -14,9 +14,10 @@ import SnapKit
 
 final class HomeSearchViewController: UIViewController {
 
-    private let searchBar = UISearchBar()
-    private let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
     let searchSesacButton = DefaultButton(title: "새싹 찾기")
+    private let searchBar = UISearchBar()
+    private let collectionView = UICollectionView(frame: .zero,
+                                                  collectionViewLayout: CollectionViewLeftAlignFlowLayout())
 
     private lazy var input = HomeSearchViewModel.Input(
         viewDidLoad: self.rx.viewWillAppear.asSignal()
@@ -26,16 +27,15 @@ final class HomeSearchViewController: UIViewController {
     private let disposeBag = DisposeBag()
 
     private lazy var dataSource = RxCollectionViewSectionedReloadDataSource<HobbySectionModel> { dataSource, collectionView ,indexPath ,item in
-        print("dataSourcedataSourcedataSourcedataSource")
+
         switch item {
         case .near(let hobby):
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NearHobbyCell.identifier, for: indexPath) as! NearHobbyCell
-            print(hobby)
             cell.updateUI(hobbyInfo: hobby)
             return cell
+
         case .selected(let hobby):
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SelectedHobbyCell.identifier, for: indexPath) as! SelectedHobbyCell
-            print(hobby)
             cell.updateUI(hobbyInfo: hobby)
             return cell
         }
