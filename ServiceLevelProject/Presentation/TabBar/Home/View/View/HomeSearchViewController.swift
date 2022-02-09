@@ -129,32 +129,6 @@ final class HomeSearchViewController: UIViewController {
     }
 }
 
-extension HomeSearchViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
-
-//    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) ->
-//    UICollectionReusableView {
-//        let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: HobbySectionView.identifier, for: indexPath) as! HobbySectionView
-//        headerView.setTitle(text: "안녕하세여")
-//        headerView.backgroundColor = .yellow
-//        return headerView
-//    }
-
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-//        let width: CGFloat = collectionView.frame.width
-//        let height: CGFloat = 70
-//        return CGSize(width: width, height: height)
-//    }
-
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-//        var rightInsets: CGFloat = 0
-//        if collectionView.numberOfItems(inSection: section) == 1 {
-//            let flowLayout = collectionViewLayout as! UICollectionViewFlowLayout
-//            rightInsets = collectionView.frame.width - flowLayout.itemSize.width
-//        }
-//        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-//    }
-}
-
 // MARK: - keyboard
 extension HomeSearchViewController {
 
