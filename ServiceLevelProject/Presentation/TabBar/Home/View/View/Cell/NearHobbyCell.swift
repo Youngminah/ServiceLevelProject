@@ -12,10 +12,12 @@ class NearHobbyCell: UICollectionViewCell {
 
     static let identifier = "NearHobbyCell"
 
-    private let hobbyButton = UIButton()
+    private var hobbyLabel = NearHobbyLabel()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+        setConstraint()
+        hobbyLabel.isFixed = false
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -23,13 +25,14 @@ class NearHobbyCell: UICollectionViewCell {
     }
 
     private func setConstraint() {
-        addSubview(hobbyButton)
-        hobbyButton.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+        contentView.addSubview(hobbyLabel)
+        hobbyLabel.snp.makeConstraints { make in
+            make.top.bottom.left.equalToSuperview()
+            make.right.equalToSuperview().priority(999)
         }
     }
 
     func updateUI(hobbyInfo: Hobby) {
-        hobbyButton.setTitle(hobbyInfo.content, for: .normal)
+        hobbyLabel.text = hobbyInfo.content
     }
 }
