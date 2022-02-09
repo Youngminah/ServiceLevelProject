@@ -10,8 +10,6 @@ import Moya
 import RxCocoa
 import RxSwift
 
-import Toast
-
 final class GenderViewModel: ViewModelType {
 
     private weak var coordinator: AuthCoordinator?
