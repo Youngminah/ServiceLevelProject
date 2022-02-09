@@ -27,7 +27,7 @@ final class HomeSearchViewController: UIViewController {
     private let viewModel: HomeSearchViewModel
     private let disposeBag = DisposeBag()
 
-    private lazy var dataSource = RxCollectionViewSectionedReloadDataSource<HobbySectionModel> { dataSource, collectionView ,indexPath ,item in
+    private lazy var dataSource = RxCollectionViewSectionedReloadDataSource<HobbySectionModel> (configureCell: { dataSource, collectionView ,indexPath ,item in
 
         switch item {
         case .near(let hobby):
@@ -40,6 +40,10 @@ final class HomeSearchViewController: UIViewController {
             cell.updateUI(hobbyInfo: hobby)
             return cell
         }
+    }) { dataSource, collectionView, kind, indexPath in
+        let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: HobbySectionView.identifier, for: indexPath) as! HobbySectionView
+        headerView.setTitle(text: HobbySection(index: indexPath.section).headerTitle)
+        return headerView
     }
 
     init(viewModel: HomeSearchViewModel) {
@@ -92,7 +96,9 @@ final class HomeSearchViewController: UIViewController {
 
     private func setConstraints() {
         collectionView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+            make.left.equalToSuperview().offset(16)
+            make.right.equalToSuperview().offset(-16)
+            make.top.bottom.equalToSuperview()
         }
         searchSesacButton.snp.makeConstraints { make in
             make.right.equalToSuperview().offset(-16)
@@ -112,21 +118,41 @@ final class HomeSearchViewController: UIViewController {
     }
 
     private func registerCollectionView() {
-        collectionView.register(NearHobbyCell.self, forCellWithReuseIdentifier: NearHobbyCell.identifier)
-        collectionView.register(SelectedHobbyCell.self, forCellWithReuseIdentifier: SelectedHobbyCell.identifier)
+        collectionView.register(NearHobbyCell.self,
+                                forCellWithReuseIdentifier: NearHobbyCell.identifier)
+        collectionView.register(SelectedHobbyCell.self,
+                                forCellWithReuseIdentifier: SelectedHobbyCell.identifier)
+        collectionView.register(HobbySectionView.self,
+                                forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+                                withReuseIdentifier: HobbySectionView.identifier)
         collectionView.rx.setDelegate(self).disposed(by: disposeBag)
     }
 }
 
 extension HomeSearchViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        if collectionView.numberOfItems(inSection: section) == 1 {
-             let flowLayout = collectionViewLayout as! UICollectionViewFlowLayout
-            return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: collectionView.frame.width - flowLayout.itemSize.width)
-        }
-        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-    }
+//    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) ->
+//    UICollectionReusableView {
+//        let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: HobbySectionView.identifier, for: indexPath) as! HobbySectionView
+//        headerView.setTitle(text: "안녕하세여")
+//        headerView.backgroundColor = .yellow
+//        return headerView
+//    }
+
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+//        let width: CGFloat = collectionView.frame.width
+//        let height: CGFloat = 70
+//        return CGSize(width: width, height: height)
+//    }
+
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+//        var rightInsets: CGFloat = 0
+//        if collectionView.numberOfItems(inSection: section) == 1 {
+//            let flowLayout = collectionViewLayout as! UICollectionViewFlowLayout
+//            rightInsets = collectionView.frame.width - flowLayout.itemSize.width
+//        }
+//        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+//    }
 }
 
 // MARK: - keyboard
