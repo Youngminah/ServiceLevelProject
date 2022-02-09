@@ -19,6 +19,13 @@ final class DefaultLabel: UILabel {
         self.font = font
     }
 
+    convenience init(font: UIFont, textColor: UIColor = .label) {
+        self.init()
+        self.font = font
+        self.textColor = textColor
+        self.textAlignment = .center
+    }
+
     convenience init(title text: String, font: UIFont, textColor: UIColor = .label) {
         self.init()
         self.text = text
