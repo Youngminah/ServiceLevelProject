@@ -64,6 +64,9 @@
 		BB2B29FC27B2DEC9006F7339 /* NearHobbyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2B29FB27B2DEC9006F7339 /* NearHobbyCell.swift */; };
 		BB2B29FE27B2E257006F7339 /* SelectedHobbyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2B29FD27B2E257006F7339 /* SelectedHobbyCell.swift */; };
 		BB2B2A0027B2F1B6006F7339 /* UIViewController+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2B29FF27B2F1B6006F7339 /* UIViewController+Rx.swift */; };
+		BB2B2A0227B3F1AE006F7339 /* CollectionViewLeftAlignFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2B2A0127B3F1AE006F7339 /* CollectionViewLeftAlignFlowLayout.swift */; };
+		BB2B2A0527B3F550006F7339 /* RxGesture in Frameworks */ = {isa = PBXBuildFile; productRef = BB2B2A0427B3F550006F7339 /* RxGesture */; };
+		BB2B2A0727B3F9C1006F7339 /* NearHobbyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2B2A0627B3F9C1006F7339 /* NearHobbyLabel.swift */; };
 		BB3008D727A31A3E00D32DCA /* MyPageMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3008D627A31A3E00D32DCA /* MyPageMenuCell.swift */; };
 		BB3008D927A31B8300D32DCA /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3008D827A31B8300D32DCA /* BaseTableViewCell.swift */; };
 		BB5B5C9527B2CA3E00BC608A /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = BB5B5C9427B2CA3E00BC608A /* RxDataSources */; };
@@ -229,6 +232,8 @@
 		BB2B29FB27B2DEC9006F7339 /* NearHobbyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearHobbyCell.swift; sourceTree = "<group>"; };
 		BB2B29FD27B2E257006F7339 /* SelectedHobbyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedHobbyCell.swift; sourceTree = "<group>"; };
 		BB2B29FF27B2F1B6006F7339 /* UIViewController+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Rx.swift"; sourceTree = "<group>"; };
+		BB2B2A0127B3F1AE006F7339 /* CollectionViewLeftAlignFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewLeftAlignFlowLayout.swift; sourceTree = "<group>"; };
+		BB2B2A0627B3F9C1006F7339 /* NearHobbyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearHobbyLabel.swift; sourceTree = "<group>"; };
 		BB3008D627A31A3E00D32DCA /* MyPageMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageMenuCell.swift; sourceTree = "<group>"; };
 		BB3008D827A31B8300D32DCA /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		BB6BF5CE27ABF93B00548BD2 /* GenderCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderCase.swift; sourceTree = "<group>"; };
@@ -313,6 +318,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BBED1214279943FF002A5E9E /* RxSwift in Frameworks */,
+				BB2B2A0527B3F550006F7339 /* RxGesture in Frameworks */,
 				BB8F2F3D27B2B81F004D34E9 /* RxKeyboard in Frameworks */,
 				BBED1212279943FF002A5E9E /* RxRelay in Frameworks */,
 				BBAAA684279ABFAD00667591 /* Moya in Frameworks */,
@@ -682,6 +688,8 @@
 				BB70D03027AC2660006B94EB /* GenderFilterView.swift */,
 				BB70D03327AD1973006B94EB /* FilterButton.swift */,
 				BB70D03527AD2A49006B94EB /* MapStatusButton.swift */,
+				BB2B2A0127B3F1AE006F7339 /* CollectionViewLeftAlignFlowLayout.swift */,
+				BB2B2A0627B3F9C1006F7339 /* NearHobbyLabel.swift */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -1063,6 +1071,7 @@
 				BB00E91A27A5BCEA0023D4E6 /* DoubleSlider */,
 				BB8F2F3C27B2B81F004D34E9 /* RxKeyboard */,
 				BB5B5C9427B2CA3E00BC608A /* RxDataSources */,
+				BB2B2A0427B3F550006F7339 /* RxGesture */,
 			);
 			productName = ServiceLevelProject;
 			productReference = BB105D3A27966ABC008264DD /* ServiceLevelProject.app */;
@@ -1145,6 +1154,7 @@
 				BB00E91927A5BCE90023D4E6 /* XCRemoteSwiftPackageReference "DoubleSlider" */,
 				BB8F2F3B27B2B81F004D34E9 /* XCRemoteSwiftPackageReference "RxKeyboard" */,
 				BB5B5C9327B2CA3E00BC608A /* XCRemoteSwiftPackageReference "RxDataSources" */,
+				BB2B2A0327B3F550006F7339 /* XCRemoteSwiftPackageReference "RxGesture" */,
 			);
 			productRefGroup = BB105D3B27966ABC008264DD /* Products */;
 			projectDirPath = "";
@@ -1287,6 +1297,7 @@
 				BB7A2184279DAF3C005FD0A3 /* SesacRepositoryType.swift in Sources */,
 				BB00E8F627A46CDE0023D4E6 /* MyPageEditViewController.swift in Sources */,
 				BBAAA6DE279C598D00667591 /* MyPageCoordinator.swift in Sources */,
+				BB2B2A0727B3F9C1006F7339 /* NearHobbyLabel.swift in Sources */,
 				BBAAA6A2279BFC6700667591 /* HomeViewController.swift in Sources */,
 				BBED12252799AAC5002A5E9E /* StopWatchConverterService.swift in Sources */,
 				BB105D7F2796B8BC008264DD /* AppColor.swift in Sources */,
@@ -1388,6 +1399,7 @@
 				BBAAA68A279AD78000667591 /* APIEnvironment.swift in Sources */,
 				BB1E250E27A1590500A80FC3 /* UserInfo.swift in Sources */,
 				BB105DA22798232D008264DD /* AppAppearance.swift in Sources */,
+				BB2B2A0227B3F1AE006F7339 /* CollectionViewLeftAlignFlowLayout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1766,6 +1778,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		BB2B2A0327B3F550006F7339 /* XCRemoteSwiftPackageReference "RxGesture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RxSwiftCommunity/RxGesture";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
 		BB5B5C9327B2CA3E00BC608A /* XCRemoteSwiftPackageReference "RxDataSources" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/RxSwiftCommunity/RxDataSources";
@@ -1826,6 +1846,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = BB105D822796C26C008264DD /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		BB2B2A0427B3F550006F7339 /* RxGesture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BB2B2A0327B3F550006F7339 /* XCRemoteSwiftPackageReference "RxGesture" */;
+			productName = RxGesture;
 		};
 		BB5B5C9427B2CA3E00BC608A /* RxDataSources */ = {
 			isa = XCSwiftPackageProductDependency;
