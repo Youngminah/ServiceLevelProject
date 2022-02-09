@@ -52,14 +52,11 @@ final class HomeSearchViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        collectionView.register(NearHobbyCell.self, forCellWithReuseIdentifier: NearHobbyCell.identifier)
-        collectionView.register(SelectedHobbyCell.self, forCellWithReuseIdentifier: SelectedHobbyCell.identifier)
-        collectionView.rx.setDelegate(self).disposed(by: disposeBag)
+        setConfigurations()
+        setViews()
         bindUI()
         bind()
-        setViews()
         setConstraints()
-        setConfigurations()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -68,12 +65,9 @@ final class HomeSearchViewController: UIViewController {
     }
 
     private func bind() {
-        print("bind")
         output.hobbyItems
-            .asDriver(onErrorJustReturn: [])
             .drive(collectionView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
-        viewModel.temp()
     }
 
     private func bindUI() {
@@ -83,9 +77,6 @@ final class HomeSearchViewController: UIViewController {
     }
 
     private func setViews() {
-        navigationController?.navigationBar.topItem?.title = ""
-        searchBar.sizeToFit()
-        navigationItem.titleView = searchBar
         view.addSubview(collectionView)
         view.addSubview(searchSesacButton)
     }
