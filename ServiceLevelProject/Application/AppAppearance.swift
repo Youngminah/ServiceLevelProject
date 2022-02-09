@@ -18,7 +18,7 @@ final class AppAppearance {
         
         let backImage = UIImage(named: "backNarrow")
         appearance.setBackIndicatorImage(backImage, transitionMaskImage: backImage)
-        
+        UINavigationBar.appearance().standardAppearance = appearance
         UINavigationBar.appearance().scrollEdgeAppearance = appearance
         UINavigationBar.appearance().tintColor = .label
         UINavigationBar.appearance().barTintColor = .label
