@@ -35,6 +35,8 @@ final class HomeViewModel: ViewModelType {
     private let unAutorizedLocationAlert = PublishRelay<(String, String)>()
     private let onqueueList = PublishRelay<[SesacDB]>()
 
+    private var userCoordinate = Coordinate(latitude: 0.0, longitude: 0.0)
+
     init(coordinator: HomeCoordinator?, homeUseCase: HomeUseCase) {
         self.coordinator = coordinator
         self.homeUseCase = homeUseCase
@@ -62,7 +64,8 @@ final class HomeViewModel: ViewModelType {
 
         input.mapStatusButtonTap
             .emit(onNext: { [weak self] _ in
-                self?.coordinator?.showHobbySetViewController()
+                guard let self = self else { return }
+                self.coordinator?.showHobbySetViewController(coordinate: self.userCoordinate)
             })
             .disposed(by: disposeBag)
 
@@ -109,6 +112,7 @@ extension HomeViewModel {
     }
 
     private func requestOnqueue(coordinate: Coordinate) {
+        self.userCoordinate = coordinate
         self.homeUseCase.requestOnqueue(coordinate: coordinate)
     }
 }
