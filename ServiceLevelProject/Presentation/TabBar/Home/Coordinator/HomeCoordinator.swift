@@ -33,15 +33,16 @@ final class HomeCoordinator: Coordinator {
         navigationController.pushViewController(vc, animated: true)
     }
 
-    func showHobbySetViewController() {
+    func showHobbySetViewController(coordinate: Coordinate) {
         let vc = HomeSearchViewController(
             viewModel: HomeSearchViewModel(
                 coordinator: self,
-                homeUseCase: HomeUseCase(
+                useCase: HomeSearchUseCase(
                     userRepository: UserRepository(),
                     fireBaseRepository: FirebaseRepository(),
                     sesacRepository: SesacRepository()
-                )
+                ),
+                coordinate: coordinate
             )
         )
         vc.hidesBottomBarWhenPushed = true

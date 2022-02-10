@@ -28,6 +28,7 @@
 		BB00E92327A723530023D4E6 /* MyPageEditUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB00E92227A723530023D4E6 /* MyPageEditUseCase.swift */; };
 		BB00E92727A9B65B0023D4E6 /* UserUpdateInfoRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB00E92627A9B65B0023D4E6 /* UserUpdateInfoRequestDTO.swift */; };
 		BB00E92927A9B7C90023D4E6 /* UserUpdateInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB00E92827A9B7C90023D4E6 /* UserUpdateInfo.swift */; };
+		BB09FB1B27B4D2B6008D400A /* HomeSearchUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB09FB1A27B4D2B6008D400A /* HomeSearchUseCase.swift */; };
 		BB105D3E27966ABC008264DD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB105D3D27966ABC008264DD /* AppDelegate.swift */; };
 		BB105D4027966ABC008264DD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB105D3F27966ABC008264DD /* SceneDelegate.swift */; };
 		BB105D4727966ABD008264DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB105D4627966ABD008264DD /* Assets.xcassets */; };
@@ -59,7 +60,6 @@
 		BB1E251E27A198E100A80FC3 /* CoordinatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1E251D27A198E100A80FC3 /* CoordinatorDelegate.swift */; };
 		BB2B29F227B2CC18006F7339 /* HomeSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2B29F127B2CC17006F7339 /* HomeSearchViewModel.swift */; };
 		BB2B29F627B2DB34006F7339 /* HobbySection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2B29F527B2DB34006F7339 /* HobbySection.swift */; };
-		BB2B29F827B2DB46006F7339 /* HobbyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2B29F727B2DB46006F7339 /* HobbyModel.swift */; };
 		BB2B29FA27B2DD52006F7339 /* Hobby.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2B29F927B2DD52006F7339 /* Hobby.swift */; };
 		BB2B29FC27B2DEC9006F7339 /* NearHobbyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2B29FB27B2DEC9006F7339 /* NearHobbyCell.swift */; };
 		BB2B29FE27B2E257006F7339 /* SelectedHobbyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2B29FD27B2E257006F7339 /* SelectedHobbyCell.swift */; };
@@ -68,6 +68,7 @@
 		BB2B2A0527B3F550006F7339 /* RxGesture in Frameworks */ = {isa = PBXBuildFile; productRef = BB2B2A0427B3F550006F7339 /* RxGesture */; };
 		BB2B2A0727B3F9C1006F7339 /* NearHobbyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2B2A0627B3F9C1006F7339 /* NearHobbyLabel.swift */; };
 		BB2B2A0927B40B5A006F7339 /* HobbySectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2B2A0827B40B5A006F7339 /* HobbySectionView.swift */; };
+		BB2B2A0B27B42498006F7339 /* SearchBar+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2B2A0A27B42498006F7339 /* SearchBar+Rx.swift */; };
 		BB3008D727A31A3E00D32DCA /* MyPageMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3008D627A31A3E00D32DCA /* MyPageMenuCell.swift */; };
 		BB3008D927A31B8300D32DCA /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3008D827A31B8300D32DCA /* BaseTableViewCell.swift */; };
 		BB5B5C9527B2CA3E00BC608A /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = BB5B5C9427B2CA3E00BC608A /* RxDataSources */; };
@@ -194,6 +195,7 @@
 		BB00E92227A723530023D4E6 /* MyPageEditUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageEditUseCase.swift; sourceTree = "<group>"; };
 		BB00E92627A9B65B0023D4E6 /* UserUpdateInfoRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserUpdateInfoRequestDTO.swift; sourceTree = "<group>"; };
 		BB00E92827A9B7C90023D4E6 /* UserUpdateInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserUpdateInfo.swift; sourceTree = "<group>"; };
+		BB09FB1A27B4D2B6008D400A /* HomeSearchUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSearchUseCase.swift; sourceTree = "<group>"; };
 		BB105D3A27966ABC008264DD /* ServiceLevelProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ServiceLevelProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB105D3D27966ABC008264DD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BB105D3F27966ABC008264DD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -228,7 +230,6 @@
 		BB1E251D27A198E100A80FC3 /* CoordinatorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorDelegate.swift; sourceTree = "<group>"; };
 		BB2B29F127B2CC17006F7339 /* HomeSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSearchViewModel.swift; sourceTree = "<group>"; };
 		BB2B29F527B2DB34006F7339 /* HobbySection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HobbySection.swift; sourceTree = "<group>"; };
-		BB2B29F727B2DB46006F7339 /* HobbyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HobbyModel.swift; sourceTree = "<group>"; };
 		BB2B29F927B2DD52006F7339 /* Hobby.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hobby.swift; sourceTree = "<group>"; };
 		BB2B29FB27B2DEC9006F7339 /* NearHobbyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearHobbyCell.swift; sourceTree = "<group>"; };
 		BB2B29FD27B2E257006F7339 /* SelectedHobbyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedHobbyCell.swift; sourceTree = "<group>"; };
@@ -236,6 +237,7 @@
 		BB2B2A0127B3F1AE006F7339 /* CollectionViewLeftAlignFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewLeftAlignFlowLayout.swift; sourceTree = "<group>"; };
 		BB2B2A0627B3F9C1006F7339 /* NearHobbyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearHobbyLabel.swift; sourceTree = "<group>"; };
 		BB2B2A0827B40B5A006F7339 /* HobbySectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HobbySectionView.swift; sourceTree = "<group>"; };
+		BB2B2A0A27B42498006F7339 /* SearchBar+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchBar+Rx.swift"; sourceTree = "<group>"; };
 		BB3008D627A31A3E00D32DCA /* MyPageMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageMenuCell.swift; sourceTree = "<group>"; };
 		BB3008D827A31B8300D32DCA /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		BB6BF5CE27ABF93B00548BD2 /* GenderCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderCase.swift; sourceTree = "<group>"; };
@@ -678,7 +680,6 @@
 		BB2B29F427B2DA2E006F7339 /* CollectionView */ = {
 			isa = PBXGroup;
 			children = (
-				BB2B29F727B2DB46006F7339 /* HobbyModel.swift */,
 				BB2B29F527B2DB34006F7339 /* HobbySection.swift */,
 			);
 			path = CollectionView;
@@ -727,6 +728,7 @@
 				BB7A2177279D9BCC005FD0A3 /* GenderUseCase.swift */,
 				BB00E92227A723530023D4E6 /* MyPageEditUseCase.swift */,
 				BB722BB927B00C7E00317054 /* HomeUseCase.swift */,
+				BB09FB1A27B4D2B6008D400A /* HomeSearchUseCase.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -985,6 +987,7 @@
 				BB8D1F392799BE6400D111B6 /* AuthTextField+Rx.swift */,
 				BBEACC2927B2C6A90046F64F /* HomeSearchViewController+Rx.swift */,
 				BB2B29FF27B2F1B6006F7339 /* UIViewController+Rx.swift */,
+				BB2B2A0A27B42498006F7339 /* SearchBar+Rx.swift */,
 			);
 			path = RxExtension;
 			sourceTree = "<group>";
@@ -1307,7 +1310,6 @@
 				BB00E92327A723530023D4E6 /* MyPageEditUseCase.swift in Sources */,
 				BB2B29F227B2CC18006F7339 /* HomeSearchViewModel.swift in Sources */,
 				BBED1202279902ED002A5E9E /* OnBoardingViewController.swift in Sources */,
-				BB2B29F827B2DB46006F7339 /* HobbyModel.swift in Sources */,
 				BB00E90F27A583850023D4E6 /* SesacCardView.swift in Sources */,
 				BB105D7C2796B660008264DD /* UIFont.swift in Sources */,
 				BBE071FD27B03CD3007947B6 /* NearSesacDBInfo.swift in Sources */,
@@ -1346,6 +1348,7 @@
 				BBAAA6BE279C3CFA00667591 /* GenderViewModel.swift in Sources */,
 				BB7A2172279D16BA005FD0A3 /* UserRepositoryType.swift in Sources */,
 				BB00E91D27A679990023D4E6 /* MyCardHeaderView.swift in Sources */,
+				BB2B2A0B27B42498006F7339 /* SearchBar+Rx.swift in Sources */,
 				BB722BB827AD9EBF00317054 /* HomeSearchViewController.swift in Sources */,
 				BBAAA68E279B07A500667591 /* SLPTarget+StubData.swift in Sources */,
 				BB105D942797AAD1008264DD /* NicknameViewController.swift in Sources */,
@@ -1395,6 +1398,7 @@
 				BB00E92127A7058E0023D4E6 /* AlertView.swift in Sources */,
 				BBDDDF8A27A03A9E000FB2C0 /* AuthCoordinator.swift in Sources */,
 				BB105D9C2797FA21008264DD /* GenderButton.swift in Sources */,
+				BB09FB1B27B4D2B6008D400A /* HomeSearchUseCase.swift in Sources */,
 				BB00E91827A5AC600023D4E6 /* AgeRangeView.swift in Sources */,
 				BBAAA690279B0BEB00667591 /* NetworkMonitorService.swift in Sources */,
 				BB2B2A0927B40B5A006F7339 /* HobbySectionView.swift in Sources */,
