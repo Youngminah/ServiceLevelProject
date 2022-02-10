@@ -21,7 +21,9 @@ final class HomeSearchViewController: UIViewController {
                                                   collectionViewLayout: CollectionViewLeftAlignFlowLayout())
 
     private lazy var input = HomeSearchViewModel.Input(
-        viewDidLoad: self.rx.viewWillAppear.asSignal()
+        viewWillAppearSignal: self.rx.viewWillAppear.asSignal(),
+        searhBarTapWithText: searchBar.rx.searhBarTapWithText,
+        itemSelectedSignal: collectionView.rx.modelSelected(HobbyItem.self).asSignal()
     )
     private lazy var output = viewModel.transform(input: input)
     private let viewModel: HomeSearchViewModel
@@ -41,7 +43,10 @@ final class HomeSearchViewController: UIViewController {
             return cell
         }
     }) { dataSource, collectionView, kind, indexPath in
-        let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: HobbySectionView.identifier, for: indexPath) as! HobbySectionView
+        let headerView = collectionView.dequeueReusableSupplementaryView(
+            ofKind: kind, withReuseIdentifier: HobbySectionView.identifier,
+            for: indexPath
+        ) as! HobbySectionView
         headerView.setTitle(text: HobbySection(index: indexPath.section).headerTitle)
         return headerView
     }
@@ -59,7 +64,7 @@ final class HomeSearchViewController: UIViewController {
         super.viewDidLoad()
         setConfigurations()
         setViews()
-        bindUI()
+        bindKeyboard()
         bind()
         setConstraints()
     }
@@ -73,18 +78,22 @@ final class HomeSearchViewController: UIViewController {
         output.hobbyItems
             .drive(collectionView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
-    }
 
-    private func bindUI() {
-        RxKeyboard.instance.visibleHeight
-            .drive(rx.keyboardHeightChanged)
+        output.showToastAction
+            .emit(onNext: { [weak self] text in
+                self?.view.makeToast(text, position: .top)
+            })
             .disposed(by: disposeBag)
 
-        view.rx
-            .tapGesture()
-            .when(.recognized)
-            .subscribe(onNext: { [weak self] _ in
-                self?.searchBar.resignFirstResponder()
+        output.removeSearchBarTextAction
+            .emit(onNext: { [weak self] in
+                self?.searchBar.text = nil
+            })
+            .disposed(by: disposeBag)
+
+        output.indicatorAction
+            .drive(onNext: {
+                $0 ? IndicatorView.shared.show(backgoundColor: Asset.transparent.color) : IndicatorView.shared.hide()
             })
             .disposed(by: disposeBag)
     }
@@ -125,12 +134,31 @@ final class HomeSearchViewController: UIViewController {
         collectionView.register(HobbySectionView.self,
                                 forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
                                 withReuseIdentifier: HobbySectionView.identifier)
-        collectionView.rx.setDelegate(self).disposed(by: disposeBag)
     }
 }
 
 // MARK: - keyboard
 extension HomeSearchViewController {
+
+    private func bindKeyboard() {
+        RxKeyboard.instance.visibleHeight
+            .drive(rx.keyboardHeightChanged)
+            .disposed(by: disposeBag)
+
+        view.rx
+            .tapGesture()
+            .when(.recognized)
+            .do { [weak self] recognize in
+                guard let self = self else { return }
+                if !self.searchBar.isFirstResponder {
+                    recognize.cancelsTouchesInView = false
+                }
+            }
+            .subscribe(onNext: { [weak self] _ in
+                self?.searchBar.resignFirstResponder()
+            })
+            .disposed(by: disposeBag)
+    }
 
     func raiseKeyboardWithButton(keyboardChangedHeight: CGFloat, button: DefaultButton) {
         DispatchQueue.main.async { [weak self] in
