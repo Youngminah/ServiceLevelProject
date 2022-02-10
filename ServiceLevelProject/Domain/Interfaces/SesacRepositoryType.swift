@@ -47,4 +47,12 @@ protocol SesacRepositoryType: AnyObject {
             SesacNetworkServiceError>
         ) -> Void
     )
+
+    func requestHobbys(                          // 주변 취미 정보 API
+        userLocationInfo: Coordinate,
+        completion: @escaping (
+            Result<[Hobby],
+            SesacNetworkServiceError>
+        ) -> Void
+    )
 }

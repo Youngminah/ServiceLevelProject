@@ -7,6 +7,7 @@
 
 import Foundation
 import Moya
+import RxSwift
 
 enum SesacNetworkServiceError: Int, Error {
 
@@ -85,6 +86,19 @@ extension SesacRepository {
             case .success(let response):
                 let data = try? JSONDecoder().decode(OnqueueResponseDTO.self, from: response.data)
                 completion(.success(data!.toDomain()))
+            case .failure(let error):
+                completion(.failure(SesacNetworkServiceError(rawValue: error.response!.statusCode) ?? .unknown))
+            }
+        }
+    }
+
+    func requestHobbys(userLocationInfo: Coordinate, completion: @escaping (Result<[Hobby], SesacNetworkServiceError>) -> Void) {
+        let requestDTO = OnqueueRequestDTO(userLocationInfo: userLocationInfo)
+        provider.request(.searchNearSesac(parameters: requestDTO.toDictionary)) { result in
+            switch result {
+            case .success(let response):
+                let data = try? JSONDecoder().decode(OnqueueResponseDTO.self, from: response.data)
+                completion(.success(data!.toHobbys()))
             case .failure(let error):
                 completion(.failure(SesacNetworkServiceError(rawValue: error.response!.statusCode) ?? .unknown))
             }
