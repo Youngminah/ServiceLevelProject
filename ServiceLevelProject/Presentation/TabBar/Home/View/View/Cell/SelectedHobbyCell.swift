@@ -13,7 +13,7 @@ class SelectedHobbyCell: UICollectionViewCell {
 
     private let borderView = UIView()
     private let hobbyLabel = DefaultLabel(font: .title4R14, textColor: .green)
-    private let cancelButton = UIButton()
+    private let cancelImageView = UIImageView()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -27,13 +27,13 @@ class SelectedHobbyCell: UICollectionViewCell {
 
     private func setConstraint() {
         contentView.addSubview(borderView)
-        borderView.addSubview(cancelButton)
+        borderView.addSubview(cancelImageView)
         borderView.addSubview(hobbyLabel)
         borderView.snp.makeConstraints { make in
             make.top.bottom.left.equalToSuperview()
             make.right.equalToSuperview().priority(999)
         }
-        cancelButton.snp.makeConstraints { make in
+        cancelImageView.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
             make.right.equalToSuperview().offset(-16)
             make.width.height.equalTo(16)
@@ -42,7 +42,7 @@ class SelectedHobbyCell: UICollectionViewCell {
             make.top.equalToSuperview().offset(5)
             make.left.equalToSuperview().offset(16)
             make.bottom.equalToSuperview().offset(-5)
-            make.right.equalTo(cancelButton.snp.left).offset(-6)
+            make.right.equalTo(cancelImageView.snp.left).offset(-6)
         }
     }
 
@@ -50,8 +50,7 @@ class SelectedHobbyCell: UICollectionViewCell {
         borderView.layer.borderWidth = 1
         borderView.layer.borderColor = UIColor.green.cgColor
         borderView.layer.cornerRadius = 8
-        cancelButton.setImage(Asset.xmark.image, for: .normal)
-        cancelButton.tintColor = .green
+        cancelImageView.image = Asset.xmark.image
     }
 
     func updateUI(hobbyInfo: Hobby) {
