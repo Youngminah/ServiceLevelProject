@@ -19,6 +19,9 @@ enum ToastCase: Error {
     case limitEge
     case inValidEmail
     case emptyHobbyText
+    case inValidSelectedHobbyTextCount
+    case limitSelectedHobbyCount
+    case duplicatedSelectedHobby
     case with(messageId: String)
 }
 
@@ -45,6 +48,12 @@ extension ToastCase {
             return "이메일 형식이 올바르지 않습니다."
         case .emptyHobbyText:
             return "취미를 입력해주세요."
+        case .inValidSelectedHobbyTextCount:
+            return "최소 한 자 이상, 최대 8글자까지 작성 가능합니다."
+        case .limitSelectedHobbyCount:
+            return "취미를 더 이상 추가할 수 없습니다."
+        case .duplicatedSelectedHobby:
+            return "이미 등록된 취미입니다."
         case .with(_):
             return "에러가 발생했습니다. 다시 시도해주세요."
         }
