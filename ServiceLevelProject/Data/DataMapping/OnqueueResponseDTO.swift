@@ -41,6 +41,13 @@ extension OnqueueResponseDTO {
             fromRecommend: fromRecommend
         )
     }
+
+    func toHobbys() -> [Hobby] {
+        var queue = [Hobby]()
+        fromQueueDB.forEach { queue += $0.toHobbys() }
+        fromQueueDBRequested.forEach { queue += $0.toHobbys() }
+        return fromRecommend.map { Hobby(content: $0, isRecommended: true) } + queue
+    }
 }
 
 extension QueueDB {
@@ -58,5 +65,9 @@ extension QueueDB {
             sesac: SesacImageCase(value: sesac),
             background: SesacBackgroundCase(value: background)
         )
+    }
+
+    func toHobbys() -> [Hobby] {
+        return hobbys.map { Hobby(content: $0, isRecommended: false) }
     }
 }
