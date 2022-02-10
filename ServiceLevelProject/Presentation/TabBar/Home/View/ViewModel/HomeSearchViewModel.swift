@@ -13,7 +13,8 @@ import RxSwift
 final class HomeSearchViewModel: ViewModelType {
 
     private weak var coordinator: HomeCoordinator?
-    private let homeUseCase: HomeUseCase
+    private let useCase: HomeSearchUseCase
+    private let userCoordinate: Coordinate
 
     struct Input {
 
@@ -33,5 +34,28 @@ final class HomeSearchViewModel: ViewModelType {
         return Output(
 
         )
+    }
+}
+
+extension HomeSearchViewModel {
+
+    private func validationSearchText(text: String) -> (Bool, String) {
+        return (text.count <= 8, text)
+    }
+
+    private func addSelectedItem(selectedItem: HobbyItem) {
+        var items = self.hobbyItems.value
+        if items[1].items.count >= 8 {
+            self.showToastAction.accept(ToastCase.limitSelectedHobbyCount.errorDescription)
+        } else if items[1].items.contains(selectedItem) {
+            self.showToastAction.accept(ToastCase.duplicatedSelectedHobby.errorDescription)
+        } else {
+            items[1].items.append(selectedItem)
+            self.hobbyItems.accept(items)
+        }
+    }
+
+    private func requestOnqueue(coordinate: Coordinate) {
+        self.useCase.requestOnqueue(coordinate: coordinate)
     }
 }
