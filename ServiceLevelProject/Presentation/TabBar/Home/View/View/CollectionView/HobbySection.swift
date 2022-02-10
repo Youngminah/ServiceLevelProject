@@ -7,8 +7,6 @@
 
 import RxDataSources
 
-//typealias HobbySection = SectionModel<String, Hobby>
-
 typealias HobbySectionModel = SectionModel<HobbySection, HobbyItem>
 
 enum HobbySection: Int, Equatable {
@@ -35,4 +33,13 @@ enum HobbySection: Int, Equatable {
 enum HobbyItem: Equatable {
     case near(Hobby)
     case selected(Hobby)
+
+    var hobby: Hobby {
+        switch self {
+        case .near(let hobby):
+            return hobby
+        case .selected(let hobby):
+            return hobby
+        }
+    }
 }
