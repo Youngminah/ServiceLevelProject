@@ -30,7 +30,7 @@ final class MyPageEditViewController: UIViewController {
     )
     private lazy var output = viewModel.transform(input: input)
     private let viewModel: MyPageEditViewModel
-    private let disposdBag = DisposeBag()
+    private let disposeBag = DisposeBag()
 
     private let requestWithdrawSignal = PublishRelay<Void>()
     private let requestUpdateSignal = PublishRelay<UpdateUserInfo>()
@@ -63,7 +63,7 @@ final class MyPageEditViewController: UIViewController {
                 self.footerView.setUserInfo(info: updateFooterInfo)
                 self.tableView.reloadData()
             })
-            .disposed(by: disposdBag)
+            .disposed(by: disposeBag)
 
         output.showAlertAction
             .emit(onNext: {
@@ -76,19 +76,19 @@ final class MyPageEditViewController: UIViewController {
                     }
                 alert.showAlert()
             })
-            .disposed(by: disposdBag)
+            .disposed(by: disposeBag)
         
         output.indicatorAction
             .drive(onNext: {
                 $0 ? IndicatorView.shared.show(backgoundColor: Asset.transparent.color) : IndicatorView.shared.hide()
             })
-            .disposed(by: disposdBag)
+            .disposed(by: disposeBag)
 
         output.showToastAction
             .emit(onNext: { [unowned self] text in
                 self.view.makeToast(text, position: .top)
             })
-            .disposed(by: disposdBag)
+            .disposed(by: disposeBag)
     }
 
     @objc
