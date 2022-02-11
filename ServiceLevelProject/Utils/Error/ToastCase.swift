@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum ToastCase: Error {
+enum ToastCase {
 
     case inValidPhoneNumberFormat
     case inValidCertificationNumberFormat
@@ -22,11 +22,12 @@ enum ToastCase: Error {
     case inValidSelectedHobbyTextCount
     case limitSelectedHobbyCount
     case duplicatedSelectedHobby
+    case unSelectedGender
     case with(messageId: String)
 }
 
 extension ToastCase {
-    var errorDescription: String {
+    var description: String {
         switch self {
         case .inValidPhoneNumberFormat:
             return "잘못된 전화번호 형식입니다."
@@ -54,6 +55,8 @@ extension ToastCase {
             return "취미를 더 이상 추가할 수 없습니다."
         case .duplicatedSelectedHobby:
             return "이미 등록된 취미입니다."
+        case .unSelectedGender:
+            return "새싹 찾기 기능을 이용하기 위해서는 성별이 필요해요!"
         case .with(_):
             return "에러가 발생했습니다. 다시 시도해주세요."
         }

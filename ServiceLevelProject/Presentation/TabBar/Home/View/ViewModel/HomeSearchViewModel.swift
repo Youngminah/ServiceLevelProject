@@ -60,7 +60,7 @@ final class HomeSearchViewModel: ViewModelType {
                     let selectedItem = HobbyItem.selected(HomeSearchItemViewModel(content: text))
                     self.addSelectedItem(selectedItem: selectedItem)
                 } else {
-                    self.showToastAction.accept(ToastCase.inValidSelectedHobbyTextCount.errorDescription)
+                    self.showToastAction.accept(ToastCase.inValidSelectedHobbyTextCount.description)
                 }
             })
             .disposed(by: disposeBag)
@@ -141,9 +141,9 @@ extension HomeSearchViewModel {
     private func addSelectedItem(selectedItem: HobbyItem) {
         var items = self.hobbyItems.value
         if items[1].items.count >= 8 {
-            self.showToastAction.accept(ToastCase.limitSelectedHobbyCount.errorDescription)
+            self.showToastAction.accept(ToastCase.limitSelectedHobbyCount.description)
         } else if items[1].items.contains(selectedItem) {
-            self.showToastAction.accept(ToastCase.duplicatedSelectedHobby.errorDescription)
+            self.showToastAction.accept(ToastCase.duplicatedSelectedHobby.description)
         } else {
             items[1].items.append(selectedItem)
             self.hobbyItems.accept(items)

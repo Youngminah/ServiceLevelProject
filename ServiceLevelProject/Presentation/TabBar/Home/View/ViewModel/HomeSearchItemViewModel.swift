@@ -67,5 +67,3 @@ enum HobbyItem: Equatable {
         }
     }
 }
-
-

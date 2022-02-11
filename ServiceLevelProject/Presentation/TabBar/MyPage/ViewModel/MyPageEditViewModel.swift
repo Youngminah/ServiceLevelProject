@@ -66,7 +66,7 @@ final class MyPageEditViewModel: ViewModelType {
             .emit(onNext: { [weak self] info in
                 guard let self = self else { return }
                 if let text = info.4 , text == "" {
-                    self.showToastAction.accept(ToastCase.emptyHobbyText.errorDescription)
+                    self.showToastAction.accept(ToastCase.emptyHobbyText.description)
                 } else {
                     self.indicatorAction.accept(true)
                     self.requestUpdate(updateUserInfo: info)

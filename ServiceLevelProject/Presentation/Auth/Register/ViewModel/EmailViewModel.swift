@@ -48,7 +48,7 @@ final class EmailViewModel: ViewModelType {
                     self.saveEmailInfo(email: text)
                     self.coordinator?.showGenderViewController()
                 } else {
-                    self.showToastAction.accept(ToastCase.inValidEmail.errorDescription)
+                    self.showToastAction.accept(ToastCase.inValidEmail.description)
                 }
             })
             .disposed(by: disposeBag)
