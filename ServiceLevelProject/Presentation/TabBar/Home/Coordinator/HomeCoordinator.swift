@@ -49,4 +49,20 @@ final class HomeCoordinator: Coordinator {
         navigationController.setNavigationBarHidden(false, animated: false)
         navigationController.pushViewController(vc, animated: true)
     }
+
+    func showHobbySearchViewController(coordinate: Coordinate) {
+        let vc = HobbySearchViewController(
+            viewModel: HobbySearchViewModel(
+                coordinator: self,
+                useCase: HobbySearchUseCase(
+                    userRepository: UserRepository(),
+                    fireBaseRepository: FirebaseRepository(),
+                    sesacRepository: SesacRepository()
+                ),
+                coordinate: coordinate
+            )
+        )
+        vc.title = "새싹 찾기"
+        navigationController.pushViewController(vc, animated: true)
+    }
 }
