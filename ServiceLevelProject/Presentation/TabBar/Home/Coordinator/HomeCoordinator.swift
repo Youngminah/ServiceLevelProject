@@ -65,4 +65,9 @@ final class HomeCoordinator: Coordinator {
         vc.title = "새싹 찾기"
         navigationController.pushViewController(vc, animated: true)
     }
+
+    func changeTabToMyPageViewController(message: String) {
+        navigationController.tabBarController?.selectedIndex = 3
+        navigationController.tabBarController?.view.makeToast(message, position: .top)
+    }
 }

@@ -81,6 +81,7 @@ final class MyPageEditUseCase {
             guard let self = self else { return }
             switch response {
             case .success(_):
+                self.saveGenderInfo(gender: updateUserInfo.3)
                 self.successUpdateSignal.accept(())
             case .failure(let error):
                 print(error.description)
@@ -111,6 +112,10 @@ final class MyPageEditUseCase {
                 self.unKnownErrorSignal.accept(())
             }
         }
+    }
+
+    private func saveGenderInfo(gender: GenderCase) {
+        self.userRepository.saveGenderInfo(gender: gender)
     }
 
     private func saveIdTokenInfo(idToken: String) {

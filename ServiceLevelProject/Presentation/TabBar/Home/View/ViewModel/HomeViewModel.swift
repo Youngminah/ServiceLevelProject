@@ -34,6 +34,7 @@ final class HomeViewModel: ViewModelType {
     private let unAutorizedLocationAlert = PublishRelay<(String, String)>()
     private let onqueueList = PublishRelay<[SesacDB]>()
 
+    private let isAutorizedLocation = BehaviorRelay<Bool>(value: false)
     private var userCoordinate = Coordinate(latitude: 0.0, longitude: 0.0)
 
     init(coordinator: HomeCoordinator?, homeUseCase: HomeUseCase) {
@@ -61,10 +62,22 @@ final class HomeViewModel: ViewModelType {
             })
             .disposed(by: disposeBag)
 
-        input.mapStatusButtonTap
-            .emit(onNext: { [weak self] _ in
+        input.isAutorizedLocation
+            .emit(to: isAutorizedLocation)
+            .disposed(by: disposeBag)
+
+        input.mapStatusButtonTap.withLatestFrom(isAutorizedLocation.asSignal(onErrorJustReturn: false))
+            .emit(onNext: { [weak self] isEnable in
                 guard let self = self else { return }
-                self.coordinator?.showHomeSearchViewController(coordinate: self.userCoordinate)
+                if isEnable {
+                    if self.homeUseCase.fetchGender() == .total {
+                        self.coordinator?.changeTabToMyPageViewController(message: ToastCase.unSelectedGender.description)
+                    } else {
+                        self.coordinator?.showHomeSearchViewController(coordinate: self.userCoordinate)
+                    }
+                } else {
+                    self.unAutorizedLocationAlert.accept(("위치 서비스 사용 불가", "아이폰 설정으로 이동합니다."))
+                }
             })
             .disposed(by: disposeBag)
 

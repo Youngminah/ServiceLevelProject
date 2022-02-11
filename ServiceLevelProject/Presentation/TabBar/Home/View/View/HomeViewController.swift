@@ -154,6 +154,7 @@ final class HomeViewController: UIViewController {
     private func updateMyLocation() {
         let authorization = self.locationManager.authorizationStatus
         if authorization == .authorizedAlways || authorization == .authorizedWhenInUse {
+            self.isAutorizedLocation.accept(true)
             locationManager.startUpdatingLocation()
         } 
     }

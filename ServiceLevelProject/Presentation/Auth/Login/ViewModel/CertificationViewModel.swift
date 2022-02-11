@@ -56,7 +56,7 @@ final class CertificationViewModel: ViewModelType {
                     self.indicatorAction.accept(true)
                     self.requestSignIn(certificationNumber: certificationNumber)
                 } else {
-                    self.showToastAction.accept(ToastCase.inValidCertificationNumberFormat.errorDescription)
+                    self.showToastAction.accept(ToastCase.inValidCertificationNumberFormat.description)
                 }
             })
             .disposed(by: disposeBag)
@@ -81,7 +81,7 @@ final class CertificationViewModel: ViewModelType {
         input.didLimitTime
             .emit(onNext: { [weak self] text in
                 guard let self = self else { return }
-                self.showToastAction.accept(ToastCase.timeOut.errorDescription)
+                self.showToastAction.accept(ToastCase.timeOut.description)
             })
             .disposed(by: disposeBag)
 

@@ -132,7 +132,7 @@ final class LoginViewController: UIViewController {
         let phoneNumber = (phoneNumberTextField.text?.removeHipon())!
         if !phoneNumber.isValidPhoneNumber() {
             self.makeToastStyle()
-            self.view.makeToast(ToastCase.inValidPhoneNumberFormat.errorDescription,
+            self.view.makeToast(ToastCase.inValidPhoneNumberFormat.description,
                                 position: .top)
             return
         }

@@ -47,6 +47,10 @@ final class HomeUseCase {
         }
     }
 
+    func fetchGender() -> GenderCase {
+        return self.userRepository.fetchGender()!
+    }
+
     private func requestIDToken(completion: @escaping () -> Void) {
         fireBaseRepository.requestIdtoken { [weak self] response in
             guard let self = self else { return }

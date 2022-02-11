@@ -65,17 +65,17 @@ final class MyGenderView: UIView {
     }
 
     private func setConstraints() {
-        addSubview(manButton)
         addSubview(womanButton)
+        addSubview(manButton)
         addSubview(titleLabel)
-        manButton.snp.makeConstraints { make in
+        womanButton.snp.makeConstraints { make in
             make.centerY.right.equalToSuperview()
             make.width.equalTo(56)
             make.height.equalTo(48)
         }
-        womanButton.snp.makeConstraints { make in
+        manButton.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
-            make.right.equalTo(manButton.snp.left).offset(-8)
+            make.right.equalTo(womanButton.snp.left).offset(-8)
             make.width.equalTo(56)
             make.height.equalTo(48)
         }
