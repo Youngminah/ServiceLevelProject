@@ -15,7 +15,9 @@ final class HomeSearchUseCase {
     private let fireBaseRepository: FirbaseRepositoryType
     private let sesacRepository: SesacRepositoryType
 
-    var successOnqueueSignal = PublishRelay<[Hobby]>()
+    //var successOnqueueSignal = PublishRelay<[Hobby]>()
+    var successOnqueueSignal = PublishRelay<Onqueue>()
+    var successSearchSesac = PublishRelay<Void>()
     var unKnownErrorSignal = PublishRelay<Void>()
 
     init(
@@ -29,16 +31,54 @@ final class HomeSearchUseCase {
     }
 
     func requestOnqueue(coordinate: Coordinate) {
-        self.sesacRepository.requestHobbys(userLocationInfo: coordinate) { [weak self] response in
+        self.sesacRepository.requestOnqueue(userLocationInfo: coordinate) { [weak self] response in
             guard let self = self else { return }
             switch response {
-            case .success(let hobbys):
-                self.successOnqueueSignal.accept(hobbys)
+            case .success(let onqueue):
+                self.successOnqueueSignal.accept(onqueue)
             case .failure(let error):
                 switch error {
                 case .inValidIDTokenError:
                     self.requestIDToken {
                         self.requestOnqueue(coordinate: coordinate)
+                    }
+                default:
+                    self.unKnownErrorSignal.accept(())
+                }
+            }
+        }
+//        self.sesacRepository.requestHobbys(userLocationInfo: coordinate) { [weak self] response in
+//            guard let self = self else { return }
+//            switch response {
+//            case .success(let hobbys):
+//                self.successOnqueueSignal.accept(hobbys)
+//            case .failure(let error):
+//                switch error {
+//                case .inValidIDTokenError:
+//                    self.requestIDToken {
+//                        self.requestOnqueue(coordinate: coordinate)
+//                    }
+//                default:
+//                    self.unKnownErrorSignal.accept(())
+//                }
+//            }
+//        }
+    }
+
+    func requestSearchSesac(coordinate: Coordinate, hobbys: [String]) {
+        let gender = fetchGender()
+        let searchSesacQuery = SearchSesacQuery(type: gender, coordinate: coordinate, hobbys: hobbys)
+        self.sesacRepository.requestSearchSesac(searchSesacQuery: searchSesacQuery) { [weak self] response in
+            guard let self = self else { return }
+            switch response {
+            case .success(let code):
+                print("새싹 찾기 성공-->", code)
+                self.successSearchSesac.accept(())
+            case .failure(let error):
+                switch error {
+                case .inValidIDTokenError:
+                    self.requestIDToken {
+                        self.requestSearchSesac(coordinate: coordinate, hobbys: hobbys)
                     }
                 default:
                     self.unKnownErrorSignal.accept(())
@@ -69,5 +109,9 @@ final class HomeSearchUseCase {
 
     private func logoutUserInfo() {
         self.userRepository.logoutUserInfo()
+    }
+
+    private func fetchGender() -> GenderCase {
+        return self.userRepository.fetchGender() ?? .man
     }
 }
