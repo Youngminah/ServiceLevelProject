@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import Moya
 import RxCocoa
 import RxSwift
 
@@ -20,6 +19,7 @@ final class HomeSearchViewModel: ViewModelType {
         let viewWillAppearSignal: Signal<Void>
         let searhBarTapWithText: Signal<String>
         let itemSelectedSignal: Signal<HobbyItem>
+        let sesacSearchButtonTap: Signal<Void>
     }
     struct Output {
         let hobbyItems: Driver<[HobbySectionModel]>
@@ -83,16 +83,34 @@ final class HomeSearchViewModel: ViewModelType {
             })
             .disposed(by: disposeBag)
 
+        input.sesacSearchButtonTap
+            .emit(onNext: { [weak self] in
+                guard let self = self else { return }
+                let items = self.mySelectedItems()
+                let hobbys = items.isEmpty ? ["Anything"] : items.map { $0.content }
+                self.requestSearchSesac(coordinate: self.userCoordinate, hobbys: hobbys)
+            })
+            .disposed(by: disposeBag)
+
         useCase.successOnqueueSignal
             .asSignal()
-            .emit(onNext: { [weak self] response in
+            .emit(onNext: { [weak self] onqueue in
                 guard let self = self else { return }
-                let section = response.map { HobbyItem.near($0) }
+                let queue = self.makeHomeSearchItemViewModel(onqueue: onqueue)
+                let section = queue.map { HobbyItem.near($0) }
                 let sections = [
                     HobbySectionModel(model: .near, items: section),
                     HobbySectionModel(model: .selected, items: [])
                 ]
                 self.hobbyItems.accept(sections)
+            })
+            .disposed(by: disposeBag)
+
+        useCase.successSearchSesac
+            .asSignal()
+            .emit(onNext: { [weak self] in
+                guard let self = self else { return }
+                self.coordinator?.showHobbySearchViewController(coordinate: self.userCoordinate)
             })
             .disposed(by: disposeBag)
 
@@ -132,7 +150,27 @@ extension HomeSearchViewModel {
         }
     }
 
+    private func mySelectedItems() -> [HomeSearchItemViewModel] {
+        return self.hobbyItems.value[1].items.map { $0.hobby }
+    }
+
+    private func makeHomeSearchItemViewModel(onqueue: Onqueue) -> [HomeSearchItemViewModel] {
+        var queue = [HomeSearchItemViewModel]()
+        onqueue.fromRecommend.forEach { queue.append(HomeSearchItemViewModel(content: $0, isRecommended: true)) }
+        onqueue.fromSesacDB.forEach { sesac in
+            queue += sesac.hobbys.map { HomeSearchItemViewModel(content: $0) }
+        }
+        onqueue.fromSesacDBRequested.forEach { sesac in
+            queue += sesac.hobbys.map { HomeSearchItemViewModel(content: $0) }
+        }
+        return queue
+    }
+
     private func requestOnqueue(coordinate: Coordinate) {
         self.useCase.requestOnqueue(coordinate: coordinate)
+    }
+
+    private func requestSearchSesac(coordinate: Coordinate, hobbys: [String]) {
+        self.useCase.requestSearchSesac(coordinate: coordinate, hobbys: hobbys)
     }
 }
