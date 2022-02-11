@@ -28,7 +28,7 @@ struct UserRegisterInfoRequestDTO: Codable {
     let email: String
     let gender: Int
 
-    init(userRegisterInfo: UserRegisterInfo) {
+    init(userRegisterInfo: UserRegisterQuery) {
         self.phoneNumber = transformPhoneNumber(phoneNumber: userRegisterInfo.phoneNumber)
         self.FCMtoken = userRegisterInfo.FCMtoken
         self.nick = userRegisterInfo.nick

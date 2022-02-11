@@ -18,7 +18,7 @@ protocol SesacRepositoryType: AnyObject {
     )
 
     func requestRegister(                      // 회원가입 API
-        userRegisterInfo: UserRegisterInfo,
+        userRegisterInfo: UserRegisterQuery,
         completion: @escaping (
             Result< Int,
             SesacNetworkServiceError>
@@ -33,7 +33,7 @@ protocol SesacRepositoryType: AnyObject {
     )
 
     func requestUpdateUserInfo(                 // 유저정보 업데이트 API
-        userUpdateInfo: UserUpdateInfo,
+        userUpdateInfo: UserUpdateQuery,
         completion: @escaping (
             Result< Int,
             SesacNetworkServiceError>
@@ -43,15 +43,23 @@ protocol SesacRepositoryType: AnyObject {
     func requestOnqueue(                        // 주변 새싹 위치 정보 API
         userLocationInfo: Coordinate,
         completion: @escaping (
-            Result< NearSesacDBInfo,
+            Result< Onqueue,
             SesacNetworkServiceError>
         ) -> Void
     )
 
-    func requestHobbys(                          // 주변 취미 정보 API
-        userLocationInfo: Coordinate,
+//    func requestHobbys(                          // 주변 취미 정보 API
+//        userLocationInfo: Coordinate,
+//        completion: @escaping (
+//            Result< [Hobby],
+//            SesacNetworkServiceError>
+//        ) -> Void
+//    )
+
+    func requestSearchSesac(                     // 새싹 찾기 요청 API
+        searchSesacQuery: SearchSesacQuery,
         completion: @escaping (
-            Result<[Hobby],
+            Result< Int,
             SesacNetworkServiceError>
         ) -> Void
     )

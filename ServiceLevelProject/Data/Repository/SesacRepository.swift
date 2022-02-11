@@ -59,14 +59,14 @@ extension SesacRepository {
         }
     }
 
-    func requestRegister(userRegisterInfo: UserRegisterInfo, completion: @escaping (Result<Int, SesacNetworkServiceError>) -> Void ) {
+    func requestRegister(userRegisterInfo: UserRegisterQuery, completion: @escaping (Result<Int, SesacNetworkServiceError>) -> Void ) {
         let requestDTO = UserRegisterInfoRequestDTO(userRegisterInfo: userRegisterInfo)
         provider.request(.register(parameters: requestDTO.toDictionary)) { result in
             self.process(result: result, completion: completion)
         }
     }
 
-    func requestUpdateUserInfo(userUpdateInfo: UserUpdateInfo, completion: @escaping (Result<Int, SesacNetworkServiceError>) -> Void ) {
+    func requestUpdateUserInfo(userUpdateInfo: UserUpdateQuery, completion: @escaping (Result<Int, SesacNetworkServiceError>) -> Void ) {
         let requestDTO = UserUpdateInfoRequestDTO(userUpdateInfo: userUpdateInfo)
         provider.request(.updateMyPage(parameters: requestDTO.toDictionary)) { result in
             self.process(result: result, completion: completion)
@@ -79,7 +79,7 @@ extension SesacRepository {
         }
     }
 
-    func requestOnqueue(userLocationInfo: Coordinate, completion: @escaping (Result<NearSesacDBInfo, SesacNetworkServiceError>) -> Void ) {
+    func requestOnqueue(userLocationInfo: Coordinate, completion: @escaping (Result<Onqueue, SesacNetworkServiceError>) -> Void ) {
         let requestDTO = OnqueueRequestDTO(userLocationInfo: userLocationInfo)
         provider.request(.searchNearSesac(parameters: requestDTO.toDictionary)) { result in
             switch result {
@@ -92,18 +92,25 @@ extension SesacRepository {
         }
     }
 
-    func requestHobbys(userLocationInfo: Coordinate, completion: @escaping (Result<[Hobby], SesacNetworkServiceError>) -> Void) {
-        let requestDTO = OnqueueRequestDTO(userLocationInfo: userLocationInfo)
+    func requestSearchSesac(searchSesacQuery: SearchSesacQuery, completion: @escaping (Result<Int, SesacNetworkServiceError>) -> Void ) {
+        let requestDTO = SearchSesacRequestDTO(searchSesac: searchSesacQuery)
         provider.request(.searchNearSesac(parameters: requestDTO.toDictionary)) { result in
-            switch result {
-            case .success(let response):
-                let data = try? JSONDecoder().decode(OnqueueResponseDTO.self, from: response.data)
-                completion(.success(data!.toHobbys()))
-            case .failure(let error):
-                completion(.failure(SesacNetworkServiceError(rawValue: error.response!.statusCode) ?? .unknown))
-            }
+            self.process(result: result, completion: completion)
         }
     }
+
+//    func requestHobbys(userLocationInfo: Coordinate, completion: @escaping (Result<[Hobby], SesacNetworkServiceError>) -> Void) {
+//        let requestDTO = OnqueueRequestDTO(userLocationInfo: userLocationInfo)
+//        provider.request(.searchNearSesac(parameters: requestDTO.toDictionary)) { result in
+//            switch result {
+//            case .success(let response):
+//                let data = try? JSONDecoder().decode(OnqueueResponseDTO.self, from: response.data)
+//                completion(.success(data!.toHobbys()))
+//            case .failure(let error):
+//                completion(.failure(SesacNetworkServiceError(rawValue: error.response!.statusCode) ?? .unknown))
+//            }
+//        }
+//    }
 }
 
 extension SesacRepository {

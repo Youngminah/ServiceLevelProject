@@ -33,7 +33,7 @@ final class HomeCoordinator: Coordinator {
         navigationController.pushViewController(vc, animated: true)
     }
 
-    func showHobbySetViewController(coordinate: Coordinate) {
+    func showHomeSearchViewController(coordinate: Coordinate) {
         let vc = HomeSearchViewController(
             viewModel: HomeSearchViewModel(
                 coordinator: self,

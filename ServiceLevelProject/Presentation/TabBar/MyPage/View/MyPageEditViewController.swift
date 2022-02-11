@@ -19,7 +19,6 @@ final class MyPageEditViewController: UIViewController {
                                                  style: .plain,
                                                  target: self,
                                                  action: #selector(saveBarButtonTap))
-
     private var isToggle: Bool = true
 
     private lazy var input = MyPageEditViewModel.Input(

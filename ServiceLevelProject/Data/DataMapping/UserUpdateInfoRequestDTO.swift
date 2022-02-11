@@ -26,7 +26,7 @@ struct UserUpdateInfoRequestDTO: Codable {
     let gender: Int
     let hobby: String
 
-    init(userUpdateInfo: UserUpdateInfo) {
+    init(userUpdateInfo: UserUpdateQuery) {
         self.searchable = userUpdateInfo.searchable ? 1 : 0
         self.ageMin = userUpdateInfo.ageMin
         self.ageMax = userUpdateInfo.ageMax

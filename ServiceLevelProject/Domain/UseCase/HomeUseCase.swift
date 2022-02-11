@@ -15,7 +15,7 @@ final class HomeUseCase {
     private let fireBaseRepository: FirbaseRepositoryType
     private let sesacRepository: SesacRepositoryType
 
-    var successOnqueueSignal = PublishRelay<NearSesacDBInfo>()
+    var successOnqueueSignal = PublishRelay<Onqueue>()
     var unKnownErrorSignal = PublishRelay<Void>()
 
     init(

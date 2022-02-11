@@ -39,10 +39,10 @@ final class GenderUseCase {
         }
     }
 
-    private func makeUserRegisterInfo() -> UserRegisterInfo {
+    private func makeUserRegisterInfo() -> UserRegisterQuery {
         let fcmToken = fetchFCMToken()
         let (nickName, birth, email, gender) = fetchUserInfo()
-        let userRegisterInfo = UserRegisterInfo(
+        let userRegisterInfo = UserRegisterQuery(
             phoneNumber: fetchPhoneNumber(),
             FCMtoken: fcmToken,
             nick: nickName,

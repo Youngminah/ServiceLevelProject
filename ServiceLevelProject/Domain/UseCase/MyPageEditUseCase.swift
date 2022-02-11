@@ -76,7 +76,7 @@ final class MyPageEditUseCase {
     }
 
     func requestUpdateUserInfo(updateUserInfo: UpdateUserInfo) {
-        let info = UserUpdateInfo(searchable: updateUserInfo.0, ageMin: updateUserInfo.1, ageMax: updateUserInfo.2, gender: updateUserInfo.3, hobby: updateUserInfo.4!)
+        let info = UserUpdateQuery(searchable: updateUserInfo.0, ageMin: updateUserInfo.1, ageMax: updateUserInfo.2, gender: updateUserInfo.3, hobby: updateUserInfo.4!)
         sesacRepository.requestUpdateUserInfo(userUpdateInfo: info) { [weak self] response in
             guard let self = self else { return }
             switch response {

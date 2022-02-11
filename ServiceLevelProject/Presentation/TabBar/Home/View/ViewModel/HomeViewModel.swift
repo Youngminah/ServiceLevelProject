@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import Moya
 import RxCocoa
 import RxSwift
 
@@ -65,7 +64,7 @@ final class HomeViewModel: ViewModelType {
         input.mapStatusButtonTap
             .emit(onNext: { [weak self] _ in
                 guard let self = self else { return }
-                self.coordinator?.showHobbySetViewController(coordinate: self.userCoordinate)
+                self.coordinator?.showHomeSearchViewController(coordinate: self.userCoordinate)
             })
             .disposed(by: disposeBag)
 
@@ -100,7 +99,7 @@ final class HomeViewModel: ViewModelType {
 
 extension HomeViewModel {
 
-    private func filterSesacDB(nearSesacDB: NearSesacDBInfo, gender: GenderCase) -> [SesacDB] {
+    private func filterSesacDB(nearSesacDB: Onqueue, gender: GenderCase) -> [SesacDB] {
         switch gender {
         case .total:
             return nearSesacDB.fromSesacDB + nearSesacDB.fromSesacDBRequested
