@@ -11,11 +11,11 @@ struct SearchSesacRequestDTO: Codable {
 
     var toDictionary: [String: Any] {
         let dict: [String: Any] = [
-            "type": type,
+            "type": 2,
             "region": region,
             "lat": lat,
             "long": long,
-            "hobbys": hobbys as NSArray
+            "hf": hobbys
         ]
         return dict
     }
@@ -29,12 +29,13 @@ struct SearchSesacRequestDTO: Codable {
     let type: Int
     let long: Double
     let lat: Double
-    let hobbys: [String]
+    let hobbys: Data
 
     init(searchSesac: SearchSesacQuery) {
         self.type = searchSesac.type.value
         self.long = searchSesac.coordinate.longitude
         self.lat = searchSesac.coordinate.latitude
-        self.hobbys = searchSesac.hobbys
+        let hobby = try? JSONSerialization.data(withJSONObject: searchSesac.hobbys)
+        self.hobbys = hobby!
     }
 }

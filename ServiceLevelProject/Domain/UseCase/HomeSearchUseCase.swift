@@ -55,10 +55,10 @@ final class HomeSearchUseCase {
         self.sesacRepository.requestSearchSesac(searchSesacQuery: searchSesacQuery) { [weak self] response in
             guard let self = self else { return }
             switch response {
-            case .success(let code):
-                print("새싹 찾기 성공-->", code)
+            case .success(_):
                 self.successSearchSesac.accept(())
             case .failure(let error):
+                print("새싹 찾기 실패-->", error.description)
                 switch error {
                 case .inValidIDTokenError:
                     self.requestIDToken {

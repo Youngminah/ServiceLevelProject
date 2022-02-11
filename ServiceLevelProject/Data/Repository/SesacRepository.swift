@@ -81,7 +81,7 @@ extension SesacRepository {
 
     func requestOnqueue(userLocationInfo: Coordinate, completion: @escaping (Result<Onqueue, SesacNetworkServiceError>) -> Void ) {
         let requestDTO = OnqueueRequestDTO(userLocationInfo: userLocationInfo)
-        provider.request(.searchNearSesac(parameters: requestDTO.toDictionary)) { result in
+        provider.request(.onqueue(parameters: requestDTO.toDictionary)) { result in
             switch result {
             case .success(let response):
                 let data = try? JSONDecoder().decode(OnqueueResponseDTO.self, from: response.data)
@@ -94,7 +94,14 @@ extension SesacRepository {
 
     func requestSearchSesac(searchSesacQuery: SearchSesacQuery, completion: @escaping (Result<Int, SesacNetworkServiceError>) -> Void ) {
         let requestDTO = SearchSesacRequestDTO(searchSesac: searchSesacQuery)
-        provider.request(.searchNearSesac(parameters: requestDTO.toDictionary)) { result in
+        provider.request(.searchSesac(parameters: requestDTO.toDictionary)) { result in
+            print(result)
+            self.process(result: result, completion: completion)
+        }
+    }
+
+    func requestPauseSearchSesac(completion: @escaping (Result<Int, SesacNetworkServiceError>) -> Void ) {
+        provider.request(.pauseSearchSesac) { result in
             self.process(result: result, completion: completion)
         }
     }

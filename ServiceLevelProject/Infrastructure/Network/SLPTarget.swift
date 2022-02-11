@@ -20,9 +20,9 @@ enum SLPTarget {
     // User MyPage
     case updateMyPage(parameters: DictionaryType)
     // Home
-    case searchNearSesac(parameters: DictionaryType)
-    case registerMySesac(parameters: DictionaryType)
-    case deleteMySesac
+    case onqueue(parameters: DictionaryType)
+    case searchSesac(parameters: DictionaryType)
+    case pauseSearchSesac
     case requestHobbyFriend(parameters: DictionaryType)
     case acceptHobbyFriend(parameters: DictionaryType)
     case getMyRequestStatus
@@ -49,10 +49,10 @@ extension SLPTarget: TargetType {
             return "/user/update_fcm_token"
         case .updateMyPage:
             return "/user/update/mypage"
-        case .registerMySesac,
-             .deleteMySesac:
+        case .searchSesac,
+             .pauseSearchSesac:
             return "/queue"
-        case .searchNearSesac:
+        case .onqueue:
             return "/queue/onqueue"
         case .requestHobbyFriend:
             return "/queue/hobbyrequest"
@@ -71,14 +71,14 @@ extension SLPTarget: TargetType {
         case .register,
              .withdraw,
              .updateMyPage,
-             .searchNearSesac,
-             .registerMySesac,
+             .onqueue,
+             .searchSesac,
              .requestHobbyFriend,
              .acceptHobbyFriend:
             return .post
         case .updateFCMToken:
             return .put
-        case .deleteMySesac:
+        case .pauseSearchSesac:
             return .delete
         }
     }
@@ -91,14 +91,14 @@ extension SLPTarget: TargetType {
         switch self {
         case .getUserInfo,
              .withdraw,
-             .deleteMySesac,
+             .pauseSearchSesac,
              .getMyRequestStatus:
             return .requestPlain
         case .register(let parameters),
              .updateFCMToken(let parameters),
              .updateMyPage(let parameters),
-             .searchNearSesac(let parameters),
-             .registerMySesac(let parameters),
+             .onqueue(let parameters),
+             .searchSesac(let parameters),
              .requestHobbyFriend(let parameters),
              .acceptHobbyFriend(let parameters):
             return .requestParameters(parameters: parameters, encoding: URLEncoding.default)
