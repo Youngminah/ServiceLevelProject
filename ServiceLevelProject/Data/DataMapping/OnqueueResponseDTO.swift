@@ -34,7 +34,7 @@ struct QueueDB: Codable {
 
 extension OnqueueResponseDTO {
 
-    func toDomain() -> NearSesacDBInfo {
+    func toDomain() -> Onqueue {
         return .init(
             fromSesacDB: fromQueueDB.map { $0.toDomain() },
             fromSesacDBRequested: fromQueueDBRequested.map { $0.toDomain() },
@@ -42,12 +42,12 @@ extension OnqueueResponseDTO {
         )
     }
 
-    func toHobbys() -> [Hobby] {
-        var queue = [Hobby]()
-        fromQueueDB.forEach { queue += $0.toHobbys() }
-        fromQueueDBRequested.forEach { queue += $0.toHobbys() }
-        return fromRecommend.map { Hobby(content: $0, isRecommended: true) } + queue
-    }
+//    func toHobbys() -> [Hobby] {
+//        var queue = [Hobby]()
+//        fromQueueDB.forEach { queue += $0.toHobbys() }
+//        fromQueueDBRequested.forEach { queue += $0.toHobbys() }
+//        return fromRecommend.map { Hobby(content: $0, isRecommended: true) } + queue
+//    }
 }
 
 extension QueueDB {
@@ -67,7 +67,7 @@ extension QueueDB {
         )
     }
 
-    func toHobbys() -> [Hobby] {
-        return hobbys.map { Hobby(content: $0, isRecommended: false) }
-    }
+//    func toHobbys() -> [Hobby] {
+//        return hobbys.map { Hobby(content: $0, isRecommended: false) }
+//    }
 }
