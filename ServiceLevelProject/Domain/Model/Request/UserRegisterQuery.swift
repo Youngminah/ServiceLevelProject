@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct UserRegisterInfo: Equatable {
+struct UserRegisterQuery: Equatable {
 
     let phoneNumber: String
     let FCMtoken: String

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct UserUpdateInfo: Equatable {
+struct UserUpdateQuery: Equatable {
 
     let searchable: Bool
     let ageMin: Int

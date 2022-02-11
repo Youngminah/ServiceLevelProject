@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct NearSesacDBInfo {
+struct Onqueue {
     let fromSesacDB, fromSesacDBRequested: [SesacDB]
     let fromRecommend: [String]
 }
