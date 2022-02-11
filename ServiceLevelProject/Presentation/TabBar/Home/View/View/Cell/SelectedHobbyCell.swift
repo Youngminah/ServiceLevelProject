@@ -41,7 +41,7 @@ class SelectedHobbyCell: UICollectionViewCell {
         hobbyLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(5)
             make.left.equalToSuperview().offset(16)
-            make.bottom.equalToSuperview().offset(-5)
+            make.bottom.equalToSuperview().offset(-5).priority(999)
             make.right.equalTo(cancelImageView.snp.left).offset(-6)
         }
     }
@@ -53,7 +53,7 @@ class SelectedHobbyCell: UICollectionViewCell {
         cancelImageView.image = Asset.xmark.image
     }
 
-    func updateUI(hobbyInfo: Hobby) {
-        hobbyLabel.text = hobbyInfo.content
+    func updateUI(item: HomeSearchItemViewModel) {
+        hobbyLabel.text = item.content
     }
 }

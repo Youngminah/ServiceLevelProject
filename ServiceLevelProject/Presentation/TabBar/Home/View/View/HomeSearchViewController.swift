@@ -23,7 +23,8 @@ final class HomeSearchViewController: UIViewController {
     private lazy var input = HomeSearchViewModel.Input(
         viewWillAppearSignal: self.rx.viewWillAppear.asSignal(),
         searhBarTapWithText: searchBar.rx.searhBarTapWithText,
-        itemSelectedSignal: collectionView.rx.modelSelected(HobbyItem.self).asSignal()
+        itemSelectedSignal: collectionView.rx.modelSelected(HobbyItem.self).asSignal(),
+        sesacSearchButtonTap: searchSesacButton.rx.tap.asSignal()
     )
     private lazy var output = viewModel.transform(input: input)
     private let viewModel: HomeSearchViewModel
@@ -32,14 +33,14 @@ final class HomeSearchViewController: UIViewController {
     private lazy var dataSource = RxCollectionViewSectionedReloadDataSource<HobbySectionModel> (configureCell: { dataSource, collectionView ,indexPath ,item in
 
         switch item {
-        case .near(let hobby):
+        case .near(let item):
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NearHobbyCell.identifier, for: indexPath) as! NearHobbyCell
-            cell.updateUI(hobbyInfo: hobby)
+            cell.updateUI(item: item)
             return cell
 
-        case .selected(let hobby):
+        case .selected(let item):
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SelectedHobbyCell.identifier, for: indexPath) as! SelectedHobbyCell
-            cell.updateUI(hobbyInfo: hobby)
+            cell.updateUI(item: item)
             return cell
         }
     }) { dataSource, collectionView, kind, indexPath in

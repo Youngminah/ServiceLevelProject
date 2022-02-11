@@ -1,11 +1,35 @@
 //
-//  HobbySection.swift
+//  HomeSearchItemViewModel.swift
 //  ServiceLevelProject
 //
-//  Created by meng on 2022/02/09.
+//  Created by meng on 2022/02/11.
 //
 
+import Foundation
 import RxDataSources
+
+struct HomeSearchItemViewModel {
+
+    var content: String
+    var isRecommended: Bool
+
+    init(content: String, isRecommended: Bool) {
+        self.content = content
+        self.isRecommended = isRecommended
+    }
+
+    init(content: String) {
+        self.content = content
+        self.isRecommended = false
+    }
+}
+
+extension HomeSearchItemViewModel: IdentifiableType, Equatable {
+
+    var identity: String {
+        return UUID().uuidString
+    }
+}
 
 typealias HobbySectionModel = SectionModel<HobbySection, HobbyItem>
 
@@ -31,10 +55,10 @@ enum HobbySection: Int, Equatable {
 }
 
 enum HobbyItem: Equatable {
-    case near(Hobby)
-    case selected(Hobby)
+    case near(HomeSearchItemViewModel)
+    case selected(HomeSearchItemViewModel)
 
-    var hobby: Hobby {
+    var hobby: HomeSearchItemViewModel {
         switch self {
         case .near(let hobby):
             return hobby
@@ -43,3 +67,5 @@ enum HobbyItem: Equatable {
         }
     }
 }
+
+

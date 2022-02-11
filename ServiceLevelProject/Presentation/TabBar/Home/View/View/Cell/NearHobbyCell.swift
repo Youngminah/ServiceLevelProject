@@ -32,8 +32,8 @@ class NearHobbyCell: UICollectionViewCell {
         }
     }
 
-    func updateUI(hobbyInfo: Hobby) {
-        hobbyLabel.text = hobbyInfo.content
-        hobbyLabel.isFixed = hobbyInfo.isRecommended
+    func updateUI(item: HomeSearchItemViewModel) {
+        hobbyLabel.text = item.content
+        hobbyLabel.isFixed = item.isRecommended
     }
 }
