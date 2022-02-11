@@ -124,6 +124,7 @@ final class HomeSearchViewController: UIViewController {
         searchBar.placeholder = "띄어쓰기로 복수 입력이 가능해요"
         searchBar.sizeToFit()
         navigationItem.titleView = searchBar
+        navigationItem.backButtonTitle = ""
         searchSesacButton.isValid = true
     }
 
