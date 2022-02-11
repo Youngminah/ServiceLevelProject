@@ -17,6 +17,7 @@ final class HomeCoordinator: Coordinator {
     init(_ navigationController: UINavigationController) {
         self.navigationController = navigationController
         navigationController.setNavigationBarHidden(true, animated: false)
+//        UserDefaults.standard.set(MatchStatus.general.rawValue, forKey: UserDefaultKeyCase.matchStatus)
     }
 
     func start() {
@@ -74,7 +75,7 @@ final class HomeCoordinator: Coordinator {
     }
 
     func popToRootViewController(message: String? = nil) {
-        navigationController.popViewController(animated: true)
+        navigationController.popToRootViewController(animated: true)
         if let message = message {
             navigationController.view.makeToast(message, position: .top)
         }
