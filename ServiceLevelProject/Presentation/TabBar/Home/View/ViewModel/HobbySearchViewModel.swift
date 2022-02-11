@@ -18,6 +18,8 @@ final class HobbySearchViewModel: ViewModelType {
 
     struct Input {
         let viewWillAppear: Signal<Void>
+        let backBarButtonTap : Signal<Void>
+        let pauseSearchBarButtonTap: Signal<Void>
         let nearSesacButtonTap: Signal<Void>
         let receivedRequestButtonTap: Signal<Void>
     }
@@ -41,6 +43,17 @@ final class HobbySearchViewModel: ViewModelType {
     }
 
     func transform(input: Input) -> Output {
+        input.pauseSearchBarButtonTap
+            .emit(onNext: { [weak self] in
+                self?.requestPauseSearchSesac()
+            })
+            .disposed(by: disposeBag)
+
+        input.backBarButtonTap
+            .emit(onNext: { [weak self] in
+                self?.coordinator?.popToRootViewController()
+            })
+            .disposed(by: disposeBag)
 
         input.viewWillAppear
             .map({ () in
@@ -65,6 +78,13 @@ final class HobbySearchViewModel: ViewModelType {
             .emit(to: receivedRequestItems)
             .disposed(by: disposeBag)
 
+        self.useCase.successPauseSearchSesac
+            .asSignal()
+            .emit(onNext: { [weak self] _ in
+                self?.coordinator?.popToRootViewController(message: "새싹 찾기가 중단되었습니다.")
+            })
+            .disposed(by: disposeBag)
+
         return Output(
             hobbyItems: hobbyItems.asDriver(),
             receivedRequestItems: receivedRequestItems.asDriver(),
@@ -74,6 +94,10 @@ final class HobbySearchViewModel: ViewModelType {
     }
 }
 
-extension HomeSearchViewModel {
+extension HobbySearchViewModel {
+
+    func requestPauseSearchSesac() {
+        self.useCase.requestPauseSearchSesac()
+    }
 
 }

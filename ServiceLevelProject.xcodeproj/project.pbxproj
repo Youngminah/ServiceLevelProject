@@ -107,6 +107,7 @@
 		BB8D1F3C279A992C00D111B6 /* CertificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8D1F3B279A992C00D111B6 /* CertificationViewModel.swift */; };
 		BB8F2F3D27B2B81F004D34E9 /* RxKeyboard in Frameworks */ = {isa = PBXBuildFile; productRef = BB8F2F3C27B2B81F004D34E9 /* RxKeyboard */; };
 		BBA6409027B66E0400E1410B /* HomeSearchItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA6408F27B66E0400E1410B /* HomeSearchItemViewModel.swift */; };
+		BBA6409227B6916C00E1410B /* MatchStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA6409127B6916C00E1410B /* MatchStatus.swift */; };
 		BBAAA684279ABFAD00667591 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = BBAAA683279ABFAD00667591 /* Moya */; };
 		BBAAA687279AD3A500667591 /* SLPTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAA686279AD3A500667591 /* SLPTarget.swift */; };
 		BBAAA68A279AD78000667591 /* APIEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAA689279AD78000667591 /* APIEnvironment.swift */; };
@@ -281,6 +282,7 @@
 		BB8D1F392799BE6400D111B6 /* AuthTextField+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthTextField+Rx.swift"; sourceTree = "<group>"; };
 		BB8D1F3B279A992C00D111B6 /* CertificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificationViewModel.swift; sourceTree = "<group>"; };
 		BBA6408F27B66E0400E1410B /* HomeSearchItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSearchItemViewModel.swift; sourceTree = "<group>"; };
+		BBA6409127B6916C00E1410B /* MatchStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchStatus.swift; sourceTree = "<group>"; };
 		BBAAA686279AD3A500667591 /* SLPTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SLPTarget.swift; sourceTree = "<group>"; };
 		BBAAA689279AD78000667591 /* APIEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEnvironment.swift; sourceTree = "<group>"; };
 		BBAAA68B279AD7BE00667591 /* APIConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstant.swift; sourceTree = "<group>"; };
@@ -861,6 +863,7 @@
 				BB6BF5CE27ABF93B00548BD2 /* GenderCase.swift */,
 				BBE071FE27B13FB0007947B6 /* SesacImageCase.swift */,
 				BBE0720027B1416A007947B6 /* SesacBackgroundCase.swift */,
+				BBA6409127B6916C00E1410B /* MatchStatus.swift */,
 			);
 			path = Constant;
 			sourceTree = "<group>";
@@ -1330,6 +1333,7 @@
 				BB1E251E27A198E100A80FC3 /* CoordinatorDelegate.swift in Sources */,
 				BB7A2184279DAF3C005FD0A3 /* SesacRepositoryType.swift in Sources */,
 				BB00E8F627A46CDE0023D4E6 /* MyPageEditViewController.swift in Sources */,
+				BBA6409227B6916C00E1410B /* MatchStatus.swift in Sources */,
 				BBAAA6DE279C598D00667591 /* MyPageCoordinator.swift in Sources */,
 				BB2B2A0727B3F9C1006F7339 /* NearHobbyLabel.swift in Sources */,
 				BBAAA6A2279BFC6700667591 /* HomeViewController.swift in Sources */,

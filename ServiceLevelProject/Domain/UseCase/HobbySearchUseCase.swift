@@ -15,6 +15,7 @@ final class HobbySearchUseCase {
     private let fireBaseRepository: FirbaseRepositoryType
     private let sesacRepository: SesacRepositoryType
 
+    var successPauseSearchSesac = PublishRelay<Void>()
     var successOnqueueSignal = PublishRelay<Onqueue>()
     var unKnownErrorSignal = PublishRelay<Void>()
 
@@ -47,6 +48,27 @@ final class HobbySearchUseCase {
         }
     }
 
+    func requestPauseSearchSesac() {
+        self.sesacRepository.requestPauseSearchSesac { [weak self] response in
+            guard let self = self else { return }
+            switch response {
+            case .success(let code):
+                print(code)
+                self.saveMatchStatus(status: .general)
+                self.successPauseSearchSesac.accept(())
+            case .failure(let error):
+                switch error {
+                case .inValidIDTokenError:
+                    self.requestIDToken {
+                        self.requestPauseSearchSesac()
+                    }
+                default:
+                    self.unKnownErrorSignal.accept(())
+                }
+            }
+        }
+    }
+
     private func requestIDToken(completion: @escaping () -> Void) {
         fireBaseRepository.requestIdtoken { [weak self] response in
             guard let self = self else { return }
@@ -61,6 +83,10 @@ final class HobbySearchUseCase {
                 self.unKnownErrorSignal.accept(())
             }
         }
+    }
+
+    func saveMatchStatus(status: MatchStatus) {
+        self.userRepository.saveMatchStatus(status: status)
     }
 
     private func saveIdTokenInfo(idToken: String) {

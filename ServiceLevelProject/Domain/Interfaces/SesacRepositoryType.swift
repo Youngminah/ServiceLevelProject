@@ -55,4 +55,11 @@ protocol SesacRepositoryType: AnyObject {
             SesacNetworkServiceError>
         ) -> Void
     )
+
+    func requestPauseSearchSesac(                // 새싹 찾기 중단 API
+        completion: @escaping (
+            Result< Int,
+            SesacNetworkServiceError>
+        ) -> Void
+    )
 }

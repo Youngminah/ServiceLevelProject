@@ -63,11 +63,20 @@ final class HomeCoordinator: Coordinator {
             )
         )
         vc.title = "새싹 찾기"
+        vc.hidesBottomBarWhenPushed = true
+        navigationController.setNavigationBarHidden(false, animated: false)
         navigationController.pushViewController(vc, animated: true)
     }
 
     func changeTabToMyPageViewController(message: String) {
         navigationController.tabBarController?.selectedIndex = 3
         navigationController.tabBarController?.view.makeToast(message, position: .top)
+    }
+
+    func popToRootViewController(message: String? = nil) {
+        navigationController.popViewController(animated: true)
+        if let message = message {
+            navigationController.view.makeToast(message, position: .top)
+        }
     }
 }
