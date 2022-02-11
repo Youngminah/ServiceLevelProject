@@ -98,10 +98,11 @@ extension SLPTarget: TargetType {
              .updateFCMToken(let parameters),
              .updateMyPage(let parameters),
              .onqueue(let parameters),
-             .searchSesac(let parameters),
              .requestHobbyFriend(let parameters),
              .acceptHobbyFriend(let parameters):
             return .requestParameters(parameters: parameters, encoding: URLEncoding.default)
+        case .searchSesac(let parameters):
+            return .requestParameters(parameters: parameters, encoding: URLEncoding(arrayEncoding: .noBrackets))
         }
     }
 

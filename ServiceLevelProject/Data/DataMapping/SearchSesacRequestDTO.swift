@@ -29,13 +29,12 @@ struct SearchSesacRequestDTO: Codable {
     let type: Int
     let long: Double
     let lat: Double
-    let hobbys: Data
+    let hobbys: [String]
 
     init(searchSesac: SearchSesacQuery) {
         self.type = searchSesac.type.value
         self.long = searchSesac.coordinate.longitude
         self.lat = searchSesac.coordinate.latitude
-        let hobby = try? JSONSerialization.data(withJSONObject: searchSesac.hobbys)
-        self.hobbys = hobby!
+        self.hobbys = searchSesac.hobbys
     }
 }
