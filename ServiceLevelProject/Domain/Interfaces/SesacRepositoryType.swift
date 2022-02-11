@@ -48,14 +48,6 @@ protocol SesacRepositoryType: AnyObject {
         ) -> Void
     )
 
-//    func requestHobbys(                          // 주변 취미 정보 API
-//        userLocationInfo: Coordinate,
-//        completion: @escaping (
-//            Result< [Hobby],
-//            SesacNetworkServiceError>
-//        ) -> Void
-//    )
-
     func requestSearchSesac(                     // 새싹 찾기 요청 API
         searchSesacQuery: SearchSesacQuery,
         completion: @escaping (

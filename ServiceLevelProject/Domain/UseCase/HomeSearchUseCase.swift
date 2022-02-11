@@ -47,22 +47,6 @@ final class HomeSearchUseCase {
                 }
             }
         }
-//        self.sesacRepository.requestHobbys(userLocationInfo: coordinate) { [weak self] response in
-//            guard let self = self else { return }
-//            switch response {
-//            case .success(let hobbys):
-//                self.successOnqueueSignal.accept(hobbys)
-//            case .failure(let error):
-//                switch error {
-//                case .inValidIDTokenError:
-//                    self.requestIDToken {
-//                        self.requestOnqueue(coordinate: coordinate)
-//                    }
-//                default:
-//                    self.unKnownErrorSignal.accept(())
-//                }
-//            }
-//        }
     }
 
     func requestSearchSesac(coordinate: Coordinate, hobbys: [String]) {
