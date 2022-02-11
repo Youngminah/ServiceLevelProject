@@ -15,7 +15,8 @@ import SnapKit
 
 class HobbySearchViewController: UIViewController {
 
-    private lazy var pauseSearchBarButton = UIBarButtonItem()
+    private let backBarButton = UIBarButtonItem()
+    private let pauseSearchBarButton = UIBarButtonItem()
     private let nearSesacButton = TabButton(title: "주변 새싹", isSelected: true)
     private let receivedRequestButton = TabButton(title: "받은 요청")
     private let underBarView = UIView()
@@ -27,6 +28,8 @@ class HobbySearchViewController: UIViewController {
 
     private lazy var input = HobbySearchViewModel.Input(
         viewWillAppear: self.rx.viewWillAppear.asSignal(),
+        backBarButtonTap: backBarButton.rx.tap.asSignal(),
+        pauseSearchBarButtonTap: pauseSearchBarButton.rx.tap.asSignal(),
         nearSesacButtonTap: nearSesacButton.rx.tap.asSignal(),
         receivedRequestButtonTap: receivedRequestButton.rx.tap.asSignal()
     )
@@ -141,8 +144,11 @@ class HobbySearchViewController: UIViewController {
         view.backgroundColor = .white
         navigationItem.backButtonTitle = ""
         navigationItem.rightBarButtonItem = pauseSearchBarButton
+        navigationItem.leftBarButtonItem = backBarButton
         pauseSearchBarButton.title = "찾기 중단"
         pauseSearchBarButton.style = .plain
+        backBarButton.image = Asset.backNarrow.image
+        backBarButton.style = .plain
         underBarView.backgroundColor = .gray2
         slidingBarView.backgroundColor = .green
         changeHobbyButton.isSelected = true

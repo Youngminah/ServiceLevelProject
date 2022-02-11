@@ -56,6 +56,7 @@ final class HomeSearchUseCase {
             guard let self = self else { return }
             switch response {
             case .success(_):
+                self.saveMatchStatus()
                 self.successSearchSesac.accept(())
             case .failure(let error):
                 print("새싹 찾기 실패-->", error.description)
@@ -69,6 +70,10 @@ final class HomeSearchUseCase {
                 }
             }
         }
+    }
+
+    func saveMatchStatus() {
+        self.userRepository.saveMatchStatus(status: .matching)
     }
 
     private func requestIDToken(completion: @escaping () -> Void) {

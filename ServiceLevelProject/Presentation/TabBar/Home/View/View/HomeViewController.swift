@@ -25,6 +25,7 @@ final class HomeViewController: UIViewController {
     //private var centerCoordinator = NMGLatLng(lat: 37.482733, lng: 126.92983)
 
     private lazy var input = HomeViewModel.Input(
+        viewWillAppear: self.rx.viewWillAppear.asSignal(),
         genderFilterInfo: genderFilterView.genderRelay.asObservable(),
         requestOnqueueInfo: requestOnqueueInfo.asObservable(),
         myLocationButtonTap: myLocationButton.rx.tap.asSignal(),
@@ -65,6 +66,12 @@ final class HomeViewController: UIViewController {
     }
 
     private func bind() {
+        output.matchStatus
+            .emit(onNext: { [weak self] status in
+                self?.mapStatusButton.setImage(status.image, for: .normal)
+            })
+            .disposed(by: disposdBag)
+
         output.confirmAuthorizedLocation
             .emit(onNext: { [weak self] _ in
                 let auth = self?.locationManager.authorizationStatus

@@ -47,6 +47,10 @@ final class HomeUseCase {
         }
     }
 
+    func fetchMatchStatus() -> MatchStatus {
+        return self.userRepository.fetchMatchStatus()!
+    }
+
     func fetchGender() -> GenderCase {
         return self.userRepository.fetchGender()!
     }

@@ -23,11 +23,15 @@ protocol UserRepositoryType: AnyObject {
 
     func fetchGender() -> GenderCase?
 
+    func fetchMatchStatus() -> MatchStatus?
+
     func savePhoneNumberInfo(phoneNumber: String)
 
     func saveGenderInfo(gender: GenderCase) 
 
     func saveLogInInfo()
+
+    func saveMatchStatus(status: MatchStatus)
 
     func logoutUserInfo()
 

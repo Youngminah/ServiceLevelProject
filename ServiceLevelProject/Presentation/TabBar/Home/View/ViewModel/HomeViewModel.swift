@@ -15,6 +15,7 @@ final class HomeViewModel: ViewModelType {
     private let homeUseCase: HomeUseCase
 
     struct Input {
+        let viewWillAppear: Signal<Void>
         let genderFilterInfo: Observable<GenderCase>
         let requestOnqueueInfo: Observable<Coordinate>
         let myLocationButtonTap: Signal<Void>
@@ -22,6 +23,7 @@ final class HomeViewModel: ViewModelType {
         let mapStatusButtonTap: Signal<Void>
     }
     struct Output {
+        let matchStatus: Signal<MatchStatus>
         let confirmAuthorizedLocation: Signal<Void>
         let updateLocationAction: Signal<Void>
         let unAutorizedLocationAlert: Signal<(String, String)>
@@ -29,6 +31,7 @@ final class HomeViewModel: ViewModelType {
     }
     var disposeBag = DisposeBag()
 
+    private let matchStatus = PublishRelay<MatchStatus>()
     private let confirmAuthorizedLocation = PublishRelay<Void>()
     private let updateLocationAction = PublishRelay<Void>()
     private let unAutorizedLocationAlert = PublishRelay<(String, String)>()
@@ -43,6 +46,14 @@ final class HomeViewModel: ViewModelType {
     }
 
     func transform(input: Input) -> Output {
+        input.viewWillAppear
+            .emit(onNext: { [weak self] _ in
+                guard let self = self else { return }
+                let status = self.homeUseCase.fetchMatchStatus()
+                self.matchStatus.accept(status)
+            })
+            .disposed(by: disposeBag)
+
 
         input.myLocationButtonTap
             .throttle(.seconds(1), latest: false)
@@ -66,7 +77,21 @@ final class HomeViewModel: ViewModelType {
             .emit(to: isAutorizedLocation)
             .disposed(by: disposeBag)
 
-        input.mapStatusButtonTap.withLatestFrom(isAutorizedLocation.asSignal(onErrorJustReturn: false))
+        input.mapStatusButtonTap.withLatestFrom(matchStatus.asSignal())
+            .filter { [weak self] status in
+                guard let self = self else { return false }
+                switch status {
+                case .general:
+                    return true
+                case .matching:
+                    self.coordinator?.showHobbySearchViewController(coordinate: self.userCoordinate)
+                    return false
+                case .matched:
+                    print("채팅화면으로 전환")
+                    return false
+                }
+            }
+            .withLatestFrom(isAutorizedLocation.asSignal(onErrorJustReturn: false))
             .emit(onNext: { [weak self] isEnable in
                 guard let self = self else { return }
                 if isEnable {
@@ -102,6 +127,7 @@ final class HomeViewModel: ViewModelType {
             .disposed(by: disposeBag)
 
         return Output(
+            matchStatus: matchStatus.asSignal(),
             confirmAuthorizedLocation: confirmAuthorizedLocation.asSignal(),
             updateLocationAction: updateLocationAction.asSignal(),
             unAutorizedLocationAlert: unAutorizedLocationAlert.asSignal(),

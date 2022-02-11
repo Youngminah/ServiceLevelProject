@@ -39,6 +39,11 @@ final class UserRepository: UserRepositoryType {
         return GenderCase(value: value)
     }
 
+    func fetchMatchStatus() -> MatchStatus? {
+        let value = UserDefaults.standard.string(forKey: UserDefaultKeyCase.matchStatus) ?? ""
+        return MatchStatus(value: value)
+    }
+
     func savePhoneNumberInfo(phoneNumber: String) {
         UserDefaults.standard.set(phoneNumber, forKey: UserDefaultKeyCase.phoneNumber)
     }
@@ -54,6 +59,10 @@ final class UserRepository: UserRepositoryType {
 
     func saveLogInInfo() {
         UserDefaults.standard.set(true, forKey: UserDefaultKeyCase.isLoggedIn)
+    }
+
+    func saveMatchStatus(status: MatchStatus) {
+        UserDefaults.standard.set(status.rawValue, forKey: UserDefaultKeyCase.matchStatus)
     }
 
     func logoutUserInfo() {
