@@ -15,6 +15,8 @@ final class AppAppearance {
         appearance.configureWithDefaultBackground()
         appearance.backgroundColor = .systemBackground
         appearance.titleTextAttributes = [.foregroundColor: UIColor.label]
+        appearance.shadowImage = Asset.shadow.image
+        appearance.shadowColor = nil
         
         let backImage = UIImage(named: "backNarrow")
         appearance.setBackIndicatorImage(backImage, transitionMaskImage: backImage)
