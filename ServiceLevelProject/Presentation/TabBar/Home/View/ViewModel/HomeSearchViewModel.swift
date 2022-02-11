@@ -57,7 +57,7 @@ final class HomeSearchViewModel: ViewModelType {
             .emit(onNext: { [weak self] isvalid, text in
                 guard let self = self else { return }
                 if isvalid {
-                    let selectedItem = HobbyItem.selected(Hobby(content: text))
+                    let selectedItem = HobbyItem.selected(HomeSearchItemViewModel(content: text))
                     self.addSelectedItem(selectedItem: selectedItem)
                 } else {
                     self.showToastAction.accept(ToastCase.inValidSelectedHobbyTextCount.errorDescription)
