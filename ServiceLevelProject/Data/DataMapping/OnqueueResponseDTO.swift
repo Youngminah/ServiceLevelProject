@@ -49,7 +49,7 @@ extension QueueDB {
         return .init(
             userID: userID,
             nick: nick,
-            coordinator: Coordinate(latitude: latitude, longitude: longitude),
+            coordinate: Coordinate(latitude: latitude, longitude: longitude),
             reputation: reputation,
             hobbys: hobbys,
             reviews: reviews,

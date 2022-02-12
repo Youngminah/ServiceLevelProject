@@ -181,7 +181,7 @@ final class HomeViewController: UIViewController {
         let marker = NMFMarker()
         markers.append(marker)
         marker.iconImage = NMFOverlayImage(image: sesac.sesac.image)
-        marker.position = NMGLatLng(lat: sesac.coordinator.latitude, lng: sesac.coordinator.longitude)
+        marker.position = NMGLatLng(lat: sesac.coordinate.latitude, lng: sesac.coordinate.longitude)
         marker.width = 80
         marker.height = 80
         marker.mapView = mapView

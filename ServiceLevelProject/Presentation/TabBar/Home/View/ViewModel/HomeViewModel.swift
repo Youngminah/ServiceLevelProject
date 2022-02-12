@@ -54,7 +54,6 @@ final class HomeViewModel: ViewModelType {
             })
             .disposed(by: disposeBag)
 
-
         input.myLocationButtonTap
             .throttle(.seconds(1), latest: false)
             .emit(onNext: { [weak self] _ in

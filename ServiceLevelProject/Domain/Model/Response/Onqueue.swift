@@ -14,7 +14,7 @@ struct Onqueue {
 
 struct SesacDB {
     let userID, nick: String
-    let coordinator: Coordinate
+    let coordinate: Coordinate
     let reputation: [Int]
     let hobbys, reviews: [String]
     let gender: GenderCase
