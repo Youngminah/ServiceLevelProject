@@ -110,7 +110,7 @@
 		BBA6409227B6916C00E1410B /* MatchStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA6409127B6916C00E1410B /* MatchStatus.swift */; };
 		BBA6409427B6D28100E1410B /* CardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA6409327B6D28100E1410B /* CardCell.swift */; };
 		BBA6409627B7867200E1410B /* HobbySearhItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA6409527B7867200E1410B /* HobbySearhItemViewModel.swift */; };
-		BBA6409827B7F07900E1410B /* SearchSesacStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA6409727B7F07900E1410B /* SearchSesacStatus.swift */; };
+		BBA6409827B7F07900E1410B /* SearchSesacTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA6409727B7F07900E1410B /* SearchSesacTab.swift */; };
 		BBAAA684279ABFAD00667591 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = BBAAA683279ABFAD00667591 /* Moya */; };
 		BBAAA687279AD3A500667591 /* SLPTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAA686279AD3A500667591 /* SLPTarget.swift */; };
 		BBAAA68A279AD78000667591 /* APIEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAA689279AD78000667591 /* APIEnvironment.swift */; };
@@ -288,7 +288,7 @@
 		BBA6409127B6916C00E1410B /* MatchStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchStatus.swift; sourceTree = "<group>"; };
 		BBA6409327B6D28100E1410B /* CardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCell.swift; sourceTree = "<group>"; };
 		BBA6409527B7867200E1410B /* HobbySearhItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HobbySearhItemViewModel.swift; sourceTree = "<group>"; };
-		BBA6409727B7F07900E1410B /* SearchSesacStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSesacStatus.swift; sourceTree = "<group>"; };
+		BBA6409727B7F07900E1410B /* SearchSesacTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSesacTab.swift; sourceTree = "<group>"; };
 		BBAAA686279AD3A500667591 /* SLPTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SLPTarget.swift; sourceTree = "<group>"; };
 		BBAAA689279AD78000667591 /* APIEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEnvironment.swift; sourceTree = "<group>"; };
 		BBAAA68B279AD7BE00667591 /* APIConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstant.swift; sourceTree = "<group>"; };
@@ -872,7 +872,7 @@
 				BBE071FE27B13FB0007947B6 /* SesacImageCase.swift */,
 				BBE0720027B1416A007947B6 /* SesacBackgroundCase.swift */,
 				BBA6409127B6916C00E1410B /* MatchStatus.swift */,
-				BBA6409727B7F07900E1410B /* SearchSesacStatus.swift */,
+				BBA6409727B7F07900E1410B /* SearchSesacTab.swift */,
 			);
 			path = Constant;
 			sourceTree = "<group>";
@@ -1326,7 +1326,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BBAAA6D1279C46D200667591 /* MyPageViewController.swift in Sources */,
-				BBA6409827B7F07900E1410B /* SearchSesacStatus.swift in Sources */,
+				BBA6409827B7F07900E1410B /* SearchSesacTab.swift in Sources */,
 				BBAAA6A6279C105F00667591 /* AppCoordinator.swift in Sources */,
 				BB105D6E2796B0DA008264DD /* LoginViewController.swift in Sources */,
 				BB7A2176279D9BB6005FD0A3 /* CertificationUseCase.swift in Sources */,

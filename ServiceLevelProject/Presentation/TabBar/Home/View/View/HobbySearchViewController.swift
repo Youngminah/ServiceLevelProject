@@ -58,8 +58,8 @@ class HobbySearchViewController: UIViewController {
         output.hobbyItems
             .map { return $0.count <= 0 }
             .drive(tableView.rx.isEmpty(
-                title: SearchSesacStatus.near.emptyTitle,
-                message: SearchSesacStatus.request.emptyMessage)
+                title: SearchSesacTab.near.emptyTitle,
+                message: SearchSesacTab.request.emptyMessage)
             )
             .disposed(by: disposeBag)
 
@@ -74,8 +74,8 @@ class HobbySearchViewController: UIViewController {
         output.receivedRequestItems
             .map { return $0.count <= 0 }
             .drive(tableView.rx.isEmpty(
-                title: SearchSesacStatus.near.emptyTitle,
-                message: SearchSesacStatus.request.emptyTitle)
+                title: SearchSesacTab.near.emptyTitle,
+                message: SearchSesacTab.request.emptyTitle)
             )
             .disposed(by: disposeBag)
 

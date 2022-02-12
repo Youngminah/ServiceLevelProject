@@ -14,7 +14,7 @@ class CardCell: BaseTableViewCell {
 
     private let profileView = SesacProfileView()
     private let cardView = SesacCardView()
-    var status: SearchSesacStatus = .near
+    var status: SearchSesacTab = .near
 
     override func setView() {
         super.setView()
