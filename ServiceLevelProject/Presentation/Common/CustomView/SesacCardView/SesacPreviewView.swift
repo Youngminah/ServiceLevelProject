@@ -48,6 +48,10 @@ final class SesacPreviewView: UIView {
         toggleButton.addTarget(target, action: action, for: event)
     }
 
+    func setNickname(nickname text: String){
+        nickNameLabel.text = text
+    }
+
     func setToggleButtonImage(isToggle: Bool) {
         if isToggle {
             toggleButton.setImage(UIImage(systemName: "chevron.down"), for: .normal)

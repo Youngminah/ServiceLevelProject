@@ -31,8 +31,8 @@ final class SesacProfileView: UIView {
         }
         sesacImageView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.width.height.equalTo(self.snp.width).multipliedBy(0.33)
-            make.bottom.equalToSuperview()
+            make.width.height.equalTo(self.snp.width).multipliedBy(0.53)
+            make.bottom.equalToSuperview().offset(9)
         }
     }
 
@@ -43,6 +43,10 @@ final class SesacProfileView: UIView {
         backgroundImageView.contentMode = .scaleToFill
         layer.masksToBounds = true
         layer.cornerRadius = 8
+    }
+
+    func setBackgroundImage(image: UIImage) {
+        backgroundImageView.image = image
     }
 
     func setSesacImage(image: UIImage) {

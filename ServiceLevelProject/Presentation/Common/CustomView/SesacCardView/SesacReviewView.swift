@@ -65,4 +65,10 @@ final class SesacReviewView: UIView {
         textView.text = text
         textView.sizeToFit()
     }
+
+    func setPlaceHolder() {
+        textView.textColor = .gray6
+        textView.text = "첫 리뷰를 기다리는 중입니다."
+        textView.sizeToFit()
+    }
 }

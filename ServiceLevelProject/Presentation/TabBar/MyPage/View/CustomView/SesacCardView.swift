@@ -51,8 +51,16 @@ final class SesacCardView: UIView {
         layer.borderWidth = 1
     }
 
+    func setNickname(nickname text: String){
+        previewView.setNickname(nickname: text)
+    }
+
     func setReviewText(text: String) {
         sesacReviewView.setText(text: text)
+    }
+
+    func setPlaceHolder() {
+        sesacReviewView.setPlaceHolder()
     }
 
     func setSesacTitle(reputation: [Int]) {
