@@ -58,17 +58,35 @@ class HobbySearchViewController: UIViewController {
         output.hobbyItems
             .map { return $0.count <= 0 }
             .drive(tableView.rx.isEmpty(
-                title: "아쉽게도 주변에 새싹이 없어요ㅠ",
-                message: "취미를 변경하거나 조금만 더 기다려 주세요!")
+                title: SearchSesacStatus.near.emptyTitle,
+                message: SearchSesacStatus.request.emptyMessage)
             )
+            .disposed(by: disposeBag)
+
+        output.hobbyItems
+            .drive(tableView.rx.items) { tv, index, element in
+                let cell = tv.dequeueReusableCell(withIdentifier: CardCell.identifier) as! CardCell
+                cell.updateUI(item: element)
+                return cell
+            }
             .disposed(by: disposeBag)
 
         output.receivedRequestItems
             .map { return $0.count <= 0 }
             .drive(tableView.rx.isEmpty(
-                title: "아직 받은 요청이 없어요ㅠ",
-                message: "취미를 변경하거나 조금만 더 기다려 주세요!")
+                title: SearchSesacStatus.near.emptyTitle,
+                message: SearchSesacStatus.request.emptyTitle)
             )
+            .disposed(by: disposeBag)
+
+        output.receivedRequestItems
+            .map { return !($0.count <= 0) }
+            .drive(bottomSheetView.rx.isHidden)
+            .disposed(by: disposeBag)
+
+        output.hobbyItems
+            .map { return !($0.count <= 0) }
+            .drive(bottomSheetView.rx.isHidden)
             .disposed(by: disposeBag)
 
         output.nearSecacButtonSelectedAction
@@ -156,6 +174,9 @@ class HobbySearchViewController: UIViewController {
         refreshButton.layer.borderWidth = 1
         refreshButton.layer.borderColor = UIColor.green.cgColor
         refreshButton.layer.cornerRadius = 8
+        tableView.register(CardCell.self, forCellReuseIdentifier: CardCell.identifier)
+        tableView.separatorColor = .clear
+        bottomSheetView.isHidden = true
     }
 
     private func underBarSlideAnimation(moveX: CGFloat){
