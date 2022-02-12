@@ -18,23 +18,25 @@ final class HobbySearchViewModel: ViewModelType {
 
     struct Input {
         let viewWillAppear: Signal<Void>
-        let backBarButtonTap : Signal<Void>
+        let backBarButtonTap: Signal<Void>
         let pauseSearchBarButtonTap: Signal<Void>
         let nearSesacButtonTap: Signal<Void>
         let receivedRequestButtonTap: Signal<Void>
     }
     struct Output {
-        let hobbyItems: Driver<[String]>
-        let receivedRequestItems: Driver<[String]>
+        let hobbyItems: Driver<[HobbySearchItemViewModel]>
+        let receivedRequestItems: Driver<[HobbySearchItemViewModel]>
         let nearSecacButtonSelectedAction: Signal<Void>
         let receivedRequestButtonSelectedAction: Signal<Void>
     }
     var disposeBag = DisposeBag()
 
-    private let hobbyItems = BehaviorRelay<[String]>(value: [])
-    private let receivedRequestItems = BehaviorRelay<[String]>(value: [])
+    private let hobbyItems = BehaviorRelay<[HobbySearchItemViewModel]>(value: [])
+    private let receivedRequestItems = BehaviorRelay<[HobbySearchItemViewModel]>(value: [])
     private let nearSecacButtonSelectedAction = PublishRelay<Void>()
     private let receivedRequestButtonSelectedAction = PublishRelay<Void>()
+
+    private let isSelectdNearSesacButton = BehaviorRelay<Bool>(value: true)
 
     init(coordinator: HomeCoordinator?, useCase: HobbySearchUseCase, coordinate: Coordinate) {
         self.coordinator = coordinator
@@ -56,32 +58,48 @@ final class HobbySearchViewModel: ViewModelType {
             .disposed(by: disposeBag)
 
         input.viewWillAppear
-            .map({ () in
-                return []
+            .emit(onNext: { [weak self] in
+                self?.requestOnqueue()
             })
-            .emit(to: hobbyItems)
             .disposed(by: disposeBag)
 
         input.nearSesacButtonTap
-            .map({ [weak self] _ in
-                self?.nearSecacButtonSelectedAction.accept(())
-                return []
+            .emit(onNext: { [weak self] in
+                guard let self = self else { return }
+                self.isSelectdNearSesacButton.accept(true)
+                self.nearSecacButtonSelectedAction.accept(())
+                self.requestOnqueue()
             })
-            .emit(to: hobbyItems)
             .disposed(by: disposeBag)
 
         input.receivedRequestButtonTap
-            .map({ [weak self] _ in
-                self?.receivedRequestButtonSelectedAction.accept(())
-                return []
+            .emit(onNext: { [weak self] in
+                guard let self = self else { return }
+                self.isSelectdNearSesacButton.accept(false)
+                self.receivedRequestButtonSelectedAction.accept(())
+                self.requestOnqueue()
             })
-            .emit(to: receivedRequestItems)
             .disposed(by: disposeBag)
 
         self.useCase.successPauseSearchSesac
             .asSignal()
             .emit(onNext: { [weak self] _ in
                 self?.coordinator?.popToRootViewController(message: "새싹 찾기가 중단되었습니다.")
+            })
+            .disposed(by: disposeBag)
+
+        Observable.zip(
+            self.useCase.successOnqueueSignal,
+            self.isSelectdNearSesacButton)
+            .bind(onNext: { [weak self] onqueue, status in
+                guard let self = self else { return }
+                if status {
+                    let items = self.makeNearSesacItem(onqueue: onqueue)
+                    self.hobbyItems.accept(items)
+                } else {
+                    let items = self.makeReceivedRequestItem(onqueue: onqueue)
+                    self.hobbyItems.accept(items)
+                }
             })
             .disposed(by: disposeBag)
 
@@ -96,8 +114,19 @@ final class HobbySearchViewModel: ViewModelType {
 
 extension HobbySearchViewModel {
 
-    func requestPauseSearchSesac() {
+    private func makeNearSesacItem(onqueue: Onqueue) -> [HobbySearchItemViewModel] {
+        return onqueue.fromSesacDB.map { HobbySearchItemViewModel(sesacDB: $0) }
+    }
+
+    private func makeReceivedRequestItem(onqueue: Onqueue) -> [HobbySearchItemViewModel] {
+        return onqueue.fromSesacDBRequested.map { HobbySearchItemViewModel(sesacDB: $0) }
+    }
+
+    private func requestPauseSearchSesac() {
         self.useCase.requestPauseSearchSesac()
     }
 
+    private func requestOnqueue() {
+        self.useCase.requestOnqueue(coordinate: userCoordinate)
+    }
 }
