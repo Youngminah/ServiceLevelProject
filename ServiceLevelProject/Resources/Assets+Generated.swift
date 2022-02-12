@@ -23,6 +23,13 @@ internal typealias AssetImageTypeAlias = ImageAsset.Image
 internal enum Asset {
   internal static let accentColor = ColorAsset(name: "AccentColor")
   internal static let antenna = ImageAsset(name: "antenna")
+  internal static let background2 = ImageAsset(name: "background2")
+  internal static let background3 = ImageAsset(name: "background3")
+  internal static let background4 = ImageAsset(name: "background4")
+  internal static let background5 = ImageAsset(name: "background5")
+  internal static let background6 = ImageAsset(name: "background6")
+  internal static let background7 = ImageAsset(name: "background7")
+  internal static let background8 = ImageAsset(name: "background8")
   internal static let empty = ImageAsset(name: "empty")
   internal static let location = ImageAsset(name: "location")
   internal static let marker = ImageAsset(name: "marker")
