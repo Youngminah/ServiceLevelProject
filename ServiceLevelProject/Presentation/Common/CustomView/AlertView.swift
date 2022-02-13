@@ -115,8 +115,8 @@ final class AlertView: UIView {
     }
 
     @objc private func confirmAction() {
-        removeAnimation()
         completion?()
+        removeAnimation()
     }
 
     @objc private func cancelAction() {
@@ -177,25 +177,29 @@ final class AlertView: UIView {
 
     private func setAnimation() {
         alertView.alpha = 0
-        UIView.animate(withDuration: 0.2, animations: { [weak self] in
+        DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
-            self.alertView.alpha = 1
-        })
+            UIView.animate(withDuration: 0.2, animations: { [weak self] in
+                guard let self = self else { return }
+                self.alertView.alpha = 1
+            })
+        }
     }
 
     private func removeAnimation() {
-        UIView.animate(withDuration: 0.2, animations: { [weak self] in
-            guard let self = self else { return  }
-            self.backgroundColor = .clear
-            self.alertView.alpha = 0
-        }, completion: { [weak self] _ in
+        DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
-            self.confirmButton.removeFromSuperview()
-            self.messageLabel.removeFromSuperview()
-            self.cancelButton.removeFromSuperview()
-            self.titleLabel.removeFromSuperview()
-            self.alertView.removeFromSuperview()
-            self.removeFromSuperview()
-        })
+            UIView.animate(withDuration: 0.2, animations: {
+                self.backgroundColor = .clear
+                self.alertView.alpha = 0
+            }, completion: { _ in
+                self.confirmButton.removeFromSuperview()
+                self.messageLabel.removeFromSuperview()
+                self.cancelButton.removeFromSuperview()
+                self.titleLabel.removeFromSuperview()
+                self.alertView.removeFromSuperview()
+                self.removeFromSuperview()
+            })
+        }
     }
 }
