@@ -73,6 +73,11 @@ final class UserRepository: UserRepositoryType {
     func withdrawUserInfo() {
         UserDefaults.standard.setValue(false, forKey: UserDefaultKeyCase.isLoggedIn)
         UserDefaults.standard.setValue(false, forKey: UserDefaultKeyCase.isNotFirstUser)
+        UserDefaults.standard.removeObject(forKey: UserDefaultKeyCase.matchStatus)
+        UserDefaults.standard.removeObject(forKey: UserDefaultKeyCase.gender)
+        UserDefaults.standard.removeObject(forKey: UserDefaultKeyCase.phoneNumber)
+        UserDefaults.standard.removeObject(forKey: UserDefaultKeyCase.email)
+        UserDefaults.standard.removeObject(forKey: UserDefaultKeyCase.birth)
         UserDefaults.standard.removeObject(forKey: UserDefaultKeyCase.idToken)
     }
 
