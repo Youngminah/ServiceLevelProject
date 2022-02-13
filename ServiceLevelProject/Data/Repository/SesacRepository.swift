@@ -105,6 +105,20 @@ extension SesacRepository {
             self.process(result: result, completion: completion)
         }
     }
+
+    func requestSesacFriend(sesacFriendQuery: SesacFriendQuery, completion: @escaping (Result<Int, SesacNetworkServiceError>) -> Void ) {
+        let requestDTO = SesacFriendRequestDTO(sesacFriendQuery: sesacFriendQuery)
+        provider.request(.requestHobbyFriend(parameters: requestDTO.toDictionary)) { result in
+            self.process(result: result, completion: completion)
+        }
+    }
+
+    func requestAcceptSesacFriend(sesacFriendQuery: SesacFriendQuery, completion: @escaping (Result<Int, SesacNetworkServiceError>) -> Void ) {
+        let requestDTO = SesacFriendRequestDTO(sesacFriendQuery: sesacFriendQuery)
+        provider.request(.acceptHobbyFriend(parameters: requestDTO.toDictionary)) { result in
+            self.process(result: result, completion: completion)
+        }
+    }
 }
 
 extension SesacRepository {
