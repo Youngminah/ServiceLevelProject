@@ -31,11 +31,18 @@ class HobbySearchViewController: UIViewController {
         backBarButtonTap: backBarButton.rx.tap.asSignal(),
         pauseSearchBarButtonTap: pauseSearchBarButton.rx.tap.asSignal(),
         nearSesacButtonTap: nearSesacButton.rx.tap.asSignal(),
-        receivedRequestButtonTap: receivedRequestButton.rx.tap.asSignal()
+        receivedRequestButtonTap: receivedRequestButton.rx.tap.asSignal(),
+        requestSesacFriend: requestSesacFriend.asSignal(),
+        requestAcceptSesacFriend: requestAcceptSesacFriend.asSignal()
     )
     private lazy var output = viewModel.transform(input: input)
     private let viewModel: HobbySearchViewModel
     private let disposeBag = DisposeBag()
+
+    private let requestSesacFriend = PublishRelay<String>()
+    private let requestAcceptSesacFriend = PublishRelay<String>()
+
+    private var status: SearchSesacTab = .near
 
     init(viewModel: HobbySearchViewModel) {
         self.viewModel = viewModel
@@ -55,53 +62,77 @@ class HobbySearchViewController: UIViewController {
     }
 
     private func bind() {
-        output.hobbyItems
+        output.items
             .map { return $0.count <= 0 }
             .drive(tableView.rx.isEmpty(
                 title: SearchSesacTab.near.emptyTitle,
-                message: SearchSesacTab.request.emptyMessage)
+                message: SearchSesacTab.receive.emptyMessage)
             )
             .disposed(by: disposeBag)
 
-        output.hobbyItems
-            .drive(tableView.rx.items) { tv, index, element in
+        output.items
+            .drive(tableView.rx.items) { [weak self] tv, index, element in
+                guard let self = self else { return UITableViewCell() }
                 let cell = tv.dequeueReusableCell(withIdentifier: CardCell.identifier) as! CardCell
-                cell.updateUI(item: element)
+                switch self.status {
+                case .near:
+                    cell.updateUI(item: element, tabStatus: .near)
+                    cell.requestButton.rx.tap.asSignal()
+                        .map { element.userID }
+                        .emit(to: self.requestSesacFriend)
+                        .disposed(by: cell.disposeBag)
+                case .receive:
+                    cell.updateUI(item: element, tabStatus: .receive)
+                    cell.receiveButton.rx.tap.asSignal()
+                        .map { return element.userID }
+                        .emit(to: self.requestAcceptSesacFriend)
+                        .disposed(by: cell.disposeBag)
+                }
+
+//                cell.cardView.previewView.toggleButton.rx.tap
+//                    .bind(onNext: {
+//                        print("버튼 눌림 -->", index, cell.isToggle)
+//                        cell.didPressToggle()
+//                        self.tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
+//                    })
+//                    .disposed(by: cell.disposeBag)
                 return cell
             }
             .disposed(by: disposeBag)
 
-        output.receivedRequestItems
-            .map { return $0.count <= 0 }
-            .drive(tableView.rx.isEmpty(
-                title: SearchSesacTab.near.emptyTitle,
-                message: SearchSesacTab.request.emptyTitle)
-            )
-            .disposed(by: disposeBag)
-
-        output.receivedRequestItems
+        output.items
             .map { return !($0.count <= 0) }
             .drive(bottomSheetView.rx.isHidden)
             .disposed(by: disposeBag)
 
-        output.hobbyItems
-            .map { return !($0.count <= 0) }
-            .drive(bottomSheetView.rx.isHidden)
-            .disposed(by: disposeBag)
-
-        output.nearSecacButtonSelectedAction
-            .emit(onNext: { [weak self] in
-                self?.nearSesacButton.isSelected = true
-                self?.receivedRequestButton.isSelected = false
-                self?.underBarSlideAnimation(moveX: 0)
+        output.showToastAction
+            .emit(onNext: { [unowned self] message in
+                self.makeToastStyle()
+                self.view.makeToast(message, position: .top)
             })
             .disposed(by: disposeBag)
 
-        output.receivedRequestButtonSelectedAction
-            .emit(onNext: { [weak self] in
-                self?.receivedRequestButton.isSelected = true
-                self?.nearSesacButton.isSelected = false
-                self?.underBarSlideAnimation(moveX: UIScreen.main.bounds.width / 2)
+        output.indicatorAction
+            .drive(onNext: {
+                $0 ? IndicatorView.shared.show(backgoundColor: Asset.transparent.color) : IndicatorView.shared.hide()
+            })
+            .disposed(by: disposeBag)
+
+        output.tabStatus
+            .drive(onNext: { [weak self] status in
+                guard let self = self else { return }
+                switch status {
+                case .near:
+                    self.status = .near
+                    self.nearSesacButton.isSelected = true
+                    self.receivedRequestButton.isSelected = false
+                    self.underBarSlideAnimation(moveX: 0)
+                case .receive:
+                    self.status = .receive
+                    self.receivedRequestButton.isSelected = true
+                    self.nearSesacButton.isSelected = false
+                    self.underBarSlideAnimation(moveX: UIScreen.main.bounds.width / 2)
+                }
             })
             .disposed(by: disposeBag)
     }
