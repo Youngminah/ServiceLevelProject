@@ -69,10 +69,13 @@ final class MyCardHeaderView: UITableViewHeaderFooterView {
         cardView.toggleAddTarget(target: target, action: action, event: event)
     }
 
-    func setHeaderView(reputation: [Int], reviewTexts: [String]) {
-        cardView.setSesacTitle(reputation: reputation)
-        if reviewTexts.count != 0 {
-            cardView.setReviewText(text: reviewTexts[0])
+    func setHeaderView(info: UserInfo) {
+        profileView.setSesacImage(image: info.sesac.image)
+        profileView.setBackgroundImage(image: info.background.image)
+        cardView.setNickname(nickname: info.nick)
+        cardView.setSesacTitle(reputation: info.reputation)
+        if info.reviewedBefore.count != 0 {
+            cardView.setReviewText(text: info.reviewedBefore[0])
         }
     }
 

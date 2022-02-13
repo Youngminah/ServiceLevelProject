@@ -55,7 +55,7 @@ final class MyPageEditViewController: UIViewController {
         output.userInfo
             .emit(onNext: { [weak self] info in
                 guard let self = self else { return }
-                self.headerView.setHeaderView(reputation: info.reputation, reviewTexts: info.comment)
+                self.headerView.setHeaderView(info: info)
                 let updateFooterInfo: UpdateUserInfo = (
                     info.searchable, info.ageMin, info.ageMax, info.gender, info.hobby
                 )
