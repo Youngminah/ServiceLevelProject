@@ -62,4 +62,20 @@ protocol SesacRepositoryType: AnyObject {
             SesacNetworkServiceError>
         ) -> Void
     )
+
+    func requestSesacFriend(                     // 새싹 친구 요청 API
+        sesacFriendQuery: SesacFriendQuery,
+        completion: @escaping (
+            Result< Int,
+            SesacNetworkServiceError>
+        ) -> Void
+    )
+
+    func requestAcceptSesacFriend(               // 새싹 친구 수락 API
+        sesacFriendQuery: SesacFriendQuery,
+        completion: @escaping (
+            Result< Int,
+            SesacNetworkServiceError>
+        ) -> Void
+    )
 }
