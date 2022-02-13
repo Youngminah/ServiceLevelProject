@@ -14,9 +14,9 @@ struct UserInfo: Equatable {
     let hobby: String?
     let comment: [String]
     let reputation: [Int]
-    let sesac: Int
+    let sesac: SesacImageCase
     let sesacCollection: [Int]
-    let background: Int
+    let background: SesacBackgroundCase
     let backgroundCollection: [Int]
     let purchaseToken, transactionID, reviewedBefore: [String]
     let reportedNum: Int
