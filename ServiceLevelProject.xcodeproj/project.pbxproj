@@ -66,6 +66,11 @@
 		BB1E250E27A1590500A80FC3 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1E250D27A1590500A80FC3 /* UserInfo.swift */; };
 		BB1E251127A179C200A80FC3 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1E251027A179C200A80FC3 /* Date.swift */; };
 		BB1E251E27A198E100A80FC3 /* CoordinatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1E251D27A198E100A80FC3 /* CoordinatorDelegate.swift */; };
+		BB1FD9DA27B967EB0010D536 /* SesacCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1FD9D927B967EB0010D536 /* SesacCardView.swift */; };
+		BB1FD9DC27B96A300010D536 /* SesacHobbyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1FD9DB27B96A300010D536 /* SesacHobbyView.swift */; };
+		BB1FD9DE27B975370010D536 /* DynamicCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1FD9DD27B975370010D536 /* DynamicCollectionView.swift */; };
+		BB1FD9E027B993BB0010D536 /* ReviewDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1FD9DF27B993BB0010D536 /* ReviewDetailViewController.swift */; };
+		BB1FD9E227B995420010D536 /* ReviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1FD9E127B995420010D536 /* ReviewCell.swift */; };
 		BB2B29F227B2CC18006F7339 /* HomeSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2B29F127B2CC17006F7339 /* HomeSearchViewModel.swift */; };
 		BB2B29FC27B2DEC9006F7339 /* NearHobbyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2B29FB27B2DEC9006F7339 /* NearHobbyCell.swift */; };
 		BB2B29FE27B2E257006F7339 /* SelectedHobbyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2B29FD27B2E257006F7339 /* SelectedHobbyCell.swift */; };
@@ -250,6 +255,11 @@
 		BB1E250D27A1590500A80FC3 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		BB1E251027A179C200A80FC3 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		BB1E251D27A198E100A80FC3 /* CoordinatorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorDelegate.swift; sourceTree = "<group>"; };
+		BB1FD9D927B967EB0010D536 /* SesacCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SesacCardView.swift; sourceTree = "<group>"; };
+		BB1FD9DB27B96A300010D536 /* SesacHobbyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SesacHobbyView.swift; sourceTree = "<group>"; };
+		BB1FD9DD27B975370010D536 /* DynamicCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicCollectionView.swift; sourceTree = "<group>"; };
+		BB1FD9DF27B993BB0010D536 /* ReviewDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewDetailViewController.swift; sourceTree = "<group>"; };
+		BB1FD9E127B995420010D536 /* ReviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewCell.swift; sourceTree = "<group>"; };
 		BB2B29F127B2CC17006F7339 /* HomeSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSearchViewModel.swift; sourceTree = "<group>"; };
 		BB2B29FB27B2DEC9006F7339 /* NearHobbyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearHobbyCell.swift; sourceTree = "<group>"; };
 		BB2B29FD27B2E257006F7339 /* SelectedHobbyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedHobbyCell.swift; sourceTree = "<group>"; };
@@ -428,10 +438,12 @@
 		BB00E90927A567920023D4E6 /* SesacCardView */ = {
 			isa = PBXGroup;
 			children = (
-				BB00E8FE27A539150023D4E6 /* SesacTitleView.swift */,
 				BB00E8FC27A534110023D4E6 /* SesacProfileView.swift */,
 				BB00E90A27A569DB0023D4E6 /* SesacPreviewView.swift */,
+				BB00E8FE27A539150023D4E6 /* SesacTitleView.swift */,
+				BB1FD9DB27B96A300010D536 /* SesacHobbyView.swift */,
 				BB00E90C27A56D2B0023D4E6 /* SesacReviewView.swift */,
+				BB1FD9D927B967EB0010D536 /* SesacCardView.swift */,
 			);
 			path = SesacCardView;
 			sourceTree = "<group>";
@@ -727,6 +739,7 @@
 				BB2B29FB27B2DEC9006F7339 /* NearHobbyCell.swift */,
 				BB2B29FD27B2E257006F7339 /* SelectedHobbyCell.swift */,
 				BBA6409327B6D28100E1410B /* CardCell.swift */,
+				BB1FD9E127B995420010D536 /* ReviewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -741,6 +754,7 @@
 				BB2B2A0627B3F9C1006F7339 /* NearHobbyLabel.swift */,
 				BB2B2A0827B40B5A006F7339 /* HobbySectionView.swift */,
 				BB09FB1C27B56875008D400A /* TabButton.swift */,
+				BB1FD9DD27B975370010D536 /* DynamicCollectionView.swift */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -765,6 +779,7 @@
 				BBAAA6A1279BFC6700667591 /* HomeViewController.swift */,
 				BB722BB727AD9EBF00317054 /* HomeSearchViewController.swift */,
 				BB722BB327AD9DEE00317054 /* HobbySearchViewController.swift */,
+				BB1FD9DF27B993BB0010D536 /* ReviewDetailViewController.swift */,
 				BBA6409D27B9054900E1410B /* ChatViewController.swift */,
 			);
 			path = View;
@@ -1344,11 +1359,14 @@
 				BB00E8FD27A534110023D4E6 /* SesacProfileView.swift in Sources */,
 				BB7A216F279D1673005FD0A3 /* UserRepository.swift in Sources */,
 				BBED121B279976A4002A5E9E /* UIViewController.swift in Sources */,
+				BB1FD9E227B995420010D536 /* ReviewCell.swift in Sources */,
+				BB1FD9DE27B975370010D536 /* DynamicCollectionView.swift in Sources */,
 				BBAAA6D9279C55B800667591 /* SesacShopCoordinator.swift in Sources */,
 				BB00E90D27A56D2B0023D4E6 /* SesacReviewView.swift in Sources */,
 				BB105D3E27966ABC008264DD /* AppDelegate.swift in Sources */,
 				BBAAA6AB279C169500667591 /* TransitionStyle.swift in Sources */,
 				BB00E92927A9B7C90023D4E6 /* UserUpdateQuery.swift in Sources */,
+				BB1FD9DA27B967EB0010D536 /* SesacCardView.swift in Sources */,
 				BB1E251E27A198E100A80FC3 /* CoordinatorDelegate.swift in Sources */,
 				BBA6409E27B9054900E1410B /* ChatViewController.swift in Sources */,
 				BB7A2184279DAF3C005FD0A3 /* SesacRepositoryType.swift in Sources */,
@@ -1414,6 +1432,7 @@
 				BB09FB2127B57122008D400A /* UITableView+Rx.swift in Sources */,
 				BB2B2A0027B2F1B6006F7339 /* UIViewController+Rx.swift in Sources */,
 				BB105D962797AAE5008264DD /* BirthViewController.swift in Sources */,
+				BB1FD9DC27B96A300010D536 /* SesacHobbyView.swift in Sources */,
 				BB09FB2327B57171008D400A /* HobbySearchViewModel.swift in Sources */,
 				BB7A217E279DA32F005FD0A3 /* FireBaseRepository.swift in Sources */,
 				BBAAA6B9279C3CE100667591 /* BirthViewModel.swift in Sources */,
@@ -1441,6 +1460,7 @@
 				BBAAA687279AD3A500667591 /* SLPTarget.swift in Sources */,
 				BBDBE51127A459A600305BF3 /* MyPageMenuHeaderView.swift in Sources */,
 				BBED121927996F97002A5E9E /* DefaultButton+Rx.swift in Sources */,
+				BB1FD9E027B993BB0010D536 /* ReviewDetailViewController.swift in Sources */,
 				BB105D8B2796E610008264DD /* DefaultButton.swift in Sources */,
 				BB70D03827AD61E3006B94EB /* UIView.swift in Sources */,
 				BBA6409427B6D28100E1410B /* CardCell.swift in Sources */,

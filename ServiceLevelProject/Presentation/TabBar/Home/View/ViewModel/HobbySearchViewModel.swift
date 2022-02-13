@@ -122,6 +122,13 @@ final class HobbySearchViewModel: ViewModelType {
             })
             .disposed(by: disposeBag)
 
+        input.reviewDetailButtonTap
+            .emit(onNext: { [weak self] index in
+                guard let self = self else { return }
+                self.coordinator?.showReviewDetailViewController(reviews: self.items.value[index].reviews)
+            })
+            .disposed(by: disposeBag)
+
         self.useCase.successPauseSearchSesac
             .asSignal()
             .emit(onNext: { [weak self] _ in
