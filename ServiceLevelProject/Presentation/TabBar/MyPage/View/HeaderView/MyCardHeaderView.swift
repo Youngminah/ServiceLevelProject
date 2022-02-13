@@ -13,7 +13,7 @@ final class MyCardHeaderView: UITableViewHeaderFooterView {
     static let identifier = "MyCardHeaderView"
 
     private let profileView = SesacProfileView()
-    private let cardView = SesacCardView()
+    private let cardView = ProfileCardView()
 
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
@@ -28,7 +28,7 @@ final class MyCardHeaderView: UITableViewHeaderFooterView {
     private func setView() {
         addSubview(profileView)
         addSubview(cardView)
-        isUserInteractionEnabled = true
+        //isUserInteractionEnabled = true
     }
 
     private func setConstraints() {
@@ -44,6 +44,26 @@ final class MyCardHeaderView: UITableViewHeaderFooterView {
             make.bottom.equalToSuperview().offset(-16).priority(.low)
         }
     }
+
+    func updateConstraints(isToggle: Bool) {
+        if isToggle {
+            cardView.snp.removeConstraints()
+            cardView.snp.makeConstraints { make in
+                make.top.equalTo(profileView.snp.bottom)
+                make.left.equalToSuperview().offset(16)
+                make.right.equalToSuperview().offset(-16)
+                make.height.equalTo(50)
+            }
+        } else {
+            cardView.snp.removeConstraints()
+            cardView.snp.makeConstraints { make in
+                make.top.equalTo(profileView.snp.bottom)
+                make.left.equalToSuperview().offset(16)
+                make.right.equalToSuperview().offset(-16)
+                make.bottom.equalToSuperview().offset(-16).priority(.low)
+            }
+        }
+    }
     
     func toggleAddTarget(target: Any?, action: Selector, event: UIControl.Event) {
         cardView.toggleAddTarget(target: target, action: action, event: event)
@@ -55,10 +75,6 @@ final class MyCardHeaderView: UITableViewHeaderFooterView {
             cardView.setReviewText(text: reviewTexts[0])
         }
     }
-
-//    func setReviewText(text: String) {
-//        cardView.setReviewText(text: text)
-//    }
 
     func setToggleButtonImage(isToggle: Bool) {
         cardView.setToggleButtonImage(isToggle: isToggle)

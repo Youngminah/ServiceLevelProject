@@ -132,6 +132,8 @@ extension MyPageEditViewController {
     @objc
     func didPressToggle() {
         isToggle = !isToggle
+        headerView.updateConstraints(isToggle: isToggle)
+        headerView.layoutIfNeeded()
         tableView.reloadSections([0], with: .none)
     }
 }
@@ -147,7 +149,8 @@ extension MyPageEditViewController: UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return isToggle ? 300 : UITableView.automaticDimension
+        let height = (UIScreen.main.bounds.width - 32) * (194.0 / 343) + 85
+        return isToggle ? height : UITableView.automaticDimension
     }
 
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
