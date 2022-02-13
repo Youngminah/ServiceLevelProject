@@ -10,7 +10,7 @@ import SnapKit
 
 final class SesacCardView: UIView {
 
-    private let previewView = SesacPreviewView()
+    let previewView = SesacPreviewView()
     private let sesacTitleView = SesacTitleView()
     private let sesacReviewView = SesacReviewView()
 

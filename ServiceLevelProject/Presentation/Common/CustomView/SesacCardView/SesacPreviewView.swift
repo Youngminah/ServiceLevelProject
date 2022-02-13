@@ -10,7 +10,7 @@ import UIKit
 final class SesacPreviewView: UIView {
 
     private let nickNameLabel = DefaultLabel(font: .title1M16)
-    private let toggleButton = UIButton()
+    let toggleButton = UIButton()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
