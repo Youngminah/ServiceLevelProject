@@ -16,7 +16,7 @@
 		BB00E90327A558000023D4E6 /* SelectionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB00E90227A558000023D4E6 /* SelectionButton.swift */; };
 		BB00E90B27A569DB0023D4E6 /* SesacPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB00E90A27A569DB0023D4E6 /* SesacPreviewView.swift */; };
 		BB00E90D27A56D2B0023D4E6 /* SesacReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB00E90C27A56D2B0023D4E6 /* SesacReviewView.swift */; };
-		BB00E90F27A583850023D4E6 /* SesacCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB00E90E27A583850023D4E6 /* SesacCardView.swift */; };
+		BB00E90F27A583850023D4E6 /* ProfileCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB00E90E27A583850023D4E6 /* ProfileCardView.swift */; };
 		BB00E91227A5AA690023D4E6 /* MyGenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB00E91127A5AA690023D4E6 /* MyGenderView.swift */; };
 		BB00E91427A5AA760023D4E6 /* MyHobbyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB00E91327A5AA760023D4E6 /* MyHobbyView.swift */; };
 		BB00E91627A5AC360023D4E6 /* MyPhoneNumberPermitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB00E91527A5AC360023D4E6 /* MyPhoneNumberPermitView.swift */; };
@@ -113,6 +113,7 @@
 		BBA6409827B7F07900E1410B /* SearchSesacTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA6409727B7F07900E1410B /* SearchSesacTab.swift */; };
 		BBA6409A27B8D84A00E1410B /* SesacFriendQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA6409927B8D84A00E1410B /* SesacFriendQuery.swift */; };
 		BBA6409C27B8D8FF00E1410B /* SesacFriendRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA6409B27B8D8FF00E1410B /* SesacFriendRequestDTO.swift */; };
+		BBA6409E27B9054900E1410B /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA6409D27B9054900E1410B /* ChatViewController.swift */; };
 		BBAAA684279ABFAD00667591 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = BBAAA683279ABFAD00667591 /* Moya */; };
 		BBAAA687279AD3A500667591 /* SLPTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAA686279AD3A500667591 /* SLPTarget.swift */; };
 		BBAAA68A279AD78000667591 /* APIEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAA689279AD78000667591 /* APIEnvironment.swift */; };
@@ -197,7 +198,7 @@
 		BB00E90227A558000023D4E6 /* SelectionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionButton.swift; sourceTree = "<group>"; };
 		BB00E90A27A569DB0023D4E6 /* SesacPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SesacPreviewView.swift; sourceTree = "<group>"; };
 		BB00E90C27A56D2B0023D4E6 /* SesacReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SesacReviewView.swift; sourceTree = "<group>"; };
-		BB00E90E27A583850023D4E6 /* SesacCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SesacCardView.swift; sourceTree = "<group>"; };
+		BB00E90E27A583850023D4E6 /* ProfileCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCardView.swift; sourceTree = "<group>"; };
 		BB00E91127A5AA690023D4E6 /* MyGenderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGenderView.swift; sourceTree = "<group>"; };
 		BB00E91327A5AA760023D4E6 /* MyHobbyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyHobbyView.swift; sourceTree = "<group>"; };
 		BB00E91527A5AC360023D4E6 /* MyPhoneNumberPermitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPhoneNumberPermitView.swift; sourceTree = "<group>"; };
@@ -293,6 +294,7 @@
 		BBA6409727B7F07900E1410B /* SearchSesacTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSesacTab.swift; sourceTree = "<group>"; };
 		BBA6409927B8D84A00E1410B /* SesacFriendQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SesacFriendQuery.swift; sourceTree = "<group>"; };
 		BBA6409B27B8D8FF00E1410B /* SesacFriendRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SesacFriendRequestDTO.swift; sourceTree = "<group>"; };
+		BBA6409D27B9054900E1410B /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		BBAAA686279AD3A500667591 /* SLPTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SLPTarget.swift; sourceTree = "<group>"; };
 		BBAAA689279AD78000667591 /* APIEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEnvironment.swift; sourceTree = "<group>"; };
 		BBAAA68B279AD7BE00667591 /* APIConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstant.swift; sourceTree = "<group>"; };
@@ -437,7 +439,7 @@
 		BB00E91027A5AA360023D4E6 /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
-				BB00E90E27A583850023D4E6 /* SesacCardView.swift */,
+				BB00E90E27A583850023D4E6 /* ProfileCardView.swift */,
 				BB00E91127A5AA690023D4E6 /* MyGenderView.swift */,
 				BB00E91327A5AA760023D4E6 /* MyHobbyView.swift */,
 				BB00E91527A5AC360023D4E6 /* MyPhoneNumberPermitView.swift */,
@@ -763,6 +765,7 @@
 				BBAAA6A1279BFC6700667591 /* HomeViewController.swift */,
 				BB722BB727AD9EBF00317054 /* HomeSearchViewController.swift */,
 				BB722BB327AD9DEE00317054 /* HobbySearchViewController.swift */,
+				BBA6409D27B9054900E1410B /* ChatViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1347,6 +1350,7 @@
 				BBAAA6AB279C169500667591 /* TransitionStyle.swift in Sources */,
 				BB00E92927A9B7C90023D4E6 /* UserUpdateQuery.swift in Sources */,
 				BB1E251E27A198E100A80FC3 /* CoordinatorDelegate.swift in Sources */,
+				BBA6409E27B9054900E1410B /* ChatViewController.swift in Sources */,
 				BB7A2184279DAF3C005FD0A3 /* SesacRepositoryType.swift in Sources */,
 				BB00E8F627A46CDE0023D4E6 /* MyPageEditViewController.swift in Sources */,
 				BBA6409227B6916C00E1410B /* MatchStatus.swift in Sources */,
@@ -1358,7 +1362,7 @@
 				BB00E92327A723530023D4E6 /* MyPageEditUseCase.swift in Sources */,
 				BB2B29F227B2CC18006F7339 /* HomeSearchViewModel.swift in Sources */,
 				BBED1202279902ED002A5E9E /* OnBoardingViewController.swift in Sources */,
-				BB00E90F27A583850023D4E6 /* SesacCardView.swift in Sources */,
+				BB00E90F27A583850023D4E6 /* ProfileCardView.swift in Sources */,
 				BB105D7C2796B660008264DD /* UIFont.swift in Sources */,
 				BBE071FD27B03CD3007947B6 /* Onqueue.swift in Sources */,
 				BBDBE50F27A4505D00305BF3 /* MyPageMenuCase.swift in Sources */,

@@ -69,6 +69,11 @@ final class HomeCoordinator: Coordinator {
         navigationController.pushViewController(vc, animated: true)
     }
 
+    func showChatViewController() {
+        let vc = ChatViewController()
+        navigationController.pushViewController(vc, animated: true)
+    }
+
     func changeTabToMyPageViewController(message: String) {
         navigationController.tabBarController?.selectedIndex = 3
         navigationController.tabBarController?.view.makeToast(message, position: .top)
