@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-final class SesacCardView: UIView {
+final class ProfileCardView: UIView {
 
     let previewView = SesacPreviewView()
     private let sesacTitleView = SesacTitleView()

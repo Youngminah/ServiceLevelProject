@@ -26,6 +26,8 @@ class HobbySearchViewController: UIViewController {
     private let refreshButton = UIButton()
     private let changeHobbyButton = SelectionButton(title: "취미 변경하기")
 
+    private var toggleInfoArrays = [Bool]()
+
     private lazy var input = HobbySearchViewModel.Input(
         viewWillAppear: self.rx.viewWillAppear.asSignal(),
         backBarButtonTap: backBarButton.rx.tap.asSignal(),
@@ -33,7 +35,8 @@ class HobbySearchViewController: UIViewController {
         nearSesacButtonTap: nearSesacButton.rx.tap.asSignal(),
         receivedRequestButtonTap: receivedRequestButton.rx.tap.asSignal(),
         requestSesacFriend: requestSesacFriend.asSignal(),
-        requestAcceptSesacFriend: requestAcceptSesacFriend.asSignal()
+        requestAcceptSesacFriend: requestAcceptSesacFriend.asSignal(),
+        toggleButtonTap: toggleButtonTap.asSignal()
     )
     private lazy var output = viewModel.transform(input: input)
     private let viewModel: HobbySearchViewModel
@@ -41,6 +44,7 @@ class HobbySearchViewController: UIViewController {
 
     private let requestSesacFriend = PublishRelay<String>()
     private let requestAcceptSesacFriend = PublishRelay<String>()
+    private let toggleButtonTap = PublishRelay<Int>()
 
     private var status: SearchSesacTab = .near
 
@@ -71,6 +75,15 @@ class HobbySearchViewController: UIViewController {
             .disposed(by: disposeBag)
 
         output.items
+            .drive(onNext: { [weak self] items in
+                self?.toggleInfoArrays = []
+                items.forEach { item in
+                    self?.toggleInfoArrays.append(true)
+                }
+            })
+            .disposed(by: disposeBag)
+
+        output.items
             .drive(tableView.rx.items) { [weak self] tv, index, element in
                 guard let self = self else { return UITableViewCell() }
                 let cell = tv.dequeueReusableCell(withIdentifier: CardCell.identifier) as! CardCell
@@ -88,14 +101,14 @@ class HobbySearchViewController: UIViewController {
                         .emit(to: self.requestAcceptSesacFriend)
                         .disposed(by: cell.disposeBag)
                 }
-
-//                cell.cardView.previewView.toggleButton.rx.tap
-//                    .bind(onNext: {
-//                        print("버튼 눌림 -->", index, cell.isToggle)
-//                        cell.didPressToggle()
-//                        self.tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
-//                    })
-//                    .disposed(by: cell.disposeBag)
+                cell.updateConstraints(isToggle: self.toggleInfoArrays[index])
+                cell.cardView.previewView.toggleButton.rx.tap
+                    .bind(onNext: {
+                        self.toggleInfoArrays[index] = !self.toggleInfoArrays[index]
+                        cell.layoutIfNeeded()
+                        self.tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .fade)
+                    })
+                    .disposed(by: cell.disposeBag)
                 return cell
             }
             .disposed(by: disposeBag)
@@ -206,6 +219,8 @@ class HobbySearchViewController: UIViewController {
         refreshButton.layer.borderColor = UIColor.green.cgColor
         refreshButton.layer.cornerRadius = 8
         tableView.register(CardCell.self, forCellReuseIdentifier: CardCell.identifier)
+        tableView.rx.setDelegate(self).disposed(by: disposeBag)
+        tableView.estimatedRowHeight = 300
         tableView.separatorColor = .clear
         bottomSheetView.isHidden = true
     }
@@ -214,5 +229,12 @@ class HobbySearchViewController: UIViewController {
         UIView.animate(withDuration: 0.8, delay: 0, usingSpringWithDamping: 0.8,initialSpringVelocity: 1, options: .allowUserInteraction, animations: { [weak self] in
             self?.slidingBarView.transform = CGAffineTransform(translationX: moveX, y: 0)
         }, completion: nil)
+    }
+}
+
+extension HobbySearchViewController: UITableViewDelegate {
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return toggleInfoArrays[indexPath.row] ? UITableView.automaticDimension : 300
     }
 }

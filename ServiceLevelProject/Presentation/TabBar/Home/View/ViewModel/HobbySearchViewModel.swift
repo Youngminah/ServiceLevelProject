@@ -24,6 +24,7 @@ final class HobbySearchViewModel: ViewModelType {
         let receivedRequestButtonTap: Signal<Void>
         let requestSesacFriend: Signal<String>
         let requestAcceptSesacFriend: Signal<String>
+        let toggleButtonTap: Signal<Int>
     }
     struct Output {
         let items: Driver<[HobbySearchItemViewModel]>
@@ -35,7 +36,7 @@ final class HobbySearchViewModel: ViewModelType {
     }
     var disposeBag = DisposeBag()
 
-    private let hobbyItems = BehaviorRelay<[HobbySearchItemViewModel]>(value: [])
+    private let items = BehaviorRelay<[HobbySearchItemViewModel]>(value: [])
     private let nearSecacButtonSelectedAction = PublishRelay<Void>()
     private let receivedRequestButtonSelectedAction = PublishRelay<Void>()
     private let tabStatus = BehaviorRelay<SearchSesacTab>(value: .near)
@@ -85,6 +86,16 @@ final class HobbySearchViewModel: ViewModelType {
             })
             .disposed(by: disposeBag)
 
+        input.toggleButtonTap
+            .emit(onNext: { [weak self] index in
+                guard let self = self else { return }
+                var items = self.items.value
+                print(index, items[index].isToggle)
+                items[index].isToggle = !items[index].isToggle
+                self.items.accept(items)
+            })
+            .disposed(by: disposeBag)
+
         input.requestSesacFriend
             .emit(onNext: { [weak self] userID in
                 guard let self = self else { return }
@@ -129,6 +140,7 @@ final class HobbySearchViewModel: ViewModelType {
             .asSignal()
             .emit(onNext: { [weak self] _ in
                 print("수락하였습니다. 채팅화면 이동!!")
+                self?.coordinator?.showChatViewController()
             })
             .disposed(by: disposeBag)
 
@@ -140,16 +152,16 @@ final class HobbySearchViewModel: ViewModelType {
                 switch status {
                 case .near:
                     let items = self.makeNearSesacItem(onqueue: onqueue)
-                    self.hobbyItems.accept(items)
+                    self.items.accept(items)
                 case .receive:
                     let items = self.makeReceivedRequestItem(onqueue: onqueue)
-                    self.hobbyItems.accept(items)
+                    self.items.accept(items)
                 }
             })
             .disposed(by: disposeBag)
 
         return Output(
-            items: hobbyItems.asDriver(),
+            items: items.asDriver(),
             tabStatus: tabStatus.asDriver(),
             nearSecacButtonSelectedAction: nearSecacButtonSelectedAction.asSignal(),
             receivedRequestButtonSelectedAction: receivedRequestButtonSelectedAction.asSignal(),
