@@ -7,6 +7,7 @@
 
 import UIKit
 import RxSwift
+import RxCocoa
 import SnapKit
 
 class CardCell: BaseTableViewCell {
@@ -17,7 +18,6 @@ class CardCell: BaseTableViewCell {
     let cardView = SesacCardView()
     let requestButton = DefaultButton(title: "요청하기")
     let receiveButton = DefaultButton(title: "수락하기")
-    var isToggle = true
     var status: SearchSesacTab = .near
 
     var disposeBag = DisposeBag()
@@ -25,6 +25,10 @@ class CardCell: BaseTableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         disposeBag = DisposeBag()
+    }
+
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
     }
 
     override func setView() {
@@ -68,10 +72,10 @@ class CardCell: BaseTableViewCell {
         receiveButton.backgroundColor = .success
     }
 
-    func didPressToggle() {
-        isToggle = !isToggle
+    func updateConstraints(isToggle: Bool) {
         cardView.setToggleButtonImage(isToggle: isToggle)
         if isToggle {
+            cardView.snp.removeConstraints()
             cardView.snp.makeConstraints { make in
                 make.top.equalTo(profileView.snp.bottom)
                 make.left.equalToSuperview().offset(16)
@@ -79,14 +83,14 @@ class CardCell: BaseTableViewCell {
                 make.bottom.equalToSuperview().offset(-16).priority(.low)
             }
         } else {
+            cardView.snp.removeConstraints()
             cardView.snp.remakeConstraints { make in
                 make.top.equalTo(profileView.snp.bottom)
                 make.left.equalToSuperview().offset(16)
                 make.right.equalToSuperview().offset(-16)
-                make.width.equalTo(80).priority(.low)
+                make.height.equalTo(50)
             }
         }
-        print("didPressToggle")
         layoutIfNeeded()
     }
 
@@ -97,12 +101,15 @@ class CardCell: BaseTableViewCell {
         self.cardView.setNickname(nickname: item.nickname)
         if item.reviews.count != 0 {
             cardView.setReviewText(text: item.reviews[0])
+            cardView.sesacReviewView.toggleButton.isHidden = false
         } else {
             cardView.setPlaceHolder()
+            cardView.sesacReviewView.toggleButton.isHidden = true
         }
+        self.cardView.sesacHobbyView.hobbyLists.accept(item.hobbys)
         self.setRequestButton(tabStatus: tabStatus)
     }
-
+    
     private func setRequestButton(tabStatus: SearchSesacTab) {
         switch tabStatus {
         case .near:

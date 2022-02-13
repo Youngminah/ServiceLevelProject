@@ -36,7 +36,7 @@ class HobbySearchViewController: UIViewController {
         receivedRequestButtonTap: receivedRequestButton.rx.tap.asSignal(),
         requestSesacFriend: requestSesacFriend.asSignal(),
         requestAcceptSesacFriend: requestAcceptSesacFriend.asSignal(),
-        toggleButtonTap: toggleButtonTap.asSignal()
+        reviewDetailButtonTap: reviewDetailButtonTap.asSignal()
     )
     private lazy var output = viewModel.transform(input: input)
     private let viewModel: HobbySearchViewModel
@@ -44,7 +44,7 @@ class HobbySearchViewController: UIViewController {
 
     private let requestSesacFriend = PublishRelay<String>()
     private let requestAcceptSesacFriend = PublishRelay<String>()
-    private let toggleButtonTap = PublishRelay<Int>()
+    private let reviewDetailButtonTap = PublishRelay<Int>()
 
     private var status: SearchSesacTab = .near
 
@@ -94,19 +94,28 @@ class HobbySearchViewController: UIViewController {
                         .map { element.userID }
                         .emit(to: self.requestSesacFriend)
                         .disposed(by: cell.disposeBag)
+                    cell.updateConstraints(isToggle: self.toggleInfoArrays[index])
                 case .receive:
                     cell.updateUI(item: element, tabStatus: .receive)
                     cell.receiveButton.rx.tap.asSignal()
                         .map { return element.userID }
                         .emit(to: self.requestAcceptSesacFriend)
                         .disposed(by: cell.disposeBag)
+                    cell.updateConstraints(isToggle: self.toggleInfoArrays[index])
                 }
-                cell.updateConstraints(isToggle: self.toggleInfoArrays[index])
+
+                cell.cardView.sesacReviewView.toggleButton.rx.tap.asSignal()
+                    .map { index }
+                    .emit(to: self.reviewDetailButtonTap)
+                    .disposed(by: cell.disposeBag)
+
                 cell.cardView.previewView.toggleButton.rx.tap
-                    .bind(onNext: {
+                    .bind(onNext: { [weak self] in
+                        guard let self = self else { return }
                         self.toggleInfoArrays[index] = !self.toggleInfoArrays[index]
-                        cell.layoutIfNeeded()
-                        self.tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .fade)
+                        UIView.performWithoutAnimation {
+                            self.tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .fade)
+                        }
                     })
                     .disposed(by: cell.disposeBag)
                 return cell
@@ -220,7 +229,7 @@ class HobbySearchViewController: UIViewController {
         refreshButton.layer.cornerRadius = 8
         tableView.register(CardCell.self, forCellReuseIdentifier: CardCell.identifier)
         tableView.rx.setDelegate(self).disposed(by: disposeBag)
-        tableView.estimatedRowHeight = 300
+        tableView.estimatedRowHeight = 400
         tableView.separatorColor = .clear
         bottomSheetView.isHidden = true
     }
@@ -235,6 +244,12 @@ class HobbySearchViewController: UIViewController {
 extension HobbySearchViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return toggleInfoArrays[indexPath.row] ? UITableView.automaticDimension : 300
+        let height = (UIScreen.main.bounds.width - 32) * (194.0 / 343) + 85
+        return toggleInfoArrays[indexPath.row] ? UITableView.automaticDimension : height
     }
+
+//    func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+//        let cell = tableView.dequeueReusableCell(withIdentifier: CardCell.identifier) as! CardCell
+//        cell.disposeBag = DisposeBag()
+//    }
 }

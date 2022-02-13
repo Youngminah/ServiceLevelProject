@@ -24,7 +24,7 @@ final class HobbySearchViewModel: ViewModelType {
         let receivedRequestButtonTap: Signal<Void>
         let requestSesacFriend: Signal<String>
         let requestAcceptSesacFriend: Signal<String>
-        let toggleButtonTap: Signal<Int>
+        let reviewDetailButtonTap: Signal<Int>
     }
     struct Output {
         let items: Driver<[HobbySearchItemViewModel]>
@@ -83,16 +83,6 @@ final class HobbySearchViewModel: ViewModelType {
                 self.tabStatus.accept(.receive)
                 self.receivedRequestButtonSelectedAction.accept(())
                 self.requestOnqueue()
-            })
-            .disposed(by: disposeBag)
-
-        input.toggleButtonTap
-            .emit(onNext: { [weak self] index in
-                guard let self = self else { return }
-                var items = self.items.value
-                print(index, items[index].isToggle)
-                items[index].isToggle = !items[index].isToggle
-                self.items.accept(items)
             })
             .disposed(by: disposeBag)
 
