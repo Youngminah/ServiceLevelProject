@@ -69,6 +69,12 @@ final class HomeCoordinator: Coordinator {
         navigationController.pushViewController(vc, animated: true)
     }
 
+    func showReviewDetailViewController(reviews: [String]) {
+        let vc = ReviewDetailViewController(reviews: reviews)
+        vc.title = "새싹 리뷰"
+        navigationController.pushViewController(vc, animated: true)
+    }
+
     func showChatViewController() {
         let vc = ChatViewController()
         navigationController.pushViewController(vc, animated: true)
