@@ -111,6 +111,8 @@
 		BBA6409427B6D28100E1410B /* CardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA6409327B6D28100E1410B /* CardCell.swift */; };
 		BBA6409627B7867200E1410B /* HobbySearhItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA6409527B7867200E1410B /* HobbySearhItemViewModel.swift */; };
 		BBA6409827B7F07900E1410B /* SearchSesacTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA6409727B7F07900E1410B /* SearchSesacTab.swift */; };
+		BBA6409A27B8D84A00E1410B /* SesacFriendQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA6409927B8D84A00E1410B /* SesacFriendQuery.swift */; };
+		BBA6409C27B8D8FF00E1410B /* SesacFriendRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA6409B27B8D8FF00E1410B /* SesacFriendRequestDTO.swift */; };
 		BBAAA684279ABFAD00667591 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = BBAAA683279ABFAD00667591 /* Moya */; };
 		BBAAA687279AD3A500667591 /* SLPTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAA686279AD3A500667591 /* SLPTarget.swift */; };
 		BBAAA68A279AD78000667591 /* APIEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAA689279AD78000667591 /* APIEnvironment.swift */; };
@@ -289,6 +291,8 @@
 		BBA6409327B6D28100E1410B /* CardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCell.swift; sourceTree = "<group>"; };
 		BBA6409527B7867200E1410B /* HobbySearhItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HobbySearhItemViewModel.swift; sourceTree = "<group>"; };
 		BBA6409727B7F07900E1410B /* SearchSesacTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSesacTab.swift; sourceTree = "<group>"; };
+		BBA6409927B8D84A00E1410B /* SesacFriendQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SesacFriendQuery.swift; sourceTree = "<group>"; };
+		BBA6409B27B8D8FF00E1410B /* SesacFriendRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SesacFriendRequestDTO.swift; sourceTree = "<group>"; };
 		BBAAA686279AD3A500667591 /* SLPTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SLPTarget.swift; sourceTree = "<group>"; };
 		BBAAA689279AD78000667591 /* APIEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEnvironment.swift; sourceTree = "<group>"; };
 		BBAAA68B279AD7BE00667591 /* APIConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstant.swift; sourceTree = "<group>"; };
@@ -448,6 +452,7 @@
 				BB1E250B27A158FA00A80FC3 /* UserRegisterQuery.swift */,
 				BB00E92827A9B7C90023D4E6 /* UserUpdateQuery.swift */,
 				BB09FB2B27B58B0C008D400A /* SearchSesacQuery.swift */,
+				BBA6409927B8D84A00E1410B /* SesacFriendQuery.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -620,6 +625,7 @@
 				BB722BBB27B0303B00317054 /* OnqueueResponseDTO.swift */,
 				BBE071FA27B03A4F007947B6 /* OnqueueRequestDTO.swift */,
 				BB09FB2927B58AC7008D400A /* SearchSesacRequestDTO.swift */,
+				BBA6409B27B8D8FF00E1410B /* SesacFriendRequestDTO.swift */,
 			);
 			path = DataMapping;
 			sourceTree = "<group>";
@@ -1371,6 +1377,7 @@
 				BB00E8FF27A539150023D4E6 /* SesacTitleView.swift in Sources */,
 				BB6BF5CF27ABF93B00548BD2 /* GenderCase.swift in Sources */,
 				BB09FB2827B5761C008D400A /* TableViewBackgroundView.swift in Sources */,
+				BBA6409A27B8D84A00E1410B /* SesacFriendQuery.swift in Sources */,
 				BBAAA69C279BE30700667591 /* UserInfoResponseDTO.swift in Sources */,
 				BB2B29FC27B2DEC9006F7339 /* NearHobbyCell.swift in Sources */,
 				BB00E91627A5AC360023D4E6 /* MyPhoneNumberPermitView.swift in Sources */,
@@ -1387,6 +1394,7 @@
 				BBED11F7279869EA002A5E9E /* Coordinator.swift in Sources */,
 				BB105D9E27981074008264DD /* UIButton.swift in Sources */,
 				BBAAA6CA279C460000667591 /* SesacShopViewController.swift in Sources */,
+				BBA6409C27B8D8FF00E1410B /* SesacFriendRequestDTO.swift in Sources */,
 				BB105D4027966ABC008264DD /* SceneDelegate.swift in Sources */,
 				BBAAA6BE279C3CFA00667591 /* GenderViewModel.swift in Sources */,
 				BB7A2172279D16BA005FD0A3 /* UserRepositoryType.swift in Sources */,
