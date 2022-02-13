@@ -15,6 +15,8 @@ final class HobbySearchUseCase {
     private let fireBaseRepository: FirbaseRepositoryType
     private let sesacRepository: SesacRepositoryType
 
+    var successRequestSesacFriend = PublishRelay<Void>()
+    var successAcceptSesacFriend = PublishRelay<Void>()
     var successPauseSearchSesac = PublishRelay<Void>()
     var successOnqueueSignal = PublishRelay<Onqueue>()
     var unKnownErrorSignal = PublishRelay<Void>()
@@ -61,6 +63,49 @@ final class HobbySearchUseCase {
                 case .inValidIDTokenError:
                     self.requestIDToken {
                         self.requestPauseSearchSesac()
+                    }
+                default:
+                    self.unKnownErrorSignal.accept(())
+                }
+            }
+        }
+    }
+
+    func requestSesacFriend(userID: String) {
+        let sesacFriendQuery = SesacFriendQuery(userID: userID)
+        self.sesacRepository.requestSesacFriend(sesacFriendQuery: sesacFriendQuery) { [weak self] response in
+            guard let self = self else { return }
+            switch response {
+            case .success(let code):
+                print(code)
+                self.successRequestSesacFriend.accept(())
+            case .failure(let error):
+                switch error {
+                case .inValidIDTokenError:
+                    self.requestIDToken {
+                        self.requestSesacFriend(userID: userID)
+                    }
+                default:
+                    self.unKnownErrorSignal.accept(())
+                }
+            }
+        }
+    }
+
+    func requestAcceptSesacFriend(userID: String) {
+        let sesacFriendQuery = SesacFriendQuery(userID: userID)
+        self.sesacRepository.requestAcceptSesacFriend(sesacFriendQuery: sesacFriendQuery) { [weak self] response in
+            guard let self = self else { return }
+            switch response {
+            case .success(_):
+                //self.saveMatchStatus(status: .matched)
+                self.successAcceptSesacFriend.accept(())
+            case .failure(let error):
+                print(error)
+                switch error {
+                case .inValidIDTokenError:
+                    self.requestIDToken {
+                        self.requestAcceptSesacFriend(userID: userID)
                     }
                 default:
                     self.unKnownErrorSignal.accept(())
