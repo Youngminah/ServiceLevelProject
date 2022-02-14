@@ -25,6 +25,7 @@ final class HobbySearchViewModel: ViewModelType {
         let requestSesacFriend: Signal<String>
         let requestAcceptSesacFriend: Signal<String>
         let reviewDetailButtonTap: Signal<Int>
+        let refreshButtonTap: Signal<Void>
     }
     struct Output {
         let items: Driver<[HobbySearchItemViewModel]>
@@ -50,8 +51,17 @@ final class HobbySearchViewModel: ViewModelType {
     }
 
     func transform(input: Input) -> Output {
+        input.refreshButtonTap
+            .emit(onNext: { [weak self] in
+                guard let self = self else { return }
+                self.indicatorAction.accept(true)
+                self.requestOnqueue()
+            })
+            .disposed(by: disposeBag)
+
         input.pauseSearchBarButtonTap
             .emit(onNext: { [weak self] in
+                self?.indicatorAction.accept(true)
                 self?.requestPauseSearchSesac()
             })
             .disposed(by: disposeBag)
@@ -73,6 +83,7 @@ final class HobbySearchViewModel: ViewModelType {
                 guard let self = self else { return }
                 self.tabStatus.accept(.near)
                 self.nearSecacButtonSelectedAction.accept(())
+                self.indicatorAction.accept(true)
                 self.requestOnqueue()
             })
             .disposed(by: disposeBag)
@@ -82,6 +93,7 @@ final class HobbySearchViewModel: ViewModelType {
                 guard let self = self else { return }
                 self.tabStatus.accept(.receive)
                 self.receivedRequestButtonSelectedAction.accept(())
+                self.indicatorAction.accept(true)
                 self.requestOnqueue()
             })
             .disposed(by: disposeBag)
@@ -93,6 +105,7 @@ final class HobbySearchViewModel: ViewModelType {
                     title: SearchSesacTab.near.alertTitle,
                     message: SearchSesacTab.near.alertMessage,
                     buttonStyle: .confirmAndCancel) {
+                        self.indicatorAction.accept(true)
                         self.requestSesacFriend(userID: userID)
                     }
                 alert.showAlert()
@@ -106,6 +119,7 @@ final class HobbySearchViewModel: ViewModelType {
                     title: SearchSesacTab.receive.alertTitle,
                     message: SearchSesacTab.receive.alertMessage,
                     buttonStyle: .confirmAndCancel) {
+                        self.indicatorAction.accept(true)
                         self.requestAcceptSesacFriend(userID: userID)
                     }
                 alert.showAlert()
@@ -122,6 +136,7 @@ final class HobbySearchViewModel: ViewModelType {
         self.useCase.successPauseSearchSesac
             .asSignal()
             .emit(onNext: { [weak self] _ in
+                self?.indicatorAction.accept(false)
                 self?.coordinator?.popToRootViewController(message: "새싹 찾기가 중단되었습니다.")
             })
             .disposed(by: disposeBag)
@@ -130,6 +145,7 @@ final class HobbySearchViewModel: ViewModelType {
             .asSignal()
             .emit(onNext: { [weak self] _ in
                 self?.showToastAction.accept(SearchSesacTab.near.toastMessage)
+                self?.indicatorAction.accept(false)
             })
             .disposed(by: disposeBag)
 
@@ -137,16 +153,23 @@ final class HobbySearchViewModel: ViewModelType {
             .asSignal()
             .emit(onNext: { [weak self] _ in
                 print("수락하였습니다. 채팅화면 이동!!")
+                self?.indicatorAction.accept(false)
                 self?.coordinator?.showChatViewController()
             })
             .disposed(by: disposeBag)
 
-        Observable.zip(
-            self.useCase.successOnqueueSignal,
-            self.tabStatus)
-            .bind(onNext: { [weak self] onqueue, status in
+        self.useCase.unKnownErrorSignal
+            .asSignal()
+            .emit(onNext: { [weak self] error in
+                self?.indicatorAction.accept(false)
+                print(error)
+            })
+            .disposed(by: disposeBag)
+
+        self.useCase.successOnqueueSignal
+            .bind(onNext: { [weak self] onqueue in
                 guard let self = self else { return }
-                switch status {
+                switch self.tabStatus.value {
                 case .near:
                     let items = self.makeNearSesacItem(onqueue: onqueue)
                     self.items.accept(items)
@@ -154,6 +177,7 @@ final class HobbySearchViewModel: ViewModelType {
                     let items = self.makeReceivedRequestItem(onqueue: onqueue)
                     self.items.accept(items)
                 }
+                self.indicatorAction.accept(false)
             })
             .disposed(by: disposeBag)
 

@@ -36,7 +36,8 @@ class HobbySearchViewController: UIViewController {
         receivedRequestButtonTap: receivedRequestButton.rx.tap.asSignal(),
         requestSesacFriend: requestSesacFriend.asSignal(),
         requestAcceptSesacFriend: requestAcceptSesacFriend.asSignal(),
-        reviewDetailButtonTap: reviewDetailButtonTap.asSignal()
+        reviewDetailButtonTap: reviewDetailButtonTap.asSignal(),
+        refreshButtonTap: refreshButton.rx.tap.asSignal()
     )
     private lazy var output = viewModel.transform(input: input)
     private let viewModel: HobbySearchViewModel
@@ -136,7 +137,7 @@ class HobbySearchViewController: UIViewController {
 
         output.indicatorAction
             .drive(onNext: {
-                $0 ? IndicatorView.shared.show(backgoundColor: Asset.transparent.color) : IndicatorView.shared.hide()
+                $0 ? IndicatorView.shared.show(backgoundColor: .white) : IndicatorView.shared.hide()
             })
             .disposed(by: disposeBag)
 
@@ -247,9 +248,4 @@ extension HobbySearchViewController: UITableViewDelegate {
         let height = (UIScreen.main.bounds.width - 32) * (194.0 / 343) + 85
         return toggleInfoArrays[indexPath.row] ? UITableView.automaticDimension : height
     }
-
-//    func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: CardCell.identifier) as! CardCell
-//        cell.disposeBag = DisposeBag()
-//    }
 }

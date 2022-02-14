@@ -67,6 +67,7 @@ final class HomeCoordinator: Coordinator {
         vc.hidesBottomBarWhenPushed = true
         navigationController.setNavigationBarHidden(false, animated: false)
         navigationController.pushViewController(vc, animated: true)
+        IndicatorView.shared.show(backgoundColor: .white)
     }
 
     func showReviewDetailViewController(reviews: [String]) {
