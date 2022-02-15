@@ -10,7 +10,7 @@ import RxSwift
 import RxCocoa
 import SnapKit
 
-class ReviewDetailViewController: UIViewController {
+final class ReviewDetailViewController: UIViewController {
 
     private let tableView = UITableView()
     private let reviews: BehaviorRelay<[String]>
