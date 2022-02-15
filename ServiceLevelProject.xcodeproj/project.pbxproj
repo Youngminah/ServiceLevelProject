@@ -71,6 +71,8 @@
 		BB1FD9DE27B975370010D536 /* DynamicCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1FD9DD27B975370010D536 /* DynamicCollectionView.swift */; };
 		BB1FD9E027B993BB0010D536 /* ReviewDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1FD9DF27B993BB0010D536 /* ReviewDetailViewController.swift */; };
 		BB1FD9E227B995420010D536 /* ReviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1FD9E127B995420010D536 /* ReviewCell.swift */; };
+		BB1FD9E427BAB0E20010D536 /* MyQueueState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1FD9E327BAB0E20010D536 /* MyQueueState.swift */; };
+		BB1FD9E627BAB1C60010D536 /* MyQueueStateResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1FD9E527BAB1C60010D536 /* MyQueueStateResponseDTO.swift */; };
 		BB2B29F227B2CC18006F7339 /* HomeSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2B29F127B2CC17006F7339 /* HomeSearchViewModel.swift */; };
 		BB2B29FC27B2DEC9006F7339 /* NearHobbyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2B29FB27B2DEC9006F7339 /* NearHobbyCell.swift */; };
 		BB2B29FE27B2E257006F7339 /* SelectedHobbyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2B29FD27B2E257006F7339 /* SelectedHobbyCell.swift */; };
@@ -82,6 +84,11 @@
 		BB2B2A0B27B42498006F7339 /* SearchBar+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2B2A0A27B42498006F7339 /* SearchBar+Rx.swift */; };
 		BB3008D727A31A3E00D32DCA /* MyPageMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3008D627A31A3E00D32DCA /* MyPageMenuCell.swift */; };
 		BB3008D927A31B8300D32DCA /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3008D827A31B8300D32DCA /* BaseTableViewCell.swift */; };
+		BB4821B127BB9DF400E263D8 /* ChatHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4821B027BB9DF400E263D8 /* ChatHeaderView.swift */; };
+		BB4821B327BBBDE400E263D8 /* SendChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4821B227BBBDE400E263D8 /* SendChatCell.swift */; };
+		BB4821B527BBBDF300E263D8 /* ReceivedChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4821B427BBBDF300E263D8 /* ReceivedChatCell.swift */; };
+		BB4821B827BBED1100E263D8 /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4821B727BBED1100E263D8 /* ChatViewModel.swift */; };
+		BB4821BA27BBEE3600E263D8 /* ChatUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4821B927BBEE3600E263D8 /* ChatUseCase.swift */; };
 		BB5B5C9527B2CA3E00BC608A /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = BB5B5C9427B2CA3E00BC608A /* RxDataSources */; };
 		BB6BF5CF27ABF93B00548BD2 /* GenderCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6BF5CE27ABF93B00548BD2 /* GenderCase.swift */; };
 		BB70D03127AC2660006B94EB /* GenderFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB70D03027AC2660006B94EB /* GenderFilterView.swift */; };
@@ -260,6 +267,8 @@
 		BB1FD9DD27B975370010D536 /* DynamicCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicCollectionView.swift; sourceTree = "<group>"; };
 		BB1FD9DF27B993BB0010D536 /* ReviewDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewDetailViewController.swift; sourceTree = "<group>"; };
 		BB1FD9E127B995420010D536 /* ReviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewCell.swift; sourceTree = "<group>"; };
+		BB1FD9E327BAB0E20010D536 /* MyQueueState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyQueueState.swift; sourceTree = "<group>"; };
+		BB1FD9E527BAB1C60010D536 /* MyQueueStateResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyQueueStateResponseDTO.swift; sourceTree = "<group>"; };
 		BB2B29F127B2CC17006F7339 /* HomeSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSearchViewModel.swift; sourceTree = "<group>"; };
 		BB2B29FB27B2DEC9006F7339 /* NearHobbyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearHobbyCell.swift; sourceTree = "<group>"; };
 		BB2B29FD27B2E257006F7339 /* SelectedHobbyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedHobbyCell.swift; sourceTree = "<group>"; };
@@ -270,6 +279,11 @@
 		BB2B2A0A27B42498006F7339 /* SearchBar+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchBar+Rx.swift"; sourceTree = "<group>"; };
 		BB3008D627A31A3E00D32DCA /* MyPageMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageMenuCell.swift; sourceTree = "<group>"; };
 		BB3008D827A31B8300D32DCA /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
+		BB4821B027BB9DF400E263D8 /* ChatHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatHeaderView.swift; sourceTree = "<group>"; };
+		BB4821B227BBBDE400E263D8 /* SendChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendChatCell.swift; sourceTree = "<group>"; };
+		BB4821B427BBBDF300E263D8 /* ReceivedChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceivedChatCell.swift; sourceTree = "<group>"; };
+		BB4821B727BBED1100E263D8 /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
+		BB4821B927BBEE3600E263D8 /* ChatUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatUseCase.swift; sourceTree = "<group>"; };
 		BB6BF5CE27ABF93B00548BD2 /* GenderCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderCase.swift; sourceTree = "<group>"; };
 		BB70D03027AC2660006B94EB /* GenderFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderFilterView.swift; sourceTree = "<group>"; };
 		BB70D03327AD1973006B94EB /* FilterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterButton.swift; sourceTree = "<group>"; };
@@ -477,6 +491,7 @@
 				BB1E250D27A1590500A80FC3 /* UserInfo.swift */,
 				BBE071F827B039BD007947B6 /* Coordinate.swift */,
 				BBE071FC27B03CD3007947B6 /* Onqueue.swift */,
+				BB1FD9E327BAB0E20010D536 /* MyQueueState.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -640,6 +655,7 @@
 				BBE071FA27B03A4F007947B6 /* OnqueueRequestDTO.swift */,
 				BB09FB2927B58AC7008D400A /* SearchSesacRequestDTO.swift */,
 				BBA6409B27B8D8FF00E1410B /* SesacFriendRequestDTO.swift */,
+				BB1FD9E527BAB1C60010D536 /* MyQueueStateResponseDTO.swift */,
 			);
 			path = DataMapping;
 			sourceTree = "<group>";
@@ -738,10 +754,20 @@
 			children = (
 				BB2B29FB27B2DEC9006F7339 /* NearHobbyCell.swift */,
 				BB2B29FD27B2E257006F7339 /* SelectedHobbyCell.swift */,
-				BBA6409327B6D28100E1410B /* CardCell.swift */,
 				BB1FD9E127B995420010D536 /* ReviewCell.swift */,
+				BBA6409327B6D28100E1410B /* CardCell.swift */,
+				BB4821B227BBBDE400E263D8 /* SendChatCell.swift */,
+				BB4821B427BBBDF300E263D8 /* ReceivedChatCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		BB4821B627BBC42300E263D8 /* HeaderView */ = {
+			isa = PBXGroup;
+			children = (
+				BB4821B027BB9DF400E263D8 /* ChatHeaderView.swift */,
+			);
+			path = HeaderView;
 			sourceTree = "<group>";
 		};
 		BB70D03227AD16C3006B94EB /* CustomView */ = {
@@ -765,6 +791,7 @@
 				BB70D03927AD8464006B94EB /* HomeViewModel.swift */,
 				BB2B29F127B2CC17006F7339 /* HomeSearchViewModel.swift */,
 				BB09FB2227B57171008D400A /* HobbySearchViewModel.swift */,
+				BB4821B727BBED1100E263D8 /* ChatViewModel.swift */,
 				BBA6408F27B66E0400E1410B /* HomeSearchItemViewModel.swift */,
 				BBA6409527B7867200E1410B /* HobbySearhItemViewModel.swift */,
 			);
@@ -775,6 +802,7 @@
 			isa = PBXGroup;
 			children = (
 				BB70D03227AD16C3006B94EB /* CustomView */,
+				BB4821B627BBC42300E263D8 /* HeaderView */,
 				BB2B29F327B2D1AA006F7339 /* Cell */,
 				BBAAA6A1279BFC6700667591 /* HomeViewController.swift */,
 				BB722BB727AD9EBF00317054 /* HomeSearchViewController.swift */,
@@ -795,6 +823,7 @@
 				BB722BB927B00C7E00317054 /* HomeUseCase.swift */,
 				BB09FB1A27B4D2B6008D400A /* HomeSearchUseCase.swift */,
 				BB09FB2527B571E8008D400A /* HobbySearchUseCase.swift */,
+				BB4821B927BBEE3600E263D8 /* ChatUseCase.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -1373,6 +1402,7 @@
 				BB00E8F627A46CDE0023D4E6 /* MyPageEditViewController.swift in Sources */,
 				BBA6409227B6916C00E1410B /* MatchStatus.swift in Sources */,
 				BBAAA6DE279C598D00667591 /* MyPageCoordinator.swift in Sources */,
+				BB4821B527BBBDF300E263D8 /* ReceivedChatCell.swift in Sources */,
 				BB2B2A0727B3F9C1006F7339 /* NearHobbyLabel.swift in Sources */,
 				BBAAA6A2279BFC6700667591 /* HomeViewController.swift in Sources */,
 				BBED12252799AAC5002A5E9E /* StopWatchConverterService.swift in Sources */,
@@ -1453,12 +1483,15 @@
 				BBAAA68C279AD7BE00667591 /* APIConstant.swift in Sources */,
 				BB70D03427AD1973006B94EB /* FilterButton.swift in Sources */,
 				BB105D982797AAF8008264DD /* EmailViewController.swift in Sources */,
+				BB4821B327BBBDE400E263D8 /* SendChatCell.swift in Sources */,
 				BB7A2178279D9BCC005FD0A3 /* GenderUseCase.swift in Sources */,
+				BB1FD9E427BAB0E20010D536 /* MyQueueState.swift in Sources */,
 				BB70D03627AD2A49006B94EB /* MapStatusButton.swift in Sources */,
 				BB105D782796B2B8008264DD /* AppFont.swift in Sources */,
 				BBA6409027B66E0400E1410B /* HomeSearchItemViewModel.swift in Sources */,
 				BBAAA687279AD3A500667591 /* SLPTarget.swift in Sources */,
 				BBDBE51127A459A600305BF3 /* MyPageMenuHeaderView.swift in Sources */,
+				BB4821BA27BBEE3600E263D8 /* ChatUseCase.swift in Sources */,
 				BBED121927996F97002A5E9E /* DefaultButton+Rx.swift in Sources */,
 				BB1FD9E027B993BB0010D536 /* ReviewDetailViewController.swift in Sources */,
 				BB105D8B2796E610008264DD /* DefaultButton.swift in Sources */,
@@ -1471,11 +1504,13 @@
 				BB722BBC27B0303B00317054 /* OnqueueResponseDTO.swift in Sources */,
 				BB105D8F2796F197008264DD /* DefaultLabel.swift in Sources */,
 				BBED120427990CB5002A5E9E /* NSMutableAttributedString.swift in Sources */,
+				BB1FD9E627BAB1C60010D536 /* MyQueueStateResponseDTO.swift in Sources */,
 				BB1E250C27A158FA00A80FC3 /* UserRegisterQuery.swift in Sources */,
 				BBAAA6BC279C3CF100667591 /* EmailViewModel.swift in Sources */,
 				BB7A2182279DAF2B005FD0A3 /* FirbaseRepositoryType.swift in Sources */,
 				BBE0720127B1416A007947B6 /* SesacBackgroundCase.swift in Sources */,
 				BB105D9A2797F313008264DD /* GenderViewController.swift in Sources */,
+				BB4821B127BB9DF400E263D8 /* ChatHeaderView.swift in Sources */,
 				BB00E92127A7058E0023D4E6 /* AlertView.swift in Sources */,
 				BBDDDF8A27A03A9E000FB2C0 /* AuthCoordinator.swift in Sources */,
 				BB105D9C2797FA21008264DD /* GenderButton.swift in Sources */,
@@ -1489,6 +1524,7 @@
 				BB09FB2627B571E8008D400A /* HobbySearchUseCase.swift in Sources */,
 				BBAAA68A279AD78000667591 /* APIEnvironment.swift in Sources */,
 				BBA6409627B7867200E1410B /* HobbySearhItemViewModel.swift in Sources */,
+				BB4821B827BBED1100E263D8 /* ChatViewModel.swift in Sources */,
 				BB1E250E27A1590500A80FC3 /* UserInfo.swift in Sources */,
 				BB105DA22798232D008264DD /* AppAppearance.swift in Sources */,
 				BB2B2A0227B3F1AE006F7339 /* CollectionViewLeftAlignFlowLayout.swift in Sources */,

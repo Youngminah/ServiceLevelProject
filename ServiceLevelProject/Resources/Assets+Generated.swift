@@ -30,6 +30,7 @@ internal enum Asset {
   internal static let background6 = ImageAsset(name: "background6")
   internal static let background7 = ImageAsset(name: "background7")
   internal static let background8 = ImageAsset(name: "background8")
+  internal static let bell = ImageAsset(name: "bell")
   internal static let empty = ImageAsset(name: "empty")
   internal static let location = ImageAsset(name: "location")
   internal static let marker = ImageAsset(name: "marker")
