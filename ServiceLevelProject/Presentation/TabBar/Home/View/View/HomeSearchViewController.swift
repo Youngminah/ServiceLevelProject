@@ -108,7 +108,8 @@ final class HomeSearchViewController: UIViewController {
         collectionView.snp.makeConstraints { make in
             make.left.equalToSuperview().offset(16)
             make.right.equalToSuperview().offset(-16)
-            make.top.bottom.equalToSuperview()
+            make.top.equalToSuperview()
+            make.bottom.equalToSuperview().offset(-70)
         }
         searchSesacButton.snp.makeConstraints { make in
             make.right.equalToSuperview().offset(-16)
@@ -126,6 +127,7 @@ final class HomeSearchViewController: UIViewController {
         navigationItem.titleView = searchBar
         navigationItem.backButtonTitle = ""
         searchSesacButton.isValid = true
+        collectionView.isScrollEnabled = true
     }
 
     private func registerCollectionView() {
