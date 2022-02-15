@@ -25,6 +25,7 @@ final class HobbySearchViewModel: ViewModelType {
         let requestSesacFriend: Signal<String>
         let requestAcceptSesacFriend: Signal<String>
         let reviewDetailButtonTap: Signal<Int>
+        let changeHobbyButtonTap: Signal<Void>
         let refreshButtonTap: Signal<Void>
     }
     struct Output {
@@ -56,6 +57,13 @@ final class HobbySearchViewModel: ViewModelType {
                 guard let self = self else { return }
                 self.indicatorAction.accept(true)
                 self.requestOnqueue()
+            })
+            .disposed(by: disposeBag)
+
+        input.changeHobbyButtonTap
+            .emit(onNext: { [weak self] in
+                guard let self = self else { return }
+                self.requestPauseSearchSesac()
             })
             .disposed(by: disposeBag)
 
@@ -130,6 +138,28 @@ final class HobbySearchViewModel: ViewModelType {
             .emit(onNext: { [weak self] index in
                 guard let self = self else { return }
                 self.coordinator?.showReviewDetailViewController(reviews: self.items.value[index].reviews)
+            })
+            .disposed(by: disposeBag)
+
+        self.useCase.alreadyMatchedErrorSignal
+            .asSignal()
+            .emit(onNext: { [weak self] _ in
+                self?.indicatorAction.accept(false)
+                //사용자 본인상태 확인 API
+                self?.showToastAction.accept("앗! 누군가가 나의 취미 함께 하기를 수락하였어요!")
+                self?.requestMyQueueState()
+            })
+            .disposed(by: disposeBag)
+
+        self.useCase.successRequestMyQueueState
+            .asSignal()
+            .emit(onNext: { [weak self] state in
+                print("My Queue State -->", state)
+                if state.matched == 1 {
+                    self?.coordinator?.navigationController.view.makeToast("dks", duration: 1, position: .top, completion: { didTap in
+                        self?.coordinator?.showChatViewController()
+                    })
+                }
             })
             .disposed(by: disposeBag)
 
@@ -216,5 +246,9 @@ extension HobbySearchViewModel {
 
     private func requestAcceptSesacFriend(userID: String) {
         self.useCase.requestAcceptSesacFriend(userID: userID)
+    }
+
+    private func requestMyQueueState() {
+        self.useCase.requestMyQueueState()
     }
 }

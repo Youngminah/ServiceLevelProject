@@ -13,7 +13,7 @@ import RxGesture
 import RxKeyboard
 import SnapKit
 
-class HobbySearchViewController: UIViewController {
+final class HobbySearchViewController: UIViewController {
 
     private let backBarButton = UIBarButtonItem()
     private let pauseSearchBarButton = UIBarButtonItem()
@@ -37,6 +37,7 @@ class HobbySearchViewController: UIViewController {
         requestSesacFriend: requestSesacFriend.asSignal(),
         requestAcceptSesacFriend: requestAcceptSesacFriend.asSignal(),
         reviewDetailButtonTap: reviewDetailButtonTap.asSignal(),
+        changeHobbyButtonTap: changeHobbyButton.rx.tap.asSignal(),
         refreshButtonTap: refreshButton.rx.tap.asSignal()
     )
     private lazy var output = viewModel.transform(input: input)
@@ -130,7 +131,6 @@ class HobbySearchViewController: UIViewController {
 
         output.showToastAction
             .emit(onNext: { [unowned self] message in
-                self.makeToastStyle()
                 self.view.makeToast(message, position: .top)
             })
             .disposed(by: disposeBag)
