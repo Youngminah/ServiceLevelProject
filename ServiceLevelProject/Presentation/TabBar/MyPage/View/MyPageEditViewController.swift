@@ -6,9 +6,9 @@
 //
 
 import UIKit
-import SnapKit
 import RxSwift
 import RxCocoa
+import SnapKit
 
 final class MyPageEditViewController: UIViewController {
 
