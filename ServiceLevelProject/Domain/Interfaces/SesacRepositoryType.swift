@@ -78,4 +78,11 @@ protocol SesacRepositoryType: AnyObject {
             SesacNetworkServiceError>
         ) -> Void
     )
+
+    func requestMyQueueState(                    // 본인 매칭상태 확인 API
+        completion: @escaping (
+            Result< MyQueueState,
+            SesacNetworkServiceError>
+        ) -> Void
+    )
 }
