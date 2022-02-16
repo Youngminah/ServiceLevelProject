@@ -35,6 +35,8 @@ internal enum Asset {
   internal static let location = ImageAsset(name: "location")
   internal static let marker = ImageAsset(name: "marker")
   internal static let message = ImageAsset(name: "message")
+  internal static let next = ImageAsset(name: "next")
+  internal static let nextFill = ImageAsset(name: "nextFill")
   internal static let refresh = ImageAsset(name: "refresh")
   internal static let search = ImageAsset(name: "search")
   internal static let sesac1 = ImageAsset(name: "sesac1")
