@@ -102,6 +102,7 @@ extension SesacRepository {
 
     func requestPauseSearchSesac(completion: @escaping (Result<Int, SesacNetworkServiceError>) -> Void ) {
         provider.request(.pauseSearchSesac) { result in
+            print(result)
             self.process(result: result, completion: completion)
         }
     }
@@ -117,6 +118,19 @@ extension SesacRepository {
         let requestDTO = SesacFriendRequestDTO(sesacFriendQuery: sesacFriendQuery)
         provider.request(.acceptHobbyFriend(parameters: requestDTO.toDictionary)) { result in
             self.process(result: result, completion: completion)
+        }
+    }
+
+    func requestMyQueueState(completion: @escaping (Result<MyQueueState, SesacNetworkServiceError>) -> Void ) {
+        provider.request(.myQueueState) { result in
+            print(result)
+            switch result {
+            case .success(let response):
+                let data = try? JSONDecoder().decode(MyQueueStateResponseDTO.self, from: response.data)
+                completion(.success(data!.toDomain()))
+            case .failure(let error):
+                completion(.failure(SesacNetworkServiceError(rawValue: error.response!.statusCode) ?? .unknown))
+            }
         }
     }
 }
