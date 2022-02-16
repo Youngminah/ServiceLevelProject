@@ -86,7 +86,7 @@ final class HomeViewModel: ViewModelType {
                     self.coordinator?.showHobbySearchViewController(coordinate: self.userCoordinate)
                     return false
                 case .matched:
-                    print("채팅화면으로 전환")
+                    self.coordinator?.showChatViewController()
                     return false
                 }
             }
