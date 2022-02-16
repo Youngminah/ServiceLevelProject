@@ -15,10 +15,12 @@ final class HobbySearchUseCase {
     private let fireBaseRepository: FirbaseRepositoryType
     private let sesacRepository: SesacRepositoryType
 
+    var successRequestMyQueueState = PublishRelay<MyQueueState>()
     var successRequestSesacFriend = PublishRelay<Void>()
     var successAcceptSesacFriend = PublishRelay<Void>()
     var successPauseSearchSesac = PublishRelay<Void>()
     var successOnqueueSignal = PublishRelay<Onqueue>()
+    var alreadyMatchedErrorSignal = PublishRelay<Void>()
     var unKnownErrorSignal = PublishRelay<Void>()
 
     init(
@@ -50,6 +52,25 @@ final class HobbySearchUseCase {
         }
     }
 
+    func requestMyQueueState() {
+        self.sesacRepository.requestMyQueueState { [weak self] response in
+            guard let self = self else { return }
+            switch response {
+            case .success(let myQueue):
+                self.successRequestMyQueueState.accept(myQueue)
+            case .failure(let error):
+                switch error {
+                case .inValidIDTokenError:
+                    self.requestIDToken {
+                        self.requestMyQueueState()
+                    }
+                default:
+                    self.unKnownErrorSignal.accept(())
+                }
+            }
+        }
+    }
+
     func requestPauseSearchSesac() {
         self.sesacRepository.requestPauseSearchSesac { [weak self] response in
             guard let self = self else { return }
@@ -60,6 +81,8 @@ final class HobbySearchUseCase {
                 self.successPauseSearchSesac.accept(())
             case .failure(let error):
                 switch error {
+                case .duplicatedError:
+                    self.alreadyMatchedErrorSignal.accept(())
                 case .inValidIDTokenError:
                     self.requestIDToken {
                         self.requestPauseSearchSesac()
@@ -98,7 +121,7 @@ final class HobbySearchUseCase {
             guard let self = self else { return }
             switch response {
             case .success(_):
-                //self.saveMatchStatus(status: .matched)
+                self.saveMatchStatus(status: .matched)
                 self.successAcceptSesacFriend.accept(())
             case .failure(let error):
                 print(error)
