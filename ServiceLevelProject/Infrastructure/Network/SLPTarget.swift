@@ -25,8 +25,12 @@ enum SLPTarget {
     case pauseSearchSesac
     case requestHobbyFriend(parameters: DictionaryType)
     case acceptHobbyFriend(parameters: DictionaryType)
-    case getMyRequestStatus
-
+    case myQueueState
+    //Chat
+    case getChatInfo
+    case sendChatMessage(parameters: DictionaryType)
+    case writeReview(parameters: DictionaryType)
+    case dodge(parameters: DictionaryType)
 }
 
 extension SLPTarget: TargetType {
@@ -58,15 +62,23 @@ extension SLPTarget: TargetType {
             return "/queue/hobbyrequest"
         case .acceptHobbyFriend:
             return "/queue/hobbyaccept"
-        case .getMyRequestStatus:
+        case .myQueueState:
             return "/queue/myQueueState"
+        case .getChatInfo,
+            .sendChatMessage:
+            return "/chat"
+        case .writeReview:
+            return "/queue/rate"
+        case .dodge:
+            return "/queue/dodge"
         }
     }
 
     var method: Moya.Method {
         switch self {
         case .getUserInfo,
-             .getMyRequestStatus:
+             .myQueueState,
+             .getChatInfo:
             return .get
         case .register,
              .withdraw,
@@ -74,7 +86,10 @@ extension SLPTarget: TargetType {
              .onqueue,
              .searchSesac,
              .requestHobbyFriend,
-             .acceptHobbyFriend:
+             .acceptHobbyFriend,
+             .sendChatMessage,
+             .writeReview,
+             .dodge:
             return .post
         case .updateFCMToken:
             return .put
@@ -92,14 +107,18 @@ extension SLPTarget: TargetType {
         case .getUserInfo,
              .withdraw,
              .pauseSearchSesac,
-             .getMyRequestStatus:
+             .myQueueState,
+             .getChatInfo:
             return .requestPlain
         case .register(let parameters),
              .updateFCMToken(let parameters),
              .updateMyPage(let parameters),
              .onqueue(let parameters),
              .requestHobbyFriend(let parameters),
-             .acceptHobbyFriend(let parameters):
+             .acceptHobbyFriend(let parameters),
+             .sendChatMessage(let parameters),
+             .writeReview(let parameters),
+             .dodge(let parameters):
             return .requestParameters(parameters: parameters, encoding: URLEncoding.default)
         case .searchSesac(let parameters):
             return .requestParameters(parameters: parameters, encoding: URLEncoding(arrayEncoding: .noBrackets))
