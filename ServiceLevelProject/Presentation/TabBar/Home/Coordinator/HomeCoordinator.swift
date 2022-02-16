@@ -77,7 +77,18 @@ final class HomeCoordinator: Coordinator {
     }
 
     func showChatViewController() {
-        let vc = ChatViewController()
+        let vc = ChatViewController(
+            viewModel: ChatViewModel(
+                coordinator: self,
+                useCase: ChatUseCase(
+                    userRepository: UserRepository(),
+                    fireBaseRepository: FirebaseRepository(),
+                    sesacRepository: SesacRepository()
+                )
+            )
+        )
+        vc.hidesBottomBarWhenPushed = true
+        navigationController.setNavigationBarHidden(false, animated: false)
         navigationController.pushViewController(vc, animated: true)
     }
 
@@ -85,7 +96,7 @@ final class HomeCoordinator: Coordinator {
         navigationController.tabBarController?.selectedIndex = 3
         navigationController.tabBarController?.view.makeToast(message, position: .top)
     }
-
+    
     func popToRootViewController(message: String? = nil) {
         navigationController.popToRootViewController(animated: true)
         if let message = message {
