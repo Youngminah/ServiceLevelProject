@@ -6,7 +6,6 @@
 //
 
 import UIKit.UILabel
-import UIKit
 
 final class NearHobbyLabel: UILabel {
 
