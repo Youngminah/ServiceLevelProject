@@ -133,6 +133,33 @@ extension SesacRepository {
             }
         }
     }
+
+    func requestSendChat(to id: String, chatQuery: ChatQuery, completion: @escaping (Result<Chat, SesacNetworkServiceError>) -> Void ) {
+        let requestDTO = ChatRequestDTO(chatQuery: chatQuery)
+        provider.request(.sendChatMessage(parameters: requestDTO.toDictionary, id: id)) { result in
+            print(result)
+            switch result {
+            case .success(let response):
+                let data = try? JSONDecoder().decode(ChatDTO.self, from: response.data)
+                completion(.success(data!.toDomain()))
+            case .failure(let error):
+                completion(.failure(SesacNetworkServiceError(rawValue: error.response!.statusCode) ?? .unknown))
+            }
+        }
+    }
+
+    func requestChat(to id: String, dateString: String, completion: @escaping (Result<ChatList, SesacNetworkServiceError>) -> Void ) {
+        provider.request(.getChatInfo(id: id, date: dateString)) { result in
+            print(result)
+            switch result {
+            case .success(let response):
+                let data = try? JSONDecoder().decode(ChatResponseDTO.self, from: response.data)
+                completion(.success(data!.toDomain()))
+            case .failure(let error):
+                completion(.failure(SesacNetworkServiceError(rawValue: error.response!.statusCode) ?? .unknown))
+            }
+        }
+    }
 }
 
 extension SesacRepository {
