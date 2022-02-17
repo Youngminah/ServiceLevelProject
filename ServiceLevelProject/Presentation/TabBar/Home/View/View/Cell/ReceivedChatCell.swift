@@ -24,12 +24,11 @@ final class ReceivedChatCell: BaseTableViewCell {
         super.setConstraints()
         textView.snp.makeConstraints { make in
             make.left.top.equalToSuperview().offset(16)
-            make.width.equalToSuperview().multipliedBy(0.604)
+            make.width.lessThanOrEqualToSuperview().multipliedBy(0.604)
             make.bottom.equalToSuperview().offset(-16).priority(.low)
         }
         dateLabel.snp.makeConstraints { make in
             make.left.equalTo(textView.snp.right).offset(8)
-            make.right.equalToSuperview()
             make.bottom.equalTo(textView.snp.bottom)
         }
     }
@@ -45,13 +44,11 @@ final class ReceivedChatCell: BaseTableViewCell {
         textView.isEditable = false
         textView.textContainerInset = UIEdgeInsets(top: 10, left: 16, bottom: 10, right: 16)
         dateLabel.textAlignment = .left
-        //temp
-        textView.text = "안녕하세요 자전거 언제 타실 생각이세요?"
-        dateLabel.text = "15:02"
     }
 
     func updateUI(chat: Chat) {
         textView.text = chat.text
         dateLabel.text = chat.createdAt.toString
+        textView.sizeToFit()
     }
 }
