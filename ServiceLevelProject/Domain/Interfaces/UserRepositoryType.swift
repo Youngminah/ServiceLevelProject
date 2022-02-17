@@ -54,4 +54,6 @@ protocol UserRepositoryType: AnyObject {
     func withdrawUserInfo()
 
     func deleteFCMToken()
+
+    func deleteMatchedUserIDInfo()
 }
