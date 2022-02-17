@@ -44,6 +44,22 @@ final class UserRepository: UserRepositoryType {
         return MatchStatus(value: value)
     }
 
+    func fetchMatchedUserIDInfo() -> String? {
+        return UserDefaults.standard.string(forKey: UserDefaultKeyCase.matchesUserID)
+    }
+
+    func fetchMyIDInfo() -> String? {
+        return UserDefaults.standard.string(forKey: UserDefaultKeyCase.myID)
+    }
+
+    func saveMyIDInfo(id: String) {
+        UserDefaults.standard.set(id, forKey: UserDefaultKeyCase.myID)
+    }
+
+    func saveMatchedUserIDInfo(id: String) {
+        UserDefaults.standard.set(id, forKey: UserDefaultKeyCase.matchesUserID)
+    }
+
     func savePhoneNumberInfo(phoneNumber: String) {
         UserDefaults.standard.set(phoneNumber, forKey: UserDefaultKeyCase.phoneNumber)
     }
@@ -59,6 +75,18 @@ final class UserRepository: UserRepositoryType {
 
     func saveLogInInfo() {
         UserDefaults.standard.set(true, forKey: UserDefaultKeyCase.isLoggedIn)
+    }
+
+    func saveBirthInfo(birth: Date) {
+        UserDefaults.standard.set(birth, forKey: UserDefaultKeyCase.birth)
+    }
+
+    func saveEmailInfo(email: String) {
+        UserDefaults.standard.set(email, forKey: UserDefaultKeyCase.email)
+    }
+
+    func saveNicknameInfo(nickname: String) {
+        UserDefaults.standard.set(nickname, forKey: UserDefaultKeyCase.nickName)
     }
 
     func saveMatchStatus(status: MatchStatus) {
