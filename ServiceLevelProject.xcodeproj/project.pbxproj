@@ -117,6 +117,10 @@
 		BB7A2182279DAF2B005FD0A3 /* FirbaseRepositoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7A2181279DAF2B005FD0A3 /* FirbaseRepositoryType.swift */; };
 		BB7A2184279DAF3C005FD0A3 /* SesacRepositoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7A2183279DAF3C005FD0A3 /* SesacRepositoryType.swift */; };
 		BB7A2186279EBCEE005FD0A3 /* DatePickerTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7A2185279EBCEE005FD0A3 /* DatePickerTextField.swift */; };
+		BB81733B27BE741B00588677 /* DodgeRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB81733A27BE741B00588677 /* DodgeRequestDTO.swift */; };
+		BB81733D27BE747300588677 /* DodgeQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB81733C27BE747300588677 /* DodgeQuery.swift */; };
+		BB81733F27BE787D00588677 /* ReviewQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB81733E27BE787D00588677 /* ReviewQuery.swift */; };
+		BB81734127BE78DA00588677 /* ReviewQueryDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB81734027BE78DA00588677 /* ReviewQueryDTO.swift */; };
 		BB8D1F2E2799AD6200D111B6 /* NotoSansKR-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = BB8D1F2D2799AD6200D111B6 /* NotoSansKR-Medium.otf */; };
 		BB8D1F302799AD6B00D111B6 /* NotoSansKR-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = BB8D1F2F2799AD6B00D111B6 /* NotoSansKR-Regular.otf */; };
 		BB8D1F322799B5FB00D111B6 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8D1F312799B5FB00D111B6 /* LoginViewModel.swift */; };
@@ -322,6 +326,10 @@
 		BB7A2181279DAF2B005FD0A3 /* FirbaseRepositoryType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirbaseRepositoryType.swift; sourceTree = "<group>"; };
 		BB7A2183279DAF3C005FD0A3 /* SesacRepositoryType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SesacRepositoryType.swift; sourceTree = "<group>"; };
 		BB7A2185279EBCEE005FD0A3 /* DatePickerTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerTextField.swift; sourceTree = "<group>"; };
+		BB81733A27BE741B00588677 /* DodgeRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DodgeRequestDTO.swift; sourceTree = "<group>"; };
+		BB81733C27BE747300588677 /* DodgeQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DodgeQuery.swift; sourceTree = "<group>"; };
+		BB81733E27BE787D00588677 /* ReviewQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewQuery.swift; sourceTree = "<group>"; };
+		BB81734027BE78DA00588677 /* ReviewQueryDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewQueryDTO.swift; sourceTree = "<group>"; };
 		BB8D1F2D2799AD6200D111B6 /* NotoSansKR-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Medium.otf"; sourceTree = "<group>"; };
 		BB8D1F2F2799AD6B00D111B6 /* NotoSansKR-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Regular.otf"; sourceTree = "<group>"; };
 		BB8D1F312799B5FB00D111B6 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -504,6 +512,8 @@
 				BB09FB2B27B58B0C008D400A /* SearchSesacQuery.swift */,
 				BBA6409927B8D84A00E1410B /* SesacFriendQuery.swift */,
 				BB4821C327BC199700E263D8 /* ChatQuery.swift */,
+				BB81733C27BE747300588677 /* DodgeQuery.swift */,
+				BB81733E27BE787D00588677 /* ReviewQuery.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -1105,6 +1115,8 @@
 				BB09FB2927B58AC7008D400A /* SearchSesacRequestDTO.swift */,
 				BBA6409B27B8D8FF00E1410B /* SesacFriendRequestDTO.swift */,
 				BBE2AC6527BCBD6E00181E54 /* ChatRequestDTO.swift */,
+				BB81733A27BE741B00588677 /* DodgeRequestDTO.swift */,
+				BB81734027BE78DA00588677 /* ReviewQueryDTO.swift */,
 			);
 			path = RequestDTO;
 			sourceTree = "<group>";
@@ -1430,6 +1442,7 @@
 			files = (
 				BBAAA6D1279C46D200667591 /* MyPageViewController.swift in Sources */,
 				BBA6409827B7F07900E1410B /* SearchSesacTab.swift in Sources */,
+				BB81733D27BE747300588677 /* DodgeQuery.swift in Sources */,
 				BBAAA6A6279C105F00667591 /* AppCoordinator.swift in Sources */,
 				BB105D6E2796B0DA008264DD /* LoginViewController.swift in Sources */,
 				BB7A2176279D9BB6005FD0A3 /* CertificationUseCase.swift in Sources */,
@@ -1489,6 +1502,7 @@
 				BB00E91227A5AA690023D4E6 /* MyGenderView.swift in Sources */,
 				BBED12202799785F002A5E9E /* ToastCase.swift in Sources */,
 				BB00E92727A9B65B0023D4E6 /* UserUpdateInfoRequestDTO.swift in Sources */,
+				BB81734127BE78DA00588677 /* ReviewQueryDTO.swift in Sources */,
 				BB70D03127AC2660006B94EB /* GenderFilterView.swift in Sources */,
 				BB3008D927A31B8300D32DCA /* BaseTableViewCell.swift in Sources */,
 				BBDBE51327A45A1100305BF3 /* ProfileImageView.swift in Sources */,
@@ -1559,6 +1573,7 @@
 				BB8D1F3C279A992C00D111B6 /* CertificationViewModel.swift in Sources */,
 				BBE071FF27B13FB0007947B6 /* SesacImageCase.swift in Sources */,
 				BB7A2186279EBCEE005FD0A3 /* DatePickerTextField.swift in Sources */,
+				BB81733B27BE741B00588677 /* DodgeRequestDTO.swift in Sources */,
 				BB722BBC27B0303B00317054 /* OnqueueResponseDTO.swift in Sources */,
 				BB105D8F2796F197008264DD /* DefaultLabel.swift in Sources */,
 				BBED120427990CB5002A5E9E /* NSMutableAttributedString.swift in Sources */,
@@ -1577,6 +1592,7 @@
 				BBAAA690279B0BEB00667591 /* NetworkMonitorService.swift in Sources */,
 				BB4821C427BC199700E263D8 /* ChatQuery.swift in Sources */,
 				BB2B2A0927B40B5A006F7339 /* HobbySectionView.swift in Sources */,
+				BB81733F27BE787D00588677 /* ReviewQuery.swift in Sources */,
 				BB09FB1D27B56875008D400A /* TabButton.swift in Sources */,
 				BB4821C227BC171B00E263D8 /* String+Ex.swift in Sources */,
 				BB70D03A27AD8464006B94EB /* HomeViewModel.swift in Sources */,
