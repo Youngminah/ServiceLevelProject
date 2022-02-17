@@ -18,4 +18,6 @@ enum UserDefaultKeyCase {
     static let email = "email"
     static let gender = "gender"
     static let matchStatus = "matchStatus"
+    static let matchesUserID = "matchesUserID"
+    static let myID = "myID"
 }
