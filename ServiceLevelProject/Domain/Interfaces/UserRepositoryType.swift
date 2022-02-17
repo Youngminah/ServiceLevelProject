@@ -25,11 +25,25 @@ protocol UserRepositoryType: AnyObject {
 
     func fetchMatchStatus() -> MatchStatus?
 
+    func fetchMatchedUserIDInfo() -> String?
+
+    func fetchMyIDInfo() -> String?
+
+    func saveMyIDInfo(id: String)
+
+    func saveMatchedUserIDInfo(id: String)
+
     func savePhoneNumberInfo(phoneNumber: String)
 
     func saveGenderInfo(gender: GenderCase) 
 
     func saveLogInInfo()
+
+    func saveNicknameInfo(nickname: String)
+
+    func saveEmailInfo(email: String)
+
+    func saveBirthInfo(birth: Date)
 
     func saveMatchStatus(status: MatchStatus)
 
