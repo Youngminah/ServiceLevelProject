@@ -25,8 +25,10 @@ final class ChatViewController: UIViewController {
 
     private lazy var input = ChatViewModel.Input(
         viewDidLoad: Observable.just(()),
+        viewDidDisappear: self.rx.viewDidDisappear.asSignal(),
         backBarButtonTap: backBarButton.rx.tap.asSignal(),
-        detailBarButtonTap: detailBarButton.rx.tap.asSignal()
+        detailBarButtonTap: detailBarButton.rx.tap.asSignal(),
+        sendChat: sendButton.rx.tap.withLatestFrom(inputTextView.rx.text.orEmpty).asSignal(onErrorJustReturn: "")
     )
     private lazy var output = viewModel.transform(input: input)
     private let viewModel: ChatViewModel
@@ -59,7 +61,7 @@ final class ChatViewController: UIViewController {
 
         output.chatList
             .drive(tableView.rx.items) { tv, index, chat in
-                if chat.from == "me" {
+                if chat.from == "aV43LR1IKjUenCcqFIX44lQHUlz1" {
                     let cell = tv.dequeueReusableCell(withIdentifier: SendChatCell.identifier) as! SendChatCell
                     cell.updateUI(chat: chat)
                     return cell
