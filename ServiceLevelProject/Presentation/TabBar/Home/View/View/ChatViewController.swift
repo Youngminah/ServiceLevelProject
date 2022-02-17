@@ -14,11 +14,19 @@ import SnapKit
 
 final class ChatViewController: UIViewController {
 
+    private lazy var detailBarButton = UIBarButtonItem(image: UIImage(systemName: "ellipsis"),
+                                                  style: .plain,
+                                                  target: self,
+                                                  action: #selector(detailBarButtonTap))
+    private lazy var dropDownTopStackView = UIStackView(arrangedSubviews: [reportButton, cancelButton, reviewButton])
+
     private let backBarButton = UIBarButtonItem()
-    private let detailBarButton = UIBarButtonItem()
     private let headerView = ChatHeaderView()
     private let tableView = UITableView(frame: .zero, style: .grouped)
-
+    private let reportButton = UIButton()
+    private let cancelButton = UIButton()
+    private let reviewButton = UIButton()
+    private let backgroundView = UIView()
     private let inputTextView = InputTextView()
     private let sendButton = UIButton()
     private let bottomSheetView = UIView()
@@ -27,8 +35,8 @@ final class ChatViewController: UIViewController {
         viewDidLoad: Observable.just(()),
         viewDidDisappear: self.rx.viewDidDisappear.asSignal(),
         backBarButtonTap: backBarButton.rx.tap.asSignal(),
-        detailBarButtonTap: detailBarButton.rx.tap.asSignal(),
-        sendChat: sendButton.rx.tap.withLatestFrom(inputTextView.rx.text.orEmpty).asSignal(onErrorJustReturn: "")
+        sendChat: sendButton.rx.tap.withLatestFrom(inputTextView.rx.text.orEmpty).asSignal(onErrorJustReturn: ""),
+        cancelMenuButtonTap: cancelButton.rx.tap.asSignal()
     )
     private lazy var output = viewModel.transform(input: input)
     private let viewModel: ChatViewModel
@@ -53,6 +61,15 @@ final class ChatViewController: UIViewController {
     }
 
     private func bind() {
+        output.navigationTitle
+            .emit(to: self.rx.title)
+            .disposed(by: disposeBag)
+
+        output.navigationTitle
+            .map { $0 + "님과 매칭되었습니다."}
+            .emit(to: self.headerView.topTitleLabel.rx.text)
+            .disposed(by: disposeBag)
+
         output.showToastAction
             .emit(onNext: { [unowned self] message in
                 self.view.makeToast(message, position: .top)
@@ -72,6 +89,35 @@ final class ChatViewController: UIViewController {
                 }
             }
             .disposed(by: disposeBag)
+
+        output.chatList
+            .filter { $0.last?.from == "aV43LR1IKjUenCcqFIX44lQHUlz1" }
+            .map { $0.count - 1 }
+            .drive(onNext: { [weak self] index in
+                self?.tableView.scrollToRow(at: IndexPath(row: index, section: 0), at: .bottom, animated: true)
+            })
+            .disposed(by: disposeBag)
+
+        output.resetTextViewAction
+            .map { "" }
+            .emit(to: self.inputTextView.rx.text)
+            .disposed(by: disposeBag)
+
+        output.dismissDetailMenu
+            .emit(onNext: { [weak self] in
+                self?.removeAnimation()
+            })
+            .disposed(by: disposeBag)
+    }
+
+    @objc
+    private func detailBarButtonTap() {
+        if view.subviews.contains(backgroundView) {
+            removeAnimation()
+        } else {
+            setDetailMenuView()
+            showAnimation()
+        }
     }
 
     private func setViews() {
@@ -103,8 +149,6 @@ final class ChatViewController: UIViewController {
         view.backgroundColor = .white
         backBarButton.image = Asset.backNarrow.image
         backBarButton.style = .plain
-        detailBarButton.image = UIImage(systemName: "ellipsis")
-        detailBarButton.style = .plain
         navigationItem.leftBarButtonItem = backBarButton
         navigationItem.rightBarButtonItem = detailBarButton
 
@@ -118,6 +162,12 @@ final class ChatViewController: UIViewController {
         tableView.sectionHeaderHeight = 130
         tableView.backgroundColor = .white
         tableView.separatorColor = .clear
+
+        reportButton.setImage(Asset.reportMenu.image, for: .normal)
+        cancelButton.setImage(Asset.cancelMenu.image, for: .normal)
+        reviewButton.setImage(Asset.reviewMenu.image, for: .normal)
+        dropDownTopStackView.distribution = .fillEqually
+        dropDownTopStackView.backgroundColor = .white
 
         sendButton.setImage(Asset.nextFill.image, for: .normal)
     }
@@ -158,5 +208,50 @@ extension ChatViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         return headerView
+    }
+}
+
+// MARK: - Detail Top View
+extension ChatViewController {
+
+    private func setDetailMenuView() {
+        backgroundView.backgroundColor = .black.withAlphaComponent(0.3)
+        view.addSubview(backgroundView)
+        backgroundView.addSubview(dropDownTopStackView)
+        backgroundView.snp.makeConstraints { make in
+            make.top.left.right.equalTo(view.safeAreaLayoutGuide)
+            make.bottom.equalToSuperview()
+        }
+        dropDownTopStackView.snp.makeConstraints { make in
+            make.height.equalTo(view.snp.width).multipliedBy(72 / 375.0)
+            make.left.right.equalToSuperview()
+            make.top.equalTo(view.safeAreaLayoutGuide)
+                .offset(-(UIScreen.main.bounds.width * 72 / 375.0))
+        }
+    }
+
+    private func showAnimation() {
+        backgroundView.alpha = 0
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            UIView.animate(withDuration: 0.3, animations: { [weak self] in
+                guard let self = self else { return }
+                self.backgroundView.alpha = 1
+                self.dropDownTopStackView.transform = CGAffineTransform(translationX: 0, y: UIScreen.main.bounds.width * 72 / 375.0)
+            })
+        }
+    }
+
+    private func removeAnimation(complition: (() -> Void)? = nil) {
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            UIView.animate(withDuration: 0.2, animations: {
+                self.dropDownTopStackView.transform = CGAffineTransform.identity
+            }, completion: { _ in
+                self.backgroundView.removeFromSuperview()
+                self.dropDownTopStackView.removeFromSuperview()
+                complition?()
+            })
+        }
     }
 }

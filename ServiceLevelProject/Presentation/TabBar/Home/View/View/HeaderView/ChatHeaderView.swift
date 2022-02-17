@@ -15,7 +15,7 @@ final class ChatHeaderView: UITableViewHeaderFooterView {
 
     private let dateLabel = PaddingLabel()
     private let bellImageView = UIImageView(image: UIImage(named: "bell"))
-    private let topTitleLabel = DefaultLabel(font: .title3M14, textColor: .gray7)
+    let topTitleLabel = DefaultLabel(font: .title3M14, textColor: .gray7)
     private let topMessageLabel = DefaultLabel(title: "채팅을 통해 약속을 정해보세요:)", font: .title4R14, textColor: .gray6)
 
     private lazy var topStackView = UIStackView(arrangedSubviews: [bellImageView, topTitleLabel])
@@ -70,7 +70,7 @@ final class ChatHeaderView: UITableViewHeaderFooterView {
         topStackView.alignment = .center
         topStackView.spacing = 3
         topMessageLabel.textAlignment = .center
-        topTitleLabel.text = "고래밥님과 매칭되었습니다."
+        topTitleLabel.text = "..."
         dateLabel.text = "1월 15일 토요일"
     }
 }
