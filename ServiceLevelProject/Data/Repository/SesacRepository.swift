@@ -59,10 +59,16 @@ extension SesacRepository {
         }
     }
 
-    func requestRegister(userRegisterInfo: UserRegisterQuery, completion: @escaping (Result<Int, SesacNetworkServiceError>) -> Void ) {
+    func requestRegister(userRegisterInfo: UserRegisterQuery, completion: @escaping (Result<UserInfo, SesacNetworkServiceError>) -> Void ) {
         let requestDTO = UserRegisterInfoRequestDTO(userRegisterInfo: userRegisterInfo)
         provider.request(.register(parameters: requestDTO.toDictionary)) { result in
-            self.process(result: result, completion: completion)
+            switch result {
+            case .success(let response):
+                let data = try? JSONDecoder().decode(UserInfoResponseDTO.self, from: response.data)
+                completion(.success(data!.toDomain()))
+            case .failure(let error):
+                completion(.failure(SesacNetworkServiceError(rawValue: error.response!.statusCode) ?? .unknown))
+            }
         }
     }
 
@@ -158,6 +164,20 @@ extension SesacRepository {
             case .failure(let error):
                 completion(.failure(SesacNetworkServiceError(rawValue: error.response!.statusCode) ?? .unknown))
             }
+        }
+    }
+
+    func requestDodge(dodgeQuery: DodgeQuery, completion: @escaping (Result<Int, SesacNetworkServiceError>) -> Void) {
+        let requestDTO = DodgeRequestDTO(dodgeQuery: dodgeQuery)
+        provider.request(.dodge(parameters: requestDTO.toDictionary)) { result in
+            self.process(result: result, completion: completion)
+        }
+    }
+
+    func reqeustWriteReview(to id: String, review: ReviewQuery, completion: @escaping (Result<Int, SesacNetworkServiceError>) -> Void) {
+        let requestDTO = ReviewRequestDTO(review: review)
+        provider.request(.writeReview(parameters: requestDTO.toDictionary, id: id)) { result in
+            self.process(result: result, completion: completion)
         }
     }
 }
