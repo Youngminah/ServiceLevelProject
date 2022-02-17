@@ -20,6 +20,8 @@ final class ChatUseCase {
     let successRequestMyQueueState = PublishRelay<MyQueueState>()
     let receivedChat = PublishRelay<Chat>()
     let sendChat = PublishRelay<Chat>()
+    let sendChatErrorSignal = PublishRelay<SesacNetworkServiceError>()
+    let successRequestDodge = PublishRelay<Void>()
     let unKnownErrorSignal = PublishRelay<Void>()
 
     init(
@@ -70,10 +72,33 @@ extension ChatUseCase {
                 switch error {
                 case .inValidIDTokenError:
                     self.requestIDToken {
-                        self.requestMyQueueState()
+                        self.requestSendChat(chatQuery: chatQuery)
                     }
                 default:
-                    self.unKnownErrorSignal.accept(())
+                    self.sendChatErrorSignal.accept(error)
+                }
+            }
+        }
+    }
+
+    func requestDodge() {
+        let matchedUserID = fetchMatchedUserIDInfo()
+        let dodgeInfo = DodgeQuery(matchedUserID: matchedUserID)
+        self.sesacRepository.requestDodge(dodgeQuery: dodgeInfo) { [weak self] response in
+            guard let self = self else { return }
+            switch response {
+            case .success(_):
+                self.saveMatchStatus(status: .general)
+                self.deleteMatchedUserIDInfo()
+                self.successRequestDodge.accept(())
+            case .failure(let error):
+                switch error {
+                case .inValidIDTokenError:
+                    self.requestIDToken {
+                        self.requestDodge()
+                    }
+                default:
+                    self.sendChatErrorSignal.accept(error)
                 }
             }
         }
@@ -89,7 +114,7 @@ extension ChatUseCase {
     //                switch error {
     //                case .inValidIDTokenError:
     //                    self.requestIDToken {
-    //                        self.requestMyQueueState()
+    //                        //self.requestMyQueueState()
     //                    }
     //                default:
     //                    self.unKnownErrorSignal.accept(())
@@ -146,8 +171,16 @@ extension ChatUseCase {
     }
 }
 
-// MARK: - 유저 디폴트 레포
+// MARK: - 유저 디폴트 레포 연결
 extension ChatUseCase {
+
+    private func fetchMatchedUserIDInfo() -> String {
+        self.userRepository.fetchMatchedUserIDInfo()!
+    }
+
+    private func saveMatchStatus(status: MatchStatus) {
+        self.userRepository.saveMatchStatus(status: status)
+    }
 
     private func saveMatchedUserIDInfo(id: String) {
         self.userRepository.saveMatchedUserIDInfo(id: id)
@@ -159,5 +192,9 @@ extension ChatUseCase {
 
     private func logoutUserInfo() {
         self.userRepository.logoutUserInfo()
+    }
+
+    private func deleteMatchedUserIDInfo() {
+        self.userRepository.deleteMatchedUserIDInfo()
     }
 }
