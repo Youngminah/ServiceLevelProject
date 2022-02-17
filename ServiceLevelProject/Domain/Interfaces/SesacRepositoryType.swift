@@ -20,7 +20,7 @@ protocol SesacRepositoryType: AnyObject {
     func requestRegister(                      // 회원가입 API
         userRegisterInfo: UserRegisterQuery,
         completion: @escaping (
-            Result< Int,
+            Result< UserInfo,
             SesacNetworkServiceError>
         ) -> Void
     )
@@ -100,6 +100,23 @@ protocol SesacRepositoryType: AnyObject {
         dateString: String,
         completion: @escaping (
             Result< ChatList,
+            SesacNetworkServiceError>
+        ) -> Void
+    )
+
+    func requestDodge(                           // 대화방 나가기 API
+        dodgeQuery: DodgeQuery,
+        completion: @escaping (
+            Result< Int,
+            SesacNetworkServiceError>
+        ) -> Void
+    )
+
+    func reqeustWriteReview(                     // 리뷰 쓰기 ARI
+        to id: String,
+        review: ReviewQuery,
+        completion: @escaping (
+            Result< Int,
             SesacNetworkServiceError>
         ) -> Void
     )
