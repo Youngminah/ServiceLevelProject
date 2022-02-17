@@ -83,7 +83,8 @@ final class HomeCoordinator: Coordinator {
                 useCase: ChatUseCase(
                     userRepository: UserRepository(),
                     fireBaseRepository: FirebaseRepository(),
-                    sesacRepository: SesacRepository()
+                    sesacRepository: SesacRepository(),
+                    socketIORepository: SocketIORepository()
                 )
             )
         )
