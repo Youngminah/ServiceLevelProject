@@ -74,8 +74,8 @@ final class CertificationUseCase {
         self.sesacRepository.requestUserInfo { [weak self] response in
             guard let self = self else { return }
             switch response {
-            case .success(_):
-                self.saveLogInInfo()
+            case .success(let user):
+                self.saveLogInInfo(user: user)
                 self.successLogInSignal.onNext(())
             case .failure(let error):
                 if error.rawValue == 406 {
@@ -91,7 +91,13 @@ final class CertificationUseCase {
         return self.userRepository.fetchPhoneNumber()
     }
 
-    private func saveLogInInfo() {
+    private func saveLogInInfo(user info: UserInfo) {
         self.userRepository.saveLogInInfo()
+        self.userRepository.saveNicknameInfo(nickname: info.nick)
+        self.userRepository.saveBirthInfo(birth: info.birth.toDate)
+        self.userRepository.saveEmailInfo(email: info.email)
+        self.userRepository.saveMyIDInfo(id: info.userID)
+        self.userRepository.saveGenderInfo(gender: info.gender)
+        self.userRepository.savePhoneNumberInfo(phoneNumber: info.phoneNumber)
     }
 }
