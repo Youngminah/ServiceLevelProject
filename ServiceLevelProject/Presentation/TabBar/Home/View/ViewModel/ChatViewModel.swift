@@ -18,19 +18,25 @@ final class ChatViewModel: ViewModelType {
         let viewDidLoad: Observable<Void>
         let viewDidDisappear: Signal<Void>
         let backBarButtonTap: Signal<Void>
-        let detailBarButtonTap: Signal<Void>
         let sendChat: Signal<String>
+        let cancelMenuButtonTap: Signal<Void>
     }
     struct Output {
         let showToastAction: Signal<String>
         let myState: Signal<MyQueueState>
         let chatList: Driver<[Chat]>
+        let resetTextViewAction: Signal<Void>
+        let navigationTitle: Signal<String>
+        let dismissDetailMenu: Signal<Void>
     }
     var disposeBag = DisposeBag()
 
     private let chatList = BehaviorRelay<[Chat]>(value: [])
     private let showToastAction = PublishRelay<String>()
     private let myState = PublishRelay<MyQueueState>()
+    private let resetTextViewAction = PublishRelay<Void>()
+    private let navigationTitle = PublishRelay<String>()
+    private let dismissDetailMenu = PublishRelay<Void>()
 
     init(coordinator: HomeCoordinator?, useCase: ChatUseCase) {
         self.coordinator = coordinator
@@ -42,12 +48,6 @@ final class ChatViewModel: ViewModelType {
             .subscribe(onNext: { [weak self] in
                 self?.useCase.socketChatInfo()
                 self?.useCase.requestMyQueueState()
-                self?.chatList.accept([
-                    Chat(_id: "me", __v: 0, text: "안녕하세요 :)", createdAt: "2022-01-16T06:55:54.784Z".toDate, from: "NuK12cdVaDVcc9e4ctxsLMNCrHQ2", to: "me"),
-                    Chat(_id: "me", __v: 0, text: "안녕하세요!! 자전거 타러가시나여 이번주에 시간되시나여?", createdAt: "2022-01-16T06:55:54.784Z".toDate, from: "NuK12cdVaDVcc9e4ctxsLMNCrHQ2", to: "me"),
-                    Chat(_id: "me", __v: 0, text: "안녕하세요!!", createdAt: "2022-01-16T06:55:55.784Z".toDate, from: "me", to: "NuK12cdVaDVcc9e4ctxsLMNCrHQ2"),
-                    Chat(_id: "me", __v: 0, text: "포근포근 달콤해\n둥글둥글 부푸는 마음\n맛있는꿈을 그려봐요\n행복한 꿈빛 파티시엘~~~~~", createdAt: "2022-01-16T06:55:58.784Z".toDate, from: "me", to: "NuK12cdVaDVcc9e4ctxsLMNCrHQ2")
-                ])
             })
             .disposed(by: disposeBag)
 
@@ -69,16 +69,29 @@ final class ChatViewModel: ViewModelType {
             })
             .disposed(by: disposeBag)
 
-        input.detailBarButtonTap
-            .emit(onNext: {
-                print("디테일버튼 클릭")
+        input.cancelMenuButtonTap
+            .emit(onNext: { [weak self] in
+                self?.dismissDetailMenu.accept(())
+                let alert = AlertView.init(
+                    title: "약속을 취소하시겠습니까?",
+                    message: "약속을 취소하시면 패널티가 부과됩니다.",
+                    buttonStyle: .confirmAndCancel) { [weak self] in
+                        self?.requestDodge()
+                    }
+                alert.showAlert()
             })
             .disposed(by: disposeBag)
 
         self.useCase.successRequestMyQueueState
             .asSignal()
             .emit(onNext: { [weak self] state in
-                self?.myState.accept(state)
+                guard let self = self else { return }
+                self.navigationTitle.accept(state.matchedNick)
+                if state.dodged == 1 || state.reviewed == 1 {
+                    self.showToastAction.accept("약속이 종료되어 채팅을 보낼 수 없습니다")
+                } else if state.matched == 1 {
+                    self.myState.accept(state)
+                }
             })
             .disposed(by: disposeBag)
 
@@ -88,8 +101,8 @@ final class ChatViewModel: ViewModelType {
                 guard let self = self else { return }
                 var list = self.chatList.value
                 list.append(chat)
-                //print(chat)
                 self.chatList.accept(list)
+                self.resetTextViewAction.accept(())
             })
             .disposed(by: disposeBag)
 
@@ -103,10 +116,40 @@ final class ChatViewModel: ViewModelType {
             })
             .disposed(by: disposeBag)
 
+        self.useCase.sendChatErrorSignal
+            .asSignal()
+            .emit(onNext: { [weak self] error in
+                guard let self = self else { return }
+                switch error {
+                case .duplicatedError:
+                    self.showToastAction.accept("약속이 종료되어 채팅을 보낼 수 없습니다")
+                default :
+                    return
+                }
+            })
+            .disposed(by: disposeBag)
+
+        self.useCase.successRequestDodge
+            .asSignal()
+            .emit(onNext: { [weak self] in
+                self?.coordinator?.popToRootViewController(message: "채팅을 종료합니다.")
+            })
+            .disposed(by: disposeBag)
+
         return Output(
             showToastAction: showToastAction.asSignal(),
             myState: myState.asSignal(),
-            chatList: chatList.asDriver()
+            chatList: chatList.asDriver(),
+            resetTextViewAction: resetTextViewAction.asSignal(),
+            navigationTitle: navigationTitle.asSignal(),
+            dismissDetailMenu: dismissDetailMenu.asSignal()
         )
+    }
+}
+
+extension ChatViewModel {
+
+    private func requestDodge() {
+        self.useCase.requestDodge()
     }
 }
