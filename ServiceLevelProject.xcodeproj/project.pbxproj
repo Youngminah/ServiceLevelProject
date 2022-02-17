@@ -169,6 +169,10 @@
 		BBE071FF27B13FB0007947B6 /* SesacImageCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE071FE27B13FB0007947B6 /* SesacImageCase.swift */; };
 		BBE0720127B1416A007947B6 /* SesacBackgroundCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE0720027B1416A007947B6 /* SesacBackgroundCase.swift */; };
 		BBE2AC6627BCBD6E00181E54 /* ChatRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE2AC6527BCBD6E00181E54 /* ChatRequestDTO.swift */; };
+		BBE2AC6A27BD0D5A00181E54 /* SocketIOManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE2AC6927BD0D5A00181E54 /* SocketIOManager.swift */; };
+		BBE2AC6D27BD0DFB00181E54 /* SocketIO in Frameworks */ = {isa = PBXBuildFile; productRef = BBE2AC6C27BD0DFB00181E54 /* SocketIO */; };
+		BBE2AC6F27BD169600181E54 /* SocketIORepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE2AC6E27BD169600181E54 /* SocketIORepository.swift */; };
+		BBE2AC7127BD245800181E54 /* SocketIORepositoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE2AC7027BD245800181E54 /* SocketIORepositoryType.swift */; };
 		BBEACC2A27B2C6A90046F64F /* HomeSearchViewController+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBEACC2927B2C6A90046F64F /* HomeSearchViewController+Rx.swift */; };
 		BBED11EF27984744002A5E9E /* Assets+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBED11EE27984744002A5E9E /* Assets+Generated.swift */; };
 		BBED11F7279869EA002A5E9E /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBED11F6279869EA002A5E9E /* Coordinator.swift */; };
@@ -368,6 +372,9 @@
 		BBE071FE27B13FB0007947B6 /* SesacImageCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SesacImageCase.swift; sourceTree = "<group>"; };
 		BBE0720027B1416A007947B6 /* SesacBackgroundCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SesacBackgroundCase.swift; sourceTree = "<group>"; };
 		BBE2AC6527BCBD6E00181E54 /* ChatRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRequestDTO.swift; sourceTree = "<group>"; };
+		BBE2AC6927BD0D5A00181E54 /* SocketIOManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketIOManager.swift; sourceTree = "<group>"; };
+		BBE2AC6E27BD169600181E54 /* SocketIORepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketIORepository.swift; sourceTree = "<group>"; };
+		BBE2AC7027BD245800181E54 /* SocketIORepositoryType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketIORepositoryType.swift; sourceTree = "<group>"; };
 		BBEACC2927B2C6A90046F64F /* HomeSearchViewController+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeSearchViewController+Rx.swift"; sourceTree = "<group>"; };
 		BBED11EE27984744002A5E9E /* Assets+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Assets+Generated.swift"; sourceTree = "<group>"; };
 		BBED11F6279869EA002A5E9E /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
@@ -396,6 +403,7 @@
 				BB105D842796C26C008264DD /* SnapKit in Frameworks */,
 				BB00E91B27A5BCEA0023D4E6 /* DoubleSlider in Frameworks */,
 				BBED1210279943FF002A5E9E /* RxCocoa in Frameworks */,
+				BBE2AC6D27BD0DFB00181E54 /* SocketIO in Frameworks */,
 				BBED121E279976D2002A5E9E /* Toast in Frameworks */,
 				BB5B5C9527B2CA3E00BC608A /* RxDataSources in Frameworks */,
 				BBED11FB27986D87002A5E9E /* FirebaseAuth in Frameworks */,
@@ -847,6 +855,7 @@
 				BB7A216E279D1673005FD0A3 /* UserRepository.swift */,
 				BB7A217D279DA32F005FD0A3 /* FireBaseRepository.swift */,
 				BB7A217F279DA3EF005FD0A3 /* SesacRepository.swift */,
+				BBE2AC6E27BD169600181E54 /* SocketIORepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -857,6 +866,7 @@
 				BB7A2171279D16BA005FD0A3 /* UserRepositoryType.swift */,
 				BB7A2181279DAF2B005FD0A3 /* FirbaseRepositoryType.swift */,
 				BB7A2183279DAF3C005FD0A3 /* SesacRepositoryType.swift */,
+				BBE2AC7027BD245800181E54 /* SocketIORepositoryType.swift */,
 			);
 			path = Interfaces;
 			sourceTree = "<group>";
@@ -887,6 +897,7 @@
 				BBAAA68B279AD7BE00667591 /* APIConstant.swift */,
 				BBAAA689279AD78000667591 /* APIEnvironment.swift */,
 				BBAAA686279AD3A500667591 /* SLPTarget.swift */,
+				BBE2AC6927BD0D5A00181E54 /* SocketIOManager.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -1209,6 +1220,7 @@
 				BB8F2F3C27B2B81F004D34E9 /* RxKeyboard */,
 				BB5B5C9427B2CA3E00BC608A /* RxDataSources */,
 				BB2B2A0427B3F550006F7339 /* RxGesture */,
+				BBE2AC6C27BD0DFB00181E54 /* SocketIO */,
 			);
 			productName = ServiceLevelProject;
 			productReference = BB105D3A27966ABC008264DD /* ServiceLevelProject.app */;
@@ -1292,6 +1304,7 @@
 				BB8F2F3B27B2B81F004D34E9 /* XCRemoteSwiftPackageReference "RxKeyboard" */,
 				BB5B5C9327B2CA3E00BC608A /* XCRemoteSwiftPackageReference "RxDataSources" */,
 				BB2B2A0327B3F550006F7339 /* XCRemoteSwiftPackageReference "RxGesture" */,
+				BBE2AC6B27BD0DFA00181E54 /* XCRemoteSwiftPackageReference "socket" */,
 			);
 			productRefGroup = BB105D3B27966ABC008264DD /* Products */;
 			projectDirPath = "";
@@ -1441,6 +1454,7 @@
 				BB00E8F627A46CDE0023D4E6 /* MyPageEditViewController.swift in Sources */,
 				BBA6409227B6916C00E1410B /* MatchStatus.swift in Sources */,
 				BBAAA6DE279C598D00667591 /* MyPageCoordinator.swift in Sources */,
+				BBE2AC7127BD245800181E54 /* SocketIORepositoryType.swift in Sources */,
 				BB4821B527BBBDF300E263D8 /* SendChatCell.swift in Sources */,
 				BB2B2A0727B3F9C1006F7339 /* NearHobbyLabel.swift in Sources */,
 				BBAAA6A2279BFC6700667591 /* HomeViewController.swift in Sources */,
@@ -1491,8 +1505,10 @@
 				BB7A2172279D16BA005FD0A3 /* UserRepositoryType.swift in Sources */,
 				BB09FB2A27B58AC7008D400A /* SearchSesacRequestDTO.swift in Sources */,
 				BB00E91D27A679990023D4E6 /* MyCardHeaderView.swift in Sources */,
+				BBE2AC6F27BD169600181E54 /* SocketIORepository.swift in Sources */,
 				BB2B2A0B27B42498006F7339 /* SearchBar+Rx.swift in Sources */,
 				BB722BB827AD9EBF00317054 /* HomeSearchViewController.swift in Sources */,
+				BBE2AC6A27BD0D5A00181E54 /* SocketIOManager.swift in Sources */,
 				BBAAA68E279B07A500667591 /* SLPTarget+StubData.swift in Sources */,
 				BB105D942797AAD1008264DD /* NicknameViewController.swift in Sources */,
 				BB00E90327A558000023D4E6 /* SelectionButton.swift in Sources */,
@@ -1982,6 +1998,14 @@
 				minimumVersion = 15.0.0;
 			};
 		};
+		BBE2AC6B27BD0DFA00181E54 /* XCRemoteSwiftPackageReference "socket" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/socketio/socket.io-client-swift";
+			requirement = {
+				kind = exactVersion;
+				version = 15.2.0;
+			};
+		};
 		BBED11F927986D87002A5E9E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -2038,6 +2062,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = BBAAA682279ABFAD00667591 /* XCRemoteSwiftPackageReference "Moya" */;
 			productName = Moya;
+		};
+		BBE2AC6C27BD0DFB00181E54 /* SocketIO */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BBE2AC6B27BD0DFA00181E54 /* XCRemoteSwiftPackageReference "socket" */;
+			productName = SocketIO;
 		};
 		BBED11FA27986D87002A5E9E /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
