@@ -85,4 +85,22 @@ protocol SesacRepositoryType: AnyObject {
             SesacNetworkServiceError>
         ) -> Void
     )
+
+    func requestSendChat(                        // 채팅 전송 API
+        to id: String,
+        chatQuery: ChatQuery,
+        completion: @escaping (
+            Result< Chat,
+            SesacNetworkServiceError>
+        ) -> Void
+    )
+
+    func requestChat(                            // 채팅 가져오기 API
+        to id: String,
+        dateString: String,
+        completion: @escaping (
+            Result< ChatList,
+            SesacNetworkServiceError>
+        ) -> Void
+    )
 }
