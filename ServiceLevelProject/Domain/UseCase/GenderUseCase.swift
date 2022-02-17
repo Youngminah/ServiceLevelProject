@@ -30,8 +30,8 @@ final class GenderUseCase {
         sesacRepository.requestRegister(userRegisterInfo: userRegisterInfo) { [weak self] response in
             guard let self = self else { return }
             switch response {
-            case .success(_):
-                self.saveLogInInfo()
+            case .success(let userInfo):
+                self.saveLogInInfo(user: userInfo)
                 self.successRegisterSignal.onNext(())
             case .failure(let error):
                 self.failRegisterSignal.onNext(error)
@@ -65,8 +65,14 @@ final class GenderUseCase {
         self.userRepository.saveGenderInfo(gender: gender)
     }
 
-    private func saveLogInInfo() {
+    private func saveLogInInfo(user info: UserInfo) {
         self.userRepository.saveLogInInfo()
+        self.userRepository.saveNicknameInfo(nickname: info.nick)
+        self.userRepository.saveBirthInfo(birth: info.birth.toDate)
+        self.userRepository.saveEmailInfo(email: info.email)
+        self.userRepository.saveMyIDInfo(id: info.userID)
+        self.userRepository.saveGenderInfo(gender: info.gender)
+        self.userRepository.savePhoneNumberInfo(phoneNumber: info.phoneNumber)
     }
 
     private func fetchUserInfo() -> (String, Date, String, GenderCase) {
