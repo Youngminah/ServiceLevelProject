@@ -27,9 +27,9 @@ enum SLPTarget {
     case acceptHobbyFriend(parameters: DictionaryType)
     case myQueueState
     //Chat
-    case getChatInfo
-    case sendChatMessage(parameters: DictionaryType)
-    case writeReview(parameters: DictionaryType)
+    case getChatInfo(id: String, date: String)
+    case sendChatMessage(parameters: DictionaryType, id: String)
+    case writeReview(parameters: DictionaryType, id: String)
     case dodge(parameters: DictionaryType)
 }
 
@@ -64,11 +64,12 @@ extension SLPTarget: TargetType {
             return "/queue/hobbyaccept"
         case .myQueueState:
             return "/queue/myQueueState"
-        case .getChatInfo,
-            .sendChatMessage:
-            return "/chat"
-        case .writeReview:
-            return "/queue/rate"
+        case .getChatInfo(let id, _):
+            return "/chat/\(id)"
+        case .sendChatMessage(_, let id):
+            return "/chat/\(id)"
+        case .writeReview(_, let id):
+            return "/queue/rate/\(id)"
         case .dodge:
             return "/queue/dodge"
         }
@@ -107,17 +108,18 @@ extension SLPTarget: TargetType {
         case .getUserInfo,
              .withdraw,
              .pauseSearchSesac,
-             .myQueueState,
-             .getChatInfo:
+             .myQueueState:
             return .requestPlain
+        case .getChatInfo(_, let date):
+            return .requestParameters(parameters: ["lastchatDate": date], encoding: URLEncoding.queryString)
         case .register(let parameters),
              .updateFCMToken(let parameters),
              .updateMyPage(let parameters),
              .onqueue(let parameters),
              .requestHobbyFriend(let parameters),
              .acceptHobbyFriend(let parameters),
-             .sendChatMessage(let parameters),
-             .writeReview(let parameters),
+             .sendChatMessage(let parameters, _),
+             .writeReview(let parameters, _),
              .dodge(let parameters):
             return .requestParameters(parameters: parameters, encoding: URLEncoding.default)
         case .searchSesac(let parameters):
