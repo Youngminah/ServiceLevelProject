@@ -110,6 +110,10 @@ final class UserRepository: UserRepositoryType {
     }
 
     func deleteFCMToken() {
-        return UserDefaults.standard.removeObject(forKey: UserDefaultKeyCase.fcmToken)
+        UserDefaults.standard.removeObject(forKey: UserDefaultKeyCase.fcmToken)
+    }
+
+    func deleteMatchedUserIDInfo() {
+        UserDefaults.standard.removeObject(forKey: UserDefaultKeyCase.matchesUserID)
     }
 }
