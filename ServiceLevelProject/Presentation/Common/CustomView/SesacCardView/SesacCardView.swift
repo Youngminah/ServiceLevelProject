@@ -11,6 +11,7 @@ import SnapKit
 final class SesacCardView: UIView {
 
     let previewView = SesacPreviewView()
+    private let titleLabel = DefaultLabel(title: "새싹 타이틀", font: .title4R14)
     private let sesacTitleView = SesacTitleView()
     let sesacHobbyView = SesacHobbyView()
     let sesacReviewView = SesacReviewView()
@@ -27,6 +28,7 @@ final class SesacCardView: UIView {
 
     private func setConstraints() {
         addSubview(previewView)
+        addSubview(titleLabel)
         addSubview(sesacTitleView)
         addSubview(sesacHobbyView)
         addSubview(sesacReviewView)
@@ -34,10 +36,16 @@ final class SesacCardView: UIView {
             make.top.left.right.equalToSuperview()
             make.height.equalTo(50)
         }
-        sesacTitleView.snp.makeConstraints { make in
+        titleLabel.snp.makeConstraints { make in
+            make.left.equalToSuperview().offset(16)
+            make.right.equalToSuperview().offset(-16)
             make.top.equalTo(previewView.snp.bottom)
+            make.height.equalTo(40)
+        }
+        sesacTitleView.snp.makeConstraints { make in
+            make.top.equalTo(titleLabel.snp.bottom)
             make.left.right.equalToSuperview()
-            make.height.equalTo(196)
+            make.height.equalTo(156)
         }
         sesacHobbyView.snp.makeConstraints { make in
             make.top.equalTo(sesacTitleView.snp.bottom)
@@ -56,6 +64,7 @@ final class SesacCardView: UIView {
         layer.cornerRadius = 8
         layer.borderColor = UIColor.gray4.cgColor
         layer.borderWidth = 1
+        titleLabel.textAlignment = .left
     }
 
     func setNickname(nickname text: String){

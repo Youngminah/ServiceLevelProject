@@ -32,9 +32,7 @@ enum SesacTitleCase: Int, CaseIterable {
 
 final class SesacTitleView: UIView {
 
-    private let titleLabel = DefaultLabel(title: "새싹 타이틀", font: .title4R14)
-
-    private let buttons: [SelectionButton] = {
+    let buttons: [SelectionButton] = {
         var buttons = [SelectionButton]()
         SesacTitleCase.allCases.forEach { value in
             let button = SelectionButton(title: value.title)
@@ -64,7 +62,6 @@ final class SesacTitleView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setConstraints()
-        titleLabel.textAlignment = .left
     }
 
     required init(coder: NSCoder) {
@@ -78,19 +75,12 @@ final class SesacTitleView: UIView {
     }
 
     private func setConstraints() {
-        addSubview(titleLabel)
         addSubview(stackView)
-        titleLabel.snp.makeConstraints { make in
-            make.left.equalToSuperview().offset(16)
-            make.right.equalToSuperview().offset(-16)
-            make.top.equalToSuperview()
-            make.height.equalTo(40)
-        }
         stackView.snp.makeConstraints { make in
             make.left.equalToSuperview().offset(16)
             make.right.equalToSuperview().offset(-16)
             make.bottom.equalToSuperview().offset(-16)
-            make.top.equalTo(titleLabel.snp.bottom).offset(8)
+            make.top.equalToSuperview().offset(8)
         }
     }
 }
