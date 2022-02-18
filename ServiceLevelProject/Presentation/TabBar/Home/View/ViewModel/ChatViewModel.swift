@@ -19,14 +19,16 @@ final class ChatViewModel: ViewModelType {
         let viewDidDisappear: Signal<Void>
         let backBarButtonTap: Signal<Void>
         let sendChat: Signal<String>
+        let reportMenuButtonTap: Signal<Void>
         let cancelMenuButtonTap: Signal<Void>
+        let reviewMenuButtonTap: Signal<Void>
     }
     struct Output {
         let showToastAction: Signal<String>
         let myState: Signal<MyQueueState>
         let chatList: Driver<[Chat]>
         let resetTextViewAction: Signal<Void>
-        let navigationTitle: Signal<String>
+        let navigationTitle: Driver<String>
         let dismissDetailMenu: Signal<Void>
     }
     var disposeBag = DisposeBag()
@@ -35,7 +37,7 @@ final class ChatViewModel: ViewModelType {
     private let showToastAction = PublishRelay<String>()
     private let myState = PublishRelay<MyQueueState>()
     private let resetTextViewAction = PublishRelay<Void>()
-    private let navigationTitle = PublishRelay<String>()
+    private let navigationTitle = BehaviorRelay<String>(value: "...")
     private let dismissDetailMenu = PublishRelay<Void>()
 
     init(coordinator: HomeCoordinator?, useCase: ChatUseCase) {
@@ -53,6 +55,7 @@ final class ChatViewModel: ViewModelType {
 
         input.sendChat
             .emit(onNext: { [weak self] text in
+                print(text)
                 self?.useCase.requestSendChat(chatQuery: ChatQuery(text: text))
             })
             .disposed(by: disposeBag)
@@ -79,6 +82,28 @@ final class ChatViewModel: ViewModelType {
                         self?.requestDodge()
                     }
                 alert.showAlert()
+            })
+            .disposed(by: disposeBag)
+
+        input.reviewMenuButtonTap
+            .emit(onNext: { [weak self] in
+                guard let self = self else { return }
+                self.dismissDetailMenu.accept(())
+                let popup = PopupView.init(style: .review) { [weak self] in
+                        print("누름!")
+                }
+                popup.showPopup(style: .review)
+            })
+            .disposed(by: disposeBag)
+
+        input.reportMenuButtonTap
+            .emit(onNext: { [weak self] in
+                guard let self = self else { return }
+                self.dismissDetailMenu.accept(())
+                let popup = PopupView.init(style: .report) { [weak self] in
+                        print("누름!")
+                }
+                popup.showPopup(style: .report)
             })
             .disposed(by: disposeBag)
 
@@ -141,7 +166,7 @@ final class ChatViewModel: ViewModelType {
             myState: myState.asSignal(),
             chatList: chatList.asDriver(),
             resetTextViewAction: resetTextViewAction.asSignal(),
-            navigationTitle: navigationTitle.asSignal(),
+            navigationTitle: navigationTitle.asDriver(),
             dismissDetailMenu: dismissDetailMenu.asSignal()
         )
     }
