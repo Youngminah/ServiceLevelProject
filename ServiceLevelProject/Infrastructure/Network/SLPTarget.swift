@@ -117,7 +117,6 @@ extension SLPTarget: TargetType {
         case .getChatInfo(_, let date):
             return .requestParameters(parameters: ["lastchatDate": date], encoding: URLEncoding.queryString)
         case .register(let parameters),
-             .report(let parameters),
              .updateFCMToken(let parameters),
              .updateMyPage(let parameters),
              .onqueue(let parameters),
@@ -127,6 +126,7 @@ extension SLPTarget: TargetType {
              .dodge(let parameters):
             return .requestParameters(parameters: parameters, encoding: URLEncoding.default)
         case .searchSesac(let parameters),
+             .report(let parameters),
              .writeReview(let parameters, _):
             return .requestParameters(parameters: parameters, encoding: URLEncoding(arrayEncoding: .noBrackets))
         }
