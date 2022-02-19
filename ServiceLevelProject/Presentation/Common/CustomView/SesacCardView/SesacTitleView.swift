@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import RxCocoa
+import RxSwift
 import SnapKit
 
 enum SesacTitleCase: Int, CaseIterable {
@@ -59,13 +61,40 @@ final class SesacTitleView: UIView {
         return stackView
     }()
 
+    let validRelay = BehaviorRelay(value: false)
+    private let disposeBag = DisposeBag()
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setConstraints()
+        bind()
     }
 
     required init(coder: NSCoder) {
         fatalError("SesacTitleView: fatal error")
+    }
+
+    private func bind() {
+        Observable.merge(
+            buttons[0].selectedRelay.asObservable(),
+            buttons[1].selectedRelay.asObservable(),
+            buttons[2].selectedRelay.asObservable(),
+            buttons[3].selectedRelay.asObservable(),
+            buttons[4].selectedRelay.asObservable(),
+            buttons[5].selectedRelay.asObservable()
+        )
+            .map { [weak self] _ in
+                guard let self = self else { return false }
+                for button in self.buttons {
+                    if button.isSelected {
+                        return true
+                    }
+                }
+                return false
+            }
+            .asDriver(onErrorJustReturn: false)
+            .drive(validRelay)
+            .disposed(by: disposeBag)
     }
 
     func setSesacTitle(reputation: [Int]) {
