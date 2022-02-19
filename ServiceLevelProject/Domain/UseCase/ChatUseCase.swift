@@ -22,6 +22,8 @@ final class ChatUseCase {
     let sendChat = PublishRelay<Chat>()
     let sendChatErrorSignal = PublishRelay<SesacNetworkServiceError>()
     let successRequestDodge = PublishRelay<Void>()
+    let successReview = PublishRelay<Void>()
+    let successReport = PublishRelay<Void>()
     let unKnownErrorSignal = PublishRelay<Void>()
 
     init(
@@ -98,12 +100,56 @@ extension ChatUseCase {
                         self.requestDodge()
                     }
                 default:
-                    self.sendChatErrorSignal.accept(error)
+                    self.unKnownErrorSignal.accept(())
                 }
             }
         }
     }
-    //
+
+    func reqeustWriteReview(reputation: [Int], review text: String) {
+        let matchedUserID = fetchMatchedUserIDInfo()
+        let reviewInfo = ReviewQuery(matchedUserID: matchedUserID, reputation: reputation, text: text)
+        self.sesacRepository.reqeustWriteReview(to: matchedUserID, review: reviewInfo)  { [weak self] response in
+            guard let self = self else { return }
+            switch response {
+            case .success(_):
+                self.saveMatchStatus(status: .general)
+                self.deleteMatchedUserIDInfo()
+                self.successReview.accept(())
+            case .failure(let error):
+                switch error {
+                case .inValidIDTokenError:
+                    self.requestIDToken {
+                        self.reqeustWriteReview(reputation: reputation, review: text)
+                    }
+                default:
+                    self.unKnownErrorSignal.accept(())
+                }
+            }
+        }
+    }
+
+    func requestReport(report: [Int], comment text: String) {
+        let matchedUserID = fetchMatchedUserIDInfo()
+        let reportInfo = ReportQuery(matchedUserID: matchedUserID, report: report, text: text)
+        self.sesacRepository.requestReport(report: reportInfo)  { [weak self] response in
+            guard let self = self else { return }
+            switch response {
+            case .success(_):
+                self.successReport.accept(())
+            case .failure(let error):
+                switch error {
+                case .inValidIDTokenError:
+                    self.requestIDToken {
+                        self.requestReport(report: report, comment: text)
+                    }
+                default:
+                    self.unKnownErrorSignal.accept(())
+                }
+            }
+        }
+    }
+
     //    func requestChat(to id: String, dateString: String) {
     //        self.sesacRepository.requestChat(to: id, dateString: dateString) { [weak self] response in
     //            guard let self = self else { return }
