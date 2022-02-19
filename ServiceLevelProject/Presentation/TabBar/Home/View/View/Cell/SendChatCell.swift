@@ -50,6 +50,7 @@ final class SendChatCell: BaseTableViewCell {
         textView.isEditable = false
         textView.textContainerInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         [dateLabel, unReadLabel].forEach { $0.textAlignment = .right }
+        unReadLabel.isHidden = true
     }
 
     func updateUI(chat: Chat) {
