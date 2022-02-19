@@ -64,7 +64,7 @@
 		BB105DA22798232D008264DD /* AppAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB105DA12798232D008264DD /* AppAppearance.swift */; };
 		BB1E250C27A158FA00A80FC3 /* UserRegisterQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1E250B27A158FA00A80FC3 /* UserRegisterQuery.swift */; };
 		BB1E250E27A1590500A80FC3 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1E250D27A1590500A80FC3 /* UserInfo.swift */; };
-		BB1E251127A179C200A80FC3 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1E251027A179C200A80FC3 /* Date.swift */; };
+		BB1E251127A179C200A80FC3 /* Date+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1E251027A179C200A80FC3 /* Date+Ex.swift */; };
 		BB1E251E27A198E100A80FC3 /* CoordinatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1E251D27A198E100A80FC3 /* CoordinatorDelegate.swift */; };
 		BB1FD9DA27B967EB0010D536 /* SesacCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1FD9D927B967EB0010D536 /* SesacCardView.swift */; };
 		BB1FD9DC27B96A300010D536 /* SesacHobbyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1FD9DB27B96A300010D536 /* SesacHobbyView.swift */; };
@@ -81,7 +81,7 @@
 		BB2B2A0527B3F550006F7339 /* RxGesture in Frameworks */ = {isa = PBXBuildFile; productRef = BB2B2A0427B3F550006F7339 /* RxGesture */; };
 		BB2B2A0727B3F9C1006F7339 /* NearHobbyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2B2A0627B3F9C1006F7339 /* NearHobbyLabel.swift */; };
 		BB2B2A0927B40B5A006F7339 /* HobbySectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2B2A0827B40B5A006F7339 /* HobbySectionView.swift */; };
-		BB2B2A0B27B42498006F7339 /* SearchBar+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2B2A0A27B42498006F7339 /* SearchBar+Rx.swift */; };
+		BB2B2A0B27B42498006F7339 /* UISearchBar+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2B2A0A27B42498006F7339 /* UISearchBar+Rx.swift */; };
 		BB2CDA6B27BCB346008115B6 /* InputTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2CDA6A27BCB346008115B6 /* InputTextView.swift */; };
 		BB3008D727A31A3E00D32DCA /* MyPageMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3008D627A31A3E00D32DCA /* MyPageMenuCell.swift */; };
 		BB3008D927A31B8300D32DCA /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3008D827A31B8300D32DCA /* BaseTableViewCell.swift */; };
@@ -282,7 +282,7 @@
 		BB105DA12798232D008264DD /* AppAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAppearance.swift; sourceTree = "<group>"; };
 		BB1E250B27A158FA00A80FC3 /* UserRegisterQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRegisterQuery.swift; sourceTree = "<group>"; };
 		BB1E250D27A1590500A80FC3 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
-		BB1E251027A179C200A80FC3 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		BB1E251027A179C200A80FC3 /* Date+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ex.swift"; sourceTree = "<group>"; };
 		BB1E251D27A198E100A80FC3 /* CoordinatorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorDelegate.swift; sourceTree = "<group>"; };
 		BB1FD9D927B967EB0010D536 /* SesacCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SesacCardView.swift; sourceTree = "<group>"; };
 		BB1FD9DB27B96A300010D536 /* SesacHobbyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SesacHobbyView.swift; sourceTree = "<group>"; };
@@ -298,7 +298,7 @@
 		BB2B2A0127B3F1AE006F7339 /* CollectionViewLeftAlignFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewLeftAlignFlowLayout.swift; sourceTree = "<group>"; };
 		BB2B2A0627B3F9C1006F7339 /* NearHobbyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearHobbyLabel.swift; sourceTree = "<group>"; };
 		BB2B2A0827B40B5A006F7339 /* HobbySectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HobbySectionView.swift; sourceTree = "<group>"; };
-		BB2B2A0A27B42498006F7339 /* SearchBar+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchBar+Rx.swift"; sourceTree = "<group>"; };
+		BB2B2A0A27B42498006F7339 /* UISearchBar+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISearchBar+Rx.swift"; sourceTree = "<group>"; };
 		BB2CDA6A27BCB346008115B6 /* InputTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputTextView.swift; sourceTree = "<group>"; };
 		BB3008D627A31A3E00D32DCA /* MyPageMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageMenuCell.swift; sourceTree = "<group>"; };
 		BB3008D827A31B8300D32DCA /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
@@ -475,14 +475,14 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
-		BB00E8F827A46F090023D4E6 /* HeaderView */ = {
+		BB00E8F827A46F090023D4E6 /* HeaderFooterView */ = {
 			isa = PBXGroup;
 			children = (
 				BBDBE51027A459A600305BF3 /* MyPageMenuHeaderView.swift */,
 				BB00E91C27A679990023D4E6 /* MyCardHeaderView.swift */,
 				BB00E91E27A694730023D4E6 /* MyPageEditFooterView.swift */,
 			);
-			path = HeaderView;
+			path = HeaderFooterView;
 			sourceTree = "<group>";
 		};
 		BB00E8F927A46F260023D4E6 /* ViewModel */ = {
@@ -496,13 +496,11 @@
 		BB00E90927A567920023D4E6 /* SesacCardView */ = {
 			isa = PBXGroup;
 			children = (
+				BB1FD9D927B967EB0010D536 /* SesacCardView.swift */,
 				BB00E8FC27A534110023D4E6 /* SesacProfileView.swift */,
 				BB00E90A27A569DB0023D4E6 /* SesacPreviewView.swift */,
 				BB00E8FE27A539150023D4E6 /* SesacTitleView.swift */,
 				BB1FD9DB27B96A300010D536 /* SesacHobbyView.swift */,
-				BB00E90C27A56D2B0023D4E6 /* SesacReviewView.swift */,
-				BB1FD9D927B967EB0010D536 /* SesacCardView.swift */,
-				BB81734A27BEB70D00588677 /* SesacReportView.swift */,
 			);
 			path = SesacCardView;
 			sourceTree = "<group>";
@@ -662,21 +660,14 @@
 		BB105D872796CEB3008264DD /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
+				BBCF996B27C13A32003FE252 /* Default */,
 				BB00E90927A567920023D4E6 /* SesacCardView */,
-				BB105D882796D050008264DD /* DefaultTextField.swift */,
-				BB105D8A2796E610008264DD /* DefaultButton.swift */,
 				BB00E90227A558000023D4E6 /* SelectionButton.swift */,
-				BB105D8E2796F197008264DD /* DefaultLabel.swift */,
 				BB105D9B2797FA21008264DD /* GenderButton.swift */,
 				BB7A2185279EBCEE005FD0A3 /* DatePickerTextField.swift */,
 				BB78E9DF27A2AA8500CC3373 /* IndicatorView.swift */,
-				BB3008D827A31B8300D32DCA /* BaseTableViewCell.swift */,
 				BBDBE51227A45A1100305BF3 /* ProfileImageView.swift */,
-				BB00E92027A7058E0023D4E6 /* AlertView.swift */,
 				BB09FB2727B5761C008D400A /* TableViewBackgroundView.swift */,
-				BB4821BB27BC03BB00E263D8 /* PaddingLabel.swift */,
-				BB81735027C10FD500588677 /* PopupTextView.swift */,
-				BB81734827BE9E0C00588677 /* PopupView.swift */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -710,7 +701,7 @@
 		BB1E250F27A179B400A80FC3 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				BB1E251027A179C200A80FC3 /* Date.swift */,
+				BB1E251027A179C200A80FC3 /* Date+Ex.swift */,
 				BB4821C127BC171B00E263D8 /* String+Ex.swift */,
 			);
 			path = Extension;
@@ -821,6 +812,8 @@
 		BB70D03227AD16C3006B94EB /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
+				BB00E90C27A56D2B0023D4E6 /* SesacReviewView.swift */,
+				BB81734A27BEB70D00588677 /* SesacReportView.swift */,
 				BB70D03027AC2660006B94EB /* GenderFilterView.swift */,
 				BB70D03327AD1973006B94EB /* FilterButton.swift */,
 				BB70D03527AD2A49006B94EB /* MapStatusButton.swift */,
@@ -828,8 +821,8 @@
 				BB2B2A0627B3F9C1006F7339 /* NearHobbyLabel.swift */,
 				BB2B2A0827B40B5A006F7339 /* HobbySectionView.swift */,
 				BB09FB1C27B56875008D400A /* TabButton.swift */,
-				BB1FD9DD27B975370010D536 /* DynamicCollectionView.swift */,
 				BB2CDA6A27BCB346008115B6 /* InputTextView.swift */,
+				BB1FD9DD27B975370010D536 /* DynamicCollectionView.swift */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -1080,7 +1073,7 @@
 			isa = PBXGroup;
 			children = (
 				BB00E91027A5AA360023D4E6 /* CustomView */,
-				BB00E8F827A46F090023D4E6 /* HeaderView */,
+				BB00E8F827A46F090023D4E6 /* HeaderFooterView */,
 				BB00E8F727A46F000023D4E6 /* Cell */,
 				BBAAA6D0279C46D200667591 /* MyPageViewController.swift */,
 				BB00E8F527A46CDE0023D4E6 /* MyPageEditViewController.swift */,
@@ -1111,6 +1104,50 @@
 				BB722BB627AD9E0A00317054 /* View */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		BBCF996827C13982003FE252 /* BaseView */ = {
+			isa = PBXGroup;
+			children = (
+				BB2B2A0A27B42498006F7339 /* UISearchBar+Rx.swift */,
+				BB2B29FF27B2F1B6006F7339 /* UIViewController+Rx.swift */,
+				BB09FB2027B57122008D400A /* UITableView+Rx.swift */,
+				BB81734E27C1058700588677 /* UITextView+Rx.swift */,
+			);
+			path = BaseView;
+			sourceTree = "<group>";
+		};
+		BBCF996927C13998003FE252 /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				BB8D1F392799BE6400D111B6 /* AuthTextField+Rx.swift */,
+				BBED121827996F97002A5E9E /* DefaultButton+Rx.swift */,
+				BBEACC2927B2C6A90046F64F /* HomeSearchViewController+Rx.swift */,
+				BB81734C27BF4ED800588677 /* InputTextView+Rx.swift */,
+			);
+			path = CustomView;
+			sourceTree = "<group>";
+		};
+		BBCF996A27C139D1003FE252 /* AlertPopupView */ = {
+			isa = PBXGroup;
+			children = (
+				BB81734827BE9E0C00588677 /* PopupView.swift */,
+				BB00E92027A7058E0023D4E6 /* AlertView.swift */,
+			);
+			path = AlertPopupView;
+			sourceTree = "<group>";
+		};
+		BBCF996B27C13A32003FE252 /* Default */ = {
+			isa = PBXGroup;
+			children = (
+				BB105D882796D050008264DD /* DefaultTextField.swift */,
+				BB105D8E2796F197008264DD /* DefaultLabel.swift */,
+				BB105D8A2796E610008264DD /* DefaultButton.swift */,
+				BB3008D827A31B8300D32DCA /* BaseTableViewCell.swift */,
+				BB81735027C10FD500588677 /* PopupTextView.swift */,
+				BB4821BB27BC03BB00E263D8 /* PaddingLabel.swift */,
+			);
+			path = Default;
 			sourceTree = "<group>";
 		};
 		BBE2AC6727BCBD7700181E54 /* ResponseDTO */ = {
@@ -1145,6 +1182,7 @@
 			children = (
 				BBAAA696279BCC0000667591 /* Coordinator */,
 				BBAAA695279BCBFB00667591 /* ViewModel */,
+				BBCF996A27C139D1003FE252 /* AlertPopupView */,
 				BB105D872796CEB3008264DD /* CustomView */,
 				BBED121727996F53002A5E9E /* RxExtension */,
 				BB105D7D2796B668008264DD /* Extension */,
@@ -1155,14 +1193,8 @@
 		BBED121727996F53002A5E9E /* RxExtension */ = {
 			isa = PBXGroup;
 			children = (
-				BBED121827996F97002A5E9E /* DefaultButton+Rx.swift */,
-				BB8D1F392799BE6400D111B6 /* AuthTextField+Rx.swift */,
-				BBEACC2927B2C6A90046F64F /* HomeSearchViewController+Rx.swift */,
-				BB2B29FF27B2F1B6006F7339 /* UIViewController+Rx.swift */,
-				BB2B2A0A27B42498006F7339 /* SearchBar+Rx.swift */,
-				BB09FB2027B57122008D400A /* UITableView+Rx.swift */,
-				BB81734C27BF4ED800588677 /* InputTextView+Rx.swift */,
-				BB81734E27C1058700588677 /* UITextView+Rx.swift */,
+				BBCF996827C13982003FE252 /* BaseView */,
+				BBCF996927C13998003FE252 /* CustomView */,
 			);
 			path = RxExtension;
 			sourceTree = "<group>";
@@ -1546,7 +1578,7 @@
 				BB09FB2A27B58AC7008D400A /* SearchSesacRequestDTO.swift in Sources */,
 				BB00E91D27A679990023D4E6 /* MyCardHeaderView.swift in Sources */,
 				BBE2AC6F27BD169600181E54 /* SocketIORepository.swift in Sources */,
-				BB2B2A0B27B42498006F7339 /* SearchBar+Rx.swift in Sources */,
+				BB2B2A0B27B42498006F7339 /* UISearchBar+Rx.swift in Sources */,
 				BB722BB827AD9EBF00317054 /* HomeSearchViewController.swift in Sources */,
 				BBE2AC6A27BD0D5A00181E54 /* SocketIOManager.swift in Sources */,
 				BBAAA68E279B07A500667591 /* SLPTarget+StubData.swift in Sources */,
@@ -1563,7 +1595,7 @@
 				BBAAA6B9279C3CE100667591 /* BirthViewModel.swift in Sources */,
 				BBAAA6B0279C240C00667591 /* UserDefaultKeyCase.swift in Sources */,
 				BBE071FB27B03A4F007947B6 /* OnqueueRequestDTO.swift in Sources */,
-				BB1E251127A179C200A80FC3 /* Date.swift in Sources */,
+				BB1E251127A179C200A80FC3 /* Date+Ex.swift in Sources */,
 				BB00E91427A5AA760023D4E6 /* MyHobbyView.swift in Sources */,
 				BBAAA6B7279C3CD700667591 /* NickNameViewModel.swift in Sources */,
 				BB722BBA27B00C7E00317054 /* HomeUseCase.swift in Sources */,
