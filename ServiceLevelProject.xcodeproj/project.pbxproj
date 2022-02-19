@@ -121,7 +121,6 @@
 		BB81733D27BE747300588677 /* DodgeQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB81733C27BE747300588677 /* DodgeQuery.swift */; };
 		BB81733F27BE787D00588677 /* ReviewQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB81733E27BE787D00588677 /* ReviewQuery.swift */; };
 		BB81734127BE78DA00588677 /* ReviewQueryDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB81734027BE78DA00588677 /* ReviewQueryDTO.swift */; };
-		BB81734727BE9A7D00588677 /* WriteReviewUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB81734627BE9A7D00588677 /* WriteReviewUseCase.swift */; };
 		BB81734927BE9E0C00588677 /* PopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB81734827BE9E0C00588677 /* PopupView.swift */; };
 		BB81734B27BEB70D00588677 /* SesacReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB81734A27BEB70D00588677 /* SesacReportView.swift */; };
 		BB81734D27BF4ED800588677 /* InputTextView+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB81734C27BF4ED800588677 /* InputTextView+Rx.swift */; };
@@ -338,7 +337,6 @@
 		BB81733C27BE747300588677 /* DodgeQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DodgeQuery.swift; sourceTree = "<group>"; };
 		BB81733E27BE787D00588677 /* ReviewQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewQuery.swift; sourceTree = "<group>"; };
 		BB81734027BE78DA00588677 /* ReviewQueryDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewQueryDTO.swift; sourceTree = "<group>"; };
-		BB81734627BE9A7D00588677 /* WriteReviewUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteReviewUseCase.swift; sourceTree = "<group>"; };
 		BB81734827BE9E0C00588677 /* PopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupView.swift; sourceTree = "<group>"; };
 		BB81734A27BEB70D00588677 /* SesacReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SesacReportView.swift; sourceTree = "<group>"; };
 		BB81734C27BF4ED800588677 /* InputTextView+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "InputTextView+Rx.swift"; sourceTree = "<group>"; };
@@ -875,7 +873,6 @@
 				BB09FB1A27B4D2B6008D400A /* HomeSearchUseCase.swift */,
 				BB09FB2527B571E8008D400A /* HobbySearchUseCase.swift */,
 				BB4821B927BBEE3600E263D8 /* ChatUseCase.swift */,
-				BB81734627BE9A7D00588677 /* WriteReviewUseCase.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -1609,7 +1606,6 @@
 				BB1FD9E627BAB1C60010D536 /* MyQueueStateResponseDTO.swift in Sources */,
 				BB1E250C27A158FA00A80FC3 /* UserRegisterQuery.swift in Sources */,
 				BBAAA6BC279C3CF100667591 /* EmailViewModel.swift in Sources */,
-				BB81734727BE9A7D00588677 /* WriteReviewUseCase.swift in Sources */,
 				BB7A2182279DAF2B005FD0A3 /* FirbaseRepositoryType.swift in Sources */,
 				BBE0720127B1416A007947B6 /* SesacBackgroundCase.swift in Sources */,
 				BB105D9A2797F313008264DD /* GenderViewController.swift in Sources */,
