@@ -35,8 +35,10 @@ final class ChatViewController: UIViewController {
         viewDidLoad: Observable.just(()),
         viewDidDisappear: self.rx.viewDidDisappear.asSignal(),
         backBarButtonTap: backBarButton.rx.tap.asSignal(),
-        sendChat: sendButton.rx.tap.withLatestFrom(inputTextView.rx.text.orEmpty).asSignal(onErrorJustReturn: ""),
-        cancelMenuButtonTap: cancelButton.rx.tap.asSignal()
+        sendChat: sendButton.rx.tap.withLatestFrom(inputTextView.rx.validText).asSignal(onErrorJustReturn: ""),
+        reportMenuButtonTap: reportButton.rx.tap.asSignal(),
+        cancelMenuButtonTap: cancelButton.rx.tap.asSignal(),
+        reviewMenuButtonTap: reviewButton.rx.tap.asSignal()
     )
     private lazy var output = viewModel.transform(input: input)
     private let viewModel: ChatViewModel
@@ -62,12 +64,12 @@ final class ChatViewController: UIViewController {
 
     private func bind() {
         output.navigationTitle
-            .emit(to: self.rx.title)
+            .drive(self.rx.title)
             .disposed(by: disposeBag)
 
         output.navigationTitle
             .map { $0 + "님과 매칭되었습니다."}
-            .emit(to: self.headerView.topTitleLabel.rx.text)
+            .drive(self.headerView.topTitleLabel.rx.text)
             .disposed(by: disposeBag)
 
         output.showToastAction
