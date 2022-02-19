@@ -7,6 +7,8 @@
 
 import UIKit
 import SnapKit
+import RxSwift
+import RxCocoa
 
 enum PopupStyle {
     case report
@@ -23,6 +25,7 @@ final class PopupView: UIView {
     private let reportSelectionView = SesacReportView()
     private let doneButton = DefaultButton()
     private let textView = UITextView()
+    private let disposeBag = DisposeBag()
 
     private var completion: (() -> Void)?
 
@@ -40,7 +43,29 @@ final class PopupView: UIView {
     ) {
         self.init(frame: CGRect.zero)
         self.setConfiguration(style: style)
+        self.bind(style: style)
         self.completion = completion
+    }
+
+    private func bind(style: PopupStyle) {
+        switch style {
+        case .report:
+            Observable.combineLatest(
+                reportSelectionView.validRelay,
+                textView.rx.isText,
+                resultSelector: { $0 && $1 })
+                .asDriver(onErrorJustReturn: false)
+                .drive(doneButton.rx.isValid)
+                .disposed(by: disposeBag)
+        case .review:
+            Observable.combineLatest(
+                reviewSelectionView.validRelay,
+                textView.rx.isText,
+                resultSelector: { $0 && $1 })
+                .asDriver(onErrorJustReturn: false)
+                .drive(doneButton.rx.isValid)
+                .disposed(by: disposeBag)
+        }
     }
 
     private func setConfiguration(style: PopupStyle) {
@@ -74,8 +99,10 @@ final class PopupView: UIView {
     }
 
     @objc private func doneAction() {
-        completion?()
-        removeAnimation()
+        if self.doneButton.isValid {
+            completion?()
+            removeAnimation()
+        }
     }
 
     func showPopup(style: PopupStyle) {
@@ -196,7 +223,7 @@ extension PopupView {
     private func setReviewConfiguration() {
         titleLabel.text = "리뷰 등록"
         messageLabel.text = "다시는 해당 새싹과 매칭되지 않습니다."
-        reviewSelectionView.buttons.forEach { $0.setAddTarget() }
+        reviewSelectionView.buttons.forEach { $0.bind() }
         doneButton.setTitle("리뷰 등록하기", for: .normal)
     }
 }

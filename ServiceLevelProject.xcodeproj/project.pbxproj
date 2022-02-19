@@ -121,6 +121,12 @@
 		BB81733D27BE747300588677 /* DodgeQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB81733C27BE747300588677 /* DodgeQuery.swift */; };
 		BB81733F27BE787D00588677 /* ReviewQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB81733E27BE787D00588677 /* ReviewQuery.swift */; };
 		BB81734127BE78DA00588677 /* ReviewQueryDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB81734027BE78DA00588677 /* ReviewQueryDTO.swift */; };
+		BB81734727BE9A7D00588677 /* WriteReviewUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB81734627BE9A7D00588677 /* WriteReviewUseCase.swift */; };
+		BB81734927BE9E0C00588677 /* PopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB81734827BE9E0C00588677 /* PopupView.swift */; };
+		BB81734B27BEB70D00588677 /* SesacReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB81734A27BEB70D00588677 /* SesacReportView.swift */; };
+		BB81734D27BF4ED800588677 /* InputTextView+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB81734C27BF4ED800588677 /* InputTextView+Rx.swift */; };
+		BB81734F27C1058700588677 /* UITextView+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB81734E27C1058700588677 /* UITextView+Rx.swift */; };
+		BB81735127C10FD500588677 /* PopupTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB81735027C10FD500588677 /* PopupTextView.swift */; };
 		BB8D1F2E2799AD6200D111B6 /* NotoSansKR-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = BB8D1F2D2799AD6200D111B6 /* NotoSansKR-Medium.otf */; };
 		BB8D1F302799AD6B00D111B6 /* NotoSansKR-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = BB8D1F2F2799AD6B00D111B6 /* NotoSansKR-Regular.otf */; };
 		BB8D1F322799B5FB00D111B6 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8D1F312799B5FB00D111B6 /* LoginViewModel.swift */; };
@@ -163,6 +169,8 @@
 		BBAAA6D9279C55B800667591 /* SesacShopCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAA6D8279C55B800667591 /* SesacShopCoordinator.swift */; };
 		BBAAA6DC279C55ED00667591 /* SesacFriendCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAA6DB279C55ED00667591 /* SesacFriendCoordinator.swift */; };
 		BBAAA6DE279C598D00667591 /* MyPageCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAA6DD279C598D00667591 /* MyPageCoordinator.swift */; };
+		BBCF996527C11E40003FE252 /* ReportQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBCF996427C11E40003FE252 /* ReportQuery.swift */; };
+		BBCF996727C11FC0003FE252 /* ReportQueryDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBCF996627C11FC0003FE252 /* ReportQueryDTO.swift */; };
 		BBDBE50F27A4505D00305BF3 /* MyPageMenuCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDBE50E27A4505D00305BF3 /* MyPageMenuCase.swift */; };
 		BBDBE51127A459A600305BF3 /* MyPageMenuHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDBE51027A459A600305BF3 /* MyPageMenuHeaderView.swift */; };
 		BBDBE51327A45A1100305BF3 /* ProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDBE51227A45A1100305BF3 /* ProfileImageView.swift */; };
@@ -330,6 +338,12 @@
 		BB81733C27BE747300588677 /* DodgeQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DodgeQuery.swift; sourceTree = "<group>"; };
 		BB81733E27BE787D00588677 /* ReviewQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewQuery.swift; sourceTree = "<group>"; };
 		BB81734027BE78DA00588677 /* ReviewQueryDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewQueryDTO.swift; sourceTree = "<group>"; };
+		BB81734627BE9A7D00588677 /* WriteReviewUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteReviewUseCase.swift; sourceTree = "<group>"; };
+		BB81734827BE9E0C00588677 /* PopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupView.swift; sourceTree = "<group>"; };
+		BB81734A27BEB70D00588677 /* SesacReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SesacReportView.swift; sourceTree = "<group>"; };
+		BB81734C27BF4ED800588677 /* InputTextView+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "InputTextView+Rx.swift"; sourceTree = "<group>"; };
+		BB81734E27C1058700588677 /* UITextView+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Rx.swift"; sourceTree = "<group>"; };
+		BB81735027C10FD500588677 /* PopupTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupTextView.swift; sourceTree = "<group>"; };
 		BB8D1F2D2799AD6200D111B6 /* NotoSansKR-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Medium.otf"; sourceTree = "<group>"; };
 		BB8D1F2F2799AD6B00D111B6 /* NotoSansKR-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Regular.otf"; sourceTree = "<group>"; };
 		BB8D1F312799B5FB00D111B6 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -370,6 +384,8 @@
 		BBAAA6D8279C55B800667591 /* SesacShopCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SesacShopCoordinator.swift; sourceTree = "<group>"; };
 		BBAAA6DB279C55ED00667591 /* SesacFriendCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SesacFriendCoordinator.swift; sourceTree = "<group>"; };
 		BBAAA6DD279C598D00667591 /* MyPageCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageCoordinator.swift; sourceTree = "<group>"; };
+		BBCF996427C11E40003FE252 /* ReportQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportQuery.swift; sourceTree = "<group>"; };
+		BBCF996627C11FC0003FE252 /* ReportQueryDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportQueryDTO.swift; sourceTree = "<group>"; };
 		BBDBE50E27A4505D00305BF3 /* MyPageMenuCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageMenuCase.swift; sourceTree = "<group>"; };
 		BBDBE51027A459A600305BF3 /* MyPageMenuHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageMenuHeaderView.swift; sourceTree = "<group>"; };
 		BBDBE51227A45A1100305BF3 /* ProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageView.swift; sourceTree = "<group>"; };
@@ -488,6 +504,7 @@
 				BB1FD9DB27B96A300010D536 /* SesacHobbyView.swift */,
 				BB00E90C27A56D2B0023D4E6 /* SesacReviewView.swift */,
 				BB1FD9D927B967EB0010D536 /* SesacCardView.swift */,
+				BB81734A27BEB70D00588677 /* SesacReportView.swift */,
 			);
 			path = SesacCardView;
 			sourceTree = "<group>";
@@ -514,6 +531,7 @@
 				BB4821C327BC199700E263D8 /* ChatQuery.swift */,
 				BB81733C27BE747300588677 /* DodgeQuery.swift */,
 				BB81733E27BE787D00588677 /* ReviewQuery.swift */,
+				BBCF996427C11E40003FE252 /* ReportQuery.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -659,6 +677,8 @@
 				BB00E92027A7058E0023D4E6 /* AlertView.swift */,
 				BB09FB2727B5761C008D400A /* TableViewBackgroundView.swift */,
 				BB4821BB27BC03BB00E263D8 /* PaddingLabel.swift */,
+				BB81735027C10FD500588677 /* PopupTextView.swift */,
+				BB81734827BE9E0C00588677 /* PopupView.swift */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -855,6 +875,7 @@
 				BB09FB1A27B4D2B6008D400A /* HomeSearchUseCase.swift */,
 				BB09FB2527B571E8008D400A /* HobbySearchUseCase.swift */,
 				BB4821B927BBEE3600E263D8 /* ChatUseCase.swift */,
+				BB81734627BE9A7D00588677 /* WriteReviewUseCase.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -1117,6 +1138,7 @@
 				BBE2AC6527BCBD6E00181E54 /* ChatRequestDTO.swift */,
 				BB81733A27BE741B00588677 /* DodgeRequestDTO.swift */,
 				BB81734027BE78DA00588677 /* ReviewQueryDTO.swift */,
+				BBCF996627C11FC0003FE252 /* ReportQueryDTO.swift */,
 			);
 			path = RequestDTO;
 			sourceTree = "<group>";
@@ -1142,6 +1164,8 @@
 				BB2B29FF27B2F1B6006F7339 /* UIViewController+Rx.swift */,
 				BB2B2A0A27B42498006F7339 /* SearchBar+Rx.swift */,
 				BB09FB2027B57122008D400A /* UITableView+Rx.swift */,
+				BB81734C27BF4ED800588677 /* InputTextView+Rx.swift */,
+				BB81734E27C1058700588677 /* UITextView+Rx.swift */,
 			);
 			path = RxExtension;
 			sourceTree = "<group>";
@@ -1446,10 +1470,12 @@
 				BBAAA6A6279C105F00667591 /* AppCoordinator.swift in Sources */,
 				BB105D6E2796B0DA008264DD /* LoginViewController.swift in Sources */,
 				BB7A2176279D9BB6005FD0A3 /* CertificationUseCase.swift in Sources */,
+				BB81734D27BF4ED800588677 /* InputTextView+Rx.swift in Sources */,
 				BB8D1F3A2799BE6400D111B6 /* AuthTextField+Rx.swift in Sources */,
 				BB105D892796D050008264DD /* DefaultTextField.swift in Sources */,
 				BB00E8FD27A534110023D4E6 /* SesacProfileView.swift in Sources */,
 				BB7A216F279D1673005FD0A3 /* UserRepository.swift in Sources */,
+				BBCF996527C11E40003FE252 /* ReportQuery.swift in Sources */,
 				BBED121B279976A4002A5E9E /* UIViewController.swift in Sources */,
 				BB1FD9E227B995420010D536 /* ReviewCell.swift in Sources */,
 				BB1FD9DE27B975370010D536 /* DynamicCollectionView.swift in Sources */,
@@ -1463,6 +1489,8 @@
 				BBE2AC6627BCBD6E00181E54 /* ChatRequestDTO.swift in Sources */,
 				BBA6409E27B9054900E1410B /* ChatViewController.swift in Sources */,
 				BB7A2184279DAF3C005FD0A3 /* SesacRepositoryType.swift in Sources */,
+				BB81734F27C1058700588677 /* UITextView+Rx.swift in Sources */,
+				BBCF996727C11FC0003FE252 /* ReportQueryDTO.swift in Sources */,
 				BB4821BE27BC0FD100E263D8 /* Chat.swift in Sources */,
 				BB00E8F627A46CDE0023D4E6 /* MyPageEditViewController.swift in Sources */,
 				BBA6409227B6916C00E1410B /* MatchStatus.swift in Sources */,
@@ -1517,6 +1545,7 @@
 				BB105D4027966ABC008264DD /* SceneDelegate.swift in Sources */,
 				BBAAA6BE279C3CFA00667591 /* GenderViewModel.swift in Sources */,
 				BB7A2172279D16BA005FD0A3 /* UserRepositoryType.swift in Sources */,
+				BB81734927BE9E0C00588677 /* PopupView.swift in Sources */,
 				BB09FB2A27B58AC7008D400A /* SearchSesacRequestDTO.swift in Sources */,
 				BB00E91D27A679990023D4E6 /* MyCardHeaderView.swift in Sources */,
 				BBE2AC6F27BD169600181E54 /* SocketIORepository.swift in Sources */,
@@ -1580,6 +1609,7 @@
 				BB1FD9E627BAB1C60010D536 /* MyQueueStateResponseDTO.swift in Sources */,
 				BB1E250C27A158FA00A80FC3 /* UserRegisterQuery.swift in Sources */,
 				BBAAA6BC279C3CF100667591 /* EmailViewModel.swift in Sources */,
+				BB81734727BE9A7D00588677 /* WriteReviewUseCase.swift in Sources */,
 				BB7A2182279DAF2B005FD0A3 /* FirbaseRepositoryType.swift in Sources */,
 				BBE0720127B1416A007947B6 /* SesacBackgroundCase.swift in Sources */,
 				BB105D9A2797F313008264DD /* GenderViewController.swift in Sources */,
@@ -1590,6 +1620,7 @@
 				BB09FB1B27B4D2B6008D400A /* HomeSearchUseCase.swift in Sources */,
 				BB00E91827A5AC600023D4E6 /* AgeRangeView.swift in Sources */,
 				BBAAA690279B0BEB00667591 /* NetworkMonitorService.swift in Sources */,
+				BB81735127C10FD500588677 /* PopupTextView.swift in Sources */,
 				BB4821C427BC199700E263D8 /* ChatQuery.swift in Sources */,
 				BB2B2A0927B40B5A006F7339 /* HobbySectionView.swift in Sources */,
 				BB81733F27BE787D00588677 /* ReviewQuery.swift in Sources */,
@@ -1603,6 +1634,7 @@
 				BB4821B827BBED1100E263D8 /* ChatViewModel.swift in Sources */,
 				BB1E250E27A1590500A80FC3 /* UserInfo.swift in Sources */,
 				BB105DA22798232D008264DD /* AppAppearance.swift in Sources */,
+				BB81734B27BEB70D00588677 /* SesacReportView.swift in Sources */,
 				BB2B2A0227B3F1AE006F7339 /* CollectionViewLeftAlignFlowLayout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
