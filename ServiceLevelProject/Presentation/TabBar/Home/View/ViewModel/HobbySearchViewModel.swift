@@ -155,7 +155,9 @@ final class HobbySearchViewModel: ViewModelType {
             .asSignal()
             .emit(onNext: { [weak self] state in
                 print("My Queue State -->", state)
-                if state.matched == 1 {
+                if state.dodged == 1 || state.reviewed == 1 {
+                    self?.showToastAction.accept("약속이 종료되어 채팅을 보낼 수 없습니다")
+                } else if state.matched == 1 {
                     self?.coordinator?.navigationController.view.makeToast("dks", duration: 1, position: .top, completion: { didTap in
                         self?.coordinator?.showChatViewController()
                     })
