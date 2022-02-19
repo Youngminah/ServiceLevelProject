@@ -75,7 +75,7 @@ final class MyCardHeaderView: UITableViewHeaderFooterView {
         cardView.setNickname(nickname: info.nick)
         cardView.setSesacTitle(reputation: info.reputation)
         if info.reviewedBefore.count != 0 {
-            cardView.setReviewText(text: info.reviewedBefore[0])
+            cardView.setReviewText(text: info.comment[0])
         }
     }
 
