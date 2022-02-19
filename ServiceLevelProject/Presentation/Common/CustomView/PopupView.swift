@@ -24,10 +24,11 @@ final class PopupView: UIView {
     private let reviewSelectionView = SesacTitleView()
     private let reportSelectionView = SesacReportView()
     private let doneButton = DefaultButton()
-    private let textView = UITextView()
+    private let textView = PopupTextView()
     private let disposeBag = DisposeBag()
 
-    private var completion: (() -> Void)?
+    private var style: PopupStyle = .report
+    private var completion: (([Int], String) -> Void)?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -39,9 +40,10 @@ final class PopupView: UIView {
 
     convenience init(
         style: PopupStyle,
-        completion: (() -> Void)?
+        completion: (([Int], String) -> Void)?
     ) {
         self.init(frame: CGRect.zero)
+        self.style = style
         self.setConfiguration(style: style)
         self.bind(style: style)
         self.completion = completion
@@ -75,11 +77,6 @@ final class PopupView: UIView {
         contentView.layer.masksToBounds = true
         contentView.layer.cornerRadius = 20
 
-        textView.textContainerInset = UIEdgeInsets(top: 14, left: 12, bottom: 14, right: 44)
-        textView.backgroundColor = .gray1
-        textView.layer.cornerRadius = 8
-        textView.font = .body3R14
-
         dismissButton.setImage(UIImage(systemName: "xmark"), for: .normal)
         dismissButton.tintColor = .gray6
         dismissButton.addTarget(self, action: #selector(dismissAction), for: .touchUpInside)
@@ -89,8 +86,12 @@ final class PopupView: UIView {
         switch style {
         case .report:
             self.setReportConfiguration()
+            self.textView.placeHolderText = "신고 사유를 적어주세요\n허위 신고시 제재를 받을 수 있습니다"
+            self.textView.placeholderSetting()
         case .review:
             self.setReviewConfiguration()
+            self.textView.placeHolderText = "자세한 피드백은 다른 새싹들에게 도움이 됩니다\n(500자 이내 작성)"
+            self.textView.placeholderSetting()
         }
     }
 
@@ -100,14 +101,34 @@ final class PopupView: UIView {
 
     @objc private func doneAction() {
         if self.doneButton.isValid {
-            completion?()
+            completion?(getReputation(), textView.text)
             removeAnimation()
         }
     }
 
-    func showPopup(style: PopupStyle) {
-        self.setViews(style: style)
+    func showPopup() {
+        self.setViews(style: self.style)
         self.setAnimation()
+    }
+
+    private func getReputation() -> [Int] {
+        var index = 0
+        switch self.style {
+        case .report:
+            var report = [0,0,0,0,0,0]
+            for button in reportSelectionView.buttons {
+                report[index] = (button.isSelected ? 1 : 0)
+                index += 1
+            }
+            return report
+        case .review:
+            var reputation = [0,0,0,0,0,0,0,0,0]
+            for button in reviewSelectionView.buttons {
+                reputation[index] = (button.isSelected ? 1 : 0)
+                index += 1
+            }
+            return reputation
+        }
     }
 
     private func setViews(style: PopupStyle) {
@@ -145,7 +166,7 @@ final class PopupView: UIView {
         }
         titleLabel.snp.makeConstraints { make in
             make.top.left.equalToSuperview().offset(16)
-            make.right.equalTo(dismissButton.snp.left).offset(-16)
+            make.right.equalToSuperview().offset(-16)
             make.height.equalTo(22)
         }
         messageLabel.snp.makeConstraints { make in
@@ -207,6 +228,10 @@ final class PopupView: UIView {
             })
         }
     }
+
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+         self.endEditing(true)
+   }
 }
 
 extension PopupView {
