@@ -52,21 +52,9 @@ final class PopupView: UIView {
     private func bind(style: PopupStyle) {
         switch style {
         case .report:
-            Observable.combineLatest(
-                reportSelectionView.validRelay,
-                textView.rx.isText,
-                resultSelector: { $0 && $1 })
-                .asDriver(onErrorJustReturn: false)
-                .drive(doneButton.rx.isValid)
-                .disposed(by: disposeBag)
+            bindReport()
         case .review:
-            Observable.combineLatest(
-                reviewSelectionView.validRelay,
-                textView.rx.isText,
-                resultSelector: { $0 && $1 })
-                .asDriver(onErrorJustReturn: false)
-                .drive(doneButton.rx.isValid)
-                .disposed(by: disposeBag)
+            bindReview()
         }
     }
 
@@ -83,15 +71,12 @@ final class PopupView: UIView {
 
         doneButton.addTarget(self, action: #selector(doneAction), for: .touchUpInside)
         doneButton.isValid = false
+
         switch style {
         case .report:
             self.setReportConfiguration()
-            self.textView.placeHolderText = "신고 사유를 적어주세요\n허위 신고시 제재를 받을 수 있습니다"
-            self.textView.placeholderSetting()
         case .review:
             self.setReviewConfiguration()
-            self.textView.placeHolderText = "자세한 피드백은 다른 새싹들에게 도움이 됩니다\n(500자 이내 작성)"
-            self.textView.placeholderSetting()
         }
     }
 
@@ -240,6 +225,18 @@ extension PopupView {
         titleLabel.text = "새싹 신고"
         messageLabel.text = "다시는 해당 새싹과 매칭되지 않습니다."
         doneButton.setTitle("신고하기", for: .normal)
+        textView.placeHolderText = "신고 사유를 적어주세요\n허위 신고시 제재를 받을 수 있습니다"
+        textView.placeholderSetting()
+    }
+
+    private func bindReport() {
+        Observable.combineLatest(
+            reportSelectionView.validRelay,
+            textView.rx.isText,
+            resultSelector: { $0 && $1 })
+            .asDriver(onErrorJustReturn: false)
+            .drive(doneButton.rx.isValid)
+            .disposed(by: disposeBag)
     }
 }
 
@@ -250,5 +247,17 @@ extension PopupView {
         messageLabel.text = "다시는 해당 새싹과 매칭되지 않습니다."
         reviewSelectionView.buttons.forEach { $0.bind() }
         doneButton.setTitle("리뷰 등록하기", for: .normal)
+        textView.placeHolderText = "자세한 피드백은 다른 새싹들에게 도움이 됩니다\n(500자 이내 작성)"
+        textView.placeholderSetting()
+    }
+
+    private func bindReview() {
+        Observable.combineLatest(
+            reviewSelectionView.validRelay,
+            textView.rx.isText,
+            resultSelector: { $0 && $1 })
+            .asDriver(onErrorJustReturn: false)
+            .drive(doneButton.rx.isValid)
+            .disposed(by: disposeBag)
     }
 }
