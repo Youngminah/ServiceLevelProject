@@ -177,6 +177,14 @@ extension SesacRepository {
     func reqeustWriteReview(to id: String, review: ReviewQuery, completion: @escaping (Result<Int, SesacNetworkServiceError>) -> Void) {
         let requestDTO = ReviewRequestDTO(review: review)
         provider.request(.writeReview(parameters: requestDTO.toDictionary, id: id)) { result in
+            print(result)
+            self.process(result: result, completion: completion)
+        }
+    }
+
+    func requestReport(report: ReportQuery, completion: @escaping (Result<Int, SesacNetworkServiceError>) -> Void) {
+        let requestDTO = ReportQueryDTO(report: report)
+        provider.request(.report(parameters: requestDTO.toDictionary)) { result in
             self.process(result: result, completion: completion)
         }
     }
