@@ -89,10 +89,10 @@ final class ChatViewModel: ViewModelType {
             .emit(onNext: { [weak self] in
                 guard let self = self else { return }
                 self.dismissDetailMenu.accept(())
-                let popup = PopupView.init(style: .review) { [weak self] in
-                        print("누름!")
+                let popup = PopupView.init(style: .review) { [weak self] reputation, text in
+                    self?.requestWriteReview(reputation: reputation, text: text)
                 }
-                popup.showPopup(style: .review)
+                popup.showPopup()
             })
             .disposed(by: disposeBag)
 
@@ -100,10 +100,10 @@ final class ChatViewModel: ViewModelType {
             .emit(onNext: { [weak self] in
                 guard let self = self else { return }
                 self.dismissDetailMenu.accept(())
-                let popup = PopupView.init(style: .report) { [weak self] in
-                        print("누름!")
+                let popup = PopupView.init(style: .report) { [weak self] report, text in
+                    self?.requestReport(report: report, comment: text)
                 }
-                popup.showPopup(style: .report)
+                popup.showPopup()
             })
             .disposed(by: disposeBag)
 
@@ -161,6 +161,20 @@ final class ChatViewModel: ViewModelType {
             })
             .disposed(by: disposeBag)
 
+        self.useCase.successReview
+            .asSignal()
+            .emit(onNext: { [weak self] in
+                self?.coordinator?.popToRootViewController(message: "리뷰가 작성되었습니다.")
+            })
+            .disposed(by: disposeBag)
+
+        self.useCase.successReport
+            .asSignal()
+            .emit(onNext: { [weak self] in
+                self?.showToastAction.accept("신고가 완료되었습니다.")
+            })
+            .disposed(by: disposeBag)
+
         return Output(
             showToastAction: showToastAction.asSignal(),
             myState: myState.asSignal(),
@@ -176,5 +190,13 @@ extension ChatViewModel {
 
     private func requestDodge() {
         self.useCase.requestDodge()
+    }
+
+    private func requestWriteReview(reputation: [Int], text: String) {
+        self.useCase.reqeustWriteReview(reputation: reputation, review: text)
+    }
+
+    private func requestReport(report: [Int], comment text: String) {
+        self.useCase.requestReport(report: report, comment: text)
     }
 }
