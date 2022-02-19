@@ -15,6 +15,7 @@ enum SLPTarget {
     case register(parameters: DictionaryType)
     case getUserInfo
     case withdraw
+    case report(parameters: DictionaryType)
     // User FCM
     case updateFCMToken(parameters: DictionaryType)
     // User MyPage
@@ -49,6 +50,8 @@ extension SLPTarget: TargetType {
             return "/user"
         case .withdraw:
             return "/user/withdraw"
+        case .report:
+            return "/user/report"
         case .updateFCMToken:
             return "/user/update_fcm_token"
         case .updateMyPage:
@@ -83,6 +86,7 @@ extension SLPTarget: TargetType {
             return .get
         case .register,
              .withdraw,
+             .report,
              .updateMyPage,
              .onqueue,
              .searchSesac,
@@ -113,16 +117,17 @@ extension SLPTarget: TargetType {
         case .getChatInfo(_, let date):
             return .requestParameters(parameters: ["lastchatDate": date], encoding: URLEncoding.queryString)
         case .register(let parameters),
+             .report(let parameters),
              .updateFCMToken(let parameters),
              .updateMyPage(let parameters),
              .onqueue(let parameters),
              .requestHobbyFriend(let parameters),
              .acceptHobbyFriend(let parameters),
              .sendChatMessage(let parameters, _),
-             .writeReview(let parameters, _),
              .dodge(let parameters):
             return .requestParameters(parameters: parameters, encoding: URLEncoding.default)
-        case .searchSesac(let parameters):
+        case .searchSesac(let parameters),
+             .writeReview(let parameters, _):
             return .requestParameters(parameters: parameters, encoding: URLEncoding(arrayEncoding: .noBrackets))
         }
     }
