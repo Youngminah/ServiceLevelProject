@@ -19,7 +19,6 @@ final class TabBarCoordinator: Coordinator {
         self.navigationController = navigationController
         navigationController.setNavigationBarHidden(true, animated: false)
         self.tabBarController = UITabBarController()
-        //UserDefaults.standard.set(false, forKey: UserDefaultKeyCase.isNotFirstUser)
     }
 
     func start() {
@@ -82,11 +81,6 @@ final class TabBarCoordinator: Coordinator {
             sesacShopCoordinator.delegate = self
             self.childCoordinators.append(sesacShopCoordinator)
             sesacShopCoordinator.start()
-        case .sesacfriend:
-            let sesacFriendCoordinator = SesacFriendCoordinator(tabNavigationController)
-            sesacFriendCoordinator.delegate = self
-            self.childCoordinators.append(sesacFriendCoordinator)
-            sesacFriendCoordinator.start()
         case .mypage:
             let myPageCoordinator = MyPageCoordinator(tabNavigationController)
             myPageCoordinator.delegate = self

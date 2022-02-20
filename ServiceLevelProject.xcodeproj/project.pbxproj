@@ -166,13 +166,11 @@
 		BBAAA6BC279C3CF100667591 /* EmailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAA6BB279C3CF100667591 /* EmailViewModel.swift */; };
 		BBAAA6BE279C3CFA00667591 /* GenderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAA6BD279C3CFA00667591 /* GenderViewModel.swift */; };
 		BBAAA6CA279C460000667591 /* SesacShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAA6C9279C460000667591 /* SesacShopViewController.swift */; };
-		BBAAA6CF279C46C700667591 /* SesacFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAA6CE279C46C700667591 /* SesacFriendViewController.swift */; };
 		BBAAA6D1279C46D200667591 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAA6D0279C46D200667591 /* MyPageViewController.swift */; };
 		BBAAA6D3279C481700667591 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAA6D2279C481700667591 /* TabBarCoordinator.swift */; };
 		BBAAA6D5279C542A00667591 /* TabBarPageCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAA6D4279C542A00667591 /* TabBarPageCase.swift */; };
 		BBAAA6D7279C55AA00667591 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAA6D6279C55AA00667591 /* HomeCoordinator.swift */; };
 		BBAAA6D9279C55B800667591 /* SesacShopCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAA6D8279C55B800667591 /* SesacShopCoordinator.swift */; };
-		BBAAA6DC279C55ED00667591 /* SesacFriendCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAA6DB279C55ED00667591 /* SesacFriendCoordinator.swift */; };
 		BBAAA6DE279C598D00667591 /* MyPageCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAA6DD279C598D00667591 /* MyPageCoordinator.swift */; };
 		BBCF996527C11E40003FE252 /* ReportQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBCF996427C11E40003FE252 /* ReportQuery.swift */; };
 		BBCF996727C11FC0003FE252 /* ReportQueryDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBCF996627C11FC0003FE252 /* ReportQueryDTO.swift */; };
@@ -388,13 +386,11 @@
 		BBAAA6BB279C3CF100667591 /* EmailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailViewModel.swift; sourceTree = "<group>"; };
 		BBAAA6BD279C3CFA00667591 /* GenderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderViewModel.swift; sourceTree = "<group>"; };
 		BBAAA6C9279C460000667591 /* SesacShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SesacShopViewController.swift; sourceTree = "<group>"; };
-		BBAAA6CE279C46C700667591 /* SesacFriendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SesacFriendViewController.swift; sourceTree = "<group>"; };
 		BBAAA6D0279C46D200667591 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
 		BBAAA6D2279C481700667591 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
 		BBAAA6D4279C542A00667591 /* TabBarPageCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarPageCase.swift; sourceTree = "<group>"; };
 		BBAAA6D6279C55AA00667591 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 		BBAAA6D8279C55B800667591 /* SesacShopCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SesacShopCoordinator.swift; sourceTree = "<group>"; };
-		BBAAA6DB279C55ED00667591 /* SesacFriendCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SesacFriendCoordinator.swift; sourceTree = "<group>"; };
 		BBAAA6DD279C598D00667591 /* MyPageCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageCoordinator.swift; sourceTree = "<group>"; };
 		BBCF996427C11E40003FE252 /* ReportQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportQuery.swift; sourceTree = "<group>"; };
 		BBCF996627C11FC0003FE252 /* ReportQueryDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportQueryDTO.swift; sourceTree = "<group>"; };
@@ -729,7 +725,6 @@
 				BB1E251427A1962D00A80FC3 /* Coordinator */,
 				BBAAA6A0279BFC3F00667591 /* Home */,
 				BBAAA6CB279C460A00667591 /* SesacShop */,
-				BBAAA6CC279C462F00667591 /* SesacFriend */,
 				BBAAA6CD279C464300667591 /* MyPage */,
 			);
 			path = TabBar;
@@ -1086,15 +1081,6 @@
 			path = SesacShop;
 			sourceTree = "<group>";
 		};
-		BBAAA6CC279C462F00667591 /* SesacFriend */ = {
-			isa = PBXGroup;
-			children = (
-				BBAAA6DA279C55D400667591 /* Coordinator */,
-				BBAAA6DF279C59F800667591 /* View */,
-			);
-			path = SesacFriend;
-			sourceTree = "<group>";
-		};
 		BBAAA6CD279C464300667591 /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
@@ -1103,22 +1089,6 @@
 				BBAAA6E2279C5A1100667591 /* View */,
 			);
 			path = MyPage;
-			sourceTree = "<group>";
-		};
-		BBAAA6DA279C55D400667591 /* Coordinator */ = {
-			isa = PBXGroup;
-			children = (
-				BBAAA6DB279C55ED00667591 /* SesacFriendCoordinator.swift */,
-			);
-			path = Coordinator;
-			sourceTree = "<group>";
-		};
-		BBAAA6DF279C59F800667591 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				BBAAA6CE279C46C700667591 /* SesacFriendViewController.swift */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		BBAAA6E0279C59FF00667591 /* Coordinator */ = {
@@ -1612,14 +1582,12 @@
 				BBDBE50F27A4505D00305BF3 /* MyPageMenuCase.swift in Sources */,
 				BBAAA694279B2C2600667591 /* UserRegisterInfoRequestDTO.swift in Sources */,
 				BB8D1F322799B5FB00D111B6 /* LoginViewModel.swift in Sources */,
-				BBAAA6CF279C46C700667591 /* SesacFriendViewController.swift in Sources */,
 				BB3008D727A31A3E00D32DCA /* MyPageMenuCell.swift in Sources */,
 				BB00E90B27A569DB0023D4E6 /* SesacPreviewView.swift in Sources */,
 				BB00E8FB27A529510023D4E6 /* MyPageEditViewModel.swift in Sources */,
 				BB00E91F27A694730023D4E6 /* MyPageEditFooterView.swift in Sources */,
 				BB105D8D2796F004008264DD /* CertificationViewController.swift in Sources */,
 				BB36C4D627C24AF20073188E /* BackgroundCell.swift in Sources */,
-				BBAAA6DC279C55ED00667591 /* SesacFriendCoordinator.swift in Sources */,
 				BB8D1F342799B62100D111B6 /* ViewModelType.swift in Sources */,
 				BB722BB427AD9DEE00317054 /* HobbySearchViewController.swift in Sources */,
 				BB09FB1F27B56ED0008D400A /* UITableView.swift in Sources */,
