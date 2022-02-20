@@ -52,4 +52,67 @@ enum SesacBackgroundCase: Int, CaseIterable {
             return Asset.background8.image
         }
     }
+
+    var name: String {
+        switch self {
+        case .background0:
+            return "하늘 공원"
+        case .background1:
+            return "씨티 뷰"
+        case .background2:
+            return "밤의 산책로"
+        case .background3:
+            return "낮의 산책로"
+        case .background4:
+            return "연극 무대"
+        case .background5:
+            return "라틴 거실"
+        case .background6:
+            return "홈트방"
+        case .background7:
+            return "뮤지션 작업실"
+        }
+    }
+
+    var content: String {
+        switch self {
+        case .background0:
+            return "새싹들을 많이 마주치는 매력적인 하늘 공원입니다"
+        case .background1:
+            return "창밖으로 보이는 도시 야경이 아름다운 공간입니다"
+        case .background2:
+            return "어둡지만 무섭지 않은 조용한 산책로입니다"
+        case .background3:
+            return "즐겁고 가볍게 걸을 수 있는 산책로입니다"
+        case .background4:
+            return "연극의 주인공이 되어 연기를 펼칠 수 있는 무대입니다"
+        case .background5:
+            return "모노톤의 따스한 감성의 거실로 편하게 쉴 수 있는 공간입니다"
+        case .background6:
+            return "집에서 운동을 할 수 있도록 기구를 갖춘 방입니다"
+        case .background7:
+            return "여러가지 음악 작업을 할 수 있는 작업실입니다"
+        }
+    }
+
+    var price: String {
+        switch self {
+        case .background0:
+            return "보유"
+        case .background1:
+            return "1,200"
+        case .background2:
+            return "1,200"
+        case .background3:
+            return "1,200"
+        case .background4:
+            return "2,500"
+        case .background5:
+            return "2,500"
+        case .background6:
+            return "2,500"
+        case .background7:
+            return "2,500"
+        }
+    }
 }

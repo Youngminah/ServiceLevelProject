@@ -85,6 +85,12 @@
 		BB2CDA6B27BCB346008115B6 /* InputTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2CDA6A27BCB346008115B6 /* InputTextView.swift */; };
 		BB3008D727A31A3E00D32DCA /* MyPageMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3008D627A31A3E00D32DCA /* MyPageMenuCell.swift */; };
 		BB3008D927A31B8300D32DCA /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3008D827A31B8300D32DCA /* BaseTableViewCell.swift */; };
+		BB36C4D427C24ADC0073188E /* SesacCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB36C4D327C24ADC0073188E /* SesacCell.swift */; };
+		BB36C4D627C24AF20073188E /* BackgroundCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB36C4D527C24AF20073188E /* BackgroundCell.swift */; };
+		BB36C4D927C256820073188E /* SesacViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB36C4D827C256820073188E /* SesacViewModel.swift */; };
+		BB36C4DB27C256950073188E /* BackgroundViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB36C4DA27C256950073188E /* BackgroundViewModel.swift */; };
+		BB36C4E227C257B40073188E /* SesacUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB36C4E127C257B40073188E /* SesacUseCase.swift */; };
+		BB36C4E427C257C20073188E /* BackgroundUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB36C4E327C257C20073188E /* BackgroundUseCase.swift */; };
 		BB4821B127BB9DF400E263D8 /* ChatHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4821B027BB9DF400E263D8 /* ChatHeaderView.swift */; };
 		BB4821B327BBBDE400E263D8 /* ReceivedChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4821B227BBBDE400E263D8 /* ReceivedChatCell.swift */; };
 		BB4821B527BBBDF300E263D8 /* SendChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4821B427BBBDF300E263D8 /* SendChatCell.swift */; };
@@ -304,6 +310,12 @@
 		BB2CDA6A27BCB346008115B6 /* InputTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputTextView.swift; sourceTree = "<group>"; };
 		BB3008D627A31A3E00D32DCA /* MyPageMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageMenuCell.swift; sourceTree = "<group>"; };
 		BB3008D827A31B8300D32DCA /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
+		BB36C4D327C24ADC0073188E /* SesacCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SesacCell.swift; sourceTree = "<group>"; };
+		BB36C4D527C24AF20073188E /* BackgroundCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundCell.swift; sourceTree = "<group>"; };
+		BB36C4D827C256820073188E /* SesacViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SesacViewModel.swift; sourceTree = "<group>"; };
+		BB36C4DA27C256950073188E /* BackgroundViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundViewModel.swift; sourceTree = "<group>"; };
+		BB36C4E127C257B40073188E /* SesacUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SesacUseCase.swift; sourceTree = "<group>"; };
+		BB36C4E327C257C20073188E /* BackgroundUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundUseCase.swift; sourceTree = "<group>"; };
 		BB4821B027BB9DF400E263D8 /* ChatHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatHeaderView.swift; sourceTree = "<group>"; };
 		BB4821B227BBBDE400E263D8 /* ReceivedChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceivedChatCell.swift; sourceTree = "<group>"; };
 		BB4821B427BBBDF300E263D8 /* SendChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendChatCell.swift; sourceTree = "<group>"; };
@@ -805,6 +817,62 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		BB36C4D227C24A550073188E /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				BB36C4D327C24ADC0073188E /* SesacCell.swift */,
+				BB36C4D527C24AF20073188E /* BackgroundCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		BB36C4D727C2565D0073188E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				BB36C4D827C256820073188E /* SesacViewModel.swift */,
+				BB36C4DA27C256950073188E /* BackgroundViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		BB36C4DD27C2575E0073188E /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				BB7A2173279D9BA4005FD0A3 /* LoginUseCase.swift */,
+				BB7A2175279D9BB6005FD0A3 /* CertificationUseCase.swift */,
+				BB7A2177279D9BCC005FD0A3 /* GenderUseCase.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		BB36C4DE27C2576A0073188E /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				BB722BB927B00C7E00317054 /* HomeUseCase.swift */,
+				BB09FB1A27B4D2B6008D400A /* HomeSearchUseCase.swift */,
+				BB09FB2527B571E8008D400A /* HobbySearchUseCase.swift */,
+				BB4821B927BBEE3600E263D8 /* ChatUseCase.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		BB36C4DF27C2577C0073188E /* SesacShop */ = {
+			isa = PBXGroup;
+			children = (
+				BB36C4E127C257B40073188E /* SesacUseCase.swift */,
+				BB36C4E327C257C20073188E /* BackgroundUseCase.swift */,
+			);
+			path = SesacShop;
+			sourceTree = "<group>";
+		};
+		BB36C4E027C2578B0073188E /* MyPage */ = {
+			isa = PBXGroup;
+			children = (
+				BB00E92227A723530023D4E6 /* MyPageEditUseCase.swift */,
+			);
+			path = MyPage;
+			sourceTree = "<group>";
+		};
 		BB4821B627BBC42300E263D8 /* HeaderView */ = {
 			isa = PBXGroup;
 			children = (
@@ -862,14 +930,10 @@
 		BB7A216C279D113C005FD0A3 /* UseCase */ = {
 			isa = PBXGroup;
 			children = (
-				BB7A2173279D9BA4005FD0A3 /* LoginUseCase.swift */,
-				BB7A2175279D9BB6005FD0A3 /* CertificationUseCase.swift */,
-				BB7A2177279D9BCC005FD0A3 /* GenderUseCase.swift */,
-				BB00E92227A723530023D4E6 /* MyPageEditUseCase.swift */,
-				BB722BB927B00C7E00317054 /* HomeUseCase.swift */,
-				BB09FB1A27B4D2B6008D400A /* HomeSearchUseCase.swift */,
-				BB09FB2527B571E8008D400A /* HobbySearchUseCase.swift */,
-				BB4821B927BBEE3600E263D8 /* ChatUseCase.swift */,
+				BB36C4DE27C2576A0073188E /* Home */,
+				BB36C4DD27C2575E0073188E /* Auth */,
+				BB36C4DF27C2577C0073188E /* SesacShop */,
+				BB36C4E027C2578B0073188E /* MyPage */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -1068,6 +1132,8 @@
 		BBAAA6E1279C5A0900667591 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				BB36C4D227C24A550073188E /* Cell */,
+				BB36C4D727C2565D0073188E /* ViewModel */,
 				BBAAA6C9279C460000667591 /* SesacShopViewController.swift */,
 				BBCF996C27C14F4B003FE252 /* SesacViewController.swift */,
 				BBCF996E27C14F57003FE252 /* BackgroundViewController.swift */,
@@ -1506,6 +1572,7 @@
 				BB105D6E2796B0DA008264DD /* LoginViewController.swift in Sources */,
 				BB7A2176279D9BB6005FD0A3 /* CertificationUseCase.swift in Sources */,
 				BB81734D27BF4ED800588677 /* InputTextView+Rx.swift in Sources */,
+				BB36C4E227C257B40073188E /* SesacUseCase.swift in Sources */,
 				BB8D1F3A2799BE6400D111B6 /* AuthTextField+Rx.swift in Sources */,
 				BB105D892796D050008264DD /* DefaultTextField.swift in Sources */,
 				BB00E8FD27A534110023D4E6 /* SesacProfileView.swift in Sources */,
@@ -1551,6 +1618,7 @@
 				BB00E8FB27A529510023D4E6 /* MyPageEditViewModel.swift in Sources */,
 				BB00E91F27A694730023D4E6 /* MyPageEditFooterView.swift in Sources */,
 				BB105D8D2796F004008264DD /* CertificationViewController.swift in Sources */,
+				BB36C4D627C24AF20073188E /* BackgroundCell.swift in Sources */,
 				BBAAA6DC279C55ED00667591 /* SesacFriendCoordinator.swift in Sources */,
 				BB8D1F342799B62100D111B6 /* ViewModelType.swift in Sources */,
 				BB722BB427AD9DEE00317054 /* HobbySearchViewController.swift in Sources */,
@@ -1561,6 +1629,7 @@
 				BBA6409A27B8D84A00E1410B /* SesacFriendQuery.swift in Sources */,
 				BBAAA69C279BE30700667591 /* UserInfoResponseDTO.swift in Sources */,
 				BB2B29FC27B2DEC9006F7339 /* NearHobbyCell.swift in Sources */,
+				BB36C4E427C257C20073188E /* BackgroundUseCase.swift in Sources */,
 				BB00E91627A5AC360023D4E6 /* MyPhoneNumberPermitView.swift in Sources */,
 				BB00E91227A5AA690023D4E6 /* MyGenderView.swift in Sources */,
 				BBED12202799785F002A5E9E /* ToastCase.swift in Sources */,
@@ -1572,6 +1641,7 @@
 				BB00E90127A557A20023D4E6 /* ButtonStatus.swift in Sources */,
 				BBAAA6A4279C0F2200667591 /* CoordinatorStyleCase.swift in Sources */,
 				BB7A2180279DA3EF005FD0A3 /* SesacRepository.swift in Sources */,
+				BB36C4D927C256820073188E /* SesacViewModel.swift in Sources */,
 				BB2B29FE27B2E257006F7339 /* SelectedHobbyCell.swift in Sources */,
 				BBED11F7279869EA002A5E9E /* Coordinator.swift in Sources */,
 				BB105D9E27981074008264DD /* UIButton.swift in Sources */,
@@ -1612,6 +1682,7 @@
 				BBAAA6A9279C124F00667591 /* OnBoardingViewModel.swift in Sources */,
 				BB78E9E027A2AA8500CC3373 /* IndicatorView.swift in Sources */,
 				BBAAA6D3279C481700667591 /* TabBarCoordinator.swift in Sources */,
+				BB36C4DB27C256950073188E /* BackgroundViewModel.swift in Sources */,
 				BBED11EF27984744002A5E9E /* Assets+Generated.swift in Sources */,
 				BB2CDA6B27BCB346008115B6 /* InputTextView.swift in Sources */,
 				BB09FB2C27B58B0C008D400A /* SearchSesacQuery.swift in Sources */,
@@ -1644,6 +1715,7 @@
 				BBED120427990CB5002A5E9E /* NSMutableAttributedString.swift in Sources */,
 				BB1FD9E627BAB1C60010D536 /* MyQueueStateResponseDTO.swift in Sources */,
 				BB1E250C27A158FA00A80FC3 /* UserRegisterQuery.swift in Sources */,
+				BB36C4D427C24ADC0073188E /* SesacCell.swift in Sources */,
 				BBAAA6BC279C3CF100667591 /* EmailViewModel.swift in Sources */,
 				BB7A2182279DAF2B005FD0A3 /* FirbaseRepositoryType.swift in Sources */,
 				BBE0720127B1416A007947B6 /* SesacBackgroundCase.swift in Sources */,
