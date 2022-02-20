@@ -74,6 +74,9 @@ final class SesacCell: UICollectionViewCell {
         if sesac.price == "보유" {
             priceLabel.backgroundColor = .gray2
             priceLabel.textColor = .gray7
+        } else {
+            priceLabel.backgroundColor = .green
+            priceLabel.textColor = .white
         }
     }
 }
