@@ -170,6 +170,8 @@
 		BBAAA6DE279C598D00667591 /* MyPageCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAA6DD279C598D00667591 /* MyPageCoordinator.swift */; };
 		BBCF996527C11E40003FE252 /* ReportQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBCF996427C11E40003FE252 /* ReportQuery.swift */; };
 		BBCF996727C11FC0003FE252 /* ReportQueryDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBCF996627C11FC0003FE252 /* ReportQueryDTO.swift */; };
+		BBCF996D27C14F4B003FE252 /* SesacViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBCF996C27C14F4B003FE252 /* SesacViewController.swift */; };
+		BBCF996F27C14F57003FE252 /* BackgroundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBCF996E27C14F57003FE252 /* BackgroundViewController.swift */; };
 		BBDBE50F27A4505D00305BF3 /* MyPageMenuCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDBE50E27A4505D00305BF3 /* MyPageMenuCase.swift */; };
 		BBDBE51127A459A600305BF3 /* MyPageMenuHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDBE51027A459A600305BF3 /* MyPageMenuHeaderView.swift */; };
 		BBDBE51327A45A1100305BF3 /* ProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDBE51227A45A1100305BF3 /* ProfileImageView.swift */; };
@@ -384,6 +386,8 @@
 		BBAAA6DD279C598D00667591 /* MyPageCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageCoordinator.swift; sourceTree = "<group>"; };
 		BBCF996427C11E40003FE252 /* ReportQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportQuery.swift; sourceTree = "<group>"; };
 		BBCF996627C11FC0003FE252 /* ReportQueryDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportQueryDTO.swift; sourceTree = "<group>"; };
+		BBCF996C27C14F4B003FE252 /* SesacViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SesacViewController.swift; sourceTree = "<group>"; };
+		BBCF996E27C14F57003FE252 /* BackgroundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundViewController.swift; sourceTree = "<group>"; };
 		BBDBE50E27A4505D00305BF3 /* MyPageMenuCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageMenuCase.swift; sourceTree = "<group>"; };
 		BBDBE51027A459A600305BF3 /* MyPageMenuHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageMenuHeaderView.swift; sourceTree = "<group>"; };
 		BBDBE51227A45A1100305BF3 /* ProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageView.swift; sourceTree = "<group>"; };
@@ -1065,6 +1069,8 @@
 			isa = PBXGroup;
 			children = (
 				BBAAA6C9279C460000667591 /* SesacShopViewController.swift */,
+				BBCF996C27C14F4B003FE252 /* SesacViewController.swift */,
+				BBCF996E27C14F57003FE252 /* BackgroundViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1595,6 +1601,7 @@
 				BBAAA6B9279C3CE100667591 /* BirthViewModel.swift in Sources */,
 				BBAAA6B0279C240C00667591 /* UserDefaultKeyCase.swift in Sources */,
 				BBE071FB27B03A4F007947B6 /* OnqueueRequestDTO.swift in Sources */,
+				BBCF996F27C14F57003FE252 /* BackgroundViewController.swift in Sources */,
 				BB1E251127A179C200A80FC3 /* Date+Ex.swift in Sources */,
 				BB00E91427A5AA760023D4E6 /* MyHobbyView.swift in Sources */,
 				BBAAA6B7279C3CD700667591 /* NickNameViewModel.swift in Sources */,
@@ -1663,6 +1670,7 @@
 				BB1E250E27A1590500A80FC3 /* UserInfo.swift in Sources */,
 				BB105DA22798232D008264DD /* AppAppearance.swift in Sources */,
 				BB81734B27BEB70D00588677 /* SesacReportView.swift in Sources */,
+				BBCF996D27C14F4B003FE252 /* SesacViewController.swift in Sources */,
 				BB2B2A0227B3F1AE006F7339 /* CollectionViewLeftAlignFlowLayout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
