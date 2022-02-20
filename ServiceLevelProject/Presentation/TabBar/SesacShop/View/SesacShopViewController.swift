@@ -15,6 +15,7 @@ final class SesacShopViewController: UIViewController {
     private let sesacView = SesacProfileView()
     private let sesacButton = TabButton(title: "새싹", isSelected: true)
     private let backgroundButton = TabButton(title: "배경")
+    private let saveButton = DefaultButton(title: "저장하기")
     private let underBarView = UIView()
     private let slidingBarView = UIView()
 
@@ -55,6 +56,7 @@ final class SesacShopViewController: UIViewController {
 
     private func setViews() {
         view.addSubview(sesacView)
+        view.addSubview(saveButton)
         view.addSubview(sesacButton)
         view.addSubview(backgroundButton)
         view.addSubview(underBarView)
@@ -67,6 +69,12 @@ final class SesacShopViewController: UIViewController {
             make.left.top.equalTo(view.safeAreaLayoutGuide).offset(16)
             make.right.equalToSuperview().offset(-16)
             make.height.equalTo(175)
+        }
+        saveButton.snp.makeConstraints { make in
+            make.top.equalTo(sesacView.snp.top).offset(12)
+            make.right.equalTo(sesacView.snp.right).offset(-12)
+            make.width.equalTo(80)
+            make.height.equalTo(40)
         }
         sesacButton.snp.makeConstraints { make in
             make.top.equalTo(sesacView.snp.bottom)
@@ -98,6 +106,7 @@ final class SesacShopViewController: UIViewController {
     private func setConfigurations() {
         underBarView.backgroundColor = .gray2
         slidingBarView.backgroundColor = .green
+        saveButton.isValid = true
         changeViewToSesacView()
     }
 
@@ -123,7 +132,9 @@ final class SesacShopViewController: UIViewController {
         vc.willMove(toParent: self)
         self.containerView.addSubview(vc.view)
         vc.view.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+            make.top.equalToSuperview().offset(8)
+            make.left.right.equalToSuperview()
+            make.bottom.equalToSuperview().offset(-8)
         }
         self.addChild(vc)
         vc.didMove(toParent: self)
