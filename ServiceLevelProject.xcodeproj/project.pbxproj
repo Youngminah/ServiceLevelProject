@@ -91,6 +91,12 @@
 		BB36C4DB27C256950073188E /* BackgroundViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB36C4DA27C256950073188E /* BackgroundViewModel.swift */; };
 		BB36C4E227C257B40073188E /* SesacUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB36C4E127C257B40073188E /* SesacUseCase.swift */; };
 		BB36C4E427C257C20073188E /* BackgroundUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB36C4E327C257C20073188E /* BackgroundUseCase.swift */; };
+		BB36C4E727C282D60073188E /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = BB36C4E627C282D60073188E /* Realm */; };
+		BB36C4E927C282D60073188E /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BB36C4E827C282D60073188E /* RealmSwift */; };
+		BB36C4EB27C287C90073188E /* ChatRelamRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB36C4EA27C287C90073188E /* ChatRelamRepository.swift */; };
+		BB36C4EE27C2887E0073188E /* ChatRealmDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB36C4ED27C2887E0073188E /* ChatRealmDTO.swift */; };
+		BB36C4F027C28D2A0073188E /* RealmStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB36C4EF27C28D2A0073188E /* RealmStorage.swift */; };
+		BB36C4F227C2994C0073188E /* ChatRelamRepositoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB36C4F127C2994B0073188E /* ChatRelamRepositoryType.swift */; };
 		BB4821B127BB9DF400E263D8 /* ChatHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4821B027BB9DF400E263D8 /* ChatHeaderView.swift */; };
 		BB4821B327BBBDE400E263D8 /* ReceivedChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4821B227BBBDE400E263D8 /* ReceivedChatCell.swift */; };
 		BB4821B527BBBDF300E263D8 /* SendChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4821B427BBBDF300E263D8 /* SendChatCell.swift */; };
@@ -314,6 +320,10 @@
 		BB36C4DA27C256950073188E /* BackgroundViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundViewModel.swift; sourceTree = "<group>"; };
 		BB36C4E127C257B40073188E /* SesacUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SesacUseCase.swift; sourceTree = "<group>"; };
 		BB36C4E327C257C20073188E /* BackgroundUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundUseCase.swift; sourceTree = "<group>"; };
+		BB36C4EA27C287C90073188E /* ChatRelamRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRelamRepository.swift; sourceTree = "<group>"; };
+		BB36C4ED27C2887E0073188E /* ChatRealmDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRealmDTO.swift; sourceTree = "<group>"; };
+		BB36C4EF27C28D2A0073188E /* RealmStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmStorage.swift; sourceTree = "<group>"; };
+		BB36C4F127C2994B0073188E /* ChatRelamRepositoryType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRelamRepositoryType.swift; sourceTree = "<group>"; };
 		BB4821B027BB9DF400E263D8 /* ChatHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatHeaderView.swift; sourceTree = "<group>"; };
 		BB4821B227BBBDE400E263D8 /* ReceivedChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceivedChatCell.swift; sourceTree = "<group>"; };
 		BB4821B427BBBDF300E263D8 /* SendChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendChatCell.swift; sourceTree = "<group>"; };
@@ -436,7 +446,9 @@
 				BBED11FD27986D87002A5E9E /* FirebaseMessaging in Frameworks */,
 				BB105D842796C26C008264DD /* SnapKit in Frameworks */,
 				BB00E91B27A5BCEA0023D4E6 /* DoubleSlider in Frameworks */,
+				BB36C4E927C282D60073188E /* RealmSwift in Frameworks */,
 				BBED1210279943FF002A5E9E /* RxCocoa in Frameworks */,
+				BB36C4E727C282D60073188E /* Realm in Frameworks */,
 				BBE2AC6D27BD0DFB00181E54 /* SocketIO in Frameworks */,
 				BBED121E279976D2002A5E9E /* Toast in Frameworks */,
 				BB5B5C9527B2CA3E00BC608A /* RxDataSources in Frameworks */,
@@ -704,6 +716,7 @@
 		BB1E250927A1576D00A80FC3 /* DataMapping */ = {
 			isa = PBXGroup;
 			children = (
+				BB36C4EC27C2886E0073188E /* RealmDTO */,
 				BBE2AC6827BCBD7E00181E54 /* RequestDTO */,
 				BBE2AC6727BCBD7700181E54 /* ResponseDTO */,
 			);
@@ -868,6 +881,14 @@
 			path = MyPage;
 			sourceTree = "<group>";
 		};
+		BB36C4EC27C2886E0073188E /* RealmDTO */ = {
+			isa = PBXGroup;
+			children = (
+				BB36C4ED27C2887E0073188E /* ChatRealmDTO.swift */,
+			);
+			path = RealmDTO;
+			sourceTree = "<group>";
+		};
 		BB4821B627BBC42300E263D8 /* HeaderView */ = {
 			isa = PBXGroup;
 			children = (
@@ -925,8 +946,8 @@
 		BB7A216C279D113C005FD0A3 /* UseCase */ = {
 			isa = PBXGroup;
 			children = (
-				BB36C4DE27C2576A0073188E /* Home */,
 				BB36C4DD27C2575E0073188E /* Auth */,
+				BB36C4DE27C2576A0073188E /* Home */,
 				BB36C4DF27C2577C0073188E /* SesacShop */,
 				BB36C4E027C2578B0073188E /* MyPage */,
 			);
@@ -940,6 +961,7 @@
 				BB7A217D279DA32F005FD0A3 /* FireBaseRepository.swift */,
 				BB7A217F279DA3EF005FD0A3 /* SesacRepository.swift */,
 				BBE2AC6E27BD169600181E54 /* SocketIORepository.swift */,
+				BB36C4EA27C287C90073188E /* ChatRelamRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -951,6 +973,7 @@
 				BB7A2181279DAF2B005FD0A3 /* FirbaseRepositoryType.swift */,
 				BB7A2183279DAF3C005FD0A3 /* SesacRepositoryType.swift */,
 				BBE2AC7027BD245800181E54 /* SocketIORepositoryType.swift */,
+				BB36C4F127C2994B0073188E /* ChatRelamRepositoryType.swift */,
 			);
 			path = Interfaces;
 			sourceTree = "<group>";
@@ -982,6 +1005,7 @@
 				BBAAA689279AD78000667591 /* APIEnvironment.swift */,
 				BBAAA686279AD3A500667591 /* SLPTarget.swift */,
 				BBE2AC6927BD0D5A00181E54 /* SocketIOManager.swift */,
+				BB36C4EF27C28D2A0073188E /* RealmStorage.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -1328,6 +1352,8 @@
 				BB5B5C9427B2CA3E00BC608A /* RxDataSources */,
 				BB2B2A0427B3F550006F7339 /* RxGesture */,
 				BBE2AC6C27BD0DFB00181E54 /* SocketIO */,
+				BB36C4E627C282D60073188E /* Realm */,
+				BB36C4E827C282D60073188E /* RealmSwift */,
 			);
 			productName = ServiceLevelProject;
 			productReference = BB105D3A27966ABC008264DD /* ServiceLevelProject.app */;
@@ -1412,6 +1438,7 @@
 				BB5B5C9327B2CA3E00BC608A /* XCRemoteSwiftPackageReference "RxDataSources" */,
 				BB2B2A0327B3F550006F7339 /* XCRemoteSwiftPackageReference "RxGesture" */,
 				BBE2AC6B27BD0DFA00181E54 /* XCRemoteSwiftPackageReference "socket" */,
+				BB36C4E527C282D60073188E /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = BB105D3B27966ABC008264DD /* Products */;
 			projectDirPath = "";
@@ -1546,6 +1573,7 @@
 				BB8D1F3A2799BE6400D111B6 /* AuthTextField+Rx.swift in Sources */,
 				BB105D892796D050008264DD /* DefaultTextField.swift in Sources */,
 				BB00E8FD27A534110023D4E6 /* SesacProfileView.swift in Sources */,
+				BB36C4EE27C2887E0073188E /* ChatRealmDTO.swift in Sources */,
 				BB7A216F279D1673005FD0A3 /* UserRepository.swift in Sources */,
 				BBCF996527C11E40003FE252 /* ReportQuery.swift in Sources */,
 				BBED121B279976A4002A5E9E /* UIViewController.swift in Sources */,
@@ -1575,6 +1603,7 @@
 				BB105D7F2796B8BC008264DD /* AppColor.swift in Sources */,
 				BB00E92327A723530023D4E6 /* MyPageEditUseCase.swift in Sources */,
 				BB2B29F227B2CC18006F7339 /* HomeSearchViewModel.swift in Sources */,
+				BB36C4F227C2994C0073188E /* ChatRelamRepositoryType.swift in Sources */,
 				BBED1202279902ED002A5E9E /* OnBoardingViewController.swift in Sources */,
 				BB00E90F27A583850023D4E6 /* ProfileCardView.swift in Sources */,
 				BB105D7C2796B660008264DD /* UIFont.swift in Sources */,
@@ -1598,6 +1627,7 @@
 				BBAAA69C279BE30700667591 /* UserInfoResponseDTO.swift in Sources */,
 				BB2B29FC27B2DEC9006F7339 /* NearHobbyCell.swift in Sources */,
 				BB36C4E427C257C20073188E /* BackgroundUseCase.swift in Sources */,
+				BB36C4F027C28D2A0073188E /* RealmStorage.swift in Sources */,
 				BB00E91627A5AC360023D4E6 /* MyPhoneNumberPermitView.swift in Sources */,
 				BB00E91227A5AA690023D4E6 /* MyGenderView.swift in Sources */,
 				BBED12202799785F002A5E9E /* ToastCase.swift in Sources */,
@@ -1702,6 +1732,7 @@
 				BB09FB1D27B56875008D400A /* TabButton.swift in Sources */,
 				BB4821C227BC171B00E263D8 /* String+Ex.swift in Sources */,
 				BB70D03A27AD8464006B94EB /* HomeViewModel.swift in Sources */,
+				BB36C4EB27C287C90073188E /* ChatRelamRepository.swift in Sources */,
 				BBAAA6D7279C55AA00667591 /* HomeCoordinator.swift in Sources */,
 				BB09FB2627B571E8008D400A /* HobbySearchUseCase.swift in Sources */,
 				BBAAA68A279AD78000667591 /* APIEnvironment.swift in Sources */,
@@ -2098,6 +2129,14 @@
 				minimumVersion = 4.0.0;
 			};
 		};
+		BB36C4E527C282D60073188E /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.22.0;
+			};
+		};
 		BB5B5C9327B2CA3E00BC608A /* XCRemoteSwiftPackageReference "RxDataSources" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/RxSwiftCommunity/RxDataSources";
@@ -2171,6 +2210,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = BB2B2A0327B3F550006F7339 /* XCRemoteSwiftPackageReference "RxGesture" */;
 			productName = RxGesture;
+		};
+		BB36C4E627C282D60073188E /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BB36C4E527C282D60073188E /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		BB36C4E827C282D60073188E /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BB36C4E527C282D60073188E /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
 		};
 		BB5B5C9427B2CA3E00BC608A /* RxDataSources */ = {
 			isa = XCSwiftPackageProductDependency;
