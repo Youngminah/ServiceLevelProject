@@ -108,6 +108,33 @@ final class ChatViewModel: ViewModelType {
             })
             .disposed(by: disposeBag)
 
+        self.useCase.successLoadRealmChat
+            .asSignal()
+            .emit(to: chatList)
+            .disposed(by: disposeBag)
+
+        self.useCase.successLoadRealmChat
+            .asSignal()
+            .emit(onNext: { [weak self] list in
+                guard let self = self else { return }
+                let lastDate = list.last?.createdAt.dateToString() ?? "2000-01-01T00:00:00.000Z"
+                print("마지막날짜 -->", lastDate)
+                self.useCase.requestChat(dateString: lastDate)
+            })
+            .disposed(by: disposeBag)
+
+        self.useCase.successRequestChatList
+            .asSignal()
+            .emit(onNext: { [weak self] chats in
+                guard let self = self else { return }
+                let list = self.chatList.value + chats
+                self.chatList.accept(list)
+                self.bottomScrollAction.accept(list.count - 1)
+                self.useCase.socketChatInfo()
+                self.useCase.connectSocket()
+            })
+            .disposed(by: disposeBag)
+
         self.useCase.successRequestMyQueueState
             .asSignal()
             .emit(onNext: { [weak self] state in
@@ -116,6 +143,7 @@ final class ChatViewModel: ViewModelType {
                 if state.dodged == 1 || state.reviewed == 1 {
                     self.showToastAction.accept("약속이 종료되어 채팅을 보낼 수 없습니다")
                 } else if state.matched == 1 {
+                    self.useCase.loadChat()
                     self.myState.accept(state)
                 }
             })
@@ -128,6 +156,7 @@ final class ChatViewModel: ViewModelType {
                 var list = self.chatList.value
                 list.append(chat)
                 self.chatList.accept(list)
+                self.bottomScrollAction.accept(list.count - 1)
                 self.resetTextViewAction.accept(())
             })
             .disposed(by: disposeBag)
@@ -182,7 +211,8 @@ final class ChatViewModel: ViewModelType {
             chatList: chatList.asDriver(),
             resetTextViewAction: resetTextViewAction.asSignal(),
             navigationTitle: navigationTitle.asDriver(),
-            dismissDetailMenu: dismissDetailMenu.asSignal()
+            dismissDetailMenu: dismissDetailMenu.asSignal(),
+            bottomScrollAction: bottomScrollAction.asSignal()
         )
     }
 }
