@@ -22,7 +22,6 @@ final class SesacViewModel: ViewModelType {
     }
     var disposeBag = DisposeBag()
 
-
     init(coordinator: SesacShopCoordinator?, useCase: SesacUseCase) {
         self.coordinator = coordinator
         self.useCase = useCase
