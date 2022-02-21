@@ -16,8 +16,11 @@ final class ChatUseCase {
     private let fireBaseRepository: FirbaseRepositoryType
     private let sesacRepository: SesacRepositoryType
     private let socketIORepository: SocketIORepositoryType
+    private let chatRealmRepository: ChatRelamRepositoryType
 
     let successRequestMyQueueState = PublishRelay<MyQueueState>()
+    let successLoadRealmChat = PublishRelay<[Chat]>()
+    let successRequestChatList = PublishRelay<[Chat]>()
     let receivedChat = PublishRelay<Chat>()
     let sendChat = PublishRelay<Chat>()
     let sendChatErrorSignal = PublishRelay<SesacNetworkServiceError>()
@@ -30,12 +33,14 @@ final class ChatUseCase {
         userRepository: UserRepositoryType,
         fireBaseRepository: FirbaseRepositoryType,
         sesacRepository: SesacRepositoryType,
-        socketIORepository: SocketIORepositoryType
+        socketIORepository: SocketIORepositoryType,
+        chatRealmRepository: ChatRelamRepositoryType
     ) {
         self.userRepository = userRepository
         self.fireBaseRepository = fireBaseRepository
         self.sesacRepository = sesacRepository
         self.socketIORepository = socketIORepository
+        self.chatRealmRepository = chatRealmRepository
     }
 }
 
@@ -47,9 +52,8 @@ extension ChatUseCase {
             guard let self = self else { return }
             switch response {
             case .success(let myQueue):
-                self.successRequestMyQueueState.accept(myQueue)
                 self.saveMatchedUserIDInfo(id: myQueue.matchedUid)
-                self.connectSocket()
+                self.successRequestMyQueueState.accept(myQueue)
             case .failure(let error):
                 switch error {
                 case .inValidIDTokenError:
@@ -64,11 +68,12 @@ extension ChatUseCase {
     }
 
     func requestSendChat(chatQuery: ChatQuery) {
-        let id = self.userRepository.fetchMatchedUserIDInfo()!
+        let id = self.fetchMatchedUserIDInfo()
         self.sesacRepository.requestSendChat(to: id, chatQuery: chatQuery)  { [weak self] response in
             guard let self = self else { return }
             switch response {
             case .success(let chat):
+                self.createChat(chat: chat)
                 self.sendChat.accept(chat)
             case .failure(let error):
                 switch error {
@@ -150,40 +155,42 @@ extension ChatUseCase {
         }
     }
 
-    //    func requestChat(to id: String, dateString: String) {
-    //        self.sesacRepository.requestChat(to: id, dateString: dateString) { [weak self] response in
-    //            guard let self = self else { return }
-    //            switch response {
-    //            case .success(let chatList):
-    //                self.successChat.accept(chatList)
-    //            case .failure(let error):
-    //                switch error {
-    //                case .inValidIDTokenError:
-    //                    self.requestIDToken {
-    //                        //self.requestMyQueueState()
-    //                    }
-    //                default:
-    //                    self.unKnownErrorSignal.accept(())
-    //                }
-    //            }
-    //        }
-    //    }
-
-        private func requestIDToken(completion: @escaping () -> Void) {
-            fireBaseRepository.requestIdtoken { [weak self] response in
-                guard let self = self else { return }
-                switch response {
-                case .success(let idToken):
-                    print("재발급 성공--> \(idToken)")
-                    self.saveIdTokenInfo(idToken: idToken)
-                    completion()
-                case .failure(let error):
-                    print(error.description)
-                    self.logoutUserInfo()
+    func requestChat(dateString: String) {
+        let matchedUserID = fetchMatchedUserIDInfo()
+        self.sesacRepository.requestChat(to: matchedUserID, dateString: dateString) { [weak self] response in
+            guard let self = self else { return }
+            switch response {
+            case .success(let chatList):
+                self.saveChatList(chats: chatList.array)
+                self.successRequestChatList.accept(chatList.array)
+            case .failure(let error):
+                switch error {
+                case .inValidIDTokenError:
+                    self.requestIDToken {
+                        self.requestChat(dateString: dateString)
+                    }
+                default:
                     self.unKnownErrorSignal.accept(())
                 }
             }
         }
+    }
+
+    private func requestIDToken(completion: @escaping () -> Void) {
+        fireBaseRepository.requestIdtoken { [weak self] response in
+            guard let self = self else { return }
+            switch response {
+            case .success(let idToken):
+                print("재발급 성공--> \(idToken)")
+                self.saveIdTokenInfo(idToken: idToken)
+                completion()
+            case .failure(let error):
+                print(error.description)
+                self.logoutUserInfo()
+                self.unKnownErrorSignal.accept(())
+            }
+        }
+    }
 }
 
 // MARK: - 소켓 통신 레포
@@ -191,7 +198,7 @@ extension ChatUseCase {
 
     func socketChatInfo() {
         self.socketIORepository.receivedChat { [weak self] chat, ack in
-            print("누군가에게 메세지 도착!!-->", chat)
+            self?.createChat(chat: chat)
             self?.receivedChat.accept(chat)
         }
     }
@@ -214,6 +221,26 @@ extension ChatUseCase {
         self.socketIORepository.listenDisconnect { data, ack in
             print("SOCKET IS DISCONNECTED: ", data, ack)
         }
+    }
+}
+
+// MARK: - 램 데이터베이스 레포 연결
+extension ChatUseCase {
+
+    func createChat(chat: Chat) {
+        let matchedID = fetchMatchedUserIDInfo()
+        self.chatRealmRepository.createChat(chat: chat, matchedID: matchedID)
+    }
+
+    func loadChat() {
+        let matchedID = fetchMatchedUserIDInfo()
+        let chatList = self.chatRealmRepository.loadChat(matchedID: matchedID)
+        self.successLoadRealmChat.accept(chatList)
+    }
+
+    func saveChatList(chats: [Chat]) {
+        let matchedID = fetchMatchedUserIDInfo()
+        self.chatRealmRepository.saveChatList(chats: chats, matchedID: matchedID)
     }
 }
 
