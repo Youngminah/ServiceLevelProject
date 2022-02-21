@@ -92,10 +92,8 @@ final class ChatViewController: UIViewController {
             }
             .disposed(by: disposeBag)
 
-        output.chatList
-            .filter { $0.last?.from == "aV43LR1IKjUenCcqFIX44lQHUlz1" }
-            .map { $0.count - 1 }
-            .drive(onNext: { [weak self] index in
+        output.bottomScrollAction
+            .emit(onNext: { [weak self] index in
                 self?.tableView.scrollToRow(at: IndexPath(row: index, section: 0), at: .bottom, animated: true)
             })
             .disposed(by: disposeBag)

@@ -30,6 +30,7 @@ final class ChatViewModel: ViewModelType {
         let resetTextViewAction: Signal<Void>
         let navigationTitle: Driver<String>
         let dismissDetailMenu: Signal<Void>
+        let bottomScrollAction: Signal<Int>
     }
     var disposeBag = DisposeBag()
 
@@ -39,6 +40,7 @@ final class ChatViewModel: ViewModelType {
     private let resetTextViewAction = PublishRelay<Void>()
     private let navigationTitle = BehaviorRelay<String>(value: "...")
     private let dismissDetailMenu = PublishRelay<Void>()
+    private let bottomScrollAction = PublishRelay<Int>()
 
     init(coordinator: HomeCoordinator?, useCase: ChatUseCase) {
         self.coordinator = coordinator
@@ -48,7 +50,6 @@ final class ChatViewModel: ViewModelType {
     func transform(input: Input) -> Output {
         input.viewDidLoad
             .subscribe(onNext: { [weak self] in
-                self?.useCase.socketChatInfo()
                 self?.useCase.requestMyQueueState()
             })
             .disposed(by: disposeBag)
