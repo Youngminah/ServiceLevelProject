@@ -10,8 +10,8 @@ import SnapKit
 
 final class SesacProfileView: UIView {
 
-    private let backgroundImageView = UIImageView()
-    private let sesacImageView = UIImageView()
+    let backgroundImageView = UIImageView()
+    let sesacImageView = UIImageView()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
