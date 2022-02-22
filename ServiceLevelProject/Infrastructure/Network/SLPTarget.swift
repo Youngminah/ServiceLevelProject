@@ -16,6 +16,9 @@ enum SLPTarget {
     case getUserInfo
     case withdraw
     case report(parameters: DictionaryType)
+    case shopUserInfo
+    case updateShop(parameters: DictionaryType)
+    case purchaseShopItem(parameters: DictionaryType)
     // User FCM
     case updateFCMToken(parameters: DictionaryType)
     // User MyPage
@@ -56,6 +59,12 @@ extension SLPTarget: TargetType {
             return "/user/update_fcm_token"
         case .updateMyPage:
             return "/user/update/mypage"
+        case .updateShop:
+            return "/user/update/shop"
+        case .shopUserInfo:
+            return "/user/shop/myinfo"
+        case .purchaseShopItem:
+            return "/user/shop/ios"
         case .searchSesac,
              .pauseSearchSesac:
             return "/queue"
@@ -82,12 +91,15 @@ extension SLPTarget: TargetType {
         switch self {
         case .getUserInfo,
              .myQueueState,
-             .getChatInfo:
+             .getChatInfo,
+             .shopUserInfo:
             return .get
         case .register,
              .withdraw,
              .report,
+             .updateShop,
              .updateMyPage,
+             .purchaseShopItem,
              .onqueue,
              .searchSesac,
              .requestHobbyFriend,
@@ -112,7 +124,8 @@ extension SLPTarget: TargetType {
         case .getUserInfo,
              .withdraw,
              .pauseSearchSesac,
-             .myQueueState:
+             .myQueueState,
+             .shopUserInfo:
             return .requestPlain
         case .getChatInfo(_, let date):
             return .requestParameters(parameters: ["lastchatDate": date], encoding: URLEncoding.queryString)
@@ -123,7 +136,9 @@ extension SLPTarget: TargetType {
              .requestHobbyFriend(let parameters),
              .acceptHobbyFriend(let parameters),
              .sendChatMessage(let parameters, _),
-             .dodge(let parameters):
+             .dodge(let parameters),
+             .updateShop(let parameters),
+             .purchaseShopItem(let parameters):
             return .requestParameters(parameters: parameters, encoding: URLEncoding.default)
         case .searchSesac(let parameters),
              .report(let parameters),
