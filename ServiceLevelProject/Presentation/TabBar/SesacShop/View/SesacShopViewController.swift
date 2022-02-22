@@ -13,6 +13,28 @@ import StoreKit
 
 final class SesacShopViewController: UIViewController {
 
+    private let sesacVC = SesacViewController(
+        viewModel: SesacViewModel(
+            useCase: SesacUseCase(
+                userRepository: UserRepository(),
+                fireBaseRepository: FirebaseRepository(),
+                sesacRepository: SesacRepository(),
+                inAppRepository: InAppRepository()
+            )
+        )
+    )
+
+    private let backgroundVC = BackgroundViewController(
+        viewModel: BackgroundViewModel(
+            useCase: BackgroundUseCase(
+                userRepository: UserRepository(),
+                fireBaseRepository: FirebaseRepository(),
+                sesacRepository: SesacRepository(),
+                inAppRepository: InAppRepository()
+            )
+        )
+    )
+
     private let sesacView = SesacProfileView()
     private let sesacButton = TabButton(title: "새싹", isSelected: true)
     private let backgroundButton = TabButton(title: "배경")
@@ -27,7 +49,9 @@ final class SesacShopViewController: UIViewController {
         backgroundButtonTap: backgroundButton.rx.tap.asSignal(),
         saveButtonTap: saveButton.rx.tap.asSignal(),
         sesacItemTap: sesacItemTap.asSignal(),
-        backgroundItemTap: backgroundItemTap.asSignal()
+        backgroundItemTap: backgroundItemTap.asSignal(),
+        purchaseSesacProduct: purchaseSesacProduct.asSignal(),
+        purchaseBackgroundProduct: purchaseBackgroundProduct.asSignal()
     )
     private lazy var output = viewModel.transform(input: input)
     private let viewModel: SesacShopViewModel
@@ -35,6 +59,8 @@ final class SesacShopViewController: UIViewController {
 
     private let sesacItemTap = PublishRelay<SesacImageCase>()
     private let backgroundItemTap = PublishRelay<SesacBackgroundCase>()
+    private let purchaseSesacProduct = PublishRelay<SesacImageCase>()
+    private let purchaseBackgroundProduct = PublishRelay<SesacBackgroundCase>()
 
     private var sesacCollectionList = [Int]()
     private var backgroundCollectionList = [Int]()
@@ -159,49 +185,38 @@ final class SesacShopViewController: UIViewController {
         underBarView.backgroundColor = .gray2
         slidingBarView.backgroundColor = .green
         saveButton.isValid = true
+        sesacVC.delegate = self
+        backgroundVC.delegate = self
     }
 
     private func changeViewToSesacView() {
         for view in self.containerView.subviews {
             view.removeFromSuperview()
         }
-        let vc = SesacViewController(
-            viewModel: SesacViewModel(
-                useCase: SesacUseCase(
-                    userRepository: UserRepository(),
-                    fireBaseRepository: FirebaseRepository(),
-                    sesacRepository: SesacRepository(),
-                    inAppRepository: InAppRepository()
-                )
-            )
-        )
-        vc.sesacCollectionList = sesacCollectionList
-        vc.delegate = self
-        vc.willMove(toParent: self)
-        self.containerView.addSubview(vc.view)
-        vc.view.snp.makeConstraints { make in
+        sesacVC.sesacCollectionList = sesacCollectionList
+        sesacVC.willMove(toParent: self)
+        self.containerView.addSubview(sesacVC.view)
+        sesacVC.view.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
-        self.addChild(vc)
-        vc.didMove(toParent: self)
+        self.addChild(sesacVC)
+        sesacVC.didMove(toParent: self)
     }
 
     private func changeViewToBackgroundView() {
         for view in self.containerView.subviews {
             view.removeFromSuperview()
         }
-        let vc = BackgroundViewController()
-        vc.backgroundCollection = backgroundCollectionList
-        vc.delegate = self
-        vc.willMove(toParent: self)
-        self.containerView.addSubview(vc.view)
-        vc.view.snp.makeConstraints { make in
+        backgroundVC.backgroundCollection = backgroundCollectionList
+        backgroundVC.willMove(toParent: self)
+        self.containerView.addSubview(backgroundVC.view)
+        backgroundVC.view.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(8)
             make.left.right.equalToSuperview()
             make.bottom.equalToSuperview().offset(-8)
         }
-        self.addChild(vc)
-        vc.didMove(toParent: self)
+        self.addChild(backgroundVC)
+        backgroundVC.didMove(toParent: self)
     }
 
     private func underBarSlideAnimation(moveX: CGFloat){
@@ -219,5 +234,13 @@ extension SesacShopViewController: PreviewSesacDeleagete {
 
     func updateBackground(background: SesacBackgroundCase) {
         backgroundItemTap.accept(background)
+    }
+
+    func transmitPurchaseSesacProduct(sesac: SesacImageCase) {
+        purchaseSesacProduct.accept(sesac)
+    }
+
+    func transmitPurchaseBackgroundProduct(background: SesacBackgroundCase) {
+        purchaseBackgroundProduct.accept(background)
     }
 }

@@ -21,6 +21,8 @@ final class SesacShopViewModel: ViewModelType {
         let saveButtonTap: Signal<Void>
         let sesacItemTap: Signal<SesacImageCase>
         let backgroundItemTap: Signal<SesacBackgroundCase>
+        let purchaseSesacProduct: Signal<SesacImageCase>
+        let purchaseBackgroundProduct: Signal<SesacBackgroundCase>
     }
     struct Output {
         let showSesacListAction: Signal<Void>
@@ -47,6 +49,24 @@ final class SesacShopViewModel: ViewModelType {
     }
 
     func transform(input: Input) -> Output {
+        input.purchaseSesacProduct
+            .emit(onNext: { [weak self] sesac in
+                guard let self = self else { return }
+                var list = self.sesacCollectionList.value
+                list[sesac.rawValue] = 1
+                self.sesacCollectionList.accept(list)
+            })
+            .disposed(by: disposeBag)
+
+        input.purchaseBackgroundProduct
+            .emit(onNext: { [weak self] background in
+                guard let self = self else { return }
+                var list = self.backgroundCollectionList.value
+                list[background.rawValue] = 1
+                self.backgroundCollectionList.accept(list)
+            })
+            .disposed(by: disposeBag)
+
         input.viewDidLoad
             .subscribe(onNext: { [weak self] _ in
                 self?.requestSesacShopInfo()
@@ -99,10 +119,8 @@ final class SesacShopViewModel: ViewModelType {
                 guard let self = self else { return }
                 self.profileSesac.accept(info.sesac)
                 self.profileBackground.accept(info.background)
-                let sesacList = self.makeSesacList(sesacCollection: info.sesacCollection)
-                let backgroundList = self.makeBackgroundList(backgroundCollection: info.backgroundCollection)
-                self.sesacCollectionList.accept(sesacList)
-                self.backgroundCollectionList.accept(backgroundList)
+                self.sesacCollectionList.accept(info.sesacCollection)
+                self.backgroundCollectionList.accept(info.backgroundCollection)
                 self.showSesacListAction.accept(())
             })
             .disposed(by: disposeBag)
@@ -120,14 +138,6 @@ final class SesacShopViewModel: ViewModelType {
 }
 
 extension SesacShopViewModel {
-
-    private func makeSesacList(sesacCollection: [Int]) -> [Int] {
-        return SesacImageCase.allCases.map { sesacCollection.contains($0.rawValue) ? 1 : 0 }
-    }
-
-    private func makeBackgroundList(backgroundCollection: [Int]) -> [Int] {
-        return SesacBackgroundCase.allCases.map { backgroundCollection.contains($0.rawValue) ? 1 : 0 }
-    }
 
     private func requestSesacShopInfo() {
         self.useCase.requestSesacShopInfo()

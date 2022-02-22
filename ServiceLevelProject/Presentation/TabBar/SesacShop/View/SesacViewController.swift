@@ -16,8 +16,6 @@ final class SesacViewController: UIViewController {
 
     private let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
 
-    //private let sesacLists = BehaviorRelay<[SesacImageCase]>(value: SesacImageCase.allCases)
-
     private lazy var input = SesacViewModel.Input(
         viewDidLoad: Observable.just(()),
         priceButtonTap: priceButtonTap.asSignal()
@@ -46,15 +44,31 @@ final class SesacViewController: UIViewController {
     }
 
     private func bind() {
+        output.indicatorAction
+            .drive(onNext: {
+                $0 ? IndicatorView.shared.show(backgoundColor: Asset.transparent.color) : IndicatorView.shared.hide()
+            })
+            .disposed(by: disposeBag)
+
         output.sesacLists
             .drive(collectionView.rx.items(cellIdentifier: SesacCell.identifier, cellType: SesacCell.self)) { [weak self] index, sesac, cell in
                 guard let self = self else { return }
                 cell.updateUI(sesac: sesac, isHaving: self.sesacCollectionList[index])
                 cell.priceButton.rx.tap.asSignal()
+                    .filter { self.sesacCollectionList[index] == 1 ? false : true}
                     .map { index }
                     .emit(to: self.priceButtonTap)
                     .disposed(by: cell.disposeBag)
             }
+            .disposed(by: disposeBag)
+
+        output.successPurchaseProduct
+            .emit(onNext: { [weak self] sesac in
+                guard let self = self else { return }
+                self.sesacCollectionList[sesac.rawValue] = 1
+                self.delegate?.transmitPurchaseSesacProduct(sesac: sesac)
+                self.collectionView.reloadItems(at: [IndexPath(item: sesac.rawValue, section: 0)])
+            })
             .disposed(by: disposeBag)
 
         collectionView.rx.modelSelected(SesacImageCase.self)

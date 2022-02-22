@@ -12,4 +12,8 @@ protocol PreviewSesacDeleagete: AnyObject {
     func updateSesac(sesac: SesacImageCase)
 
     func updateBackground(background: SesacBackgroundCase)
+
+    func transmitPurchaseSesacProduct(sesac: SesacImageCase)
+
+    func transmitPurchaseBackgroundProduct(background: SesacBackgroundCase)
 }

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RxSwift
 
 final class BackgroundCell: BaseTableViewCell {
 
@@ -14,12 +15,19 @@ final class BackgroundCell: BaseTableViewCell {
     private let sesacImageView = UIImageView()
     private let titleLabel = DefaultLabel(font: .title2R16, textColor: .black)
     private let contentLabel = DefaultLabel(font: .body3R14, textColor: .black)
-    private let priceLabel = DefaultLabel(font: .title5M12, textColor: .white)
+    let priceButton = PriceButton()
+
+    var disposeBag = DisposeBag()
+
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        disposeBag = DisposeBag()
+    }
 
     override func setView() {
         super.setView()
         contentView.addSubview(sesacImageView)
-        contentView.addSubview(priceLabel)
+        contentView.addSubview(priceButton)
         contentView.addSubview(titleLabel)
         contentView.addSubview(contentLabel)
     }
@@ -32,16 +40,16 @@ final class BackgroundCell: BaseTableViewCell {
             make.bottom.equalToSuperview().offset(-8)
             make.width.equalTo(sesacImageView.snp.height)
         }
-        priceLabel.snp.makeConstraints { make in
+        priceButton.snp.makeConstraints { make in
             make.right.equalToSuperview().offset(-16)
             make.centerY.equalToSuperview().multipliedBy(0.8)
             make.width.equalTo(52)
             make.height.equalTo(20)
         }
         titleLabel.snp.makeConstraints { make in
-            make.centerY.equalTo(priceLabel)
+            make.centerY.equalTo(priceButton)
             make.left.equalTo(sesacImageView.snp.right).offset(16)
-            make.right.equalTo(priceLabel.snp.left).offset(-8)
+            make.right.equalTo(priceButton.snp.left).offset(-8)
             make.height.equalTo(20)
         }
         contentLabel.snp.makeConstraints { make in
@@ -53,27 +61,22 @@ final class BackgroundCell: BaseTableViewCell {
 
     override func setConfiguration() {
         super.setConfiguration()
+        contentView.isUserInteractionEnabled = true
         sesacImageView.contentMode = .scaleAspectFill
         sesacImageView.layer.cornerRadius = 8
         sesacImageView.layer.masksToBounds = true
-        priceLabel.backgroundColor = .green
-        priceLabel.layer.cornerRadius = 8
-        priceLabel.layer.masksToBounds = true
         titleLabel.textAlignment = .left
         contentLabel.textAlignment = .natural
     }
 
-    func updateUI(background: SesacBackgroundCase) {
+    func updateUI(background: SesacBackgroundCase, isHaving: Int) {
         sesacImageView.image = background.image
         titleLabel.text = background.name
         contentLabel.text = background.content
-        priceLabel.text = background.price
-        if background.price == "보유" {
-            priceLabel.backgroundColor = .gray2
-            priceLabel.textColor = .gray7
+        if isHaving == 1 {
+            priceButton.setDefault()
         } else {
-            priceLabel.backgroundColor = .green
-            priceLabel.textColor = .white
+            priceButton.setNotHaving(text: background.price)
         }
     }
 }
