@@ -19,7 +19,16 @@ final class SesacShopCoordinator: Coordinator {
     }
 
     func start() {
-        let vc = SesacShopViewController()
+        let vc = SesacShopViewController(
+            viewModel: SesacShopViewModel(
+                coordinator: self,
+                useCase: SesacShopUseCase(
+                    userRepository: UserRepository(),
+                    fireBaseRepository: FirebaseRepository(),
+                    sesacRepository: SesacRepository()
+                )
+            )
+        )
         vc.title = "새싹샵"
         navigationController.pushViewController(vc, animated: true)
     }
