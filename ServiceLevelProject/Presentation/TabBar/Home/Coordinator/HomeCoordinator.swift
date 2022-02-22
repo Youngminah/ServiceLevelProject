@@ -84,7 +84,8 @@ final class HomeCoordinator: Coordinator {
                     userRepository: UserRepository(),
                     fireBaseRepository: FirebaseRepository(),
                     sesacRepository: SesacRepository(),
-                    socketIORepository: SocketIORepository()
+                    socketIORepository: SocketIORepository(),
+                    chatRealmRepository: ChatRelamRepository()
                 )
             )
         )
