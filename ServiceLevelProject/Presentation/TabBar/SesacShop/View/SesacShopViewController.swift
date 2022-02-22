@@ -9,6 +9,7 @@ import UIKit
 import RxCocoa
 import RxSwift
 import SnapKit
+import StoreKit
 
 final class SesacShopViewController: UIViewController {
 
@@ -18,9 +19,34 @@ final class SesacShopViewController: UIViewController {
     private let saveButton = DefaultButton(title: "저장하기")
     private let underBarView = UIView()
     private let slidingBarView = UIView()
-
     private let containerView = UIView()
+
+    private lazy var input = SesacShopViewModel.Input(
+        viewDidLoad: Observable.just(()),
+        sesacButtonTap: sesacButton.rx.tap.asSignal(),
+        backgroundButtonTap: backgroundButton.rx.tap.asSignal(),
+        saveButtonTap: saveButton.rx.tap.asSignal(),
+        sesacItemTap: sesacItemTap.asSignal(),
+        backgroundItemTap: backgroundItemTap.asSignal()
+    )
+    private lazy var output = viewModel.transform(input: input)
+    private let viewModel: SesacShopViewModel
     private let disposeBag = DisposeBag()
+
+    private let sesacItemTap = PublishRelay<SesacImageCase>()
+    private let backgroundItemTap = PublishRelay<SesacBackgroundCase>()
+
+    private var sesacCollectionList = [Int]()
+    private var backgroundCollectionList = [Int]()
+
+    init(viewModel: SesacShopViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("SesacShopViewController: fatal error")
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,9 +57,18 @@ final class SesacShopViewController: UIViewController {
     }
 
     private func bind() {
-        sesacButton.rx.tap
-            .asDriver()
-            .drive(onNext: { [weak self] in
+        output.profileSesac
+            .map { $0.image }
+            .drive(self.sesacView.sesacImageView.rx.image)
+            .disposed(by: disposeBag)
+
+        output.profileBackground
+            .map { $0.image }
+            .drive(self.sesacView.backgroundImageView.rx.image)
+            .disposed(by: disposeBag)
+
+        output.showSesacListAction
+            .emit(onNext: { [weak self] in
                 guard let self = self else { return }
                 self.sesacButton.isSelected = true
                 self.backgroundButton.isSelected = false
@@ -42,14 +77,31 @@ final class SesacShopViewController: UIViewController {
             })
             .disposed(by: disposeBag)
 
-        backgroundButton.rx.tap
-            .asDriver()
-            .drive(onNext: { [weak self] in
+        output.showBackgroundListAction
+            .emit(onNext: { [weak self] in
                 guard let self = self else { return }
                 self.backgroundButton.isSelected = true
                 self.sesacButton.isSelected = false
                 self.underBarSlideAnimation(moveX: UIScreen.main.bounds.width / 2)
                 self.changeViewToBackgroundView()
+            })
+            .disposed(by: disposeBag)
+
+        output.sesacCollectionList
+            .drive(onNext: { [weak self] list in
+                self?.sesacCollectionList = list
+            })
+            .disposed(by: disposeBag)
+
+        output.backgroundCollectionList
+            .drive(onNext: { [weak self] list in
+                self?.backgroundCollectionList = list
+            })
+            .disposed(by: disposeBag)
+
+        output.showToastAction
+            .emit(onNext: { [weak self] text in
+                self?.view.makeToast(text, position: .top)
             })
             .disposed(by: disposeBag)
     }
@@ -107,14 +159,24 @@ final class SesacShopViewController: UIViewController {
         underBarView.backgroundColor = .gray2
         slidingBarView.backgroundColor = .green
         saveButton.isValid = true
-        changeViewToSesacView()
     }
 
     private func changeViewToSesacView() {
         for view in self.containerView.subviews {
             view.removeFromSuperview()
         }
-        let vc = SesacViewController()
+        let vc = SesacViewController(
+            viewModel: SesacViewModel(
+                useCase: SesacUseCase(
+                    userRepository: UserRepository(),
+                    fireBaseRepository: FirebaseRepository(),
+                    sesacRepository: SesacRepository(),
+                    inAppRepository: InAppRepository()
+                )
+            )
+        )
+        vc.sesacCollectionList = sesacCollectionList
+        vc.delegate = self
         vc.willMove(toParent: self)
         self.containerView.addSubview(vc.view)
         vc.view.snp.makeConstraints { make in
@@ -129,6 +191,8 @@ final class SesacShopViewController: UIViewController {
             view.removeFromSuperview()
         }
         let vc = BackgroundViewController()
+        vc.backgroundCollection = backgroundCollectionList
+        vc.delegate = self
         vc.willMove(toParent: self)
         self.containerView.addSubview(vc.view)
         vc.view.snp.makeConstraints { make in
@@ -144,5 +208,16 @@ final class SesacShopViewController: UIViewController {
         UIView.animate(withDuration: 0.8, delay: 0, usingSpringWithDamping: 0.8,initialSpringVelocity: 1, options: .allowUserInteraction, animations: { [weak self] in
             self?.slidingBarView.transform = CGAffineTransform(translationX: moveX, y: 0)
         }, completion: nil)
+    }
+}
+
+extension SesacShopViewController: PreviewSesacDeleagete {
+
+    func updateSesac(sesac: SesacImageCase) {
+        sesacItemTap.accept(sesac)
+    }
+
+    func updateBackground(background: SesacBackgroundCase) {
+        backgroundItemTap.accept(background)
     }
 }
