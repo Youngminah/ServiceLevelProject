@@ -128,4 +128,27 @@ protocol SesacRepositoryType: AnyObject {
             SesacNetworkServiceError>
         ) -> Void
     )
+
+    func requestShopUserInfo(                    // 새싹 샵 정보 가져오기 API
+        completion: @escaping (
+            Result< UserInfo,
+            SesacNetworkServiceError>
+        ) -> Void
+    )
+
+    func requestUpdateShop(                       // 프로필 새싹, 배경 저장하기 API
+        updateShop: UpdateShopQuery,
+        completion: @escaping (
+            Result< Int,
+            SesacNetworkServiceError>
+        ) -> Void
+    )
+
+    func requestPurchaseItem(                      // 새싹샵 영수증 확인 및 아이템 구매 API
+        itemQuery: PurchaseItemQuery,
+        completion: @escaping (
+            Result< Int,
+            SesacNetworkServiceError>
+        ) -> Void
+    )
 }
