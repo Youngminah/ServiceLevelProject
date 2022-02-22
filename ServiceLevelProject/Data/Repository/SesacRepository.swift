@@ -188,6 +188,32 @@ extension SesacRepository {
             self.process(result: result, completion: completion)
         }
     }
+
+    func requestShopUserInfo(completion: @escaping (Result<UserInfo, SesacNetworkServiceError>) -> Void) {
+        provider.request(.shopUserInfo) { result in
+            switch result {
+            case .success(let response):
+                let data = try? JSONDecoder().decode(UserInfoResponseDTO.self, from: response.data)
+                completion(.success(data!.toDomain()))
+            case .failure(let error):
+                completion(.failure(SesacNetworkServiceError(rawValue: error.response!.statusCode) ?? .unknown))
+            }
+        }
+    }
+
+    func requestUpdateShop(updateShop: UpdateShopQuery, completion: @escaping (Result<Int, SesacNetworkServiceError>) -> Void) {
+        let requestDTO = UpdateShopRequestDTO(updateShop: updateShop)
+        provider.request(.updateShop(parameters: requestDTO.toDictionary)) { result in
+            self.process(result: result, completion: completion)
+        }
+    }
+
+    func requestPurchaseItem(itemQuery: PurchaseItemQuery, completion: @escaping (Result<Int, SesacNetworkServiceError>) -> Void) {
+        let requestDTO = PurchaseShopItemRequestDTO(itemInfo: itemQuery)
+        provider.request(.purchaseShopItem(parameters: requestDTO.toDictionary)) { result in
+            self.process(result: result, completion: completion)
+        }
+    }
 }
 
 extension SesacRepository {
@@ -214,6 +240,7 @@ extension SesacRepository {
         case .success(let response):
             completion(.success(response.statusCode))
         case .failure(let error):
+            print(error)
             completion(.failure(SesacNetworkServiceError(rawValue: error.response!.statusCode) ?? .unknown))
         }
     }
