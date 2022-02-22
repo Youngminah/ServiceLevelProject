@@ -74,7 +74,7 @@ enum SesacImageCase: Int, CaseIterable {
     var price: String {
         switch self {
         case .sesac0:
-            return "보유"
+            return "기본"
         case .sesac1:
             return "1,200"
         case .sesac2:
@@ -83,6 +83,21 @@ enum SesacImageCase: Int, CaseIterable {
             return "2,500"
         case .sesac4:
             return "2,500"
+        }
+    }
+
+    var identifier: String {
+        switch self {
+        case .sesac0:
+            return "기본"
+        case .sesac1:
+            return "com.memolease.sesac1.sprout1"
+        case .sesac2:
+            return "com.memolease.sesac1.sprout2"
+        case .sesac3:
+            return "com.memolease.sesac1.sprout3"
+        case .sesac4:
+            return "com.memolease.sesac1.sprout4"
         }
     }
 }

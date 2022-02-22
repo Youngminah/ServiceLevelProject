@@ -98,7 +98,7 @@ enum SesacBackgroundCase: Int, CaseIterable {
     var price: String {
         switch self {
         case .background0:
-            return "보유"
+            return "기본"
         case .background1:
             return "1,200"
         case .background2:
@@ -113,6 +113,27 @@ enum SesacBackgroundCase: Int, CaseIterable {
             return "2,500"
         case .background7:
             return "2,500"
+        }
+    }
+
+    var identifier: String {
+        switch self {
+        case .background0:
+            return "기본"
+        case .background1:
+            return "com.memolease.sesac1.background1"
+        case .background2:
+            return "com.memolease.sesac1.background2"
+        case .background3:
+            return "com.memolease.sesac1.background3"
+        case .background4:
+            return "com.memolease.sesac1.background4"
+        case .background5:
+            return "com.memolease.sesac1.background5"
+        case .background6:
+            return "com.memolease.sesac1.background6"
+        case .background7:
+            return "com.memolease.sesac1.background7"
         }
     }
 }
