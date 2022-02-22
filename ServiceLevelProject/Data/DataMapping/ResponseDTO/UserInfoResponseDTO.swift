@@ -53,9 +53,11 @@ extension UserInfoResponseDTO {
             comment: comment,
             reputation: reputation,
             sesac: SesacImageCase(value: sesac),
-            sesacCollection: sesacCollection,
+            sesacCollection: SesacImageCase.allCases.map {
+                sesacCollection.contains($0.rawValue) ? 1 : 0
+            },
             background: SesacBackgroundCase(value: background),
-            backgroundCollection: backgroundCollection,
+            backgroundCollection: SesacBackgroundCase.allCases.map { backgroundCollection.contains($0.rawValue) ? 1 : 0 },
             purchaseToken: purchaseToken,
             transactionID: transactionID,
             reviewedBefore: reviewedBefore,
