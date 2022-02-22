@@ -11,11 +11,31 @@ import RxSwift
 
 final class SesacViewController: UIViewController {
 
+    weak var delegate: PreviewSesacDeleagete?
+    var sesacCollectionList = [Int]()
+
     private let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
 
+    //private let sesacLists = BehaviorRelay<[SesacImageCase]>(value: SesacImageCase.allCases)
+
+    private lazy var input = SesacViewModel.Input(
+        viewDidLoad: Observable.just(()),
+        priceButtonTap: priceButtonTap.asSignal()
+    )
+    private lazy var output = viewModel.transform(input: input)
+    private let viewModel: SesacViewModel
     private let disposeBag = DisposeBag()
 
-    private let sesacLists = BehaviorRelay<[SesacImageCase]>(value: SesacImageCase.allCases)
+    private let priceButtonTap = PublishRelay<Int>()
+
+    init(viewModel: SesacViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("SesacShopViewController: fatal error")
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,11 +46,22 @@ final class SesacViewController: UIViewController {
     }
 
     private func bind() {
-        self.sesacLists
-            .asDriver()
-            .drive(collectionView.rx.items(cellIdentifier: SesacCell.identifier, cellType: SesacCell.self)) { index, sesac, cell in
-                cell.updateUI(sesac: sesac)
+        output.sesacLists
+            .drive(collectionView.rx.items(cellIdentifier: SesacCell.identifier, cellType: SesacCell.self)) { [weak self] index, sesac, cell in
+                guard let self = self else { return }
+                cell.updateUI(sesac: sesac, isHaving: self.sesacCollectionList[index])
+                cell.priceButton.rx.tap.asSignal()
+                    .map { index }
+                    .emit(to: self.priceButtonTap)
+                    .disposed(by: cell.disposeBag)
             }
+            .disposed(by: disposeBag)
+
+        collectionView.rx.modelSelected(SesacImageCase.self)
+            .asSignal()
+            .emit(onNext: { [weak self] item in
+                self?.delegate?.updateSesac(sesac: item)
+            })
             .disposed(by: disposeBag)
     }
 
