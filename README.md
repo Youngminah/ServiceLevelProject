@@ -1,16 +1,25 @@
-# Service Level Project
 
-![image](https://user-images.githubusercontent.com/42762236/155539555-3425dd21-55b9-4b07-b8f1-9f9f4f9a482d.png)
+## 개발 기간 미리보기 
 
-</br>
-</br>
+| 진행기간                      | 담당                               | 레이아웃 구성                       |
+| --------------------------- | --------------------------------- | ------------------------------ |
+| **2022.01.24 ~ 2022.02.23** | **PM, 디자이너**                   | Code Based UI                     |
 
-![image](https://user-images.githubusercontent.com/42762236/155539588-c5487c5f-6251-48ec-a06a-dee8123c5331.png)
-</br>
-</br>
 </br>
 </br>
 
+
+## 소개
+![image](https://user-images.githubusercontent.com/42762236/155561078-cca28f81-a3a7-4937-97b0-29d52cbcb682.png)
+
+
+- Confluence 데일리 스크럼 작성
+
+![image](https://user-images.githubusercontent.com/42762236/155559073-ecb33d6c-d67a-463e-9140-c89949fbe0fd.png)
+
+
+
+## 앱 구조
 
 ![image](https://user-images.githubusercontent.com/42762236/155539674-19cb7d6d-ccbd-4ac3-8b3a-e46d642fc8b0.png)
 </br>
@@ -19,9 +28,24 @@
 </br>
 </br>
 
+## 기술 포스팅
+- [iOS Clean Architecture + MVVM-C with Rxswift](https://cau-meng2.tistory.com/137?category=912854)
+</br>
+</br>
 
-## 팀원 데일리 회의 기록
+## 이슈 포스팅
+- [테이블뷰 Self-Sizing셀 안에 컬렉션뷰 Left-Align Self-Sizing와 Drop-Down 이슈](https://cau-meng2.tistory.com/136?category=912855)
+- [Rxswift 강한 참조 순환 해결 이슈](https://cau-meng2.tistory.com/135?category=912855)
+- [커스텀 뷰 UI 이슈](https://cau-meng2.tistory.com/134?category=912855)
+</br>
+</br>
+
+## 개인 및 팀원 데일리 노션 기록
 - [회의](https://www.notion.so/SLP-65d543aa35d14911a22f41a4815b84df)
+
+</br>
+</br>
+
 
 
 # :memo: Commit Convention
